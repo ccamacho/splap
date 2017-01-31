@@ -1,0 +1,175 @@
+\section{Ocultando conjuntos de características}
+
+El cálculo de la probabilidad de una característica dentro
+de una línea de productos software, permite determinar
+cuan utilizado será este componente dentro de la familia
+de productos. Esta probabilidad se ve afectada por
+aquellos operadores sintácticos que influyan en la 
+cardinalidad del número de productos válidos a generar,
+es decir, en los operadores de selección única y en los
+operadores de selección opcional ($P \choice_{p} Q$ y $\ofeature{A};_{p} P$ respectivamente)
+así como sus dependencias y restricciones.
+
+Esta condición es de suma importancia para la optimización de
+los términos del álgebra, ya que de esa manera 
+todo aquel elemento sintáctico que no influya en la cardinalidad
+del conjunto de productos válidos puede ser eliminada del modelo.
+
+%Why we do this?
+%\begin{itemize}
+%\item The probability of a feature
+%\item Consequences of make visible only one feature (plus its
+%  dependencies and restrictions).
+%\end{itemize}
+
+\begin{definition}
+  Dado el conjunto de características $\calA\subseteq \calF$ y un término $P\in\fodaPAp$,
+  el operador $P\hide{\calA}$
+  representa el ocultamiento sintáctico de las características en el conjunto $\calA$
+  para el término $P$.
+\end{definition}
+
+De esta manera se necesita una nueva característica $\bot\not\in\calF$. $\calFbot =
+\calF\cup\{\bot\}$. $\calA\subseteq\calF$.
+
+\subsection{Semántica operacional}
+
+A continuación se describen las nuevas reglas de la semántica operacional
+para el procesamiento de la característica de ocultamiento.
+
+\begin{displaymath}
+  \begin{array}{ccccc}
+    \nombreRegla{hid1} & 
+    \frac{P\tran{\fA}_p P', \fA\in\calA}{P\hide{\calA}\tran{\bot}_p P'\hide{\calA}} &
+    \qquad \qquad \qquad&
+    \nombreRegla{hid2} &     
+    \frac{P\tran{\fA}_p P', \fA\not\in\calA}{P\hide{\calA}\tran{\fA}_p P'\hide{\calA}}
+  \end{array}
+\end{displaymath}
+
+\subsection{Semántica denotacional}
+
+\begin{definition}
+  Dado el producto $pr\subseteq\calF$ y el conjunto de características ocultas $\calA\subseteq\calF$
+  se define:
+  
+  \begin{displaymath}
+    pr\hide{\calA} = \{\fA\ |\ \fA\in pr,\
+    \fA\not\in\calA\}\cup
+    \begin{cases}
+      \{\bot\} & \mbox{si } pr\cap\calA\neq\emptyset\\
+      \emptyset & \mbox{si } pr\cap\calA=\emptyset\\
+    \end{cases}
+  \end{displaymath}
+  Dada la traza $s\in\calF^{*}$, $s\hide\calA$ representará la substitución
+  de cada ocurrencia en la traza $s$ de cualquier característica en $\calA$ por $\bot$.
+\end{definition}
+
+\begin{definition}
+  Dado el multiconjunto $M\in\calM$ y el conjunto de características ocultas $\calA\subseteq\calF$. Se define:
+  \begin{displaymath}
+    \semdenp{\cdot\hide{\calA}} = \accum\Bigl(\lbag(pr\hide{\calA},p)\
+    |\ (pr,p)\in M\rbag \Bigr)
+  \end{displaymath}
+\end{definition}
+
+\begin{proposition}
+  Dados los términos $P,Q\in\fodaPAp$ y el conjunto de acciones ocultas $\calA\subseteq\calF$, entonces
+  las siguientes proposiciones mantienen
+  \begin{itemize}
+  \item $\semdenp{\checkmark\hide\calA}=\semdenp{\checkmark}$
+  \item $\semdenp{\nil\hide\calA}=\semdenp{\nil}$
+  \item
+      $\semdenp{(\fA;P)\hide\calA}=
+      \begin{cases}
+        \semdenp{\bot;(P\hide\calA)} & \mbox{si } A\in\calA\\
+        \semdenp{\fA;(P\hide\calA)} & \mbox{si } A\not\in\calA\\
+      \end{cases}$
+  \item
+      $\semdenp{(\ofA;_rP)\hide\calA}=
+      \begin{cases}
+        \semdenp{\overline{\bot};_r(P\hide\calA)} & \mbox{si } A\in\calA\\
+        \semdenp{\ofA;_r(P\hide\calA)} & \mbox{si } A\not\in\calA\\
+      \end{cases}$
+  \item $\semdenp{(P\choice_P Q)\hide\calA}=\semdenp{(P\hide\calA)\choice_P (Q\hide\calA)}$
+  \item $\semdenp{(P\paral Q)\hide\calA}=\semdenp{(P\hide\calA)\paral (Q\hide\calA)}$
+  \item If $\fA,\fB\not\in\calA$ entonces 
+    $\semdenp{(\require{A}{B}{P})\hide\calA}=\semdenp{\require{A}{B}{(P\hide\calA)}}$
+  \item If $\fA,\fB\not\in\calA$ entonces 
+    $\semdenp{(\exclude{B}{P})\hide\calA}=\semdenp{\exclude{A}{B}{(P\hide\calA)}}$
+  \end{itemize}
+  \begin{proof}
+    TO DO \lcomen{Espero que esto salga aplicando las definiciones. No
+      creo que sea dificil, pero sí un conazo}
+  \end{proof}
+\end{proposition}
+
+\begin{proposition}
+  $P\hide\calA\vtran{s}_r$ si y sólo si $r=\sum\lbag p \ |\ P\vtran{s'}_p Q,\
+  s=s'\hide\calA\rbag$
+  \begin{proof}
+    La demostración es realizada por inducción sobre la longitud
+    de la traza $s$. Si la longitud es cero el resultado es trivial. Entonces
+    se supone que
+    $s=\fA\cdot s_1$. Si $\fA=bot$ entonces cualquier transición
+    $P\hideA\tran{s}{p}Q\hideA$ puede ser dividida en transiciones,
+    posiblemente mas de una, como por ejemplo.
+    \begin{displaymath}
+      P\hideA\tran{\bot}_{r_1}P_1\hideA\vtran{s_1}_{r2}Q
+    \end{displaymath}
+    Entonces se tiene
+    \begin{displaymath}
+      \begin{split}
+        r = \sum\lbag p\ |\ P\hideA\vtran{s}_p Q\rbag = 
+        \sum\lbag r_1\cdot r2\ |\
+        P\hideA\tran{\bot}_{r_1}P_1\hideA\vtran{s_1}_{r2}Q\rbag =\\
+        \sum\lbag r_1'\cdot r2\ |\
+        P\hideA\tran{\fB}_{r_1'}P_1'\hideA\vtran{s_1}_{r2}Q,\ \fB\in\calA\rbag
+      \end{split}
+    \end{displaymath}
+    Ahora por cada una de las $r_1'$, se puede aplicar el método inductivo a cada una de las
+    transiciones $P_1'\hideA\vtran{s_1}_{r2}Q$ para obtener 
+    $r_2=\sum\lbag r2'\ |\ P_1=\vtran{s_1'}Q,\
+    s_1=s_1'\hideA\rbag$. Continuando la ecuación anterior :
+    \begin{displaymath}
+      \begin{split}
+        \sum\lbag r_1'\cdot r2\ |\
+        P\hideA\tran{\fB}_{r_1'}P_1'\hideA\vtran{s_1}_{r2}Q,\
+        \fB\in\calA\rbag=\\
+        \sum\lbag r_1'\cdot r2'\ |\ P\hideA\tran{\fB}_{r_1'}P_1'\vtran{s_1'}_{r2'}Q,\
+        \fB\in\calA.\ s_1=s_1'\hideA\rbag = \\
+        \sum\lbag r_1\cdot r2'\ |\ P\hideA\tran{\bot}_{r_1}P_1\vtran{s_1'}_{r2'}Q,\
+        \fB\in\calA.\ s_1=s_1'\hideA\rbag =\\
+        \sum\lbag r\ |\ P\vtran{s'}_{r}Q,\ s=s'\hideA\rbag
+      \end{split}
+    \end{displaymath}
+    El caso cuando $\fA\not\in\calA$ es similar al anterior, solo necesita saltar el paso de $\fB$ a $\bot$.
+  \end{proof}
+\end{proposition}
+
+\begin{proposition}
+  \begin{displaymath}
+    \prodp(P\hideA)  = \semdenp{\prodp(P)\hideA}
+  \end{displaymath}
+  \begin{proof}
+    $(pr,p)\in \prodp(P\hideA)$ si y sólo si 
+    \begin{displaymath}
+      \begin{split}
+        p = \sum\lbag r\ |\
+          P\hideA\tran{s\checkmark}_rP'\hideA.\ pr=\product{s}\rbag =\\
+        \sum\lbag r\ |\ P\tran{s'\checkmark}_rP',\ s=s'\hideA,\
+          pr=\product{s}\rbag=\\
+        \sum\lbag r\ |\ P\tran{s'\checkmark}_rP',\ s=pr\hideA\rbag =
+        \\
+        \sum\lbag r\ |\ (pr',r)\in\prodp(P),\ pr'=pr\hideA\rbag =
+      \end{split}
+    \end{displaymath}
+    De tal manera 
+    $(pr,p)\in\prodp(P\hideA)$ si y sólo si 
+    $(pr,p)\in\semdenp{(\prodp(P))\hideA}$ 
+  \end{proof}
+\end{proposition}
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "main"
+%%% End: 

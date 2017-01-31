@@ -1,0 +1,63 @@
+\section{Preliminares}
+
+
+
+ \bdfn
+   Una \emph{Máquina probabilística} (PM) es una tupla
+   $N=(\calS,s_0,\Sigma,F,\calT)$ donde
+    $\calS$ es el conjunto finito de estados y $s_0\in \calS$ representa el estado inicial.
+     $\Sigma$ representa el alfabeto.
+    $F=\{f_s | s\in \calS\}$ es un conjunto funciones probabilísticas.
+    Para todos los estados $s\in \calS$, $f_s$ es una función
+    $f_s:\Sigma \mapsto [0,1]$, y
+    $\calT\subseteq \calS\times \Sigma \times \calS$ representa el conjunto 
+    de transiciones.
+
+    Si $s$ es un estado, entonces la suma de las probabilidades
+    de las acciones realizadas por $s$, representadas como $\suma{N,s}$,
+    serán descritas por la expresión.
+   $$
+   \suma{N,s}=\sum_{a\in \Sigma}f_s(a)
+   $$
+
+   Se muestra mediante $s_{1}\tranp{a}{p}s_{2}$ que $(s_{1},a,s_{2})\in \calT$ y 
+       $p=f_{s_{1}}(a)$.
+ \edfn
+
+
+ \bdfn
+   Dado el conjunto de acciones $\Sigma$.
+   Una traza probabilística es una secuencia
+   $\langle (a_1,p_1), (a_2,p_2),\ldots,(a_n,p_n)\rangle$
+   donde $n\geq 0$, y para todos $0\leq k\leq n$ se tiene $a_k\in \Sigma$
+   y $p_k\in[0,1]$.
+
+   Dada una máquina probabilística $N=(\calS,s_0,\Sigma,F,\calT)$ y la traza
+   probabilística $\sigma= \langle (a_1,p_1),
+   (a_2,p_2),$ $\ldots,(a_n,p_n)\rangle$. 
+   Se dice que
+   $\sigma$ es una traza de $N$, denotada por $\sigma\in\ptraces{N}$, 
+   si existe una secuencia de transiciones de $N$ tal que:
+   $
+     (s_0,a_1,s_1),$ $(s_1,a_2, s_{2}),$ $\ldots, (s_{n-1},a_n, s_{n}) \in \calT
+   $
+   y para todos $1\leq k\leq n$ se tiene $p_k=f_{s_{k-1}}(a_k)$.
+  
+  En este caso será utilizada la siguiente notación:
+   \begin{itemize}
+   \item Se dice que todas las acciones $a_k$, para $1\leq k\leq n$, 
+     \emph{pertenecen a}
+     $\sigma$, y es descrito por $a_k\in\sigma$.
+   \item Se puede escribir esta traza probabilística como $s_0\vtran{\sigma}s_n$.
+   \end{itemize}
+
+ Se establece que $\sigma$ es una \emph{traza completa} si
+ existe un estado $s_1\in \calS$ tal que
+ $s_0\vtran{\sigma} s_1$ y $s_1$ no tiene transiciones.
+ Es descrito por $\ctraces{N}$ el conjunto de todas las trazas completas de $N$.
+ \edfn
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "main"
+%%% End: 

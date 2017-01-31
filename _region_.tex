@@ -1,0 +1,34 @@
+\message{ !name(main.tex)}
+\message{ !name(syntax.tex) !offset(-2) }
+% $Id$
+
+\section{Sintaxis}
+
+Para el modelo probabilístico, el conjunto de características será representado como $\calF$,
+las características aisladas se mostrarán como $\feature{A}, \feature{B}, \feature{C}\dots$,
+los términos del modelo probabilístico serán descritos como $P,Q$ y
+las probabilidades $p,q$ son expresadas dentro del rango $(0,1)$.
+\todo{Hay que explicar los operadores probabilísticos $P \choice_{p} Q$ y \ofeature{A};_{p} P$
+\bdfn
+Una \emph{línea de productos probabilística} es un término generado por la siguiente
+expresion EBNF:
+$$
+\begin{array}{ll}
+  P::=& \checkmark \barra \nil \barra \feature{A};P \barra
+    \ofeature{A};_{p} P \barra P \choice_{p} Q \barra P \paral Q \barra
+  \\ 
+  & \exclude{A}{B}{P}\barra  \require{A}{B}{P}\barra  \forbid{A}{P}\barra  \mandatory{A}{P}\\ 
+\end{array}     
+$$
+\noindent 
+donde $\feature{A} \in \calF$ y $p\in(0,1)$. Los términos del álgebra
+serán representados dentro del modelo $\fodaPAp$.
+\edfn
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "main"
+%%% End: 
+
+\message{ !name(main.tex) !offset(-34) }

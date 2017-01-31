@@ -1,0 +1,79 @@
+
+\documentclass{llncs}  
+
+\usepackage{amsfonts}
+\usepackage{amssymb,amsmath}
+\usepackage{graphicx}
+\usepackage[english]{babel}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc} 
+\usepackage{latexsym}
+\usepackage{eurosym}
+\usepackage{array}
+\usepackage{timestamp}
+\usepackage{epstopdf}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{lscape}
+
+
+%\usepackage[pagewise]{lineno}
+
+
+
+%\def\thepage{\arabic{page}--[\timestamp]} 
+\usepackage{tikz}
+\usetikzlibrary{snakes}
+
+%\setcounter{tocdepth}{5}
+
+\input{macros.tex}
+\title{Probalisitic Software product lines\tnoteref{t1}}
+% \tnotetext[t1]{Research partially supported by the Spanish MEC project
+%   ESTuDIo (TIN2012-36812-C02-01), 
+%   the Comunidad de Madrid project SICOMORo-CM (S2013/ICE-3006) and the
+%   UCM-Santander program to fund research groups (group 910606).
+% }
+
+
+% \author[ucm]{Carlos Camacho\corref{cor1}}
+% \ead{carlos.camacho@ucm.es}
+
+% \author[ucm]{Luis Llana}
+% \ead{llana@ucm.es}
+
+% \author[ucm]{Alberto Núñez}
+% \ead{alberto.nunez@pdi.ucm.es}% \author[ucm]{Manuel Núñez}
+% \ead{alberto.nunez@pdi.ucm.es}
+
+% \cortext[cor1]{Principal corresponding author}
+% \address[ucm]{Universidad Complutense de Madrid, Madrid 28040, Spain}
+
+
+
+\begin{document}
+%\linenumbers
+
+\input{abstract.tex}
+
+\input{introduction.tex}
+\input{syntax.tex}
+\input{operational.tex}
+\input{consistency.tex}
+\input{denotational}
+\input{hiding}
+\input{equivalence}
+\input{testing}
+\input{conclussions}
+
+
+%\clearpage
+
+
+\bibliographystyle{elsarticle-num}
+\bibliography{concu,concuPL}
+
+%\bibliographystyle{abbrv}
+
+\end{document}
