@@ -8,15 +8,17 @@
 % \newenvironment{theorem}{\par\bf \bigskip \bigskip Theorem}{\bigskip \bigskip}{\rmfamily}
 
 %Fin de Carlos
+
+% $Id: macros.tex,v 1.8 2012/07/19 22:21:36 ccamacho Exp $
 \def\squareforqed{\hbox{\rlap{$\sqcap$}$\sqcup$}}
 
 % Carlos
 % He eliminado los cubos del qed, luego podemos mirar
 % si queda algun simbolo mejor
 \def\qed{
-%       \ifmmode\squareforqed\else{\unskip\nobreak\hfil
-%    \penalty50\hskip1em\null\nobreak\hfil\squareforqed
-%    \parfillskip=0pt\finalhyphendemerits=0\endgraf}\fi
+       \ifmmode\squareforqed\else{\unskip\nobreak\hfil
+    \penalty50\hskip1em\null\nobreak\hfil\squareforqed
+    \parfillskip=0pt\finalhyphendemerits=0\endgraf}\fi
 }
 
 %\usepackage{marginnote}
@@ -41,19 +43,26 @@
 \newcommand{\ismcomment}[1]{}
 \newcommand{\bdfn}{\begin{definition} \begin{rm}}
 \newcommand{\edfn}{\end{rm}$ $\qed \end{definition}}
+
 \newcommand{\bprf}{\begin{proof}}
 \newcommand{\eprf}{\leavevmode\qed \end{proof}}
+
 \newcommand{\bthm}{\begin{theorem} \begin{rm}}
 \newcommand{\ethm}{\end{rm}$ $\qed \end{theorem}}
+
 \newcommand{\bprop}{\begin{proposition} \begin{rm}}
 \newcommand{\eprop}{\end{rm}$ $\qed  \end{proposition}}
+
 \newcommand{\bcor}{\begin{corollary}\begin{rm}}
-\newcommand{\ecor}{\end{rm} \end{corollary}}
-\newcommand{\blem}{\begin{lemma} \begin{rm}}
+\newcommand{\ecor}{\end{rm}$ $\qed  \end{corollary}}
+
+\newcommand{\blem}{\begin{lemma}\begin{rm}}
 \newcommand{\elem}{\end{rm}$ $\qed  \end{lemma}}
-\newcommand{\bfact}{\begin{fact} \begin{rm}}
-\newcommand{\efact}{\end{rm} \end{fact}}
-\newcommand{\bex}{\begin{example} \begin{rm}}
+
+\newcommand{\bfact}{\begin{fact}\begin{rm}}
+\newcommand{\efact}{\end{rm}$ $\qed  \end{fact}}
+
+\newcommand{\bex}{\begin{example}\begin{rm}}
 \newcommand{\eex}{\end{rm}$ $\qed  \end{example}}
 
 
@@ -223,6 +232,7 @@
 
 
 \newcommand{\straces}[1]{\ensuremath{\mathtt{SuccessfulT}(#1)}}
+\newcommand{\untraces}[1]{\ensuremath{\mathtt{UnsuccessfulT}(#1)}}
 \renewcommand{\prod}{\ensuremath{\mathtt{prod}}}
 \newcommand{\prodp}{\ensuremath{\mathtt{prod}^\calP}}
 \newcommand{\prob}[1]{\ensuremath{\mathtt{prob}\left(#1\right)}}

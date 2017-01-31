@@ -16,7 +16,11 @@
 \usepackage{multicol}
 \usepackage{multirow}
 \usepackage{lscape}
-
+\usepackage{pifont}
+\usepackage{stmaryrd}
+\usepackage{scalerel}
+\usepackage[colorinlistoftodos, textsize=tiny, shadow]{todonotes} %
+\def\review{\includegraphics[width=4em]{review.jpg}}
 
 %\usepackage[pagewise]{lineno}
 
@@ -28,32 +32,44 @@
 
 %\setcounter{tocdepth}{5}
 
-\input{macros.tex}
-\title{Probalisitic Software product lines\tnoteref{t1}}
-% \tnotetext[t1]{Research partially supported by the Spanish MEC project
-%   ESTuDIo (TIN2012-36812-C02-01), 
-%   the Comunidad de Madrid project SICOMORo-CM (S2013/ICE-3006) and the
-%   UCM-Santander program to fund research groups (group 910606).
-% }
 
+\input{macros.tex}
+\title{Probalisitic Software product lines\thanks{
+ Research partially supported by the Spanish MEC project
+ ESTuDIo (TIN2012-36812-C02-01), 
+ the Comunidad de Madrid project SICOMORo-CM (S2013/ICE-3006) and the
+ UCM-Santander program to fund research groups (group 910606).
+}}
+\author{Carlos Camacho \and Luis Llana\and Alberto Núñez\and Manuel Núñez}
+
+\institute{
+  Departamento Sistemas Informáticos y Computación\\
+  Universidad Complutense de Madrid, Spain\\
+  \email{carlos.camacho@ucm.es, llana@ucm.es, alberto.nunez@pdi.ucm.es, mn@fdi.ucm.es\\
+   Draft: \timestamp
+  }
+}
 
 % \author[ucm]{Carlos Camacho\corref{cor1}}
 % \ead{carlos.camacho@ucm.es}
 
-% \author[ucm]{Luis Llana}
-% \ead{llana@ucm.es}
 
-% \author[ucm]{Alberto Núñez}
-% \ead{alberto.nunez@pdi.ucm.es}% \author[ucm]{Manuel Núñez}
-% \ead{alberto.nunez@pdi.ucm.es}
-
-% \cortext[cor1]{Principal corresponding author}
-% \address[ucm]{Universidad Complutense de Madrid, Madrid 28040, Spain}
-
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%% Quitar de la versi�n final %%%%%%%%%%%%%%%%
+\date{\timestamp}
+\usepackage{fancyhdr}
+\usepackage{timestamp}
+\pagestyle{fancy}
+\fancyhead{}
+\fancyfoot[C]{\thepage\ --\ Draft: \timestamp}
+\def\thepage{\arabic{page}--[\timestamp]}
+%%%%%%%%%%%%%%%%%%%%%%% Quitar de la versi�n final %%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \begin{document}
-%\linenumbers
+\maketitle
+
 
 \input{abstract.tex}
 
@@ -62,13 +78,11 @@
 \input{operational.tex}
 \input{consistency.tex}
 \input{denotational}
-\input{hiding}
 \input{equivalence}
+\input{hiding}
 \input{testing}
 \input{conclussions}
 
-
-%\clearpage
 
 
 \bibliographystyle{elsarticle-num}
@@ -77,3 +91,8 @@
 %\bibliographystyle{abbrv}
 
 \end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

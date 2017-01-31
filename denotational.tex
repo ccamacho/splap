@@ -1,1 +1,147 @@
-\section{Sem
+\section{Semántica denotacional}
+
+De manera de definir la semántica denotacional para la extensión
+probabilística es indispensable definir el \emph{dominio matemático}
+donde serán representados los elementos sintácticos de $\fodaPA$. 
+
+La semántica de cualquier expresión $\fodaPA$
+se representa por su conjunto de productos y sus probabilidades,
+y cada producto puede ser representado por  sus características.
+
+\bdfn
+  Se define el conjunto $M\in\calM$ si y sólo si
+  \begin{itemize}
+  \item $M\subseteq \calP(\calF)\times (0,1]$
+  \item $(P,q),(P,r)\in M$ entonces $q=r$
+  \item $1\geq\sum_{(P,q)\in M} q$
+  \end{itemize}
+\edfn
+
+La notación $\lbag \cdots\rbag$ representa un multiconjunto.
+
+\bdfn
+  Dado un multiconjunto $M\subseteq \calP(\calF)\times [0,1]$, se define entonces
+  $$\accum(M) = \left\{(P,p)\ | \ p=\sum_{(P,q)\in M}q\ ,\ p>0\right\}$$
+\edfn
+\bprop
+ Dado un multiconjunto $M\subseteq \calP(\calF)\times [0,1]$, si $1\geq\sum_{(P,q)\in M} q$
+ entonces $\accum(M)\in\calM$.
+\eprop
+
+El siguiente paso es definir un operador semántico para cada uno de los
+operadores sintácticos en $\fodaPA$.
+Esto es realizado mediante la siguiente definición.
+\todo{Most of the sets in the following definition should be multisets}
+\bdfn\label{def:semantic:operators}
+  Dados los siguientes multiconjuntos $M,M_{1}, M_{2}\in\calM$,
+  la secuencia de productos $P \in \calP(\calF)$,
+  los valores de probabilidades $p,q,r \in (0,1)$ y
+  las características $\feature{A},\feature{B}\in\calF$.
+
+  Son definidos los siguientes operadores:
+
+  \begin{itemize}
+  \item $\semdenp{\nil}=\emptyset$
+  \item $\semdenp{\checkmark}=\{(\emptyset,1)\}$
+  \item 
+    $\semdenp{\feature{A};\cdot}:\calM\mapsto\calM$
+    como
+    $$\semdenp{\feature{A};\cdot}(M)= 
+      \accum\bigl(\lbag(\{\feature{A}\}\cup P,p)\ |\ (P,p)\in M\rbag\bigr)
+      % \accum\bigl(
+      %    \{ (\{\feature{A}\} \cup P,p ) |\   (P,p) \in M\}\bigr)
+         $$
+
+  \item 
+    $\semdenp{\ofeature{A};_{r}\cdot}:\calM\mapsto\calM$
+    como
+    $$\semdenp{\ofeature{A};_{r}\cdot}(M)=
+                \accum\bigl(\lbag(\emptyset , 1-r )\rbag\cup\lbag (\{\feature{A}\}\cup P, r\cdot p ) \ |\ (P,p) \in M\rbag\bigr)$$
+
+  \item 
+    $\semdenp{\cdot\choice_{r}\cdot}:\calM\times\calM\mapsto\calM$
+    como 
+    $$\semdenp{\cdot\choice_{r}\cdot}(M_{1},M_{2})=\accum\bigl(\lbag(P,r\cdot p  ) \ |\ (P,p) \in
+    M_{1}\rbag \cup \lbag(Q, (1-r)\cdot q  ) \ |\ (Q,q) \in M_{2}\rbag\bigr) $$
+  \item 
+    $\semdenp{\cdot\paral\cdot}:\calM\times\calM\mapsto\calM$
+    como 
+    $$
+        \semdenp{\cdot\paral\cdot}(M_{1},M_{2})= \accum\Bigl(
+                \lbag (P\cup Q, p\cdot q)  |\ (P,p) \in M_{1},\ (Q,q) \in M_{2}\rbag\Bigr)
+    $$
+    
+  \item  
+    $\semdenp{\require{A}{B}{\cdot}}:\calM\mapsto\calM$
+    como 
+    $$\semdenp{\require{A}{B}{\cdot}}(M)=\accum\left(\begin{array}{l}
+      \lbag\bigl(P,p\bigr)\ |\  (P,p)\in M, \feature{A}\not\in P\rbag\ \cup\\
+      \lbag\bigl(\{\feature{B}\}\cup P ,p\bigr)\ |\ (P,p)\in M, \feature{A}\in P\rbag \\ 
+      \end{array}\right)$$
+  \item  
+    $\semdenp{\exclude{A}{B}{\cdot}}:\calM\mapsto\calM$
+    como 
+    $$\semdenp{\exclude{A}{B}{\cdot}}(M)=\begin{array}[t]{l}
+      \{(P,p)\ |\ (P,p)\in M, \feature{A}\not\in P\}\cup\\
+      \{(P,p)\ |\ (P,p)\in M, \feature{B}\not\in P\}
+      \end{array}$$
+%
+%
+    \item $\semdenp{\mandatory{A}{\cdot}}:\calM\mapsto\calM$
+    como 
+    $$\semdenp{\mandatory{A}{\cdot}}(M) = \semdenp{\feature{A};{\cdot}}(M)
+    $$
+%
+%
+    \item   $\semdenp{\forbid{A}{\cdot}}:\calM\mapsto\calM$
+    como 
+    $$\semdenp{\forbid{A}{\cdot}}(M) = \{(P,p)\ |\ (P, p) \in M, \feature{A}\not\in P      \}$$
+  \end{itemize}
+\edfn
+
+\bprop
+  Dados los multiconjuntos $M,M_{1}, M_{2}\in\calM$,
+  la probabilidad $p\in(0,1]$ y
+  las características $\feature{A},\feature{B}\in\calF$, entonces:
+  \begin{itemize}
+  \item $\semdenp{\feature{A};\cdot}(M)\in\calM$
+  \item $\semdenp{\ofeature{A};_{r}\cdot}(M)\in\calM$
+  \item $\semdenp{\cdot\choice_{r}\cdot}(M_{1},M_{2})\in\calM$
+  \item $\semdenp{\cdot\paral\cdot}(M_{1},M_{2})\in\calM$
+  \item $\semdenp{\require{A}{B}{\cdot}}(M)\in\calM$
+  \item $\semdenp{\exclude{A}{B}{\cdot}}(M)\in\calM$
+  \item $\semdenp{\mandatory{A}{\cdot}}(M)\in\calM$
+  \item $\semdenp{\forbid{A}{\cdot}}(M)\in\calM$
+  \end{itemize}
+\eprop
+
+Una vez definidos los operadores semánticos sobre un conjunto de productos,
+es posible definir la semántica denotacional para cualquier
+expresión $\fodaPA$.
+Esta es definida de manera inductiva.
+\bdfn
+  La semántica denotacional de $\fodaPA$ es representada por la función
+  $\semdenp{\cdot}:\fodaPA\rightarrow\calP(\calP(\calF))$ definida de manera inductiva
+  de la siguiente forma: para cualquier operador $n$-ario $\op\in\{\nil, \checkmark ,
+  \feature{A};\cdot, \ofeature{A};_{p}\cdot , \cdot\choice_{p}\cdot,
+  \cdot\paral\cdot, \require{A}{B}{\cdot},\exclude{A}{B}{\cdot},
+  \mandatory{A}{\cdot}, \forbid{A}{\cdot}\}$%
+\footnote{$\nil$ y $\checkmark$ son operadores 0-arios;
+  $\feature{A};\cdot$, $\ofeature{A};\cdot$
+  $\require{A}{B}{\cdot}$, $\exclude{A}{B}{\cdot}$,
+  $\mandatory{A}{\cdot}$, $\forbid{A}{\cdot}$ son operadores 1-arios;
+  $\cdot\choice_p\cdot$ y $\cdot\paral\cdot$ son operadores 2-arios.}:
+  $$\semdenp{\op(P_1,\ldots P_n)}=\semdenp{\op}(\semdenp{P_1},\ldots,\semdenp{P_n})$$
+\edfn
+
+
+
+En la figura \ref{example:denot:1} y en la figura \ref{example:denot:2} se describe el cálculo
+la semántica denotacional para las \SPLs\ presentadas en la
+figura \ref{example:op}.
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "main"
+%%% End: 
