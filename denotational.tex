@@ -1,48 +1,111 @@
 \section{Semántica denotacional}
+\label{sec:stat:den}
 
 De manera de definir la semántica denotacional para la extensión
 probabilística es indispensable definir el \emph{dominio matemático}
-donde serán representados los elementos sintácticos de $\fodaPA$. 
+donde serán representados los elementos sintácticos de $\fodaPAp$. 
 
-La semántica de cualquier expresión $\fodaPA$
+La semántica de cualquier expresión $\fodaPAp$
 se representa por su conjunto de productos y sus probabilidades,
-y cada producto puede ser representado por  sus características.
+y cada producto puede ser representado por  sus características
+sin tomar en cuenta su posición dentro de la traza, de tal manera
+que éstas serán vistos como conjuntos de características.
+%
+De igual manera que en la sección \ref{sec:denotational}, la extensión
+denotacional de $\fodaPAp$ permitirá que serán definidas todas las
+funciones que permitan describir el
+comportamiento del modelo sin importar de la forma en que estas 
+reglas son procesadas.
+Este se basa en las definiciones del modelo
+no probabilístico con la excepción que debe ser añadida la información
+probabilística a medida que se procesan las características, de allí,
+el uso de multiconjuntos para su representación ya la probabilidad
+es modelada como sería definida la multiplicidad en los
+multiconjuntos tradicionales.
 
-\bdfn
+
+
+
+%\todo{Explicar el modelo con más detalle,  y el motivo por el que se necesitan multiconjnutos}
+
+\bdfn\label{def:den:pr}
   Se define el conjunto $M\in\calM$ si y sólo si
   \begin{itemize}
-  \item $M\subseteq \calP(\calF)\times (0,1]$
-  \item $(P,q),(P,r)\in M$ entonces $q=r$
-  \item $1\geq\sum_{(P,q)\in M} q$
+  \item $M\subseteq \calP(\calF)\times (0,1]$ \\
+  Donde $M$ está contenido en el superconjunto de todas
+  las características del término y la probabilidad de 
+  cada uno de estos productos está entre (0,1].
+  
+  \item $(P,q),(P,r)\in M$ entonces $q=r$ \\
+  Cada producto tienen una probabilidad única dentro del
+  conjunto de productos.
+  
+  \item $1\geq\sum_{(P,q)\in M} q$ \\
+  La sumatoria de las probabilidades de los productos contenidos en $M$
+  será de hasta 1.
   \end{itemize}
 \edfn
 
-La notación $\lbag \cdots\rbag$ representa un multiconjunto.
+Para la descripción de la semántica denotacional se
+utilizaran multiconjuntos, representados por $\lbag \cdots\rbag$, esto, debido a la definición \ref{def:den:pr}, ya que para cada conjunto de características (producto en construcción) 
+será asociado una multiplicidad (probabilidad del producto en construcción).
 
 \bdfn
-  Dado un multiconjunto $M\subseteq \calP(\calF)\times [0,1]$, se define entonces
+  Dado un multiconjunto $M \subseteq \calP(\calF)\times [0,1]$, se define entonces
   $$\accum(M) = \left\{(P,p)\ | \ p=\sum_{(P,q)\in M}q\ ,\ p>0\right\}$$
 \edfn
-\bprop
+\bprop\label{prop:pr:accum}
  Dado un multiconjunto $M\subseteq \calP(\calF)\times [0,1]$, si $1\geq\sum_{(P,q)\in M} q$
  entonces $\accum(M)\in\calM$.
 \eprop
 
+
+\bdfn\label{def:pr:sum}
+Dados los multiconjuntos:
+\todo{Verificar agregada por carlos}
+
+$M = \lbag (M_{1},m_{1}),\ldots,(M_{n},m_{n})\rbag, 0 \leq m_{1}\ldots m_{n} \leq 1, M_{1}\ldots M_{n} \subseteq \calP(\calF) $
+
+$N = \lbag (N_{1},n_{1}),\ldots,(N_{n},n_{n})\rbag, 0 \leq n_{1}\ldots n_{n} \leq 1, N_{1}\ldots N_{n} \subseteq \calP(\calF) $
+ 
+se define $M \uplus N$ como:
+
+$\lbag (M_{1},m_{1}),\ldots,(M_{n},m_{n}),(N_{1},n_{1}),\ldots,(N_{n},n_{n})\rbag$
+\edfn
+\bprop\label{prop:pr:sum}
+\todo{Verificar agregada por carlos}
+Dados los multiconjuntos $M\in\calM$ y $N\in\calM$ entonces $M \uplus N \in\calM$
+\eprop
+
+
+
 El siguiente paso es definir un operador semántico para cada uno de los
 operadores sintácticos en $\fodaPA$.
 Esto es realizado mediante la siguiente definición.
-\todo{Most of the sets in the following definition should be multisets}
+%\todo{Most of the sets in the following definition should be multisets}
 \bdfn\label{def:semantic:operators}
-  Dados los siguientes multiconjuntos $M,M_{1}, M_{2}\in\calM$,
-  la secuencia de productos $P \in \calP(\calF)$,
-  los valores de probabilidades $p,q,r \in (0,1)$ y
-  las características $\feature{A},\feature{B}\in\calF$.
-
-  Son definidos los siguientes operadores:
+Los operadores de la semántica 
+denotacional para la extensión probabilística de $\fodaPA$
+se definen como:
 
   \begin{itemize}
+  	
   \item $\semdenp{\nil}=\emptyset$
+  
+  La función de la semántica denotacional que recibe
+  $\nil$ retornará siempre vacío y de allí a que
+  no pueda ser procesada ninguna otra característica
+  ya que no existe ninguna función definida que reciba
+  $\emptyset$ como parámetro.
+  
   \item $\semdenp{\checkmark}=\{(\emptyset,1)\}$
+  
+  La función que recibe $\checkmark$ como
+  parámetro siempre será procesada con probabilidad 1.
+  Esta no devuelve un multiconjunto porque al 
+  procesar el término siempre serán la primeras
+  características en computarse.
+  
   \item 
     $\semdenp{\feature{A};\cdot}:\calM\mapsto\calM$
     como
@@ -51,18 +114,37 @@ Esto es realizado mediante la siguiente definición.
       % \accum\bigl(
       %    \{ (\{\feature{A}\} \cup P,p ) |\   (P,p) \in M\}\bigr)
          $$
+  
+  Para el procesamiento de cualquier característica obligatoria
+  será procesada con probabilidad $p$ y esta será añadida
+  al multiconjunto de características procesadas previamente.
+  
 
   \item 
     $\semdenp{\ofeature{A};_{r}\cdot}:\calM\mapsto\calM$
     como
     $$\semdenp{\ofeature{A};_{r}\cdot}(M)=
-                \accum\bigl(\lbag(\emptyset , 1-r )\rbag\cup\lbag (\{\feature{A}\}\cup P, r\cdot p ) \ |\ (P,p) \in M\rbag\bigr)$$
+                \accum\bigl(\lbag(\emptyset , 1-r )\rbag\uplus\lbag (\{\feature{A}\}\cup P, r\cdot p ) \ |\ (P,p) \in M\rbag\bigr)$$
 
+  Al procesar una característica opcional deben realizarse
+  dos acciones. La primera es de no procesar la característica,
+  terminando el procesamiento del término con probabilidad $1-r$.
+  La segunda es de procesarla con probabilidad $r$ siendo esta
+  multiplicada por la probabilidad acumulada
+  del término restante. El resultado de ambas acciones es
+  unido usando el operador $\uplus$ y las probabilidades 
+  de cada conjunto sumadas utilizando la función $\accum(M)$.
+  
   \item 
     $\semdenp{\cdot\choice_{r}\cdot}:\calM\times\calM\mapsto\calM$
     como 
     $$\semdenp{\cdot\choice_{r}\cdot}(M_{1},M_{2})=\accum\bigl(\lbag(P,r\cdot p  ) \ |\ (P,p) \in
-    M_{1}\rbag \cup \lbag(Q, (1-r)\cdot q  ) \ |\ (Q,q) \in M_{2}\rbag\bigr) $$
+    M_{1}\rbag \uplus \lbag(Q, (1-r)\cdot q  ) \ |\ (Q,q) \in M_{2}\rbag\bigr) $$
+\todo{Deberiamos intercambiar de lado la probabilidad r y 1-r por consistencia en este operador.}
+  Se crea un nuevo multiconjunto al procesar los términos (multiconjuntos) a cada
+  lado del operador de selección única, este, generará dos conjuntos dentro del
+  nuevo multiconjunto y sus probabilidades serán sumadas utilizando la función $\accum(M)$.
+
   \item 
     $\semdenp{\cdot\paral\cdot}:\calM\times\calM\mapsto\calM$
     como 
@@ -71,13 +153,22 @@ Esto es realizado mediante la siguiente definición.
                 \lbag (P\cup Q, p\cdot q)  |\ (P,p) \in M_{1},\ (Q,q) \in M_{2}\rbag\Bigr)
     $$
     
+  El operador de paralelo dentro de la semántica operacional unirá las características
+  de ambos términos multiplicando su probabilidad.
+     
   \item  
     $\semdenp{\require{A}{B}{\cdot}}:\calM\mapsto\calM$
     como 
     $$\semdenp{\require{A}{B}{\cdot}}(M)=\accum\left(\begin{array}{l}
-      \lbag\bigl(P,p\bigr)\ |\  (P,p)\in M, \feature{A}\not\in P\rbag\ \cup\\
+      \lbag\bigl(P,p\bigr)\ |\  (P,p)\in M, \feature{A}\not\in P\rbag\ \uplus\\
       \lbag\bigl(\{\feature{B}\}\cup P ,p\bigr)\ |\ (P,p)\in M, \feature{A}\in P\rbag \\ 
       \end{array}\right)$$
+
+  La restricción de requerimiento no modifica las probabilidades de los productos en
+  construcción, sin embargo, si se cumple la restricción de requerimiento debe agregarse
+  la característica requerida en el producto y deben ser sumadas las probabilidades utilizando
+  los operadores $\uplus$ y $\accum(M)$.
+      
   \item  
     $\semdenp{\exclude{A}{B}{\cdot}}:\calM\mapsto\calM$
     como 
@@ -85,22 +176,37 @@ Esto es realizado mediante la siguiente definición.
       \{(P,p)\ |\ (P,p)\in M, \feature{A}\not\in P\}\cup\\
       \{(P,p)\ |\ (P,p)\in M, \feature{B}\not\in P\}
       \end{array}$$
-%
-%
+
+  Para el caso de la restricción de exclusión, si esta se cumple, se
+  procede a eliminar las características que estén referenciadas por
+  este operador y las probabilidades se mantienen inalteradas.
+  
     \item $\semdenp{\mandatory{A}{\cdot}}:\calM\mapsto\calM$
     como 
     $$\semdenp{\mandatory{A}{\cdot}}(M) = \semdenp{\feature{A};{\cdot}}(M)
     $$
-%
-%
+
+  El operador de inclusión se comporta de igual manera al operador de
+  obligatoriedad.
+  
     \item   $\semdenp{\forbid{A}{\cdot}}:\calM\mapsto\calM$
     como 
     $$\semdenp{\forbid{A}{\cdot}}(M) = \{(P,p)\ |\ (P, p) \in M, \feature{A}\not\in P      \}$$
+
+  El operador de ocultamiento tiene el mismo comportamiento que el operador de
+  exclusión, con la diferencia que se aplica a una sola característica.
+
   \end{itemize}
 \edfn
 
-\bprop
-  Dados los multiconjuntos $M,M_{1}, M_{2}\in\calM$,
+%\todo{explicar los operadores}
+
+
+
+
+
+\bprop\label{prp:domain:prob}
+  Dados  $M,M_{1}, M_{2}\in\calM$,
   la probabilidad $p\in(0,1]$ y
   las características $\feature{A},\feature{B}\in\calF$, entonces:
   \begin{itemize}
@@ -113,6 +219,19 @@ Esto es realizado mediante la siguiente definición.
   \item $\semdenp{\mandatory{A}{\cdot}}(M)\in\calM$
   \item $\semdenp{\forbid{A}{\cdot}}(M)\in\calM$
   \end{itemize}
+
+
+\textit{Demostración.}
+La demostración de la proposición \ref{prp:domain:prob}
+permite comprobar que las operaciones sobre los multiconjuntos
+dentro de la semántica denotacional de \fodaPAp
+siempre tienen como resultado un único multiconjunto.
+%
+Para aquellos operadores que hagan uso de la función $\accum(M)$
+por la proposición \ref{prop:pr:accum} se cumple que $\accum(M)\in\calM$.
+De igual manera para los operadores que utilicen el 
+operador $\uplus$ por la proposición \ref{prop:pr:sum} se cumple que 
+$M \uplus N \in\calM$.
 \eprop
 
 Una vez definidos los operadores semánticos sobre un conjunto de productos,
@@ -136,12 +255,133 @@ Esta es definida de manera inductiva.
 
 
 
-En la figura \ref{example:denot:1} y en la figura \ref{example:denot:2} se describe el cálculo
-la semántica denotacional para las \SPLs\ presentadas en la
-figura \ref{example:op}.
+En la figura \ref{example:denot:1} y en
+la figura \ref{example:denot:2} se describe
+el cálculo la semántica denotacional de 5 ejemplos,
+así permitir analizar el proceso de cálculo de 
+las probabilidades de las características dentro de
+términos a medida que son procesados, estos,
+viendo que el término es representado como un árbol,
+desde los elementos terminales u hojas hasta la raíz. 
+
+
+
+
+\begin{figure}[h]
+	\hrule
+	
+	\vspace*{1em}
+	
+	\centering $P_{1} = \feature{A};\ofeature{B};_{p}\checkmark$\review
+	
+	\scalebox{0.8}{$
+		\begin{array}{lll}
+		\semdenp{\checkmark} &=& \{(\emptyset,1)\}\\
+		\semdenp{\ofeature{B};_p\checkmark} &=&   \semdenp{\ofeature{B};_{p}\cdot}(\semdenp{\checkmark}) = 
+		\semdenp{\ofeature{B};_{p}\cdot}(\{(\emptyset,1)\})=\\
+		&&\{(\emptyset,(1-p)),(\feature{B},p)\}\\
+		\semdenp{\feature{A};\ofeature{B};_p\checkmark} &=& \semdenp{\feature{A};\cdot}(\semdenp{\ofeature{B};_p\checkmark})=
+		\semdenp{\feature{A};\cdot}(\{(\emptyset,(1-p)),(\feature{B},p)\})=\\
+		&&\{(\feature{A},(1-p)),(\feature{A}\feature{B},p)\}
+		\end{array}
+		$}
+	
+	\vspace*{1em} \hrule\vspace*{1em}
+	
+	
+	\centering 
+	$P_{2} = \feature{A};(\ofeature{B};_{p}\checkmark \choice_{q} \ofeature{B};_{r}\checkmark)$ \review
+	
+	%\feature{A};(\ofeature{B};_{p}\checkmark \choice_{q} \ofeature{B};_{r}\checkmark)
+	\scalebox{0.8}{$
+		\begin{array}{lll}
+		\semdenp{\checkmark} &=& \{(\emptyset,1)\}\\
+		\semdenp{\ofeature{B};_{\frac{1}{3}}\checkmark} &=&   \semdenp{\ofeature{B};_{\frac{1}{3}}\cdot}(\semdenp{\checkmark}) = 
+		\semdenp{\ofeature{B};_{\frac{1}{3}}\cdot}(\{(\emptyset,1)\})=\\
+		&&\{(\emptyset,\frac{2}{3}),(\feature{B},\frac{1}{3})\}\\
+		\semdenp{\ofeature{B};_{\frac{1}{3}}\checkmark \choice_{\frac{1}{2}} \ofeature{B};_{\frac{1}{3}}\checkmark} &=&
+		\semdenp{\cdot  \choice_{\frac{1}{2}} \cdot}(\semdenp{\ofeature{B};_{\frac{1}{3}}\checkmark},\semdenp{\ofeature{B};_{\frac{1}{3}}\checkmark)}\\
+		&=&
+		\semdenp{\cdot  \choice_{\frac{1}{2}} \cdot}(\{(\emptyset,\frac{2}{3}),(\feature{B},\frac{1}{3})\}, \{(\emptyset,\frac{2}{3}),(\feature{B},\frac{1}{3})\}) =\\
+		&=&     
+		\accum\Bigl(\bigl\{(\emptyset,\frac{2}{6}),(\feature{B},\frac{1}{6})\bigr\}  \uplus \bigl\{(\emptyset,\frac{2}{6}),(\feature{B},\frac{1}{6})\bigr\}\Bigr)=\\
+		&=&\bigl\{(\emptyset,\frac{2}{3}),(\feature{B},\frac{1}{3})\bigr\}
+		\end{array}
+		$}
+	
+	\vspace*{1em} \hrule\vspace*{1em}
+	
+	$P_{3} = \feature{A};(\feature{A};\checkmark\choice_{q} \feature{B};\checkmark)$\review
+	
+	%$\feature{A};(\feature{A};\checkmark\choice_{q} \feature{B};\checkmark)$
+	\scalebox{0.8}{$
+		\begin{array}{lll}
+		\semdenp{\checkmark} &=& \{(\emptyset,1)\}\\
+		\semdenp{\feature{A};\checkmark} &=& \semdenp{\feature{A};\cdot}(\semdenp{\checkmark})=
+		\semdenp{\feature{A};\cdot}(\{(\emptyset,1)\})=\{(\feature{A},1)\}\\
+		\semdenp{\feature{A};\checkmark\choice_{q} \feature{B};\checkmark} &=&
+		\semdenp{\cdot \choice_{q} \cdot} (\semdenp{\feature{A};\checkmark},\semdenp{\feature{B};\checkmark})=\\
+		&=& \semdenp{\cdot \choice_{q} \cdot} (\{(\feature{A},1)\},\{(\feature{B},1)\}) = \{(\feature{A},q),(\feature{B},(1-q))\}\\
+		\semdenp{\feature{A};(\feature{A};\checkmark\choice_{q} \feature{B};\checkmark)} &=&
+		\semdenp{\feature{A};\cdot}(\semdenp{\feature{A};\checkmark\choice_{q} \feature{B};\checkmark})=\\
+		&=& \semdenp{\feature{A};\cdot}(\{(\feature{A},q),(\feature{B},(1-q))\}) = \{(\feature{A},q),(\feature{A}\feature{B},(1-q))\}
+		\end{array}
+		$}
+	\vspace*{1em}
+	
+	\hrule
+	
+	\caption{Ejemplo de la ejecución de las reglas de la semántica denotacional (1/2).\label{example:denot:1}}
+\end{figure}
+
+
+\begin{figure}[h]
+	\hrule
+	\vspace*{1em}
+	
+	\centering $P_{4} = (\feature{A};\checkmark \choice_{p} \feature{B};\nil)$\review
+	
+	%(\feature{A};\checkmark \choice_{p} \feature{B};\nil)
+	\scalebox{0.8}{$
+		\begin{array}{lll}
+		\semdenp{\nil} &=& \emptyset\\
+		\semdenp{\feature{B};\nil} &=& \semdenp{\feature{B};\cdot}(\semdenp{\nil}) =\semdenp{\feature{B};\cdot}(\emptyset)= \emptyset\\
+		\semdenp{\checkmark} &=& \{(\emptyset,1)\}\\
+		\semdenp{\feature{A};\checkmark} &=& \semdenp{\feature{A};\cdot}(\semdenp{\checkmark})=
+		\semdenp{\feature{A};\cdot}(\{(\emptyset,1)\})=\{(\feature{A},1)\}\\
+		\semdenp{\feature{A};\checkmark \choice_{\frac{1}{7}} \feature{B};\nil} &=& 
+		\semdenp{\cdot \choice_{\frac{1}{7}} \cdot}(\semdenp{\feature{A};\checkmark},\semdenp{\feature{B};\nil})\\
+		&=&\semdenp{\cdot \choice_{\frac{1}{7}} \cdot}(\{(\feature{A},1)\},\emptyset)= \{(\feature{A},\frac{1}{7})\}
+		\end{array}
+		$}
+	
+	\vspace*{1em} \hrule\vspace*{1em}
+	\centering $P_{5} = (\feature{A};\checkmark \paral \feature{B};\checkmark)$\review
+	
+	%$(\feature{A};\checkmark \paral \feature{B};\checkmark)$
+	\scalebox{0.8}{$
+		\begin{array}{lll}
+		\semdenp{\checkmark} &=& \{(\emptyset,1)\}\\
+		\semdenp{\feature{A};\checkmark} &=& \semdenp{\feature{A};\cdot}(\semdenp{\checkmark})=
+		\semdenp{\feature{A};\cdot}(\{(\emptyset,1)\})=\{(\feature{A},1)\}\\
+		\semdenp{\feature{A};\checkmark \paral \feature{B};\checkmark} &=& 
+		\semdenp{\cdot \paral \cdot}(\semdenp{\feature{A};\checkmark},\semdenp{\feature{B};\checkmark})=
+		\semdenp{\cdot \paral \cdot}(\{(\feature{A},1)\},\{(\feature{B},1)\})=\\
+		&& \{(\feature{A}\feature{B},\frac{1}{2}),(\feature{B}\feature{A},\frac{1}{2})\}\\
+		\end{array}
+		$}
+	\vspace*{1em} \hrule
+	
+	
+	\caption{Ejemplo de la ejecución de las reglas de la semántica denotacional (2/2).\label{example:denot:2}}
+\end{figure}
+
+
+
 
 
 %%% Local Variables: 
 %%% mode: latex
-%%% TeX-master: "main"
+%%% TeX-master: "../../main"
+%%% ispell-local-dictionary: "castellano"
 %%% End: 

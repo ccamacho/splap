@@ -1,26 +1,10 @@
-% $Id$
+\section{Semántica operacional}
+\label{sec:stat:oper}
 
-
-\section{Semántica Operacional}
-
-
-%TODO: 
-%\begin{itemize}
-%\item to define a notation for multisets: $[q\ |\ ..... ]$ is a multiset.
-%\item why do we need a multiset?
-%\item the product corresponding to a trace $s$: $\product{s}$
-%\item what a product is
-%\end{itemize}
-
-La semántica operacional para aquellos términos  $\fodaPAp$ está
-basada en las reglas descritas en la figura~\ref{fig:sos-rules}.
-Sin embargo, estas reglas deberán  ser modificadas para permitir
-representar probabilidades dentro del modelo.
-
-En esta sección serán descritos aquellos cambios necesarios para poder
-representar probabilidades en el modelo.
-
-\todo{Hay que explicar las reglas}
+Las reglas de la semántica operacional de $\fodaPAp$ está
+basada en las reglas descritas en la figura~\ref{fig:sos-rules},
+sin embargo, estas reglas deben  ser modificadas y extendidas para permitir
+representar probabilidades dentro del nuevo modelo.
 
 \begin{figure*}[h]
         \linefigure
@@ -32,24 +16,24 @@ representar probabilidades en el modelo.
         \nombreRegla{feat} & \feature{A};P\tranp{\feature{A}}{1}P \\
         \nombreRegla{ofeat1} & \ofeature{A};_{p}P\tranp{\feature{A}}{p}P &
         \nombreRegla{ofeat2} & \ofeature{A};_{p}P\tranp{\checkmark}{(1-p)}\nil\\
-        \nombreRegla{cho1} & \displaystyle \frac{P\tranp{a}{q} P_1}{P\choice_{p} Q\tranp{a}{p\cdot q} P_1}&  
-        \nombreRegla{cho2} & \displaystyle\frac{Q\tranp{a}{q} Q_1}{P\choice_{p} Q\tranp{a}{(1-p)\cdot q}Q_1}\\
+        \nombreRegla{cho1} & \displaystyle \frac{P\tranp{\feature{A}}{p} P_1}{P\choice_{q} Q\tranp{\feature{A}}{p\cdot q} P_1}&  
+        \nombreRegla{cho2} & \displaystyle\frac{Q\tranp{\feature{A}}{q} Q_1}{P\choice_{p} Q\tranp{\feature{A}}{(1-p)\cdot q}Q_1}\\
         \nombreRegla{con1} & \displaystyle\frac{P\tranp{\feature{A}}{p} P_1}{P\paral Q\tranp{\feature{A}}{\frac{p}{2}}P_1\paral Q} &
         \nombreRegla{con2} & \displaystyle\frac{Q\tranp{\feature{A}}{q} Q_1}{P\paral Q\tranp{\feature{A}}{\frac{q}{2}}P\paral Q_1}\\
         \nombreRegla{con3} & \displaystyle\frac{P\tranp{\checkmark}{q}\nil, Q\tranp{\checkmark}{p}\nil}{P\paral Q\tranp{\checkmark}{p\cdot q}\nil} &\\
         \nombreRegla{con4} & \displaystyle\frac{P\tranp{\feature{A}}{p} P_1, Q\tranp{\checkmark}{q}\nil}{P\paral Q\tranp{\feature{A}}{\frac{p\cdot q}{2}} P_1} &
-        \nombreRegla{con5} & \displaystyle\frac{Q\tranp{\feature{A}}{q} Q_1, P\tranp{\checkmark}{p}\nil}{P\paral Q\tranp{\feature{A}}{\frac{p\cdot q}{2}} Q_1} \\  
+        \nombreRegla{con5} & \displaystyle\frac{P\tranp{\checkmark}{p}\nil,Q\tranp{\feature{A}}{q} Q_1}{P\paral Q\tranp{\feature{A}}{\frac{p\cdot q}{2}} Q_1} \\  
         %
         %
         \nombreRegla{req1} & \displaystyle
-        \frac{P \tranp{\feature{C}}{p} P_1,\ \feature{C}\neq\feature{A},\ \feature{C}\neq\feature{B},}{\require{A}{B}{P}
+        \frac{P \tranp{\feature{C}}{p} P_1,\ \feature{C}\neq\feature{A}}{\require{A}{B}{P}
                 \tranp{\feature{C}}{p} \require{A}{B}{P_1}} &
         \nombreRegla{req2} &  \displaystyle
         \frac{P \tranp{\feature{A}}{p} P_1}{\require{A}{B}{P}\tranp{\feature{A}}{p} \mandatory{B}{P_1}} & \\
         % \nombreRegla{req3} & \displaystyle
         % \frac{P \tranp{\feature{B}}{p} P_1}{\require{A}{B}{P}
         %   \tranp{\feature{B}}{p} P_1} & 
-        \nombreRegla{req4} &  \displaystyle  
+        \nombreRegla{req3} &  \displaystyle  
         \frac{P \tranp{\feature{\checkmark}}{p} \nil}{\require{A}{B}{P}
                 \tranp{\feature{\checkmark}}{p} \nil}\\
         \nombreRegla{excl1} &    \displaystyle
@@ -95,309 +79,474 @@ representar probabilidades en el modelo.
         \linefigure
         
         \caption{Reglas para definir la semántica operacional de \fodaPA.  \label{fig:sos-rules-p}}
+
+
         
 \end{figure*}
 
+Las reglas descritas en la figura \ref{fig:sos-rules-p} describen el comportamiento
+del sistema al procesar términos siguiendo la extensión
+probabilística \fodaPAp. Como se puede observar, la definición de estas reglas parte
+de la definición de figura \ref{fig:sos-rules}, sin embargo, las reglas de la 
+extensión probabilística permiten modificar la información relacionada a las
+probabilidades a medida que son procesadas las característica.
+
+Las reglas $\nombreRegla{tick}$ y $\nombreRegla{feat}$ muestran
+que al procesar la característica $\checkmark$, $\feature{A}$ y $\feature{A}$ respectivamente,
+podrá realizarse siempre con probabilidad 1 y que debe ser procesada la característica
+correspondiente.
+%
+Las transiciones $\nombreRegla{ofeat1}$ y $\nombreRegla{ofeat2}$ permiten procesar el
+operador opcional, si
+es procesada la característica se computa con
+probabilidad $p$ y en caso contrario $1-p$
+respectivamente.
+%
+El operador de selección única ($\choice$)
+está compuesto por dos reglas semánticas
+$\nombreRegla{cho1}$ y $\nombreRegla{cho2}$,
+para el caso de la regla $\nombreRegla{cho1}$
+se calcula la probabilidad multiplicando
+la probabilidad de ambos
+lados del operador ($p.q$) y para la regla $\nombreRegla{cho2}$
+al ser un operador simétrico es multiplicado 1 menos
+la probabilidad de la característica a procesar
+por la probabilidad acumulada del término del otro
+lado del operador ($(1-p).q$).
+%
+Los operadores de conjunción $\nombreRegla{con1}$ y
+$\nombreRegla{con2}$ 
+procesan el operador de paralelo siempre que
+puedan seguirse procesando características, en donde,
+deber ejecutarse ambos lados de la conjunción
+la probabilidad de procesarlos es la mitad ($\frac{p}{2}$
+o $\frac{q}{2}$) dependiendo de que lado del paralelo
+se esté ejecutando.
+%
+La regla $\nombreRegla{con3}$
+permite procesar la característica $\checkmark$
+cuando pueda ser procesada en ambos lados del paralelo
+y su probabilidad será la multiplicación  de las
+probabilidades de ambos lados ($p.q$).
+%
+Las reglas $\nombreRegla{con4}$ y $\nombreRegla{con5}$ permiten
+procesar el operador de conjunción si alguno de los extremos del término puede generar
+la característica $\checkmark$ y su probabilidad
+será la mitad de la multiplicación de las probabilidades de ambos lados
+del operador ($\frac{p.q}{2}$).
+%
+Todos los operadores restantes
+($\nombreRegla{req1}$, $\nombreRegla{req2}$,
+$\nombreRegla{req3}$,  $\nombreRegla{excl1}$,
+$\nombreRegla{excl2}$, $\nombreRegla{excl3}$,
+$\nombreRegla{excl4}$, $\nombreRegla{forb1}$,
+$\nombreRegla{forb2}$, $\nombreRegla{mand1}$,
+$\nombreRegla{mand2}$ y $\nombreRegla{mand3}$)
+no intervienen ni modifican la probabilidad
+de los elementos sintácticos al ser procesados.
+
+A continuación serán descritas las definiciones correspondientes
+al procesamiento de las probabilidades.
 
 \bdfn\label{def:trantions}
-  Dados los términos $P,Q\in\fodaPA$ y la característica $a\in\calF\cup\{\checkmark\}$.
-  Existe una transición de $P$ to $Q$ etiquetada con el símbolo $a$ y la probabilidad $p$,
-  representada por $P\tranp{a}{p}Q$,
-  si puede ser deducida de las reglas descritas en la figura~\ref{fig:sos-rules-p}.  
+  Dados los términos $P,Q\in\fodaPA$ y la característica $\feature{A}\in\calF\cup\{\checkmark\}$.
+  Existe una transición de $P$ a $Q$ etiquetada
+  con el símbolo $\feature{A}$ y la probabilidad $p$,
+  representada por $P\tranp{\feature{A}}{p}Q$,
+  si puede ser deducida de las reglas descritas en la
+  figura~\ref{fig:sos-rules-p}.  
 \edfn
 
+\bdfn\label{def:trtrantions}
+$P\vtranp{s}{p}Q$ si y sólo si $s=a_1a_2\cdots a_n$ y $p=p_1\cdot p_2\cdot \cdots p_{n}$ y
+\begin{displaymath}
+P=P_0\tranp{a_1}{p_1}P_1\tranp{a_2}{p_2}P_2\cdots P_{n-1}\tranp{a_n}{p_n} P_n=Q
+\end{displaymath}
 
+$(pr,p)\in\prodp(P)$ si y sólo si $p>0$ y $p=\sum[q\ |\ P\vtranp{s\checkmark}{q} Q \y \product{s}=pr ]$
+\edfn
 
+Las definiciones \ref{def:trantions} y \ref{def:trtrantions}
+muestran como es modelada la información probabilística
+dentro de \fodaPAp. Esta, es relativa al procesamiento
+de las características que pertenezcan a cualquier término
+válido y a trazas de características.
 
+%\todo{Hay que explicar despacio las cosas}
+%\todo{explicar los lemas y poner más texto}
 
-
-
-\todo{explicar los lemas y decir que la demostración es trivial}
 \blem\label{lem:prob}
   Dados los términos $P,\ Q\in\fodaPA$, 
   \begin{itemize}
-  \item Dada la característica  $a\in\calF\cup\{\checkmark\}$, si
-    $P\tranp{a}{p}Q$ entonces $p\in(0,1]$.
-  \item Dada la característica   $s\in\calF^*$, si $P\vtranp{s}{p}Q$ entonces $p\in(0,1]$.
+  \item Dada la característica  $\feature{A}\in\calF\cup\{\checkmark\}$, si
+    $P\tranp{\feature{A}}{p}Q$ entonces $p\in(0,1]$.
+  \item Dada la característica $s\in\calF^*$, si $P\vtranp{s}{p}Q$ entonces $p\in(0,1]$.
   \end{itemize}
 \elem
 
-\blem
+Es importante una vez descrito como será modelada la información probabilística,
+definir el dominio matemático de estos nuevos datos.
+El lema \ref{lem:prob} muestra que la información relativa a la probabilidad
+de cualquier característica aislada o parte de cualquier traza probabilística
+estará comprendida por números reales  entre $(0,1]$
+con lo que se plantea el siguiente lema.
+
+\blem\label{lem:sum:prob}
   Para cualquier término $P\in\fodaPA$ se cumple
   \begin{displaymath}
-    \sum \{p\, |\ \exists a\in\calF,\ Q\in\fodaPA:\ P\tranp{a}{p}Q \}\in[0,1]
+    \sum \{p\, |\ \exists \feature{A}\in\calF,\ Q\in\fodaPA:\ P\tranp{\feature{A}}{p}Q \}\in[0,1]
   \end{displaymath}
 \elem
+
+Así el lema \ref{lem:sum:prob} acota a que la sumatoria
+de todas las probabilidades del procesamiento de
+las características deba ser representado como un número
+real entre $[0,1]$.
 
 \blem\label{lem:check}
   Dados los términos $P,Q\in\fodaPA$ y la probabilidad $p\in(0,1]$, $P\tranp{\checkmark}{p}{Q}$ si y sólo si $Q=\nil$.
 \elem
 
-\bdfn
-  $P\vtranp{s}{p}Q$ si y sólo si $s=a_1a_2\cdots a_n$ y $p=p_1\cdot p_2\cdot \cdots p_{n}$ y
-  \begin{displaymath}
-    P=P_0\tranp{a_1}{p_1}P_1\tranp{a_2}{p_2}P_2\cdots P_{n-1}\tranp{a_n}{p_n} P_n=Q
-  \end{displaymath}
-
-  $(pr,p)\in\prodp(P)$ si y sólo si $p>0$ y $p=\sum[q\ |\ P\vtranp{s\checkmark}{q} Q \y \product{s}=pr ]$
-\edfn
+Debe ser descrito el comportamiento del símbolo terminal
+al generar un producto válido de la extensión probabilística,
+el lema \ref{lem:check} muestra que solo es posible procesar
+la característica $\checkmark$ cuando el término restante es
+$\nil$ lo que significa que ha sido generado un producto válido.
 
 
+Una vez definido como es modelada la información probabilística
+en la semántica operacional de \fodaPAp\ debe describirse
+el proceso del cálculo de las probabilidades, esto es logrado
+mediante la definición de las funciones que permitirán calcular
+la probabilidad de una traza probabilística dentro de un término
+que pertenezca al álgebra.
 
+Ya definida la noción del almacenamiento
+de la información
+relacionada a las probabilidades dentro
+de los términos del álgebra, se procede
+a definir el concepto de traza probabilística.
+
+ \bdfn\label{dfn:pr:tr}
+   Dado el término $P\in\fodaPA$ y la traza
+   probabilística
+   $\sigma =\langle (a_{1},p_{1}),\ldots,(a_{n},p_{n})\rangle \in \ptraces{N_P}$,
+   decimos que $\sigma = \langle (a_{1},p_{1}),\ldots,(a_n,p_n)\rangle$
+   es una traza satisfactoria de $P$ si  $a_n=\checkmark$ y en caso
+   contrario se dice que es una traza no satisfactoria.
+   \begin{itemize}
+   	\item Se denota el conjunto de trazas satisfactorias de $P$ como $\straces{P}$. 
+   	\item Se denota el conjunto de trazas no satisfactorias de $P$ como $\untraces{P}$.
+    \item Se denota la unión de ambos conjuntos de trazas satisfactorias
+    y no satisfactoiras como $\ctraces{P}$.
+   \end{itemize}
+ \edfn
+
+La definición \ref{dfn:pr:tr} define  el
+proceso de construcción de tanto las trazas probabilísticas
+como el resultado de la función $\straces{P}$ y en la 
+definición \ref{dfn:pr:tr:cn} la agrupación de todas las
+características para cada traza probabilística sin
+importar el orden de los mismos.
+
+ \bdfn\label{dfn:pr:tr:cn}
+ Dada la traza probabilística $\sigma$. El \emph{producto inducido por la traza},
+ escrito $[\sigma]$, es el conjunto obtenido
+ de los elementos del alfabeto de la traza sin tomar en cuenta su posición dentro de la
+ traza: 
+ $$
+ [\sigma] = \{ a_k |\ \sigma=\langle (a_{1},p_{1}),\ldots ,(a_{n},p_{n})\rangle \land 1 \leq k \leq n \land\ a_k\in\calF\}
+ $$
+ \edfn
+ 
+Podemos tomar como ejemplo la siguiente traza $\sigma=\langle(\feature{A},p_{1}),(\feature{B},p_{2}),(\feature{C},p_{3}),(\checkmark,p_{4})\rangle$, 
+ se tiene que
+  $[\sigma]=\{\feature{A}, \feature{B}, \feature{C}\}$.
+
+De esta manera la definición \ref{dfn:pr:tr:pr}
+muestra 
+el significado de la función 
+encargada de calcular todos
+los productos válidos generados
+a partir
+de un término cualquiera.
+
+ \bdfn\label{dfn:pr:tr:pr}
+ Dado un término $P\in\fodaPA$, se definen \emph{los productos de $P$}, escrito
+ $\products{P}$, como:
+ $$\products{P}=\{[\sigma]\ | \ \sigma\in\straces{N_P}\}$$
+ \edfn
+ 
+ Una vez calculadas las trazas probabilísticas de 
+ los productos válidos y el conjunto de todas estas,
+ se deben tomar en cuenta aquellas trazas probabílisticas
+ que no han generado productos válidos.
+ 
+ 
+ \bdfn\label{dfn:pr:tr:waste}
+ Dado el término $P\in\fodaPA$, se define el \emph{desecho de $P$} como
+ la suma de las probabilidades de las trazas no satisfactorias de $P$
+ $$\waste{P}= \hspace*{-5em}\sum_{\sigma\in\ctraces{N_P}\setminus\straces{N_P}}\hspace*{-5em}\completeprob{\sigma}$$
+ \edfn
+
+La definición \ref{dfn:pr:tr:waste} permite calcular la probabilidad de aquellas trazas
+no satisfactorias para cualquier término $P$.
+
+ \bdfn
+   Dado el producto $[\sigma]\in\products{P}$, 
+   definimos la probabilidad de este producto en $P$ descrita $\prob{[\sigma],P}$ como:
+         $$
+         \prob{[\sigma],P} = \frac{\sum_{ \sigma' \in \straces{N_P} \land  [\sigma'] =  [\sigma]} \completeprob{\sigma'}}{1-\waste{P}}$$
+ \edfn
+
+
+ Es importante destacar que $\checkmark\not\in\calF$ entonces $\checkmark\not\in [\sigma]$.
+ La función $\prob{[\sigma],P}$ induce un espacio probabilístico en el conjunto
+ de productos de $P$.
+ \bprop\label{dfn:pr:sum}
+   Dado el producto $P\in\fodaPA$, entonces
+   $$1 = \sum_{[\sigma]\in\products{P}} \prob{[\sigma],P}$$
+ \eprop
+
+La definición \ref{dfn:pr:sum} muestra que la suma de las probabilidades del producto
+$[\sigma]\in\products{P}$ debe ser igual a 1.
 
 
 
 
 \begin{figure}[h]
-
-
-
 \linefigure
-
-
-        
 \vspace*{0.5em}
-
-\begin{minipage}{0.3\hsize}
+\begin{minipage}{0.2\hsize}
 \centering 
-
 \texttt{$P_{1}$}
 \end{minipage}
-\vspace*{1em}
-\begin{minipage}{0.75\hsize}
+\begin{minipage}{0.4\hsize}
 \centering
-
 \texttt{$P_{2}$}
 \end{minipage}
+\vspace*{1em}
+\begin{minipage}{0.4\hsize}
+\centering
+\texttt{$P_{3}$}
+\end{minipage}
 
-
-
-\begin{minipage}{0.3\hsize}
+\begin{minipage}{0.2\hsize}
 \centering 
-
-
-
-
 %$\feature{A};\ofeature{B};\checkmark \leadsto$
 % \begin{minipage}{0.35\hsize}
 %         \centering
 \scalebox{0.7}
 {
         \begin{tikzpicture}[->,>=stealth',node distance=1.5cm]
-                \node[syntax] (A)   {$\feature{A};\ofeature{B};_{p}\checkmark$};
-                \node[syntax] (B) [below of=A]   {$\ofeature{B};\checkmark$};
-                \node[syntax] (C) [below left of=B]   {\nil};
-                \node[syntax] (D) [below right of=B]   {\checkmark};
-                 \node[syntax] (F) [below of=D]   {\nil};
-
-                \path (A) edge[->] node[right, opacity=0, text opacity=1] {$(\feature{A},1)$~$\nombreRegla{feat}$} (B)
-                 (B) edge[->] node[above left, opacity=0, text opacity=1] {$\begin{array}{c}\nombreRegla{ofeat2}\\(\checkmark,(1-p))\end{array}$} (C)
-                 (B) edge[->] node[above right, opacity=0, text opacity=1] {$(\feature{B},p)$~$\nombreRegla{ofeat1}$} (D)
-                %(C) edge[->] node[left] {$\nombreRegla{nil}$~\checkmark} (E)
-                (D) edge[->] node[left, opacity=0, text opacity=1] {$\nombreRegla{tick}$~$(\checkmark,1)$} (F);
+                \node[syntax] (A)   {$\feature{A};\ofeature{B};_{p}(\feature{C};\ofeature{D};_{q}\checkmark)$};
+                \node[syntax] (B) [below=1.5cm of A]   {$_{1}(\ofeature{B};_{p}(\feature{C};\ofeature{D};_{q}\checkmark))$};
+                \node[syntax] (C) [below left=1.5cm and 0cm of B]   {$_{(1-p)}\nil$};
+                \node[syntax] (D) [below=1.5cm of B]   {$_{p}(\feature{C};\ofeature{D};_{q}\checkmark)$};
+                \node[syntax] (F) [below=1.5cm of D]   {$_{1}(\ofeature{D};_{q}\checkmark)$};
+                \node[syntax] (G) [below left=1.5cm and 0cm of F]   {$_{(1-q)}\nil$};
+                \node[syntax] (H) [below=1.5cm of F] {$_{q}\checkmark$};
+                \node[syntax] (I) [below=1.5cm of H]   {$_{1}\nil$};       
+                         
+                \path (A) edge[->] node[right, opacity=0, text opacity=1]
+                          {$\feature{A}$~$\nombreRegla{feat}$}
+                      (B)
+                      (B) edge[->] node[above left, opacity=0, text opacity=1]
+                          {$\checkmark$~$\nombreRegla{ofeat2}$}
+                      (C)
+                      (B) edge[->] node[right, opacity=0, text opacity=1]
+                          {$\feature{B}$~$\nombreRegla{ofeat1}$}
+                      (D)
+                      (D) edge[->] node[right, opacity=0, text opacity=1]
+                          {$\feature{C}$~$\nombreRegla{feat}$}
+                      (F)
+                      (F) edge[->] node[above left, opacity=0, text opacity=1]
+                          {$\checkmark$~$\nombreRegla{ofeat2}$}
+                      (G)
+                      (F) edge[->] node[right, opacity=0, text opacity=1]
+                          {$\feature{D}$~$\nombreRegla{ofeat1}$}
+                      (H)
+                      (H) edge[->] node[right, opacity=0, text opacity=1]
+                          {$\checkmark$~$\nombreRegla{tick}$}
+                      (I);                      
         \end{tikzpicture}
 }
-
-
-
 \end{minipage}
-\begin{minipage}{0.75\hsize}
+\begin{minipage}{0.4\hsize}
 \centering
-
-
-
-
-
 %$\feature{A};\ofeature{B};\checkmark \leadsto$
 % \begin{minipage}{0.35\hsize}
 %         \centering
-
 \scalebox{0.7}{
         \begin{tikzpicture}[->,>=stealth',node distance=1.5cm]
-                \node[syntax] (A)   {$\feature{A};(\ofeature{B};_{p}\checkmark \choice_{q} \ofeature{B};_{r}\checkmark)$};
-                \node[syntax] (AA) [below of=A]   {$(\ofeature{B};_{p}\checkmark \choice_{q} \ofeature{B};_{r}\checkmark)$};
-                \node[state,color=white] (phantom) [below of=AA]   {}; 
-                %left part 
-               \node[state,color=white] (B) [left of=phantom,node distance=4cm]   {};
-                \node[syntax] (C) [left of=B]   {\nil};
-                \node[syntax] (D) [below right of=B]   {\checkmark};
-                 \node[syntax] (F) [below of=D]   {\nil};
-                % right part
-                \node[state, color=white] (BB) [right of=phantom,node distance=4cm]   {};
-                \node[syntax] (CB) [below of=AA, node distance=4cm]   {\nil};
-                % right part
-                \node[syntax] (DB) [below right of=BB]   {\checkmark};
-                 \node[syntax] (FB) [below of=DB]   {\nil};
+        \node[syntax] (A)   {$\feature{A};\ofeature{B};_{p}(\feature{C};(\feature{D};\checkmark\choice_{q}(\ofeature{E};_{r}\checkmark)))$};
+        \node[syntax] (B) [below=1.5cm of A]   {$_{1}(\ofeature{B};_{p}(\feature{C};(\feature{D};\checkmark\choice_{q}(\ofeature{E};_{r}\checkmark)))$};
+        \node[syntax] (C) [below right=1.5cm and 0cm of B]   {$_{(1-p)}\nil$};
+        \node[syntax] (D) [below=1.5cm of B]   {$_{p}(\feature{C};(\feature{D};\checkmark\choice_{q}(\ofeature{E};_{r}\checkmark)))$};
+        \node[syntax] (F) [below=1.5cm of D]   {$_{1}(\feature{D};\checkmark\choice_{q}(\ofeature{E};_{r}\checkmark))$};
+        \node[syntax] (G) [below left=1.5cm and 0cm of F]   {$_{(1.q)}\checkmark$};
+        \node[syntax] (H) [below=1.5cm of F] {$_{(1-p).q}\checkmark$};
+        \node[syntax] (I) [below right=1.5cm and 0cm of F]   {$_{(1-q).(1-r)}\nil$};       
+        \node[syntax] (J) [below=1.5cm of G]   {$_{1}\nil$};     
+        \node[syntax] (K) [below=1.5cm of H]   {$_{1}\nil$};        
 
+              
+        \path (A) edge[->] node[right, opacity=0, text opacity=1]
+        {$\feature{A}$~$\nombreRegla{feat}$}
+        (B)
+        (B) edge[->] node[above right, opacity=0, text opacity=1]
+        {$\checkmark$~$\nombreRegla{ofeat2}$}
+        (C)
+        (B) edge[->] node[left, opacity=0, text opacity=1]
+        {$\feature{B}$~$\nombreRegla{ofeat1}$}
+        (D)
+        (D) edge[->] node[right, opacity=0, text opacity=1]
+        {$\feature{C}$~$\nombreRegla{feat}$}
+        (F)
+        (F) edge[->] node[above left, opacity=0, text opacity=1]
+        {$\feature{D}$~$\nombreRegla{cho1}$}
+        (G)
+        (F) edge[->] node[right, opacity=0, text opacity=1]
+        {$\feature{E}$~$\nombreRegla{cho2}$}
+        (H)
+        (F) edge[->] node[above right, opacity=0, text opacity=1]
+        {$\checkmark$~$\nombreRegla{ofeat2}$$\nombreRegla{cho2}$}
+        (I)
+        (G) edge[->] node[right, opacity=0, text opacity=1]
+        {$\checkmark$~$\nombreRegla{tick}$}
+        (J)
+        (H) edge[->] node[right, opacity=0, text opacity=1]
+        {$\checkmark$~$\nombreRegla{tick}$}
+        (K)
 
-                \path (A) edge[->] node[right, opacity=0, text opacity=1] {$(\feature{A},1)$~$\nombreRegla{feat}$} (AA)
-                 (AA) edge[->,bend right] node[above left, opacity=0, text opacity=1] {\begin{tabular}{l}$\nombreRegla{ofeat2}$~$\nombreRegla{cho1}$\\$(\checkmark,q\cdot(1-p))$\end{tabular}} (C)
-                 (AA) edge[->,bend left] node[above left, opacity=0, text opacity=1] {$(\feature{B},q\cdot p)$~$\nombreRegla{ofeat1}$~$\nombreRegla{cho1}$} (D)
-                (D) edge[->] node[left, opacity=0, text opacity=1] {$\nombreRegla{tick}$~$(\checkmark,1)$} (F)
-                %right part
-                 (AA) edge[->] node[right, opacity=0, text opacity=1] {\begin{tabular}{l}$\nombreRegla{ofeat2}$~$\nombreRegla{cho2}$\\ $(\checkmark,(1-q)\cdot(1-r))$\end{tabular}} (CB)
-                 (AA) edge[->,bend left] node[above right, opacity=0, text opacity=1] {\begin{tabular}{l}$(\feature{B},(1-q)\cdot r)$\\$\nombreRegla{ofeat1}$~$\nombreRegla{cho2}$\end{tabular}} (DB)
- 
-                (DB) edge[->] node[left, opacity=0, text opacity=1] {$\nombreRegla{tick}$~$(\checkmark,1)$} (FB);
-
+        ;                      
         \end{tikzpicture}
 }
-
 \end{minipage}
+\begin{minipage}{0.4\hsize}
+	\centering
+	%$\feature{A};\ofeature{B};\checkmark \leadsto$
+	% \begin{minipage}{0.35\hsize}
+	%         \centering
+	\scalebox{0.7}{
+		\begin{tikzpicture}[->,>=stealth',node distance=1.5cm]
+        \node[syntax] (A)   {$\ofeature{A};_{p}\feature{B};(\ofeature{C};_{q}\checkmark\paral\feature{D};\checkmark)$};
+		\node[syntax] (B) [below left=1.5cm and 2cm of A]   {$_{(1-p)}\nil$};
+		\node[syntax] (C) [below=1.5cm of A]   {$_{p}\feature{B};(\ofeature{C};_{q}\checkmark\paral\feature{D};\checkmark)$};
 
+		\node[syntax] (D) [below=1.5cm of C]   {$_{1}(\ofeature{C};_{q}\checkmark\paral\feature{D};\checkmark)$};
 
-\vspace*{0.5em}
+		\node[syntax] (F) [below left=1.5cm and 1cm of D]   {$_{\frac{q}{2}}(\checkmark\paral\feature{D};\checkmark)$};
+		
+		\node[syntax] (G) [below=1.5cm of D]
+		{$_{\frac{q}{2}}(\ofeature{C};\checkmark\paral\checkmark)$};
+		
+		\node[syntax] (H) [below=1.5cm of F]   {$_{\frac{\frac{q}{2}.p}{2}}(\checkmark\paral\checkmark)$};	   
+		
+		\node[syntax] (I) [below=1.5cm of G]   {$_{\frac{\frac{q}{2}.p}{2}}(\checkmark\paral\checkmark)$};
+		
+		\node[syntax] (J) [below right=1.5cm and 1cm of G]
+		{$_{(1-(\frac{q}{2}))}(\nil)$};
 
-\begin{minipage}{0.30\hsize}
-\centering 
-
-\texttt{$P_{3}$}
-\end{minipage}
-\begin{minipage}{0.27\hsize}
-\centering
-
-\texttt{$P_{4}$}
-\end{minipage}
-\begin{minipage}{0.30\hsize}
-\centering
-
-\texttt{$P_{5}$}
-\end{minipage}
-\vspace*{0.5em}
-
-
-\begin{minipage}{0.30\hsize}
-\centering 
-
-
-
-\scalebox{0.6}{
-        \begin{tikzpicture}[->,>=stealth',node distance=1.5cm]
-                \node[syntax] (A)   {$\feature{A};(\feature{A};\checkmark\choice_{q} \feature{B};\checkmark)$};
-                \node[syntax] (B) [below of=A]   {$(\feature{A};\checkmark\choice_{q} \feature{B};\checkmark)$};
-                \node[syntax] (C) [below left of=B,node distance=3cm]   {$\checkmark$};
-                \node[syntax] (D) [below of=B,node distance=3cm]   {$\checkmark$};
-                 \node[syntax] (F) [below of=C]   {$\nil$};
-                 \node[syntax] (H) [below of=D]   {$\nil$};
-
-
-                \path (A) edge[->] node[right, opacity=0, text opacity=1] {$(\feature{A},1)$~$\nombreRegla{feat}$} (B)
-
-                (B) edge[->] node[left, opacity=0, text opacity=1] {$\nombreRegla{cho1}$~$(\feature{A},q)$} (C)
-                (B) edge[->] node[right, opacity=0, text opacity=1] {$\nombreRegla{cho2}$~$(\feature{B},1-q)$} (D)
-
-                (C) edge[->] node[left, opacity=0, text opacity=1] {$\nombreRegla{tick}$~$(\checkmark,1)$} (F)
-                (D) edge[->] node[right, opacity=0, text opacity=1] {$\nombreRegla{tick}$~$(\checkmark,1)$} (H);
-        \end{tikzpicture}
-
-}
-
-
-\end{minipage}
-\begin{minipage}{0.27\hsize}
-\centering
-
-
-
-\scalebox{0.6}{
-        \begin{tikzpicture}[->,>=stealth',node distance=1.5cm]
-                \node[syntax] (A)   {$(\feature{A};\checkmark \choice_{p} \feature{B};\nil)$};
-                \node[syntax] (B) [below left of=A,node distance=3cm]   {$\checkmark$};
-                \node[syntax] (C) [below right of=A,node distance=3cm]   {$\nil$};
-                \node[syntax] (D) [below of=B]   {$(\nil$};
-
-                \path (A) edge[->] node[above left, opacity=0, text opacity=1] {$\begin{array}{c}(\feature{A},p)\\ \nombreRegla{cho1}~\nombreRegla{feat}\end{array}$} (B)
-                (A) edge[->] node[right, opacity=0, text opacity=1] {$\begin{array}{c}(\feature{B},1-p)\\ \nombreRegla{cho2}~\nombreRegla{feat}\end{array}$} (C)
-                (B) edge[->] node[right, opacity=0, text opacity=1] {$(\checkmark,1)$~$\nombreRegla{tick}$} (D)
-
-                ;
-
-        \end{tikzpicture}
-}
-
-\end{minipage}
-\begin{minipage}{0.30\hsize}
-\centering
-
-
-
-\scalebox{0.6}{
-        \begin{tikzpicture}[->,>=stealth',node distance=1.5cm]
-                \node[syntax] (A)   {$(\feature{A};\checkmark \paral \feature{B};\checkmark)$};
-
-                \node[syntax] (B) [below left of=A,node distance=3cm]  {$(\checkmark \paral \feature{B};\checkmark)$};
-                \node[syntax] (C) [below of=B]  {$(\checkmark \paral \checkmark)$};
-                \node[syntax] (D) [below of=C]  {$(\nil)$};
-                \node[syntax] (E) [below of=A,node distance=3cm]  {$(\feature{A}; \checkmark \paral \checkmark)$};
-                \node[syntax] (F) [below of=E]  {$(\checkmark \paral \checkmark)$};
-                \node[syntax] (G) [below of=F]  {$(\nil)$};
-
-
-                \path (A) edge[->] node[left, opacity=0, text opacity=1] {$(\feature{A},1)$~$\nombreRegla{con1}$~$\nombreRegla{feat}$} (B)
-                (A) edge[->] node[right, opacity=0, text opacity=1] {$(\feature{B},1)$~$\nombreRegla{con2}$~$\nombreRegla{feat}$} (E)
-                (B) edge[->] node[left, opacity=0, text opacity=1] {$(\feature{B},1)$~$\nombreRegla{con5}$~$\nombreRegla{feat}$} (C)
-                (E) edge[->] node[right, opacity=0, text opacity=1] {$(\feature{A},1)$~$\nombreRegla{con4}$~$\nombreRegla{feat}$} (F)
-                (C) edge[->] node[left, opacity=0, text opacity=1] {$(\checkmark,0.5)$~$\nombreRegla{con3}$~$\nombreRegla{tick}$} (D)
-                (F) edge[->] node[right, opacity=0, text opacity=1] {$(\checkmark,0.5)$~$\nombreRegla{con3}$~$\nombreRegla{tick}$} (G)
-
-                ;
-
-        \end{tikzpicture}
-}
-\review{Verificar $P_5$}
+		\node[syntax] (K) [below=1.5cm of H]   {$_{p.q}(\nil)$};		   
+		\node[syntax] (L) [below=1.5cm of I]   {$_{p.q}(\nil)$};
+		
+						
+		\path (A) edge[->] node[above left, opacity=0, text opacity=1]
+		{$\checkmark$~$\nombreRegla{ofeat2}$}
+		(B)
+		(A) edge[->] node[right, opacity=0, text opacity=1]
+		{$\feature{A}$~$\nombreRegla{ofeat1}$}
+		(C)
+		(C) edge[->] node[right, opacity=0, text opacity=1]
+		{$\feature{B}$~$\nombreRegla{feat1}$}
+		(D)
+		(D) edge[->] node[above left, opacity=0, text opacity=1]
+		{$\feature{C}$~$\nombreRegla{con1}$}
+		(F)
+		(D) edge[->] node[right, opacity=0, text opacity=1]
+		{$\feature{D}$~$\nombreRegla{con2}$}
+		(G)
+		(F) edge[->] node[left, opacity=0, text opacity=1]
+		{$\feature{D}$~$\nombreRegla{con5}$}
+		(H)
+		(G) edge[->] node[left, opacity=0, text opacity=1]
+		{$\feature{C}$~$\nombreRegla{con4}$}
+		(I)
+		(G) edge[->] node[right, opacity=0, text opacity=1]
+		{$\checkmark$~$\nombreRegla{ofeat2}$}
+		(J)
+		(H) edge[->] node[right, opacity=0, text opacity=1]
+		{$\checkmark$~$\nombreRegla{con3}$}
+		(K)
+		(I) edge[->] node[right, opacity=0, text opacity=1]
+		{$\checkmark$~$\nombreRegla{con3}$}
+		(L)		
+		;                      
+		\end{tikzpicture}
+	}
 \end{minipage}
 \linefigure
 
 \caption{Ejemplos de la ejecución de la reglas de la semántica operacional del modelo probabilístico.\label{example:op}}
 \end{figure}
 
-\todo{la notación de este ejemplo est'a mal}
 Los ejemplos descritos en la figura~\ref{example:op} muestran el
-cálculo de la información probabilística al procesar los términos $P_1$, $P_2$, $P_3$, $P_4$ y $P_5$.
-Consideremos $P_1=\feature{A};\ofeature{B};_{p}\checkmark$,
-para este término se tiene que el conjunto de $\straces{N_{P_1}}$ es: $\{\langle (\feature{A},1),(\checkmark,(1-p))\rangle,\langle(\feature{A},1),(\feature{B},p)(\checkmark,1)\rangle\}$
-y $\products{P_1}=\{[\feature{A}],[\feature{A}\feature{B}]\}$.
-De igual manera $\products{N_{P_2}}=\{[\feature{A}],[\feature{A},\feature{B}]\}$ y la probabilidad
-asociada con cada producto es calculada tomando en cuenta las distintas ramas.
-También se muestra $\products{P_3}=\{[\feature{A}],[\feature{A},\feature{B}] \}$
-donde $\prob{[\feature{A}],P_3]}=p$ y $\prob{[\feature{A},\feature{B}],P_3]}=1-p$.
-
-En el siguiente término se muestra la noción del dominio probabilístico.
-Considerando $P_4=(\feature{A};\checkmark \choice_{p} \feature{B};\nil)$,
-se tiene que $\products{P_4}=\{[\feature{A}]\}$
-donde $\prob{[\feature{A}],P]}=1$.
-
-Finalmente consideremos $P_5=(\feature{A};\checkmark \paral \feature{B};\checkmark)$,
-donde $\products{P_5}=\{[\feature{A},\feature{B}]\}$ y 
- $\prob{[\feature{A},\feature{B}],P_5}= 0.5+0.5=1$.
+cálculo de la información probabilística al procesar los términos $P_1$, $P_2$ y $P_3$.
 
 
+Consideremos el término $P_1$=
+$\feature{A};\ofeature{B};_{p}(\feature{C};\ofeature{D};_{q}\checkmark)$
+cuyo conjunto $\straces{N_{P_1}}$ es:
+
+$$
+\begin{array}{ll}
+\straces{N_{P_1}}=&\{ \\
+                 &  \langle(\feature{A},1),(\checkmark,(1-p))\rangle,\\ 
+                 &\langle(\feature{A},1),(\feature{B},p),(\feature{C},1),(\checkmark,1-q)\rangle\\ 
+                 &\langle(\feature{A},1),(\feature{B},p),(\feature{C},1),(\feature{D},q),(\checkmark,1)\rangle\\
+                 & \}
+\end{array}     
+$$
+
+Donde $\products{P_1}=\{[\feature{A}],[\feature{A}\feature{B}\feature{C}],[\feature{A}\feature{B}\feature{C}\feature{D}]\}$
+
+De igual manera el término $P_2$=
+$\feature{A};\ofeature{B};_{p}(\feature{C};(\feature{D};\checkmark\choice_{q}(\ofeature{E};_{r}\checkmark)))$
+cuyo conjunto $\straces{N_{P_2}}$ es:
+
+$$
+\begin{array}{ll}
+\straces{N_{P_2}}=&\{ \\
+&  \langle(\feature{A},1),(\checkmark,(1-p))\rangle,\\ 
+&\langle(\feature{A},1),(\feature{B},p),(\feature{C},1),(\feature{D},1.q),(\checkmark,1)\rangle\\ 
+&\langle(\feature{A},1),(\feature{B},p),(\feature{C},1),(\feature{E},((1-p).q)),(\checkmark,1)\rangle\\
+&\langle(\feature{A},1),(\feature{B},p),(\feature{C},1),(\checkmark,(1-q).(1-r))\rangle\\
+& \}
+\end{array}     
+$$
+
+Donde $\products{P_2}=\{[\feature{A}],[\feature{A}\feature{B}\feature{C}\feature{D}],[\feature{A}\feature{B}\feature{C}\feature{E}],[\feature{A}\feature{B}\feature{C}]\}$
 
 
-% \bdfn\label{dfn:equiv}
-%   Let $P,Q\in\fodaPA$. We define that they are functional equivalent, written $P\equiv_{func} Q$ if
-% the products derived from both \SPLs\ are the same: $\products{P}=\products{Q}$.
-
-% We define that they are probabilistically equivalent, written $P\equiv_{prob} Q$ if
-% $P\equiv_{func} Q$ and for each $[\sigma]\in \products{P}$ we have that $\prob{[\sigma],P} =\prob{[\sigma],Q}$ .
-% \edfn 
 
 
-% \bprop
-%   Let $P,Q,R\in\fodaPA$. The following properties hold:
-%   \begin{itemize}
-%   \item $P\equiv_{func} P$.
-%   \item $P\equiv_{prob} P$.
-%   \item If $P\equiv_{func} Q$ then $Q\equiv_{func} P$.
-%   \item If $P\equiv_{prob} Q$ then $Q\equiv_{prob} P$.
-%   \item If $P\equiv_{func} Q$ and $Q\equiv_{func} R$ then $P\equiv_{func} R$.
-%   \item If $P\equiv_{prob} Q$ and $Q\equiv_{prob} R$ then $P\equiv_{prob} R$.
+También $P_3$=
+$\ofeature{A};_{p}\feature{B};(\ofeature{C};_{q}\checkmark\paral\feature{D};\checkmark)$
+cuyo conjunto $\straces{N_{P_3}}$ es:
 
-%           \end{itemize}
-% \eprop 
+$$
+\begin{array}{ll}
+\straces{N_{P_3}}=&\{ \\
+&  \langle(\checkmark,(1-p))\rangle,\\ 
+&\langle(\feature{A},p),(\feature{B},1),(\feature{C},\frac{q}{2}),(\feature{D},\frac{\frac{q}{2}.p}{2}),(\checkmark,p.q)\rangle\\ 
+&\langle(\feature{A},p),(\feature{B},1),(\feature{D},\frac{q}{2}),(\feature{C},\frac{\frac{q}{2}.p}{2}),(\checkmark,p.q)\rangle\\ 
+&\langle(\feature{A},p),(\feature{B},1),(\feature{D},\frac{q}{2}),(\checkmark,1-(\frac{q}{2}))\rangle\\ 
+& \}
+\end{array}     
+$$
 
-%%% Local Variables: 
-%%% mode: latex
-%%% TeX-master: "../../main"
-%%% ispell-local-dictionary: "castellano"
-%%% End: 
+Donde $\products{P_3}=\{[\feature{A}\feature{B}\feature{C}\feature{D}],[\feature{A}\feature{B}\feature{D}]\}$
+
+De esta manera es posible dentro de la semántica operacional, calcular
+las probabilidades para cada traza en cada elemento.

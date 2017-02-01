@@ -6,7 +6,7 @@ entre la semántica operacional y la semántica denotacional.
   Dado el término $P\in\fodaPAp$ y la característica $\feature{A}\in\calF$, 
   entonces $(pr,p)\in\prodp(\feature{A};P)$ si y sólo si
   $$p=\sum\lbag r\ |\ (pr',r)\in\prodp(P) \y pr'\cup\{\feature{A}\} = pr\rbag$$
-  \begin{proof}
+  \textit{Demostración.}
     La otra transición de $\feature{A};P$ es  $\feature{A};P\tranp{\feature{A}}{1}Q$.
     Entonces $\feature{A};P\vtranp{s}{p}P$ si y sólo si
     \begin{displaymath}
@@ -21,22 +21,21 @@ entre la semántica operacional y la semántica denotacional.
           \sum\lbag r\ |\ (pr',r)\in\prodp(P)\y \{\feature{A}\}\cup pr'=pr\rbag
       \end{split}
     \end{equation*}
-  \end{proof}
 \eprop
 
 \bcor\label{cor:pref}
   Dado el término $P\in\fodaPAp$, y la característica $\feature{A}\in\calF$, entonces
   $$\prodp(\feature{A};P)=\semdenp{\feature{A};\cdot}(\prodp(P))$$
-  \begin{proof}
+  \textit{Demostración.}
     Esto es consecuencia de la proposición~\ref{prop:pref}.
-  \end{proof}
+
 \ecor
 
 \bprop\label{prop:prefopt}
   Dado el término $P\in\fodaPAp$, la característica $\feature{A}\in\calF$, y la probabilidad $q\in (0,1)$, 
   entonces $(pr,p)\in\prodp(\ofeature{A};_qP)$ si y sólo si $(pr,p)=(\emptyset,1-q)$ o
   $$p=q\cdot \sum\{r\ |\ (pr',r)\in\prodp(P) \y pr'\cup\{\feature{A}\} = pr\}$$
-  \begin{proof}
+  \bprf
     Existen dos transiciones para $\ofeature{A};_qP$: $\ofeature{A};_qP\tranp{\feature{A}}{q} P$ y
      $\ofeature{A};_qP\tranp{\checkmark}{1-q}\nil$. Por lo tanto si $\ofeature{A};_qP\vtranp{s}{r}Q$ entonces
      \begin{itemize}
@@ -56,15 +55,15 @@ entre la semántica operacional y la semántica denotacional.
          q\cdot\sum\lbag r'\ |\ (pr',r')\in\prodp(P)\y \{\feature{A}\}\cup pr'=pr\rbag
        \end{split}
      \end{equation*}
-  \end{proof}
+  \eprf
 \eprop
 
 \bcor\label{cor:prefopt}
   Dado el término $P\in\fodaPAp$, la característica $\feature{A}\in\calF$ y la probabilidad $q\in (0,1)$, entonces
   $$\prodp(\ofeature{A};_qP)=\semdenp{\ofeature{A};_q\cdot}(\prodp(P))$$
-  \begin{proof}
+  \bprf
     Esto es consecuencia de la proposición~\ref{prop:prefopt}.
-  \end{proof}
+  \eprf
 \ecor
 
 \blem\label{lem:choice}
@@ -74,9 +73,9 @@ entre la semántica operacional y la semántica denotacional.
  \item $P\vtranp{s}{r'} R$ y $r=q\cdot r'$, o
  \item $Q\vtranp{s}{r'} R$ y $r=(1-q)\cdot r'$
  \end{itemize}
- \begin{proof}
+ \bprf
    Este lema es consecuencia de las reglas~\nombreRegla{cho1} y~\nombreRegla{cho2} de la semántica operacional.
- \end{proof}
+ \eprf
 \elem
 
 \bprop\label{prop:choice}
@@ -88,7 +87,8 @@ entre la semántica operacional y la semántica denotacional.
       \left((1-q)\cdot\sum\{r\ |\ (pr,r)\in\prodp(Q)\}\right)
     \end{split}
   \end{equation*}
-  \begin{proof}
+  \textit{Demostración.}
+  
     $(pr,p)\in\prodp(P\choice_q Q)$ si y sólo si
     \begin{equation*}
       \begin{split}
@@ -104,15 +104,14 @@ entre la semántica operacional y la semántica denotacional.
         (1-q)\cdot\sum\lbag  r\ |\ (pr,r)\in\prodp(Q)\rbag
       \end{split}      
     \end{equation*}
-  \end{proof}
+
 \eprop
 
 \bcor\label{cor:choice}
   Dados los términos $P,Q\in\fodaPAp$, y la probabilidad $q\in (0,1)$, entonces
   $$\prodp(P\choice_q Q)=\semdenp{\cdot\choice_q\cdot}\bigl(\prodp(P),\prodp(Q)\bigr)$$
-  \begin{proof}
+  \textit{Demostración.}
     Es consecuencia de la proposición~\ref{prop:choice}.
-  \end{proof}
 \ecor
 
 \bdfn
@@ -126,7 +125,7 @@ entre la semántica operacional y la semántica denotacional.
   $q=\sum\lbag q'\| |\ Q\vtranp{s'}{q'}\nil\rbag$
   Entonces
   $$p\cdot q = \sum\lbag r\ |\ P\paral Q\vtranp{s''\checkmark}{r}\nil\y s''\in\inter(s,s)\rbag$$
-  \begin{proof}
+  \textit{Demostración.}
     Por inducción de $|s|+|s'|$.
     \begin{description}
     \item[$|s|+|s'|=0$] Desde 
@@ -257,15 +256,14 @@ entre la semántica operacional y la semántica denotacional.
         \end{equation}
       \end{description}
     \end{description}
-  \end{proof}
 \eprop
 
 \bcor\label{cor:paral}
   Dados los términos $P,Q\in\fodaPAp$, y la probabilidad $q\in (0,1)$, entonces
   $$\prodp(P\paral Q)=\semdenp{\cdot\paral\cdot}\bigl(\prodp(P),\prodp(Q)\bigr)$$
-  \begin{proof}
+  \textit{Demostración.}
     Este corolario es una consecuencia directa de la proposición~\ref{prop:paral1} y la definición~\ref{def:semantic:operators}.
-  \end{proof}
+
 \ecor
 
 \bprop\label{prop:mand}
@@ -274,35 +272,32 @@ entre la semántica operacional y la semántica denotacional.
   \item $\f{A}\in s$ si y sólo si $\mandatory{A}{P}\vtranp{s\checkmark}{p}\nil$.
   \item $\f{A}\not\in s$ si y sólo si $\mandatory{A}{P}\vtranp{s\f{A}\checkmark}{p}\nil$.
   \end{enumerate}
-  \begin{proof}
+  \textit{Demostración.}
     En ambos casos la demostración se realiza por inducción de la longitud de $|s|$.
     \lcomen{I think it is trivial, is it necessary to write it in detail.}
-  \end{proof}
 \eprop
 
 \bcor\label{cor:mand}
   Dado el término   $P\in\fodaPAp$  y la característica  $\feature{A}\in\calF$, entonces $(pr,p)\in$ si y sólo si
   $$\prodp(\mandatory{A}{P})=\semdenp{\mandatory{A}{\cdot}}(\prodp(P))$$
-  \begin{proof}
+  \textit{Demostración.}
     Este corolario es una consecuencia directa de la proposición~\ref{prop:mand} y la definición~\ref{def:semantic:operators}.
-  \end{proof}
 \ecor
 
 \bprop\label{prop:forb}
   Dado el término  $P\in\fodaPAp$, la característica $\feature{A}\in\calF$, la traza $s\in\calF^*$ y la probabilidad
   $p\in(0,1)$. $P\vtranp{s\checkmark}{p}\nil$, si y sólo si
   $\forbid{P}{A}\vtranp{s\checkmark}{p}\nil$ y $\f{A}\not\in s$.
-  \begin{proof}
+  \textit{Demostración.}
     La demostración es simple por inducción de la longitud de $s$.
-  \end{proof}
+
 \eprop
 
 \bcor\label{cor:forb}
   Dado el término $P\in\fodaPAp$ y la característica $\feature{A}\in\calF$, entonces 
   $$\prodp(\forbid{A}{P})=\semdenp{\forbid{A}{\cdot}}(\prodp(P))$$
-  \begin{proof}
+  \textit{Demostración.}
     Este corolario es una consecuencia directa de la proposición~\ref{prop:forb} y la definición~\ref{def:semantic:operators}.
-  \end{proof}
 \ecor
 
 \bprop\label{prop:req}
@@ -312,11 +307,11 @@ entre la semántica operacional y la semántica denotacional.
   $s'$ y tiene alguna de las siguientes formas:
   $\f{A}\not\in s$ y $s'=s$, $\f{B}\in s$ y $s'=s$, o
   $\f{A}\in s$, $\f{B}\not\in s$ y $s'=s\cdot\f{B}$.
-  \begin{proof}
+  \textit{Demostración.}
     Se realiza por inducción de la longitud de $s$.
     \begin{description}
     \item[$|s|=0$] En este caso $P\tranp{\checkmark}{p}\nil$. 
-      Se obtiene el resultado aplicando la regla~\nombreRegla{req4}.
+      Se obtiene el resultado aplicando la regla~\nombreRegla{req3}.
     \item[$|s|>0$] Ahora se pueden distinguir tres casos dependiendo 
     de la primera característica de $s$:
       \begin{description}
@@ -340,7 +335,6 @@ entre la semántica operacional y la semántica denotacional.
         sobre $s_1$.
       \end{description}
     \end{description}
-  \end{proof}
 \eprop
 
 \bprop\label{cor:req}
@@ -349,10 +343,9 @@ entre la semántica operacional y la semántica denotacional.
   \begin{displaymath}
     \prodp(\require{A}{B}{P})=\semdenp{\require{A}{B}{\cdot}}(\prodp(P))
   \end{displaymath}
-  \begin{proof}
+  \textit{Demostración.}
     Este corolario es una consecuencia directa de la proposición~\ref{prop:req} y de la definición
     \ref{def:semantic:operators}.
-  \end{proof}
 \eprop
 
 
@@ -360,7 +353,7 @@ entre la semántica operacional y la semántica denotacional.
   Dado el término $P\in\fodaPAp$, las características $\feature{A},\feature{B}\in\calF$, la traza $s\in\calF^*$ y
   la probabilidad $p\in(0,1)$. Entonces $P\vtran{s\checkmark}{p}\nil$ si y sólo si
   $\exclude{A}{B}{P}\vtranp{s\checkmark}{p}\nil$, $\f{A}\not\in s$ y $\f{B}\not\in s$.
-  \begin{proof}
+  \textit{Demostración.}
     Se realiza la demostración por la inducción de la longitud de $s$.
     \begin{description}
     \item[$|s|=0$] En este caso $P\tranp{\checkmark}{p}\nil$. 
@@ -377,12 +370,6 @@ entre la semántica operacional y la semántica denotacional.
         \item $\f{B}\in s_1$ si y sólo si $\mandatory{B}{P_1}\vtranp{s_1\cdot \checkmark}{q}\nil$.
         \item $\f{B}\not\in s_1$ si y sólo si  $\mandatory{B}{P_1}\vtranp{s_1\f{B}\checkmark}{q}\nil$.
         \end{itemize}
-        % \item[$s=\f{B}s_1$.] In this case  is $p_1,q\in(0,1)$
-        %   such that $P\tranp{\f{B}}{p_1}P_1\vtranp{s_1\checkmark}{q}\nil$. 
-        %   By applying Rule~\nombreRegla{req3}, we obtain
-        %   $$
-        %   \require{A}{B}{P}\tranp{\f{B}}_{p_1}P_1\vtranp{s_1\checkmark}{q}\nil
-        %   $$
       \item[$s=\f{C}s_1$ con $\f{C}\neq\f{A}$.]
         En este caso es $p_1,q\in(0,1)$
         tal que $P\tranp{\f{C}}{p_1}P_1\vtranp{s_1\checkmark}{q}\nil$.
@@ -392,7 +379,6 @@ entre la semántica operacional y la semántica denotacional.
         $, y luego el resultado se obtiene al aplicar la  hipótesis de inducción sobre $s_1$.
       \end{description}
     \end{description}
-  \end{proof}
 \eprop
 
 \bprop\label{cor:excl}
@@ -400,19 +386,17 @@ entre la semántica operacional y la semántica denotacional.
   \begin{displaymath}
     \prodp(\exclude{A}{B}{P})=\semdenp{\exclude{A}{B}{\cdot}}(\prodp(P))
   \end{displaymath}
-  \begin{proof}
+  \textit{Demostración.}
     Este corolario es una consecuencia directa de la proposición~\ref{prop:excl} y la definición~\ref{def:semantic:operators}.
-  \end{proof}
 \eprop
 
 \bthm\label{prop:equivprob}
   Dado el término $P\in\fodaPAp$ y el producto $pr\in\prod(\np(P))$. $(pr,p)\in\semdenp{P}$ si y sólo si
   $(pr,p)\in\prodp(P)$.
-  \begin{proof}
+  \textit{Demostración.}
     La demostración es trivial por inducción estructural sobre $P$
     al usar los corolarios~\ref{prop:pref}, \ref{cor:prefopt}, \ref{cor:choice},
     \ref{cor:paral},  \ref{cor:mand}, \ref{cor:forb}, \ref{cor:req}, y~\ref{cor:excl}.
-  \end{proof}
 \ethm
 
 

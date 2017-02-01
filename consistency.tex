@@ -1,4 +1,5 @@
 \section{Consistencia del modelo probabilístico}
+\label{sec:stat:consis}
 
 La consistencia del modelo probabilístico se basa en la
 consistencia del modelo no probabilístico. Esto implica
@@ -50,6 +51,7 @@ La sintaxis del modelo no probabilístico es presentada en la definición \ref{d
   
   \begin{enumerate}
   \item\label{prop:relnonprob-a} $P\vtranp{s}{p}Q$ si y sólo si $\np(P)\vtran{s}\np(Q)$.
+  \todo{Deberiamos llamar a $\products{P}$ como $\prodp(P)$ en la sem denotacional ???   por consistencia?}
   \item\label{prop:relnonprob-b} $pr\in\prod(\np(P))$ si y sólo si existe $p>0$ tal que $(pr,p)\in\prodp(P)$.
   \item\label{prop:relnonprob-c} $pr\in\semden{\np(P)}$ si y sólo si existe $p>0$ tal que $(pr,p)\in\semdenp{P}$.
   \item\label{prop:relnonprob-d} Existe $p\in(0,1)$ tal que $(pr,p)\in\prodp(P)$ si y sólo si existe $q\in(0,1)$ tal que $(pr,q)\in\semdenp{P}$.
@@ -57,15 +59,28 @@ La sintaxis del modelo no probabilístico es presentada en la definición \ref{d
   
   
   
-  \begin{proof}
-    La demostración de las secciones ~\ref{prop:relnonprob-a} y~\ref{prop:relnonprob-c} de la proposición 
+  \textit{Demostración}
+    La demostración de las secciones~\ref{prop:relnonprob-a} y~\ref{prop:relnonprob-c} de la proposición 
     \ref{prop:relnonprob} es trivial ya que las reglas consideradas en ~\cite{acl13}
     son las mismas que las presentadas en el modelo probabilístico, simplemente
-    eliminando la información relacionada a las probabilidades. La sección ~\ref{prop:relnonprob-b} 
-    de la proposición \ref{prop:relnonprob} es una consecuencia directa de la sección ~\ref{prop:relnonprob-a}
-    de la proposición \ref{prop:relnonprob}. 
-
-  \end{proof}
+    eliminando la información relacionada a las probabilidades. En particular
+    la sección ~\ref{prop:relnonprob-a} muestra que para cualquier transición
+    de la extensión probabilística $P\vtranp{s}{p}Q$ existen los términos con la
+    información probabilística eliminada $P$ y $Q$. La sección~\ref{prop:relnonprob-c}
+    muestra que existe un producto $pr$ que pertenece al 
+    conjunto de los productos no probabilísticos generados por la función $P$
+    y este solo existirá
+    si $pr$ existe dentro del conjunto de los productos generados por la función probabilística
+    de $P$ y que su probabilidad sea mayor a 0.
+    La sección~\ref{prop:relnonprob-b} 
+    de la proposición \ref{prop:relnonprob} es una consecuencia directa de la sección ~\ref{prop:relnonprob-a} y muestra que el producto $pr$ existirá si y sólo si éste
+    existe tanto en el conjunto de los productos probabilísticos como en el de los no
+    probabilísticos.
+    La sección~\ref{prop:relnonprob-d} se refiere a que existe una probabilidad $p\in(0,1)$
+    de un producto probabilístico si y sólo si este producto existe dentro de los
+    productos generados por la misma función de la semántica denotacional $P$.
+%\todo{Hay que escribir esta demostración más detallada}
+  
 \eprop
 
 % As a direct consequence of the previous result we have the following Corollary.

@@ -1,4 +1,5 @@
 \section{Ocultando conjuntos de características}
+\label{sec:stat:hid}
 
 El cálculo de la probabilidad de una característica dentro
 de una línea de productos software, permite determinar
@@ -22,12 +23,12 @@ del conjunto de productos válidos puede ser eliminada del modelo.
 %  dependencies and restrictions).
 %\end{itemize}
 
-\begin{definition}
+\bdfn
   Dado el conjunto de características $\calA\subseteq \calF$ y un término $P\in\fodaPAp$,
   el operador $P\hide{\calA}$
   representa el ocultamiento sintáctico de las características en el conjunto $\calA$
   para el término $P$.
-\end{definition}
+\edfn
 
 De esta manera se necesita una nueva característica $\bot\not\in\calF$. $\calFbot =
 \calF\cup\{\bot\}$. $\calA\subseteq\calF$.
@@ -49,7 +50,7 @@ para el procesamiento de la característica de ocultamiento.
 
 \subsection{Semántica denotacional}
 
-\begin{definition}
+\bdfn
   Dado el producto $pr\subseteq\calF$ y el conjunto de características ocultas $\calA\subseteq\calF$
   se define:
   
@@ -63,21 +64,51 @@ para el procesamiento de la característica de ocultamiento.
   \end{displaymath}
   Dada la traza $s\in\calF^{*}$, $s\hide\calA$ representará la substitución
   de cada ocurrencia en la traza $s$ de cualquier característica en $\calA$ por $\bot$.
-\end{definition}
+\edfn
 
-\begin{definition}
+\bdfn
   Dado el multiconjunto $M\in\calM$ y el conjunto de características ocultas $\calA\subseteq\calF$. Se define:
   \begin{displaymath}
     \semdenp{\cdot\hide{\calA}} = \accum\Bigl(\lbag(pr\hide{\calA},p)\
     |\ (pr,p)\in M\rbag \Bigr)
   \end{displaymath}
-\end{definition}
+\edfn
 
+\bprop
+  Dados los términos $P,Q\in\fodaPAp$ y el conjunto de acciones ocultas $\calA\subseteq\calF$, entonces
+  las siguientes proposiciones mantienen
+  \begin{itemize}
+  \item $\semdenp{\checkmark\hide\calA}=\semdenp{\checkmark}$
+  \item $\semdenp{\nil\hide\calA}=\semdenp{\nil}$
+  \item
+      $\semdenp{(\fA;P)\hide\calA}=
+      \begin{cases}
+        \semdenp{\bot;(P\hide\calA)} & \mbox{si } A\in\calA\\
+        \semdenp{\fA;(P\hide\calA)} & \mbox{si } A\not\in\calA\\
+      \end{cases}$
+  \item
+      $\semdenp{(\ofA;_rP)\hide\calA}=
+      \begin{cases}
+        \semdenp{\overline{\bot};_r(P\hide\calA)} & \mbox{si } A\in\calA\\
+        \semdenp{\ofA;_r(P\hide\calA)} & \mbox{si } A\not\in\calA\\
+      \end{cases}$
+  \item $\semdenp{(P\choice_P Q)\hide\calA}=\semdenp{(P\hide\calA)\choice_P (Q\hide\calA)}$
+  \item $\semdenp{(P\paral Q)\hide\calA}=\semdenp{(P\hide\calA)\paral (Q\hide\calA)}$
+  \item If $\fA,\fB\not\in\calA$ entonces 
+    $\semdenp{(\require{A}{B}{P})\hide\calA}=\semdenp{\require{A}{B}{(P\hide\calA)}}$
+  \item If $\fA,\fB\not\in\calA$ entonces 
+    $\semdenp{(\exclude{B}{P})\hide\calA}=\semdenp{\exclude{A}{B}{(P\hide\calA)}}$
+  \end{itemize}
+  \bprf
+    TO DO \lcomen{Espero que esto salga aplicando las definiciones. No
+      creo que sea dificil, pero sí un conazo}
+  \eprf
+\eprop
 
-\begin{proposition}
+\bprop
   $P\hide\calA\vtran{s}_r$ si y sólo si $r=\sum\lbag p \ |\ P\vtran{s'}_p Q,\
   s=s'\hide\calA\rbag$
-  \begin{proof}
+  \textit{Demostración.}
     La demostración es realizada por inducción sobre la longitud
     de la traza $s$. Si la longitud es cero el resultado es trivial. Entonces
     se supone que
@@ -114,14 +145,14 @@ para el procesamiento de la característica de ocultamiento.
       \end{split}
     \end{displaymath}
     El caso cuando $\fA\not\in\calA$ es similar al anterior, solo necesita saltar el paso de $\fB$ a $\bot$.
-  \end{proof}
-\end{proposition}
+  
+\eprop
 
-\begin{proposition}
+\bprop
   \begin{displaymath}
-    \prodp(P\hideA)  = \semdenp{\hideA}(\prodp(P))
+    \prodp(P\hideA)  = \semdenp{\prodp(P)\hideA}
   \end{displaymath}
-  \begin{proof}
+  \textit{Demostración.}
     $(pr,p)\in \prodp(P\hideA)$ si y sólo si 
     \begin{displaymath}
       \begin{split}
@@ -136,39 +167,9 @@ para el procesamiento de la característica de ocultamiento.
     \end{displaymath}
     De tal manera 
     $(pr,p)\in\prodp(P\hideA)$ si y sólo si 
-    $(pr,p)\in\semdenp{\hideA}(\prodp(P))$ 
-  \end{proof}
-\end{proposition}
-\begin{proposition}
-  Dados los términos $P,Q\in\fodaPAp$ y el conjunto de acciones ocultas $\calA\subseteq\calF$, entonces
-  las siguientes proposiciones mantienen
-  \begin{itemize}
-  \item $\semdenp{\checkmark\hide\calA}=\semdenp{\checkmark}$
-  \item $\semdenp{\nil\hide\calA}=\semdenp{\nil}$
-  \item
-      $\semdenp{(\fA;P)\hide\calA}=
-      \begin{cases}
-        \semdenp{\bot;(P\hide\calA)} & \mbox{si } A\in\calA\\
-        \semdenp{\fA;(P\hide\calA)} & \mbox{si } A\not\in\calA\\
-      \end{cases}$
-  \item
-      $\semdenp{(\ofA;_rP)\hide\calA}=
-      \begin{cases}
-        \semdenp{\overline{\bot};_r(P\hide\calA)} & \mbox{si } A\in\calA\\
-        \semdenp{\ofA;_r(P\hide\calA)} & \mbox{si } A\not\in\calA\\
-      \end{cases}$
-  \item $\semdenp{(P\choice_P Q)\hide\calA}=\semdenp{(P\hide\calA)\choice_P (Q\hide\calA)}$
-  \item $\semdenp{(P\paral Q)\hide\calA}=\semdenp{(P\hide\calA)\paral (Q\hide\calA)}$
-  \item If $\fA,\fB\not\in\calA$ entonces 
-    $\semdenp{(\require{A}{B}{P})\hide\calA}=\semdenp{\require{A}{B}{(P\hide\calA)}}$
-  \item If $\fA,\fB\not\in\calA$ entonces 
-    $\semdenp{(\exclude{B}{P})\hide\calA}=\semdenp{\exclude{A}{B}{(P\hide\calA)}}$
-  \end{itemize}
-  \begin{proof}
-    Consequencia del teormea~\ref{prop:equivprob} y la
-    proposición anterior.
-  \end{proof}
-\end{proposition}
+    $(pr,p)\in\semdenp{(\prodp(P))\hideA}$ 
+
+\eprop
 %%% Local Variables: 
 %%% mode: latex
 %%% TeX-master: "main"
