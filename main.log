@@ -1350,4 +1350,3065 @@ LaTeX Font Info:    Try loading font information for U+lasy on input line 72.
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <7> not available
-(Font)              Font shape `U/lasy/m/n' tried instead 
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 72.
+LaTeX Font Info:    Try loading font information for U+stmry on input line 72.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\stmaryrd\ustmry.fd")
+
+LaTeX Font Warning: Font shape `U/stmry/b/n' undefined
+(Font)              using `U/stmry/m/n' instead on input line 72.
+
+LaTeX Font Info:    Font shape `U/lasy/b/n' in size <5> not available
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 72.
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\unskip' on input line 72.
+
+(abstract.tex) (introduction.tex
+
+LaTeX Warning: Reference `sec:stat:sintax' on page 1--[2017-02-02\ \@dtctr =\ti
+me \divide \@dtctr by 60 00:\@dtctr =\time \@DT@modctr =\@dtctr \relax \divide 
+\@DT@modctr by 60\relax \multiply \@DT@modctr by 60\relax \advance \@dtctr  by 
+-\@DT@modctr 00] undefined on input line 9.
+
+
+LaTeX Warning: Reference `sec:stat:oper' on page 1--[2017-02-02\ \@dtctr =\time
+ \divide \@dtctr by 60 00:\@dtctr =\time \@DT@modctr =\@dtctr \relax \divide \@
+DT@modctr by 60\relax \multiply \@DT@modctr by 60\relax \advance \@dtctr  by -\
+@DT@modctr 00] undefined on input line 14.
+
+
+LaTeX Warning: Reference `sec:stat:consis' on page 1--[2017-02-02\ \@dtctr =\ti
+me \divide \@dtctr by 60 00:\@dtctr =\time \@DT@modctr =\@dtctr \relax \divide 
+\@DT@modctr by 60\relax \multiply \@DT@modctr by 60\relax \advance \@dtctr  by 
+-\@DT@modctr 00] undefined on input line 20.
+
+
+LaTeX Warning: Reference `sec:stat:den' on page 1--[2017-02-02\ \@dtctr =\time 
+\divide \@dtctr by 60 00:\@dtctr =\time \@DT@modctr =\@dtctr \relax \divide \@D
+T@modctr by 60\relax \multiply \@DT@modctr by 60\relax \advance \@dtctr  by -\@
+DT@modctr 00] undefined on input line 24.
+
+
+LaTeX Warning: Reference `sec:stat:hid' on page 1--[2017-02-02\ \@dtctr =\time 
+\divide \@dtctr by 60 00:\@dtctr =\time \@DT@modctr =\@dtctr \relax \divide \@D
+T@modctr by 60\relax \multiply \@DT@modctr by 60\relax \advance \@dtctr  by -\@
+DT@modctr 00] undefined on input line 27.
+
+
+LaTeX Warning: Reference `sec:equivalence' on page 1--[2017-02-02\ \@dtctr =\ti
+me \divide \@dtctr by 60 00:\@dtctr =\time \@DT@modctr =\@dtctr \relax \divide 
+\@DT@modctr by 60\relax \multiply \@DT@modctr by 60\relax \advance \@dtctr  by 
+-\@DT@modctr 00] undefined on input line 32.
+
+
+LaTeX Warning: Reference `sec:stat:impl' on page 1--[2017-02-02\ \@dtctr =\time
+ \divide \@dtctr by 60 00:\@dtctr =\time \@DT@modctr =\@dtctr \relax \divide \@
+DT@modctr by 60\relax \multiply \@DT@modctr by 60\relax \advance \@dtctr  by -\
+@DT@modctr 00] undefined on input line 36.
+
+) (syntax.tex
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 22.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 22.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 22.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 22.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 22.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 22.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 22.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 22.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 22.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 22.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\multiply' on input line 22.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 22.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\advance' on input line 22.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 22.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 22.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 22.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 22.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 22.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 22.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 22.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 22.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 22.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 22.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 22.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 22.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\multiply' on input line 22.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 22.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\advance' on input line 22.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 22.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 22.
+
+[1
+
+{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
+
+LaTeX Warning: Reference `sec:stat:sintax:dfn' on page 2--[2017-02-02\ \@dtctr 
+=\time \divide \@dtctr by 60 00:\@dtctr =\time \@DT@modctr =\@dtctr \relax \div
+ide \@DT@modctr by 60\relax \multiply \@DT@modctr by 60\relax \advance \@dtctr 
+ by -\@DT@modctr 00] undefined on input line 29.
+
+
+LaTeX Warning: Reference `dfn:syntax' on page 2--[2017-02-02\ \@dtctr =\time \d
+ivide \@dtctr by 60 00:\@dtctr =\time \@DT@modctr =\@dtctr \relax \divide \@DT@
+modctr by 60\relax \multiply \@DT@modctr by 60\relax \advance \@dtctr  by -\@DT
+@modctr 00] undefined on input line 30.
+
+) (operational.tex
+
+LaTeX Warning: Reference `fig:sos-rules' on page 2--[2017-02-02\ \@dtctr =\time
+ \divide \@dtctr by 60 00:\@dtctr =\time \@DT@modctr =\@dtctr \relax \divide \@
+DT@modctr by 60\relax \multiply \@DT@modctr by 60\relax \advance \@dtctr  by -\
+@DT@modctr 00] undefined on input line 5.
+
+
+Overfull \hbox (9.42183pt too wide) in paragraph at lines 75--76
+ [][] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: Reference `fig:sos-rules-p' on page 2--[2017-02-02\ \@dtctr =\ti
+me \divide \@dtctr by 60 00:\@dtctr =\time \@DT@modctr =\@dtctr \relax \divide 
+\@DT@modctr by 60\relax \multiply \@DT@modctr by 60\relax \advance \@dtctr  by 
+-\@DT@modctr 00] undefined on input line 87.
+
+
+LaTeX Warning: Reference `fig:sos-rules' on page 2--[2017-02-02\ \@dtctr =\time
+ \divide \@dtctr by 60 00:\@dtctr =\time \@DT@modctr =\@dtctr \relax \divide \@
+DT@modctr by 60\relax \multiply \@DT@modctr by 60\relax \advance \@dtctr  by -\
+@DT@modctr 00] undefined on input line 90.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 147.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 147.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 147.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 147.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 147.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 147.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 147.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 147.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 147.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 147.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\multiply' on input line 147.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 147.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\advance' on input line 147.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 147.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 147.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 147.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 147.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 147.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 147.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 147.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 147.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 147.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 147.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 147.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 147.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\multiply' on input line 147.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 147.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\advance' on input line 147.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 147.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 147.
+
+[2]
+
+LaTeX Warning: Reference `fig:sos-rules-p' on page 3--[2017-02-02\ \@dtctr =\ti
+me \divide \@dtctr by 60 00:\@dtctr =\time \@DT@modctr =\@dtctr \relax \divide 
+\@DT@modctr by 60\relax \multiply \@DT@modctr by 60\relax \advance \@dtctr  by 
+-\@DT@modctr 00] undefined on input line 157.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 164.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 164.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 164.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 164.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 164.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 164.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 164.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 164.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 164.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 164.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\multiply' on input line 164.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 164.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\advance' on input line 164.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 164.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 164.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 164.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 164.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 164.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 164.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 164.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 164.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 164.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 164.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 164.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 164.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\multiply' on input line 164.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 164.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\advance' on input line 164.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 164.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 164.
+
+[3]
+
+LaTeX Warning: Reference `def:trantions' on page 4--[2017-02-02\ \@dtctr =\time
+ \divide \@dtctr by 60 00:\@dtctr =\time \@DT@modctr =\@dtctr \relax \divide \@
+DT@modctr by 60\relax \multiply \@DT@modctr by 60\relax \advance \@dtctr  by -\
+@DT@modctr 00] undefined on input line 169.
+
+
+LaTeX Warning: Reference `def:trtrantions' on page 4--[2017-02-02\ \@dtctr =\ti
+me \divide \@dtctr by 60 00:\@dtctr =\time \@DT@modctr =\@dtctr \relax \divide 
+\@DT@modctr by 60\relax \multiply \@DT@modctr by 60\relax \advance \@dtctr  by 
+-\@DT@modctr 00] undefined on input line 169.
+
+
+LaTeX Warning: Reference `lem:prob' on page 4--[2017-02-02\ \@dtctr =\time \div
+ide \@dtctr by 60 00:\@dtctr =\time \@DT@modctr =\@dtctr \relax \divide \@DT@mo
+dctr by 60\relax \multiply \@DT@modctr by 60\relax \advance \@dtctr  by -\@DT@m
+odctr 00] undefined on input line 189.
+
+
+LaTeX Warning: Reference `lem:sum:prob' on page 4--[2017-02-02\ \@dtctr =\time 
+\divide \@dtctr by 60 00:\@dtctr =\time \@DT@modctr =\@dtctr \relax \divide \@D
+T@modctr by 60\relax \multiply \@DT@modctr by 60\relax \advance \@dtctr  by -\@
+DT@modctr 00] undefined on input line 201.
+
+
+LaTeX Warning: Reference `lem:check' on page 4--[2017-02-02\ \@dtctr =\time \di
+vide \@dtctr by 60 00:\@dtctr =\time \@DT@modctr =\@dtctr \relax \divide \@DT@m
+odctr by 60\relax \multiply \@DT@modctr by 60\relax \advance \@dtctr  by -\@DT@
+modctr 00] undefined on input line 212.
+
+
+Overfull \hbox (10.87712pt too wide) in paragraph at lines 217--223
+[]\OT1/cmr/m/n/10 Una vez de-fi-nido como es mo-delada la in-for-macion pro-ba
+-bilstica en la semantica
+ []
+
+
+Overfull \hbox (66.9801pt too wide) in paragraph at lines 231--237
+[]\OT1/cmr/m/n/10 Dado el termino $\OML/cmm/m/it/10 P \OMS/cmsy/m/n/10 2 []$ \
+OT1/cmr/m/n/10 y la traza pro-ba-bilstica $\OML/cmm/m/it/10  \OT1/cmr/m/n/10
+ = \OMS/cmsy/m/n/10 h\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 a[]; p[]\OT1/cmr/m/n/10 
+)\OML/cmm/m/it/10 ; [] ; \OT1/cmr/m/n/10 (\OML/cmm/m/it/10 a[]; p[]\OT1/cmr/m/n
+/10 )\OMS/cmsy/m/n/10 i 2
+ []
+
+
+Overfull \hbox (9.29991pt too wide) in paragraph at lines 239--240
+[]\OT1/cmr/m/n/10 Se de-nota el con-junto de tra-zas no sa-tis-fac-to-rias de $
+\OML/cmm/m/it/10 P$ \OT1/cmr/m/n/10 como $[](\OML/cmm/m/it/10 P\OT1/cmr/m/n/10 
+)$. 
+ []
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 240.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 240.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 240.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 240.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 240.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 240.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 240.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 240.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 240.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 240.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\multiply' on input line 240.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 240.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\advance' on input line 240.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 240.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 240.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 240.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 240.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 240.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 240.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 240.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 240.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 240.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 240.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 240.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 240.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\multiply' on input line 240.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 240.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\advance' on input line 240.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 240.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 240.
+
+[4]
+
+LaTeX Warning: Reference `dfn:pr:tr' on page 5--[2017-02-02\ \@dtctr =\time \di
+vide \@dtctr by 60 00:\@dtctr =\time \@DT@modctr =\@dtctr \relax \divide \@DT@m
+odctr by 60\relax \multiply \@DT@modctr by 60\relax \advance \@dtctr  by -\@DT@
+modctr 00] undefined on input line 245.
+
+
+LaTeX Warning: Reference `dfn:pr:tr:cn' on page 5--[2017-02-02\ \@dtctr =\time 
+\divide \@dtctr by 60 00:\@dtctr =\time \@DT@modctr =\@dtctr \relax \divide \@D
+T@modctr by 60\relax \multiply \@DT@modctr by 60\relax \advance \@dtctr  by -\@
+DT@modctr 00] undefined on input line 248.
+
+
+Overfull \hbox (27.51894pt too wide) in paragraph at lines 262--265
+[]\OT1/cmr/m/n/10 Podemos to-mar como ejem-plo la si-gui-ente traza $\OML/cmm/m
+/it/10  \OT1/cmr/m/n/10 = \OMS/cmsy/m/n/10 h\OT1/cmr/m/n/10 (\OT1/cmtt/m/n/10 
+A\OML/cmm/m/it/10 ; p[]\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 (\OT
+1/cmtt/m/n/10 B\OML/cmm/m/it/10 ; p[]\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ; \OT1/c
+mr/m/n/10 (\OT1/cmtt/m/n/10 C\OML/cmm/m/it/10 ; p[]\OT1/cmr/m/n/10 )\OML/cmm/m/
+it/10 ; \OT1/cmr/m/n/10 ([]\OML/cmm/m/it/10 ; p[]\OT1/cmr/m/n/10 )\OMS/cmsy/m/n
+/10 i$\OT1/cmr/m/n/10 ,
+ []
+
+
+LaTeX Warning: Reference `dfn:pr:tr:pr' on page 5--[2017-02-02\ \@dtctr =\time 
+\divide \@dtctr by 60 00:\@dtctr =\time \@DT@modctr =\@dtctr \relax \divide \@D
+T@modctr by 60\relax \multiply \@DT@modctr by 60\relax \advance \@dtctr  by -\@
+DT@modctr 00] undefined on input line 266.
+
+
+LaTeX Warning: Reference `dfn:pr:tr:waste' on page 5--[2017-02-02\ \@dtctr =\ti
+me \divide \@dtctr by 60 00:\@dtctr =\time \@DT@modctr =\@dtctr \relax \divide 
+\@DT@modctr by 60\relax \multiply \@DT@modctr by 60\relax \advance \@dtctr  by 
+-\@DT@modctr 00] undefined on input line 292.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 299.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 299.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 299.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 299.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 299.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 299.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 299.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 299.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 299.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 299.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\multiply' on input line 299.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 299.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\advance' on input line 299.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 299.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 299.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 299.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 299.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 299.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 299.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 299.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 299.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 299.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 299.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 299.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 299.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\multiply' on input line 299.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 299.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\advance' on input line 299.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 299.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 299.
+
+[5]
+
+LaTeX Warning: Reference `dfn:pr:sum' on page 6--[2017-02-02\ \@dtctr =\time \d
+ivide \@dtctr by 60 00:\@dtctr =\time \@DT@modctr =\@dtctr \relax \divide \@DT@
+modctr by 60\relax \multiply \@DT@modctr by 60\relax \advance \@dtctr  by -\@DT
+@modctr 00] undefined on input line 311.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 320--333
+[]$[]$ $[]$
+ []
+
+
+Overfull \hbox (22.47868pt too wide) in paragraph at lines 373--374
+ [][] 
+ []
+
+
+Overfull \hbox (37.28304pt too wide) in paragraph at lines 487--488
+ [][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 334--489
+[]$[]$ $[]$
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: Reference `example:op' on page 6--[2017-02-02\ \@dtctr =\time \d
+ivide \@dtctr by 60 00:\@dtctr =\time \@DT@modctr =\@dtctr \relax \divide \@DT@
+modctr by 60\relax \multiply \@DT@modctr by 60\relax \advance \@dtctr  by -\@DT
+@modctr 00] undefined on input line 494.
+
+
+Overfull \hbox (8.1554pt too wide) in paragraph at lines 498--501
+[]\OT1/cmr/m/n/10 Consideremos el termino $\OML/cmm/m/it/10 P[]$\OT1/cmr/m/n/1
+0 = $\OT1/cmtt/m/n/10 A\OT1/cmr/m/n/10 ; [];[] (\OT1/cmtt/m/n/10 C\OT1/cmr/m/n/
+10 ; [];[] [])$ cuyo con-junto $[](\OML/cmm/m/it/10 N[]\OT1/cmr/m/n/10 )$
+ []
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 551.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 551.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 551.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 551.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 551.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 551.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 551.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 551.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 551.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 551.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\multiply' on input line 551.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 551.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\advance' on input line 551.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 551.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 551.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 551.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 551.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 551.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 551.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 551.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 551.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 551.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 551.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 551.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 551.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\multiply' on input line 551.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 551.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\advance' on input line 551.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 551.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 551.
+
+[6]) (consistency.tex
+
+LaTeX Warning: Reference `dfn:syntax' on page 7--[2017-02-02\ \@dtctr =\time \d
+ivide \@dtctr by 60 00:\@dtctr =\time \@DT@modctr =\@dtctr \relax \divide \@DT@
+modctr by 60\relax \multiply \@DT@modctr by 60\relax \advance \@dtctr  by -\@DT
+@modctr 00] undefined on input line 19.
+
+Package hyperref Info: bookmark level for unknown todo defaults to 0 on input l
+ine 54.
+
+LaTeX Warning: Reference `prop:relnonprob-a' on page 7--[2017-02-02\ \@dtctr =\
+time \divide \@dtctr by 60 00:\@dtctr =\time \@DT@modctr =\@dtctr \relax \divid
+e \@DT@modctr by 60\relax \multiply \@DT@modctr by 60\relax \advance \@dtctr  b
+y -\@DT@modctr 00] undefined on input line 63.
+
+
+LaTeX Warning: Reference `prop:relnonprob-c' on page 7--[2017-02-02\ \@dtctr =\
+time \divide \@dtctr by 60 00:\@dtctr =\time \@DT@modctr =\@dtctr \relax \divid
+e \@DT@modctr by 60\relax \multiply \@DT@modctr by 60\relax \advance \@dtctr  b
+y -\@DT@modctr 00] undefined on input line 63.
+
+
+LaTeX Warning: Reference `prop:relnonprob' on page 7--[2017-02-02\ \@dtctr =\ti
+me \divide \@dtctr by 60 00:\@dtctr =\time \@DT@modctr =\@dtctr \relax \divide 
+\@DT@modctr by 60\relax \multiply \@DT@modctr by 60\relax \advance \@dtctr  by 
+-\@DT@modctr 00] undefined on input line 64.
+
+
+LaTeX Warning: Citation `acl13' on page 7--[2017-02-02\ \@dtctr =\time \divide 
+\@dtctr by 60 00:\@dtctr =\time \@DT@modctr =\@dtctr \relax \divide \@DT@modctr
+ by 60\relax \multiply \@DT@modctr by 60\relax \advance \@dtctr  by -\@DT@modct
+r 00] undefined on input line 64.
+
+
+LaTeX Warning: Reference `prop:relnonprob-a' on page 7--[2017-02-02\ \@dtctr =\
+time \divide \@dtctr by 60 00:\@dtctr =\time \@DT@modctr =\@dtctr \relax \divid
+e \@DT@modctr by 60\relax \multiply \@DT@modctr by 60\relax \advance \@dtctr  b
+y -\@DT@modctr 00] undefined on input line 67.
+
+
+LaTeX Warning: Reference `prop:relnonprob-c' on page 7--[2017-02-02\ \@dtctr =\
+time \divide \@dtctr by 60 00:\@dtctr =\time \@DT@modctr =\@dtctr \relax \divid
+e \@DT@modctr by 60\relax \multiply \@DT@modctr by 60\relax \advance \@dtctr  b
+y -\@DT@modctr 00] undefined on input line 69.
+
+
+LaTeX Warning: Reference `prop:relnonprob-b' on page 7--[2017-02-02\ \@dtctr =\
+time \divide \@dtctr by 60 00:\@dtctr =\time \@DT@modctr =\@dtctr \relax \divid
+e \@DT@modctr by 60\relax \multiply \@DT@modctr by 60\relax \advance \@dtctr  b
+y -\@DT@modctr 00] undefined on input line 75.
+
+
+LaTeX Warning: Reference `prop:relnonprob' on page 7--[2017-02-02\ \@dtctr =\ti
+me \divide \@dtctr by 60 00:\@dtctr =\time \@DT@modctr =\@dtctr \relax \divide 
+\@DT@modctr by 60\relax \multiply \@DT@modctr by 60\relax \advance \@dtctr  by 
+-\@DT@modctr 00] undefined on input line 76.
+
+
+LaTeX Warning: Reference `prop:relnonprob-a' on page 7--[2017-02-02\ \@dtctr =\
+time \divide \@dtctr by 60 00:\@dtctr =\time \@DT@modctr =\@dtctr \relax \divid
+e \@DT@modctr by 60\relax \multiply \@DT@modctr by 60\relax \advance \@dtctr  b
+y -\@DT@modctr 00] undefined on input line 76.
+
+
+LaTeX Warning: Reference `prop:relnonprob-d' on page 7--[2017-02-02\ \@dtctr =\
+time \divide \@dtctr by 60 00:\@dtctr =\time \@DT@modctr =\@dtctr \relax \divid
+e \@DT@modctr by 60\relax \multiply \@DT@modctr by 60\relax \advance \@dtctr  b
+y -\@DT@modctr 00] undefined on input line 79.
+
+) (denotational.tex
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 8.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 8.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 8.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 8.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 8.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 8.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 8.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 8.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 8.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 8.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\multiply' on input line 8.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 8.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\advance' on input line 8.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 8.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 8.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 8.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 8.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 8.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 8.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 8.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 8.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 8.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 8.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 8.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 8.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\multiply' on input line 8.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 8.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\advance' on input line 8.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 8.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 8.
+
+[7]
+
+LaTeX Warning: Reference `sec:denotational' on page 8--[2017-02-02\ \@dtctr =\t
+ime \divide \@dtctr by 60 00:\@dtctr =\time \@DT@modctr =\@dtctr \relax \divide
+ \@DT@modctr by 60\relax \multiply \@DT@modctr by 60\relax \advance \@dtctr  by
+ -\@DT@modctr 00] undefined on input line 14.
+
+
+LaTeX Warning: Reference `def:den:pr' on page 8--[2017-02-02\ \@dtctr =\time \d
+ivide \@dtctr by 60 00:\@dtctr =\time \@DT@modctr =\@dtctr \relax \divide \@DT@
+modctr by 60\relax \multiply \@DT@modctr by 60\relax \advance \@dtctr  by -\@DT
+@modctr 00] undefined on input line 50.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 76.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 76.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 76.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 76.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 76.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 76.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 76.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 76.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 76.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 76.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\multiply' on input line 76.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 76.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\advance' on input line 76.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 76.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 76.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 76.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 76.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 76.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 76.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 76.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 76.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 76.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 76.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 76.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 76.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\multiply' on input line 76.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 76.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\advance' on input line 76.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 76.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 76.
+
+[8]
+Overfull \hbox (15.60403pt too wide) detected at line 142
+\OT1/cmr/m/n/10 [ [\OMS/cmsy/m/n/10  [][] \OT1/cmr/m/n/10 ] ][](\OML/cmm/m/it
+/10 M[]; M[]\OT1/cmr/m/n/10 ) = [][]\U/stmry/m/n/10 *\OT1/cmr/m/n/10 (\OML/cmm/
+m/it/10 P; r \OMS/cmsy/m/n/10  \OML/cmm/m/it/10 p\OT1/cmr/m/n/10 ) \OMS/cmsy/m
+/n/10 j \OT1/cmr/m/n/10 (\OML/cmm/m/it/10 P; p\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/1
+0 2 \OML/cmm/m/it/10 M[] \U/stmry/m/n/10 + \OMS/cmsy/m/n/10 ] \U/stmry/m/n/10 *
+ \OT1/cmr/m/n/10 (\OML/cmm/m/it/10 Q; \OT1/cmr/m/n/10 (1 \OMS/cmsy/m/n/10   \OM
+L/cmm/m/it/10 r\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10  \OML/cmm/m/it/10 q\OT1/cmr/
+m/n/10 ) \OMS/cmsy/m/n/10 j \OT1/cmr/m/n/10 (\OML/cmm/m/it/10 Q; q\OT1/cmr/m/n/
+10 ) \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 M[]\U/stmry/m/n/10 +[]
+ []
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 160.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 160.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 160.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 160.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 160.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 160.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 160.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 160.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 160.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 160.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\multiply' on input line 160.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 160.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\advance' on input line 160.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 160.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 160.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 160.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 160.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 160.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 160.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 160.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 160.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 160.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 160.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 160.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 160.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\multiply' on input line 160.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 160.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\advance' on input line 160.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 160.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 160.
+
+[9]
+
+LaTeX Warning: Reference `prp:domain:prob' on page 10--[2017-02-02\ \@dtctr =\t
+ime \divide \@dtctr by 60 00:\@dtctr =\time \@DT@modctr =\@dtctr \relax \divide
+ \@DT@modctr by 60\relax \multiply \@DT@modctr by 60\relax \advance \@dtctr  by
+ -\@DT@modctr 00] undefined on input line 225.
+
+
+LaTeX Warning: Reference `prop:pr:accum' on page 10--[2017-02-02\ \@dtctr =\tim
+e \divide \@dtctr by 60 00:\@dtctr =\time \@DT@modctr =\@dtctr \relax \divide \
+@DT@modctr by 60\relax \multiply \@DT@modctr by 60\relax \advance \@dtctr  by -
+\@DT@modctr 00] undefined on input line 231.
+
+
+LaTeX Warning: Reference `prop:pr:sum' on page 10--[2017-02-02\ \@dtctr =\time 
+\divide \@dtctr by 60 00:\@dtctr =\time \@DT@modctr =\@dtctr \relax \divide \@D
+T@modctr by 60\relax \multiply \@DT@modctr by 60\relax \advance \@dtctr  by -\@
+DT@modctr 00] undefined on input line 233.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 235.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 235.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 235.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 235.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 235.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 235.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 235.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 235.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 235.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 235.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\multiply' on input line 235.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 235.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\advance' on input line 235.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 235.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 235.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 235.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 235.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 235.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 235.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 235.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 235.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 235.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 235.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 235.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 235.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\multiply' on input line 235.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 235.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\advance' on input line 235.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 235.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 235.
+
+[10]
+
+LaTeX Warning: Reference `example:denot:1' on page 11--[2017-02-02\ \@dtctr =\t
+ime \divide \@dtctr by 60 00:\@dtctr =\time \@DT@modctr =\@dtctr \relax \divide
+ \@DT@modctr by 60\relax \multiply \@DT@modctr by 60\relax \advance \@dtctr  by
+ -\@DT@modctr 00] undefined on input line 258.
+
+
+LaTeX Warning: Reference `example:denot:2' on page 11--[2017-02-02\ \@dtctr =\t
+ime \divide \@dtctr by 60 00:\@dtctr =\time \@DT@modctr =\@dtctr \relax \divide
+ \@DT@modctr by 60\relax \multiply \@DT@modctr by 60\relax \advance \@dtctr  by
+ -\@DT@modctr 00] undefined on input line 259.
+
+<review.jpg, id=137, 740.0448pt x 462.528pt>
+File: review.jpg Graphic file (type jpg)
+ <use review.jpg>
+Package pdftex.def Info: review.jpg used on input line 275.
+(pdftex.def)             Requested size: 36.99976pt x 23.12068pt.
+File: review.jpg Graphic file (type jpg)
+ <use review.jpg>
+Package pdftex.def Info: review.jpg used on input line 293.
+(pdftex.def)             Requested size: 36.99976pt x 23.12068pt.
+File: review.jpg Graphic file (type jpg)
+
+<use review.jpg>
+Package pdftex.def Info: review.jpg used on input line 314.
+(pdftex.def)             Requested size: 36.99976pt x 23.12068pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+File: review.jpg Graphic file (type jpg)
+<use review.jpg>
+Package pdftex.def Info: review.jpg used on input line 342.
+(pdftex.def)             Requested size: 36.99976pt x 23.12068pt.
+File: review.jpg Graphic file (type jpg)
+ <use review.jpg>
+Package pdftex.def Info: review.jpg used on input line 359.
+(pdftex.def)             Requested size: 36.99976pt x 23.12068pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+) (equivalence.tex
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 24.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 24.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 24.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 24.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 24.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 24.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 24.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 24.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 24.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 24.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\multiply' on input line 24.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 24.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\advance' on input line 24.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 24.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 24.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 24.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 24.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 24.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 24.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 24.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 24.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 24.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 24.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 24.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 24.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\multiply' on input line 24.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 24.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\advance' on input line 24.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 24.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 24.
+
+[11]
+
+LaTeX Warning: Reference `prop:pref' on page 12--[2017-02-02\ \@dtctr =\time \d
+ivide \@dtctr by 60 00:\@dtctr =\time \@DT@modctr =\@dtctr \relax \divide \@DT@
+modctr by 60\relax \multiply \@DT@modctr by 60\relax \advance \@dtctr  by -\@DT
+@modctr 00] undefined on input line 30.
+
+
+LaTeX Warning: Reference `prop:prefopt' on page 12--[2017-02-02\ \@dtctr =\time
+ \divide \@dtctr by 60 00:\@dtctr =\time \@DT@modctr =\@dtctr \relax \divide \@
+DT@modctr by 60\relax \multiply \@DT@modctr by 60\relax \advance \@dtctr  by -\
+@DT@modctr 00] undefined on input line 65.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 89.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 89.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 89.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 89.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 89.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 89.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 89.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 89.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 89.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 89.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\multiply' on input line 89.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 89.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\advance' on input line 89.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 89.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 89.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 89.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 89.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 89.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 89.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 89.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 89.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 89.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 89.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 89.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 89.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\multiply' on input line 89.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 89.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\advance' on input line 89.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 89.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 89.
+
+[12]
+
+LaTeX Warning: Reference `prop:choice' on page 13--[2017-02-02\ \@dtctr =\time 
+\divide \@dtctr by 60 00:\@dtctr =\time \@DT@modctr =\@dtctr \relax \divide \@D
+T@modctr by 60\relax \multiply \@DT@modctr by 60\relax \advance \@dtctr  by -\@
+DT@modctr 00] undefined on input line 114.
+
+
+Overfull \hbox (1.92813pt too wide) in paragraph at lines 123--127
+\OT1/cmr/m/n/10 (0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1)$y las tra-zas $\OML/cmm
+/m/it/10 s; s[] \OMS/cmsy/m/n/10 2 F[]$ \OT1/cmr/m/n/10 tal que $\OML/cmm/m/it/
+10 p \OT1/cmr/m/n/10 = [] \U/stmry/m/n/10 *\OML/cmm/m/it/10 p[] \OMS/cmsy/m/n/1
+0 j \OML/cmm/m/it/10 P [][] []\U/stmry/m/n/10 +$ \OT1/cmr/m/n/10 y $\OML/cmm/m/
+it/10 q \OT1/cmr/m/n/10 = [] \U/stmry/m/n/10 *\OML/cmm/m/it/10 q[]\OMS/cmsy/m/n
+/10 kj \OML/cmm/m/it/10 Q [][]
+ []
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 145.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 145.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 145.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 145.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 145.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 145.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 145.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 145.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 145.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 145.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\multiply' on input line 145.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 145.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\advance' on input line 145.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 145.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 145.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 145.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 145.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 145.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 145.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 145.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 145.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 145.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 145.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 145.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 145.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\multiply' on input line 145.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 145.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\advance' on input line 145.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 145.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 145.
+
+[13]
+Overfull \hbox (49.99779pt too wide) in paragraph at lines 190--190
+[] 
+ []
+
+
+Overfull \hbox (17.0pt too wide) detected at line 190
+[][]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 190.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 190.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 190.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 190.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 190.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 190.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 190.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 190.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 190.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 190.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\multiply' on input line 190.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 190.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\advance' on input line 190.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 190.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 190.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 190.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 190.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 190.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 190.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 190.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 190.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 190.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 190.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 190.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 190.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\multiply' on input line 190.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 190.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\advance' on input line 190.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 190.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 190.
+
+[14]
+
+LaTeX Warning: Reference `eq:paral4' on page 15--[2017-02-02\ \@dtctr =\time \d
+ivide \@dtctr by 60 00:\@dtctr =\time \@DT@modctr =\@dtctr \relax \divide \@DT@
+modctr by 60\relax \multiply \@DT@modctr by 60\relax \advance \@dtctr  by -\@DT
+@modctr 00] undefined on input line 191.
+
+
+Overfull \hbox (34.0pt too wide) detected at line 213
+[][]
+ []
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 216.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 216.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 216.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 216.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 216.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 216.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 216.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 216.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 216.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 216.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\multiply' on input line 216.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 216.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\advance' on input line 216.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 216.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 216.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 216.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 216.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 216.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 216.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 216.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 216.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 216.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 216.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 216.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 216.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\multiply' on input line 216.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 216.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\advance' on input line 216.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 216.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 216.
+
+[15]
+
+LaTeX Warning: Reference `eq:paral1' on page 16--[2017-02-02\ \@dtctr =\time \d
+ivide \@dtctr by 60 00:\@dtctr =\time \@DT@modctr =\@dtctr \relax \divide \@DT@
+modctr by 60\relax \multiply \@DT@modctr by 60\relax \advance \@dtctr  by -\@DT
+@modctr 00] undefined on input line 235.
+
+
+LaTeX Warning: Reference `eq:paral2' on page 16--[2017-02-02\ \@dtctr =\time \d
+ivide \@dtctr by 60 00:\@dtctr =\time \@DT@modctr =\@dtctr \relax \divide \@DT@
+modctr by 60\relax \multiply \@DT@modctr by 60\relax \advance \@dtctr  by -\@DT
+@modctr 00] undefined on input line 235.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 263.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 263.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 263.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 263.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 263.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 263.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 263.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 263.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 263.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 263.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\multiply' on input line 263.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 263.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\advance' on input line 263.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 263.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 263.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 263.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 263.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 263.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 263.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 263.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 263.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 263.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 263.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 263.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 263.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\multiply' on input line 263.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 263.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\advance' on input line 263.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 263.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 263.
+
+[16]
+
+LaTeX Warning: Reference `prop:paral1' on page 17--[2017-02-02\ \@dtctr =\time 
+\divide \@dtctr by 60 00:\@dtctr =\time \@DT@modctr =\@dtctr \relax \divide \@D
+T@modctr by 60\relax \multiply \@DT@modctr by 60\relax \advance \@dtctr  by -\@
+DT@modctr 00] undefined on input line 265.
+
+
+LaTeX Warning: Reference `def:semantic:operators' on page 17--[2017-02-02\ \@dt
+ctr =\time \divide \@dtctr by 60 00:\@dtctr =\time \@DT@modctr =\@dtctr \relax 
+\divide \@DT@modctr by 60\relax \multiply \@DT@modctr by 60\relax \advance \@dt
+ctr  by -\@DT@modctr 00] undefined on input line 265.
+
+
+LaTeX Warning: Reference `prop:mand' on page 17--[2017-02-02\ \@dtctr =\time \d
+ivide \@dtctr by 60 00:\@dtctr =\time \@DT@modctr =\@dtctr \relax \divide \@DT@
+modctr by 60\relax \multiply \@DT@modctr by 60\relax \advance \@dtctr  by -\@DT
+@modctr 00] undefined on input line 284.
+
+
+LaTeX Warning: Reference `def:semantic:operators' on page 17--[2017-02-02\ \@dt
+ctr =\time \divide \@dtctr by 60 00:\@dtctr =\time \@DT@modctr =\@dtctr \relax 
+\divide \@DT@modctr by 60\relax \multiply \@DT@modctr by 60\relax \advance \@dt
+ctr  by -\@DT@modctr 00] undefined on input line 284.
+
+
+LaTeX Warning: Reference `prop:forb' on page 17--[2017-02-02\ \@dtctr =\time \d
+ivide \@dtctr by 60 00:\@dtctr =\time \@DT@modctr =\@dtctr \relax \divide \@DT@
+modctr by 60\relax \multiply \@DT@modctr by 60\relax \advance \@dtctr  by -\@DT
+@modctr 00] undefined on input line 300.
+
+
+LaTeX Warning: Reference `def:semantic:operators' on page 17--[2017-02-02\ \@dt
+ctr =\time \divide \@dtctr by 60 00:\@dtctr =\time \@DT@modctr =\@dtctr \relax 
+\divide \@DT@modctr by 60\relax \multiply \@DT@modctr by 60\relax \advance \@dt
+ctr  by -\@DT@modctr 00] undefined on input line 300.
+
+
+Overfull \hbox (3.20125pt too wide) in paragraph at lines 313--315
+[]\OT1/cmr/m/n/10 En este caso $\OML/cmm/m/it/10 P [] [] []$\OT1/cmr/m/n/10 . S
+e ob-tiene el re-sul-tado ap-li-cando la regla $[]$. 
+ []
+
+
+LaTeX Warning: Reference `prop:mand' on page 17--[2017-02-02\ \@dtctr =\time \d
+ivide \@dtctr by 60 00:\@dtctr =\time \@DT@modctr =\@dtctr \relax \divide \@DT@
+modctr by 60\relax \multiply \@DT@modctr by 60\relax \advance \@dtctr  by -\@DT
+@modctr 00] undefined on input line 322.
+
+
+LaTeX Warning: Reference `prop:mand' on page 17--[2017-02-02\ \@dtctr =\time \d
+ivide \@dtctr by 60 00:\@dtctr =\time \@DT@modctr =\@dtctr \relax \divide \@DT@
+modctr by 60\relax \multiply \@DT@modctr by 60\relax \advance \@dtctr  by -\@DT
+@modctr 00] undefined on input line 327.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 328.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 328.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 328.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 328.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 328.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 328.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 328.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 328.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 328.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 328.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\multiply' on input line 328.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 328.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\advance' on input line 328.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 328.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 328.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 328.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 328.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 328.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 328.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 328.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 328.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 328.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 328.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 328.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 328.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\multiply' on input line 328.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 328.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\advance' on input line 328.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 328.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 328.
+
+[17]
+
+LaTeX Warning: Reference `prop:req' on page 18--[2017-02-02\ \@dtctr =\time \di
+vide \@dtctr by 60 00:\@dtctr =\time \@DT@modctr =\@dtctr \relax \divide \@DT@m
+odctr by 60\relax \multiply \@DT@modctr by 60\relax \advance \@dtctr  by -\@DT@
+modctr 00] undefined on input line 347.
+
+
+LaTeX Warning: Reference `def:semantic:operators' on page 18--[2017-02-02\ \@dt
+ctr =\time \divide \@dtctr by 60 00:\@dtctr =\time \@DT@modctr =\@dtctr \relax 
+\divide \@DT@modctr by 60\relax \multiply \@DT@modctr by 60\relax \advance \@dt
+ctr  by -\@DT@modctr 00] undefined on input line 348.
+
+
+Overfull \hbox (4.57619pt too wide) in paragraph at lines 359--361
+[]\OT1/cmr/m/n/10 En este caso $\OML/cmm/m/it/10 P [] [] []$\OT1/cmr/m/n/10 . S
+e ob-tiene el re-sul-tado al ap-li-car la regla $[]$. 
+ []
+
+
+LaTeX Warning: Reference `prop:mand1' on page 18--[2017-02-02\ \@dtctr =\time \
+divide \@dtctr by 60 00:\@dtctr =\time \@DT@modctr =\@dtctr \relax \divide \@DT
+@modctr by 60\relax \multiply \@DT@modctr by 60\relax \advance \@dtctr  by -\@D
+T@modctr 00] undefined on input line 368.
+
+
+LaTeX Warning: Reference `prop:excl' on page 18--[2017-02-02\ \@dtctr =\time \d
+ivide \@dtctr by 60 00:\@dtctr =\time \@DT@modctr =\@dtctr \relax \divide \@DT@
+modctr by 60\relax \multiply \@DT@modctr by 60\relax \advance \@dtctr  by -\@DT
+@modctr 00] undefined on input line 390.
+
+
+LaTeX Warning: Reference `def:semantic:operators' on page 18--[2017-02-02\ \@dt
+ctr =\time \divide \@dtctr by 60 00:\@dtctr =\time \@DT@modctr =\@dtctr \relax 
+\divide \@DT@modctr by 60\relax \multiply \@DT@modctr by 60\relax \advance \@dt
+ctr  by -\@DT@modctr 00] undefined on input line 390.
+
+
+LaTeX Warning: Reference `prop:pref' on page 18--[2017-02-02\ \@dtctr =\time \d
+ivide \@dtctr by 60 00:\@dtctr =\time \@DT@modctr =\@dtctr \relax \divide \@DT@
+modctr by 60\relax \multiply \@DT@modctr by 60\relax \advance \@dtctr  by -\@DT
+@modctr 00] undefined on input line 398.
+
+
+LaTeX Warning: Reference `cor:prefopt' on page 18--[2017-02-02\ \@dtctr =\time 
+\divide \@dtctr by 60 00:\@dtctr =\time \@DT@modctr =\@dtctr \relax \divide \@D
+T@modctr by 60\relax \multiply \@DT@modctr by 60\relax \advance \@dtctr  by -\@
+DT@modctr 00] undefined on input line 398.
+
+
+LaTeX Warning: Reference `cor:choice' on page 18--[2017-02-02\ \@dtctr =\time \
+divide \@dtctr by 60 00:\@dtctr =\time \@DT@modctr =\@dtctr \relax \divide \@DT
+@modctr by 60\relax \multiply \@DT@modctr by 60\relax \advance \@dtctr  by -\@D
+T@modctr 00] undefined on input line 398.
+
+
+LaTeX Warning: Reference `cor:paral' on page 18--[2017-02-02\ \@dtctr =\time \d
+ivide \@dtctr by 60 00:\@dtctr =\time \@DT@modctr =\@dtctr \relax \divide \@DT@
+modctr by 60\relax \multiply \@DT@modctr by 60\relax \advance \@dtctr  by -\@DT
+@modctr 00] undefined on input line 399.
+
+
+LaTeX Warning: Reference `cor:mand' on page 18--[2017-02-02\ \@dtctr =\time \di
+vide \@dtctr by 60 00:\@dtctr =\time \@DT@modctr =\@dtctr \relax \divide \@DT@m
+odctr by 60\relax \multiply \@DT@modctr by 60\relax \advance \@dtctr  by -\@DT@
+modctr 00] undefined on input line 399.
+
+
+LaTeX Warning: Reference `cor:forb' on page 18--[2017-02-02\ \@dtctr =\time \di
+vide \@dtctr by 60 00:\@dtctr =\time \@DT@modctr =\@dtctr \relax \divide \@DT@m
+odctr by 60\relax \multiply \@DT@modctr by 60\relax \advance \@dtctr  by -\@DT@
+modctr 00] undefined on input line 399.
+
+
+LaTeX Warning: Reference `cor:req' on page 18--[2017-02-02\ \@dtctr =\time \div
+ide \@dtctr by 60 00:\@dtctr =\time \@DT@modctr =\@dtctr \relax \divide \@DT@mo
+dctr by 60\relax \multiply \@DT@modctr by 60\relax \advance \@dtctr  by -\@DT@m
+odctr 00] undefined on input line 399.
+
+
+LaTeX Warning: Reference `cor:excl' on page 18--[2017-02-02\ \@dtctr =\time \di
+vide \@dtctr by 60 00:\@dtctr =\time \@DT@modctr =\@dtctr \relax \divide \@DT@m
+odctr by 60\relax \multiply \@DT@modctr by 60\relax \advance \@dtctr  by -\@DT@
+modctr 00] undefined on input line 399.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 400.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 400.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 400.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 400.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 400.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 400.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 400.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 400.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 400.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 400.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\multiply' on input line 400.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 400.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\advance' on input line 400.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 400.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 400.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 400.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 400.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 400.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 400.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 400.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 400.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 400.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 400.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 400.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 400.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\multiply' on input line 400.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 400.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\advance' on input line 400.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 400.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 400.
+
+[18]) (hiding.tex
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 75.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 75.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 75.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 75.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 75.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 75.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 75.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 75.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 75.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 75.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\multiply' on input line 75.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 75.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\advance' on input line 75.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 75.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 75.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 75.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 75.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 75.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 75.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 75.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 75.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 75.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 75.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 75.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 75.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\multiply' on input line 75.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 75.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\advance' on input line 75.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 75.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 75.
+
+[19]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 146.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 146.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 146.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 146.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 146.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 146.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 146.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 146.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 146.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 146.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\multiply' on input line 146.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 146.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\advance' on input line 146.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 146.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 146.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 146.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 146.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 146.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 146.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 146.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 146.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 146.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 146.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 146.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 146.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\multiply' on input line 146.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 146.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\advance' on input line 146.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 146.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 146.
+
+[20]) (testing.tex
+
+LaTeX Warning: Citation `SeguraHBC11' on page 21--[2017-02-02\ \@dtctr =\time \
+divide \@dtctr by 60 00:\@dtctr =\time \@DT@modctr =\@dtctr \relax \divide \@DT
+@modctr by 60\relax \multiply \@DT@modctr by 60\relax \advance \@dtctr  by -\@D
+T@modctr 00] undefined on input line 16.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 37.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 37.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 37.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 37.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 37.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\time' on input line 37.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 37.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@dtctr' on input line 37.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\divide' on input line 37.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@DT@modctr' on input line 37.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\multiply' on input line 37.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
