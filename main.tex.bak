@@ -1,5 +1,5 @@
 
-\documentclass{llncs}
+\documentclass{llncs}  
 
 \usepackage{amsfonts}
 \usepackage{amssymb,amsmath}
@@ -7,7 +7,7 @@
 \usepackage[english]{babel}
 \usepackage{listings}
 \usepackage{hyperref}
-\usepackage[utf8]{inputenc}
+\usepackage[utf8]{inputenc} 
 \usepackage{latexsym}
 \usepackage{eurosym}
 \usepackage{array}
@@ -26,7 +26,7 @@
 
 
 
-%\def\thepage{\arabic{page}--[\timestamp]}
+%\def\thepage{\arabic{page}--[\timestamp]} 
 \usepackage{tikz}
 \usetikzlibrary{snakes}
 
@@ -34,7 +34,11 @@
 
 
 \input{macros.tex}
-\title{Probalisitic Software product lines\thanks{Research partially supported by the Spanish MINECO/FEDER project DArDOS (TIN2015-65845-C3-1-R) and the Comunidad de Madrid project SICOMORo-CM (S2013/ICE-3006).
+\title{Probalisitic Software product lines\thanks{
+ Research partially supported by the Spanish MEC project
+ ESTuDIo (TIN2012-36812-C02-01), 
+ the Comunidad de Madrid project SICOMORo-CM (S2013/ICE-3006) and the
+ UCM-Santander program to fund research groups (group 910606).
 }}
 \author{Carlos Camacho \and Luis Llana\and Alberto Núñez\and Manuel Núñez}
 
@@ -51,7 +55,7 @@
 
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %%%%%%%%%%%%%%%%%%%%%%% Quitar de la versi?n final %%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%% Quitar de la versi�n final %%%%%%%%%%%%%%%%
 \date{\timestamp}
 \usepackage{fancyhdr}
 \usepackage{timestamp}
@@ -59,7 +63,7 @@
 \fancyhead{}
 \fancyfoot[C]{\thepage\ --\ Draft: \timestamp}
 \def\thepage{\arabic{page}--[\timestamp]}
-%%%%%%%%%%%%%%%%%%%%%%% Quitar de la versi?n final %%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%% Quitar de la versi�n final %%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
