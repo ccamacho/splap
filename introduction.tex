@@ -1,47 +1,293 @@
+% $Id: introduction.tex,v 1.8 2013/12/03 09:17:27 ccamacho Exp $
+\section{Introduction}
+\label{ref:introduction}
+
+
+The main purpose of Software Product Lines (in short, \SPLs) is to produce products 
+while increasing productivity and shortening the time-to-market period. \SPLs\ depend 
+on which software products are being produced and which of them are better for 
+a specific criterion. When products are represented in a product line organization, 
+several modeling approaches can be used to increase both quality and productivity.
+In most cases this is represented in the form of features, relationships and 
+constraints. For instance, some of these approaches are FODA~\cite{kchnp90}, 
+RSEB~\cite{mj98} and PLUSS~\cite{k05, ebb06}.
+
+Automatic and formal approaches arise from these graphical representations to model 
+variability and commonality of systems. Formal models allow for detecting errors in the early
+stages of the production process. Some of the existing approaches use algebras and 
+semantics~\cite{szw05, kkm06, prb11,acl13}, while others use propositional or first order 
+logic~\cite{man02,ka07, abgf10, atfg10,nnz14}.
+
+
+\begin{figure}[t]
+
+\linefigure
+
+\centering 
+
+
+\begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=2cm, semithick]
+
+  \node[rectangle,draw] (A)   {\feature{A}};
+  \node[rectangle,draw] (B) [below of=A]   {\feature{B}};
+
+  \node[rectangle,draw] (C) [right of=A]   {\feature{A}};
+  \node[rectangle,draw] (D) [below of=C]   {\feature{B}};
+
+%  \node[] (E) [right of=C]   {};
+  \node[rectangle,draw,node distance=4cm] (G) [right of=C]   {\feature{A}};
+  \node[rectangle,draw] (F) [below left of=G]   {\feature{B}};
+%  \node[] (H) [below of=G]   {};
+  \node[rectangle,draw] (I) [below right  of=G]   {\feature{C}};
+
+
+
+  \path (A) edge [-o,shorten >=-0.05em] node[draw=none] {Optional} (B.north)
+        (C) edge [-*,shorten >=-0.05em] node[draw=none] {Mandatory} (D.north)
+
+        (G) edge [->]  node[draw=none, shift={(80:-0.5)}]{Choose 1} (F)
+            edge [->]  node[draw=none] {} (I)  ;
+
+
+\draw [<-] (6.8,-0.2) arc (-36:-140:20pt);   
+
+  \node[rectangle,draw,node distance=2.5cm] (J) [right of=G]   {\feature{A}};
+  \node[rectangle,draw] (K) [below of=J]   {\feature{B}};
+
+  \node[rectangle,draw] (L) [right of=J]   {\feature{A}};
+  \node[rectangle,draw] (M) [below of=L]   {\feature{B}};
+
+
+  \path 
+        (J) edge [->,dashed] node[draw=none] {Excludes} (K)
+        (L) edge [->,dotted] node[draw=none] {Implies} (M)  ;
+
+\end{tikzpicture}
+
+\linefigure
+
+\caption{\FODA\ Diagram representation.\label{fig:foda:relations}}
+
+\end{figure}
+
+
+% \begin{figure}[t]
+% \linefigure
+% \centering
+% \begin{minipage}{0.2\hsize}
+%         \centering
+%         \EX{a}
+
+
+%         \centering
+%         \begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=1.5cm, semithick]
+
+%           \node[rectangle,draw] (A)   {\feature{A}};
+%           \node[rectangle,draw,node distance=1.1cm] (B) [below of=A]   {\feature{B}};
+
+%           \path (A) edge [-o] node[draw=none] {} (B.north)
+%           ;
+%         \end{tikzpicture}
+
+% \end{minipage}
+% %
+% \begin{minipage}{0.1\hsize}
+
+%         \centering 
+
+%         \EX{b}
+
+%         \begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=1.5cm, semithick]
+
+
+%           \node[rectangle,draw] (C) [right of=A]   {\feature{A}};
+%           \node[rectangle,draw,node distance=1.1cm] (D) [below of=C]   {\feature{B}};
+%           \path (C) edge [] node[draw=none] {} (D)
+%           ;
+%         \fill (D.north) circle (0.1);
+%         \end{tikzpicture}
+
+% \end{minipage}
+% %
+% \begin{minipage}{0.33\hsize}
+% \centering
+
+%         \EX{c}
+
+%         \begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=1.5cm, semithick]
+
+
+%           \node[rectangle,draw] (G)    {\feature{A}};
+%           \node[rectangle,draw] (F) [below left of=G]   {\feature{B}};
+%           \node[rectangle,draw] (I) [below right  of=G]   {\feature{C}};
+
+%           \path
+%                 (G) edge [->]  node[draw=none] {} (F)
+%                     edge [->]  node[draw=none] {} (I)
+
+%           ;
+
+%         \draw [<-] (0.7,-0.1) arc (360:180:14pt);
+
+%         \end{tikzpicture}
+% \end{minipage}
+% \begin{minipage}{0.33\hsize}
+% \centering
+
+%         \EX{d}
+
+
+%         \begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=1.5cm, semithick]
+%           \node[rectangle,draw] (G)   {\feature{A}};
+
+%           \node[rectangle,draw] (F) [below left of=G]   {\feature{B}};
+%           \node[rectangle,draw] (I) [below right  of=G]   {\feature{C}};
+%           \path
+%                 (G) edge []  node[draw=none] {} (F.north)
+%                     edge []  node[draw=none] {} (I.north)
+%           ;
+%         \fill (F.north) circle (0.1);
+%         \fill (I.north) circle (0.1);
+%         \end{tikzpicture}
+% \end{minipage}
+
+
+% \linefigure
+
+
+
+% \begin{minipage}{0.33\hsize}     
+% \centering
+%         \EX{e}
+% \vspace*{0.3em}
+
+%         \begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=1.5cm, semithick]
+%           \node[rectangle,draw] (G)    {\feature{A}};
+%           \node[rectangle,draw] (F) [below left of=G]   {\feature{B}};
+%           \node[rectangle,draw] (I) [below right  of=G]   {\feature{C}};
+%           \path
+%                 (G) edge [-o]  node[draw=none] {} (F.north)
+%                     edge []  node[draw=none] {} (I.north) ;
+%         \fill (I.north) circle (0.1);
+%         \end{tikzpicture}
+% \end{minipage}
+% \begin{minipage}{0.3\hsize}
+%         \centering
+%  \EX{f}
+
+%         \begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=1.5cm, semithick]
+
+
+%           \node[rectangle,draw] (A)    {\feature{A}};
+%           \node[rectangle,draw] (B) [below left   of=A]   {\feature{B}};
+%           \node[rectangle,draw] (C) [below right  of=A]   {\feature{C}};
+
+%           \path
+%                 (A) edge [-o]  node[draw=none] {} (B.north)
+%                         edge [-o]  node[draw=none] {} (C.north)
+
+%     (B) edge [->,dashed] node[draw=none] {} (C);
+%         \end{tikzpicture}
+% \end{minipage}
+% \begin{minipage}{0.3\hsize}
+%         \centering
+%  \EX{g}
+
+%         \begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=1.5cm, semithick]
+
+
+%           \node[rectangle,draw] (A)    {\feature{A}};
+%           \node[rectangle,draw] (B) [below left   of=A]   {\feature{B}};
+%           \node[rectangle,draw] (C) [below right  of=A]   {\feature{C}};
+
+%           \path
+%                 (A) edge [-o]  node[draw=none] {} (B.north)
+%                         edge [-o]  node[draw=none] {} (C.north)
+
+%         (B) edge [->,dotted] node[draw=none] {} (C)
+% ;
+%         \end{tikzpicture}
+% \end{minipage}
+% \linefigure
+
+% \caption{Examples of \FODA\ Diagrams.\label{section:introduction:figure:examples}}
+% \end{figure}
+
+Feature Oriented Domain Analysis~\cite{kchnp90} (in short, \FODA) is a graphical 
+representation of commonality and variability of systems. Figure~\ref{fig:foda:relations} 
+shows all \FODA\ relationships and constraints.
+% and Figure~\ref{section:introduction:figure:examples} 
+% shows some examples of how 
+% \FODA\ diagrams are built.
+In order to perform automatic analysis,  graphical representations 
+must be transformed into mathematical entities~\cite{nak10}.
+Thus, it is necessary to provide the original
+\FODA\ graphical representation with formal semantics base, where automated analysis can be 
+performed~\cite{bhst04}. This  issue is solved by using \fodaPA~\cite{acl13}, a formal 
+framework to represent \FODA\ diagrams using process algebras. \fodaPA\
+can only be applied not only to 
+\FODA, but also to represent other feature-related 
+problems and variability models.
+ 
+Costs within our formal framework refer to the required effort to add a feature to a product 
+under construction. This cost refers to many factors depending on the context of the 
+product line organization. For example, the cost of adding a feature to a product can be 
+equal to the number of lines of code of a software component~\cite{n07, babc09}, or the 
+effort, in terms of human hours, to develop that module. This effort is usually measured by using 
+functional metrics~\cite{j04,cg08,hko13}. The cost of adding third-party modules, both 
+commercial and open source, to our \SPL\ could be the time associated with integrating it into 
+the product line organization. 
+
+The order in which features are computed is important in many software projects and 
+has an  important relevance to the final cost of the project. This order can be easily incorporated 
+into the operational semantics of~\fodaPA. In this paper we represent costs with 
+natural numbers. This is not a drawback of our formalism because we can assume a 
+minimum cost unit, and therefore, any cost can be represented as a multiple of this unit. 
+
+
+\begin{itemize}
+\item Hablar de las probabilidades en métodos formales.
+\item Carlos debe buscar alguna referencia de SPL con probabilidades
+\item Las probabilidades ayudan en los SPL. Por ejemplo en testing
+  se pueden comprobar con mayor fiabilidad los productos o componentes
+  que aparecen con mayor probabilidad.
+\end{itemize}
+
 El objetivo principal de éste capítulo es el de
-estudiar el comportamiento de las líneas de productos
+estudiar el comportamiento de las lineas de productos
 software basado en el análisis probabilístico.
 Este análisis muestra cómo identificar aquella
 característica mas utilizada dentro del modelo 
 calculando la probabilidad de encontrar
-una característica dentro de una línea de productos.
-%
-La sección~\ref{sec:stat:sintax} muestra la descripción
-formal de la extensión de \fodaPA\ para soportar
-probabilidades en los elementos sintácticos que lo
-requieran.
-%
-Luego, la sección~\ref{sec:stat:oper} muestra los
-cambios necesarios en las reglas semánticas de \fodaPA\
-para soportar los cambios realizados en la sintaxis
-del lenguaje.
-%
-Una vez modificadas tanto la sintaxis como la semántica 
-de \fodaPA\ la sección~\ref{sec:stat:consis} demuestra
-que todos los teoremas y lemas planteados para esta extensión
-son correctos.
-%
-La sección~\ref{sec:stat:den} describe los cambios realizados a las
-reglas de la semántica denotacional.
-%
-Seguidamente la sección~\ref{sec:stat:hid} muestra una
-característica novedosa de la extensión probabilística, que
-es la de ocultar aquellas características que no afecten 
-a la cardinalidad total de los productos validos a generar.
-%
-La sección~\ref{sec:equivalence} muestra que los productos
-generados por ambas semánticas (operacional y denotacional)
-son equivalentes.
-%
-Para finalizar la sección~\ref{sec:stat:impl} muestra la
-implementación de la semántica denotacional de la extensión
-probabilística.
+una característica dentro de una línea de productos software.
 
-%\todo{Creo que es mejor lo que que se cuenta en cada sección del
-%  capítulo como en el cap'itulo 2}
+Los objetivos del presente capítulo se encuentran
+clasificados de acuerdo a la siguiente estructura.
+La definición de una nueva sintaxis para soportar
+probabilidades basado en la sintaxis de \fodaPA.
+Una nueva definición de la semántica operacional
+y de la semántica denotacional que permitan
+soportar probabilidades basadas en \fodaPA.
+Describir las relaciones de equivalencia entre
+la semántica operacional y la semántica denotacional.
+Mostrar la implementación de la semántica
+denotacional del modelo probabilístico determinando
+la probabilidad de una característica en un modelo
+de características,
+sin calcular todos los productos.
+Para finalizar el capítulo, se muestran los resultados
+de la implementación en comparación
+con los resultados obtenidos previamente en
+los modelos no probabilísticos \cite{acl13, clc16}.
+
 
 
 %%% Local Variables: 
 %%% mode: latex
-%%% TeX-master: "../../main"
+%%% TeX-master: "main"
+%%%   ispell-local-dictionary: "american"
 %%% End: 
+
+  
+
+% LocalWords:  formalisms
