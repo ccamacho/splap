@@ -3,27 +3,27 @@
 \label{ref:introduction}
 
 
-The main purpose of Software Product Lines (in short, \SPLs) is to produce products 
-while increasing productivity and shortening the time-to-market period. \SPLs\ depend 
-on which software products are being produced and which of them are better for 
-a specific criterion. When products are represented in a product line organization, 
+The main purpose of Software Product Lines (in short, \SPLs) is to produce products
+while increasing productivity and shortening the time-to-market period. \SPLs\ depend
+on which software products are being produced and which of them are better for
+a specific criterion. When products are represented in a product line organization,
 several modeling approaches can be used to increase both quality and productivity.
-In most cases this is represented in the form of features, relationships and 
-constraints. For instance, some of these approaches are FODA~\cite{kchnp90}, 
-RSEB~\cite{mj98} and PLUSS~\cite{k05, ebb06}.
+In most cases this is represented in the form of features, relationships and
+constraints. For instance, some of these approaches are FODA~\cite{kchnp90},
+RSEB~\cite{mj98} and PLUSS~\cite{k05,ebb06}.
 
-Automatic and formal approaches arise from these graphical representations to model 
+Automatic and formal approaches arise from these graphical representations to model
 variability and commonality of systems. Formal models allow for detecting errors in the early
-stages of the production process. Some of the existing approaches use algebras and 
-semantics~\cite{szw05, kkm06, prb11,acl13}, while others use propositional or first order 
-logic~\cite{man02,ka07, abgf10, atfg10,nnz14}.
+stages of the production process. Some of the existing approaches use algebras and
+semantics~\cite{szw05,kkm06,prb11,acl13}, while others use propositional or first order
+logic~\cite{man02,ka07,abgf10,atfg10,nnz14}.
 
 
 \begin{figure}[t]
 
 \linefigure
 
-\centering 
+\centering
 
 
 \begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=2cm, semithick]
@@ -49,7 +49,7 @@ logic~\cite{man02,ka07, abgf10, atfg10,nnz14}.
             edge [->]  node[draw=none] {} (I)  ;
 
 
-\draw [<-] (6.8,-0.2) arc (-36:-140:20pt);   
+\draw [<-] (6.8,-0.2) arc (-36:-140:20pt);
 
   \node[rectangle,draw,node distance=2.5cm] (J) [right of=G]   {\feature{A}};
   \node[rectangle,draw] (K) [below of=J]   {\feature{B}};
@@ -58,7 +58,7 @@ logic~\cite{man02,ka07, abgf10, atfg10,nnz14}.
   \node[rectangle,draw] (M) [below of=L]   {\feature{B}};
 
 
-  \path 
+  \path
         (J) edge [->,dashed] node[draw=none] {Excludes} (K)
         (L) edge [->,dotted] node[draw=none] {Implies} (M)  ;
 
@@ -93,7 +93,7 @@ logic~\cite{man02,ka07, abgf10, atfg10,nnz14}.
 % %
 % \begin{minipage}{0.1\hsize}
 
-%         \centering 
+%         \centering
 
 %         \EX{b}
 
@@ -156,7 +156,7 @@ logic~\cite{man02,ka07, abgf10, atfg10,nnz14}.
 
 
 
-% \begin{minipage}{0.33\hsize}     
+% \begin{minipage}{0.33\hsize}
 % \centering
 %         \EX{e}
 % \vspace*{0.3em}
@@ -213,36 +213,36 @@ logic~\cite{man02,ka07, abgf10, atfg10,nnz14}.
 % \caption{Examples of \FODA\ Diagrams.\label{section:introduction:figure:examples}}
 % \end{figure}
 
-Feature Oriented Domain Analysis~\cite{kchnp90} (in short, \FODA) is a graphical 
-representation of commonality and variability of systems. Figure~\ref{fig:foda:relations} 
+Feature Oriented Domain Analysis~\cite{kchnp90} (in short, \FODA) is a graphical
+representation of commonality and variability of systems. Figure~\ref{fig:foda:relations}
 shows all \FODA\ relationships and constraints.
-% and Figure~\ref{section:introduction:figure:examples} 
-% shows some examples of how 
+% and Figure~\ref{section:introduction:figure:examples}
+% shows some examples of how
 % \FODA\ diagrams are built.
-In order to perform automatic analysis,  graphical representations 
+In order to perform automatic analysis,  graphical representations
 must be transformed into mathematical entities~\cite{nak10}.
 Thus, it is necessary to provide the original
-\FODA\ graphical representation with formal semantics base, where automated analysis can be 
-performed~\cite{bhst04}. This  issue is solved by using \fodaPA~\cite{acl13}, a formal 
+\FODA\ graphical representation with formal semantics base, where automated analysis can be
+performed~\cite{bhst04}. This  issue is solved by using \fodaPA~\cite{acl13}, a formal
 framework to represent \FODA\ diagrams using process algebras. \fodaPA\
-can only be applied not only to 
-\FODA, but also to represent other feature-related 
+can only be applied not only to
+\FODA, but also to represent other feature-related
 problems and variability models.
- 
-Costs within our formal framework refer to the required effort to add a feature to a product 
-under construction. This cost refers to many factors depending on the context of the 
-product line organization. For example, the cost of adding a feature to a product can be 
-equal to the number of lines of code of a software component~\cite{n07, babc09}, or the 
-effort, in terms of human hours, to develop that module. This effort is usually measured by using 
-functional metrics~\cite{j04,cg08,hko13}. The cost of adding third-party modules, both 
-commercial and open source, to our \SPL\ could be the time associated with integrating it into 
-the product line organization. 
 
-The order in which features are computed is important in many software projects and 
-has an  important relevance to the final cost of the project. This order can be easily incorporated 
-into the operational semantics of~\fodaPA. In this paper we represent costs with 
-natural numbers. This is not a drawback of our formalism because we can assume a 
-minimum cost unit, and therefore, any cost can be represented as a multiple of this unit. 
+Costs within our formal framework refer to the required effort to add a feature to a product
+under construction. This cost refers to many factors depending on the context of the
+product line organization. For example, the cost of adding a feature to a product can be
+equal to the number of lines of code of a software component~\cite{n07,babc09}, or the
+effort, in terms of human hours, to develop that module. This effort is usually measured by using
+functional metrics~\cite{j04,cg08,hko13}. The cost of adding third-party modules, both
+commercial and open source, to our \SPL\ could be the time associated with integrating it into
+the product line organization.
+
+The order in which features are computed is important in many software projects and
+has an  important relevance to the final cost of the project. This order can be easily incorporated
+into the operational semantics of~\fodaPA. In this paper we represent costs with
+natural numbers. This is not a drawback of our formalism because we can assume a
+minimum cost unit, and therefore, any cost can be represented as a multiple of this unit.
 
 
 \begin{itemize}
@@ -257,7 +257,7 @@ El objetivo principal de éste capítulo es el de
 estudiar el comportamiento de las lineas de productos
 software basado en el análisis probabilístico.
 Este análisis muestra cómo identificar aquella
-característica mas utilizada dentro del modelo 
+característica mas utilizada dentro del modelo
 calculando la probabilidad de encontrar
 una característica dentro de una línea de productos software.
 
@@ -282,12 +282,12 @@ los modelos no probabilísticos \cite{acl13, clc16}.
 
 
 
-%%% Local Variables: 
+%%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "main"
 %%%   ispell-local-dictionary: "american"
-%%% End: 
+%%% End:
 
-  
+
 
 % LocalWords:  formalisms
