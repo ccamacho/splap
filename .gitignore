@@ -8,3 +8,20 @@ main.pdf
 main.bbl
 main.blg
 
+*lof
+*toc
+*aux
+*blg
+*gz
+*log
+*out
+*spl
+*pyc
+*bak
+*lot
+*maf
+*mtc
+*mtc*
+*toc
+.DS_Store
+
