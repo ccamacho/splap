@@ -1,111 +1,69 @@
 \section{Semántica denotacional}
 \label{sec:stat:den}
 
-De manera de definir la semántica denotacional para la extensión
-probabilística es indispensable definir el \emph{dominio matemático}
-donde serán representados los elementos sintácticos de $\fodaPAp$. 
-
-La semántica de cualquier expresión $\fodaPAp$
-se representa por su conjunto de productos y sus probabilidades,
-y cada producto puede ser representado por  sus características
-sin tomar en cuenta su posición dentro de la traza, de tal manera
-que éstas serán vistos como conjuntos de características.
-%
-De igual manera que en la sección \ref{sec:denotational}, la extensión
-denotacional de $\fodaPAp$ permitirá que serán definidas todas las
-funciones que permitan describir el
-comportamiento del modelo sin importar de la forma en que estas 
-reglas son procesadas.
-Este se basa en las definiciones del modelo
-no probabilístico con la excepción que debe ser añadida la información
-probabilística a medida que se procesan las características, de allí,
-el uso de multiconjuntos para su representación ya la probabilidad
-es modelada como sería definida la multiplicidad en los
-multiconjuntos tradicionales.
-
-
+\begin{itemize}
+\item The model: products (set of features) with probability.
+\end{itemize}
 
 
 %\todo{Explicar el modelo con más detalle,  y el motivo por el que se necesitan multiconjnutos}
 
 \bdfn\label{def:den:pr}
-  Se define el conjunto $M\in\calM$ si y sólo si
+  Let us consider the set $\calM\subseteq\calP(\calP(\calF)\times
+  (0,1]))$ defined as follows: $M\in\calM$ if the following
+  conditions hold:
   \begin{itemize}
   \item $M\subseteq \calP(\calF)\times (0,1]$ \\
-  Donde $M$ está contenido en el superconjunto de todas
-  las características del término y la probabilidad de 
-  cada uno de estos productos está entre (0,1].
-  
   \item $(P,q),(P,r)\in M$ entonces $q=r$ \\
-  Cada producto tienen una probabilidad única dentro del
-  conjunto de productos.
-  
   \item $1\geq\sum_{(P,q)\in M} q$ \\
-  La sumatoria de las probabilidades de los productos contenidos en $M$
-  será de hasta 1.
   \end{itemize}
 \edfn
 
-Para la descripción de la semántica denotacional se
-utilizaran multiconjuntos, representados por $\lbag \cdots\rbag$, esto, debido a la definición \ref{def:den:pr}, ya que para cada conjunto de características (producto en construcción) 
-será asociado una multiplicidad (probabilidad del producto en construcción).
+\begin{itemize}
+\item The multisets in will appear in the operational semantics.
+\item We need to convert these multisets into sets of the model.
+\end{itemize}
 
 \bdfn
-  Dado un multiconjunto $M \subseteq \calP(\calF)\times [0,1]$, se define entonces
+  Let $M \subseteq \calP(\calF)\times [0,1]$ a multi set then we
+  define the operator $\accum$ as follows:
   $$\accum(M) = \left\{(P,p)\ | \ p=\sum_{(P,q)\in M}q\ ,\ p>0\right\}$$
+
 \edfn
 \bprop\label{prop:pr:accum}
- Dado un multiconjunto $M\subseteq \calP(\calF)\times [0,1]$, si $1\geq\sum_{(P,q)\in M} q$
- entonces $\accum(M)\in\calM$.
+ Let $M\subseteq \calP(\calF)\times [0,1]$ be a multiset, if $1\geq\sum_{(P,q)\in M} q$
+ then $\accum(M)\in\calM$.
 \eprop
 
 
-\bdfn\label{def:pr:sum}
-Dados los multiconjuntos:
-\todo{Verificar agregada por carlos}
+% \bdfn\label{def:pr:sum}
+% Dados los multiconjuntos:
+% \todo{Verificar agregada por carlos}
 
-$M = \lbag (M_{1},m_{1}),\ldots,(M_{n},m_{n})\rbag, 0 \leq m_{1}\ldots m_{n} \leq 1, M_{1}\ldots M_{n} \subseteq \calP(\calF) $
+% $M = \lbag (M_{1},m_{1}),\ldots,(M_{n},m_{n})\rbag, 0 \leq m_{1}\ldots m_{n} \leq 1, M_{1}\ldots M_{n} \subseteq \calP(\calF) $
 
-$N = \lbag (N_{1},n_{1}),\ldots,(N_{n},n_{n})\rbag, 0 \leq n_{1}\ldots n_{n} \leq 1, N_{1}\ldots N_{n} \subseteq \calP(\calF) $
+% $N = \lbag (N_{1},n_{1}),\ldots,(N_{n},n_{n})\rbag, 0 \leq n_{1}\ldots n_{n} \leq 1, N_{1}\ldots N_{n} \subseteq \calP(\calF) $
  
-se define $M \uplus N$ como:
+% se define $M \uplus N$ como:
 
-$\lbag (M_{1},m_{1}),\ldots,(M_{n},m_{n}),(N_{1},n_{1}),\ldots,(N_{n},n_{n})\rbag$
-\edfn
-\bprop\label{prop:pr:sum}
-\todo{Verificar agregada por carlos}
-Dados los multiconjuntos $M\in\calM$ y $N\in\calM$ entonces $M \uplus N \in\calM$
-\eprop
+% $\lbag (M_{1},m_{1}),\ldots,(M_{n},m_{n}),(N_{1},n_{1}),\ldots,(N_{n},n_{n})\rbag$
+% \edfn
+
+% \bprop\label{prop:pr:sum}
+% \todo{Verificar agregada por carlos}
+% Dados los multiconjuntos $M\in\calM$ y $N\in\calM$ entonces $M \uplus N \in\calM$
+% \eprop
 
 
 
-El siguiente paso es definir un operador semántico para cada uno de los
-operadores sintácticos en $\fodaPA$.
-Esto es realizado mediante la siguiente definición.
-%\todo{Most of the sets in the following definition should be multisets}
 \bdfn\label{def:semantic:operators}
-Los operadores de la semántica 
-denotacional para la extensión probabilística de $\fodaPA$
-se definen como:
 
   \begin{itemize}
-  	
+        
   \item $\semdenp{\nil}=\emptyset$
   
-  La función de la semántica denotacional que recibe
-  $\nil$ retornará siempre vacío y de allí a que
-  no pueda ser procesada ninguna otra característica
-  ya que no existe ninguna función definida que reciba
-  $\emptyset$ como parámetro.
-  
   \item $\semdenp{\checkmark}=\{(\emptyset,1)\}$
-  
-  La función que recibe $\checkmark$ como
-  parámetro siempre será procesada con probabilidad 1.
-  Esta no devuelve un multiconjunto porque al 
-  procesar el término siempre serán la primeras
-  características en computarse.
-  
+   
   \item 
     $\semdenp{\feature{A};\cdot}:\calM\mapsto\calM$
     como
@@ -268,112 +226,112 @@ desde los elementos terminales u hojas hasta la raíz.
 
 
 \begin{figure}[h]
-	\hrule
-	
-	\vspace*{1em}
-	
-	\centering $P_{1} = \feature{A};\ofeature{B};_{p}\checkmark$\review
-	
-	\scalebox{0.8}{$
-		\begin{array}{lll}
-		\semdenp{\checkmark} &=& \{(\emptyset,1)\}\\
-		\semdenp{\ofeature{B};_p\checkmark} &=&   \semdenp{\ofeature{B};_{p}\cdot}(\semdenp{\checkmark}) = 
-		\semdenp{\ofeature{B};_{p}\cdot}(\{(\emptyset,1)\})=\\
-		&&\{(\emptyset,(1-p)),(\feature{B},p)\}\\
-		\semdenp{\feature{A};\ofeature{B};_p\checkmark} &=& \semdenp{\feature{A};\cdot}(\semdenp{\ofeature{B};_p\checkmark})=
-		\semdenp{\feature{A};\cdot}(\{(\emptyset,(1-p)),(\feature{B},p)\})=\\
-		&&\{(\feature{A},(1-p)),(\feature{A}\feature{B},p)\}
-		\end{array}
-		$}
-	
-	\vspace*{1em} \hrule\vspace*{1em}
-	
-	
-	\centering 
-	$P_{2} = \feature{A};(\ofeature{B};_{p}\checkmark \choice_{q} \ofeature{B};_{r}\checkmark)$ \review
-	
-	%\feature{A};(\ofeature{B};_{p}\checkmark \choice_{q} \ofeature{B};_{r}\checkmark)
-	\scalebox{0.8}{$
-		\begin{array}{lll}
-		\semdenp{\checkmark} &=& \{(\emptyset,1)\}\\
-		\semdenp{\ofeature{B};_{\frac{1}{3}}\checkmark} &=&   \semdenp{\ofeature{B};_{\frac{1}{3}}\cdot}(\semdenp{\checkmark}) = 
-		\semdenp{\ofeature{B};_{\frac{1}{3}}\cdot}(\{(\emptyset,1)\})=\\
-		&&\{(\emptyset,\frac{2}{3}),(\feature{B},\frac{1}{3})\}\\
-		\semdenp{\ofeature{B};_{\frac{1}{3}}\checkmark \choice_{\frac{1}{2}} \ofeature{B};_{\frac{1}{3}}\checkmark} &=&
-		\semdenp{\cdot  \choice_{\frac{1}{2}} \cdot}(\semdenp{\ofeature{B};_{\frac{1}{3}}\checkmark},\semdenp{\ofeature{B};_{\frac{1}{3}}\checkmark)}\\
-		&=&
-		\semdenp{\cdot  \choice_{\frac{1}{2}} \cdot}(\{(\emptyset,\frac{2}{3}),(\feature{B},\frac{1}{3})\}, \{(\emptyset,\frac{2}{3}),(\feature{B},\frac{1}{3})\}) =\\
-		&=&     
-		\accum\Bigl(\bigl\{(\emptyset,\frac{2}{6}),(\feature{B},\frac{1}{6})\bigr\}  \uplus \bigl\{(\emptyset,\frac{2}{6}),(\feature{B},\frac{1}{6})\bigr\}\Bigr)=\\
-		&=&\bigl\{(\emptyset,\frac{2}{3}),(\feature{B},\frac{1}{3})\bigr\}
-		\end{array}
-		$}
-	
-	\vspace*{1em} \hrule\vspace*{1em}
-	
-	$P_{3} = \feature{A};(\feature{A};\checkmark\choice_{q} \feature{B};\checkmark)$\review
-	
-	%$\feature{A};(\feature{A};\checkmark\choice_{q} \feature{B};\checkmark)$
-	\scalebox{0.8}{$
-		\begin{array}{lll}
-		\semdenp{\checkmark} &=& \{(\emptyset,1)\}\\
-		\semdenp{\feature{A};\checkmark} &=& \semdenp{\feature{A};\cdot}(\semdenp{\checkmark})=
-		\semdenp{\feature{A};\cdot}(\{(\emptyset,1)\})=\{(\feature{A},1)\}\\
-		\semdenp{\feature{A};\checkmark\choice_{q} \feature{B};\checkmark} &=&
-		\semdenp{\cdot \choice_{q} \cdot} (\semdenp{\feature{A};\checkmark},\semdenp{\feature{B};\checkmark})=\\
-		&=& \semdenp{\cdot \choice_{q} \cdot} (\{(\feature{A},1)\},\{(\feature{B},1)\}) = \{(\feature{A},q),(\feature{B},(1-q))\}\\
-		\semdenp{\feature{A};(\feature{A};\checkmark\choice_{q} \feature{B};\checkmark)} &=&
-		\semdenp{\feature{A};\cdot}(\semdenp{\feature{A};\checkmark\choice_{q} \feature{B};\checkmark})=\\
-		&=& \semdenp{\feature{A};\cdot}(\{(\feature{A},q),(\feature{B},(1-q))\}) = \{(\feature{A},q),(\feature{A}\feature{B},(1-q))\}
-		\end{array}
-		$}
-	\vspace*{1em}
-	
-	\hrule
-	
-	\caption{Ejemplo de la ejecución de las reglas de la semántica denotacional (1/2).\label{example:denot:1}}
+        \hrule
+        
+        \vspace*{1em}
+        
+        \centering $P_{1} = \feature{A};\ofeature{B};_{p}\checkmark$\review
+        
+        \scalebox{0.8}{$
+                \begin{array}{lll}
+                \semdenp{\checkmark} &=& \{(\emptyset,1)\}\\
+                \semdenp{\ofeature{B};_p\checkmark} &=&   \semdenp{\ofeature{B};_{p}\cdot}(\semdenp{\checkmark}) = 
+                \semdenp{\ofeature{B};_{p}\cdot}(\{(\emptyset,1)\})=\\
+                &&\{(\emptyset,(1-p)),(\feature{B},p)\}\\
+                \semdenp{\feature{A};\ofeature{B};_p\checkmark} &=& \semdenp{\feature{A};\cdot}(\semdenp{\ofeature{B};_p\checkmark})=
+                \semdenp{\feature{A};\cdot}(\{(\emptyset,(1-p)),(\feature{B},p)\})=\\
+                &&\{(\feature{A},(1-p)),(\feature{A}\feature{B},p)\}
+                \end{array}
+                $}
+        
+        \vspace*{1em} \hrule\vspace*{1em}
+        
+        
+        \centering 
+        $P_{2} = \feature{A};(\ofeature{B};_{p}\checkmark \choice_{q} \ofeature{B};_{r}\checkmark)$ \review
+        
+        %\feature{A};(\ofeature{B};_{p}\checkmark \choice_{q} \ofeature{B};_{r}\checkmark)
+        \scalebox{0.8}{$
+                \begin{array}{lll}
+                \semdenp{\checkmark} &=& \{(\emptyset,1)\}\\
+                \semdenp{\ofeature{B};_{\frac{1}{3}}\checkmark} &=&   \semdenp{\ofeature{B};_{\frac{1}{3}}\cdot}(\semdenp{\checkmark}) = 
+                \semdenp{\ofeature{B};_{\frac{1}{3}}\cdot}(\{(\emptyset,1)\})=\\
+                &&\{(\emptyset,\frac{2}{3}),(\feature{B},\frac{1}{3})\}\\
+                \semdenp{\ofeature{B};_{\frac{1}{3}}\checkmark \choice_{\frac{1}{2}} \ofeature{B};_{\frac{1}{3}}\checkmark} &=&
+                \semdenp{\cdot  \choice_{\frac{1}{2}} \cdot}(\semdenp{\ofeature{B};_{\frac{1}{3}}\checkmark},\semdenp{\ofeature{B};_{\frac{1}{3}}\checkmark)}\\
+                &=&
+                \semdenp{\cdot  \choice_{\frac{1}{2}} \cdot}(\{(\emptyset,\frac{2}{3}),(\feature{B},\frac{1}{3})\}, \{(\emptyset,\frac{2}{3}),(\feature{B},\frac{1}{3})\}) =\\
+                &=&     
+                \accum\Bigl(\bigl\{(\emptyset,\frac{2}{6}),(\feature{B},\frac{1}{6})\bigr\}  \uplus \bigl\{(\emptyset,\frac{2}{6}),(\feature{B},\frac{1}{6})\bigr\}\Bigr)=\\
+                &=&\bigl\{(\emptyset,\frac{2}{3}),(\feature{B},\frac{1}{3})\bigr\}
+                \end{array}
+                $}
+        
+        \vspace*{1em} \hrule\vspace*{1em}
+        
+        $P_{3} = \feature{A};(\feature{A};\checkmark\choice_{q} \feature{B};\checkmark)$\review
+        
+        %$\feature{A};(\feature{A};\checkmark\choice_{q} \feature{B};\checkmark)$
+        \scalebox{0.8}{$
+                \begin{array}{lll}
+                \semdenp{\checkmark} &=& \{(\emptyset,1)\}\\
+                \semdenp{\feature{A};\checkmark} &=& \semdenp{\feature{A};\cdot}(\semdenp{\checkmark})=
+                \semdenp{\feature{A};\cdot}(\{(\emptyset,1)\})=\{(\feature{A},1)\}\\
+                \semdenp{\feature{A};\checkmark\choice_{q} \feature{B};\checkmark} &=&
+                \semdenp{\cdot \choice_{q} \cdot} (\semdenp{\feature{A};\checkmark},\semdenp{\feature{B};\checkmark})=\\
+                &=& \semdenp{\cdot \choice_{q} \cdot} (\{(\feature{A},1)\},\{(\feature{B},1)\}) = \{(\feature{A},q),(\feature{B},(1-q))\}\\
+                \semdenp{\feature{A};(\feature{A};\checkmark\choice_{q} \feature{B};\checkmark)} &=&
+                \semdenp{\feature{A};\cdot}(\semdenp{\feature{A};\checkmark\choice_{q} \feature{B};\checkmark})=\\
+                &=& \semdenp{\feature{A};\cdot}(\{(\feature{A},q),(\feature{B},(1-q))\}) = \{(\feature{A},q),(\feature{A}\feature{B},(1-q))\}
+                \end{array}
+                $}
+        \vspace*{1em}
+        
+        \hrule
+        
+        \caption{Ejemplo de la ejecución de las reglas de la semántica denotacional (1/2).\label{example:denot:1}}
 \end{figure}
 
 
 \begin{figure}[h]
-	\hrule
-	\vspace*{1em}
-	
-	\centering $P_{4} = (\feature{A};\checkmark \choice_{p} \feature{B};\nil)$\review
-	
-	%(\feature{A};\checkmark \choice_{p} \feature{B};\nil)
-	\scalebox{0.8}{$
-		\begin{array}{lll}
-		\semdenp{\nil} &=& \emptyset\\
-		\semdenp{\feature{B};\nil} &=& \semdenp{\feature{B};\cdot}(\semdenp{\nil}) =\semdenp{\feature{B};\cdot}(\emptyset)= \emptyset\\
-		\semdenp{\checkmark} &=& \{(\emptyset,1)\}\\
-		\semdenp{\feature{A};\checkmark} &=& \semdenp{\feature{A};\cdot}(\semdenp{\checkmark})=
-		\semdenp{\feature{A};\cdot}(\{(\emptyset,1)\})=\{(\feature{A},1)\}\\
-		\semdenp{\feature{A};\checkmark \choice_{\frac{1}{7}} \feature{B};\nil} &=& 
-		\semdenp{\cdot \choice_{\frac{1}{7}} \cdot}(\semdenp{\feature{A};\checkmark},\semdenp{\feature{B};\nil})\\
-		&=&\semdenp{\cdot \choice_{\frac{1}{7}} \cdot}(\{(\feature{A},1)\},\emptyset)= \{(\feature{A},\frac{1}{7})\}
-		\end{array}
-		$}
-	
-	\vspace*{1em} \hrule\vspace*{1em}
-	\centering $P_{5} = (\feature{A};\checkmark \paral \feature{B};\checkmark)$\review
-	
-	%$(\feature{A};\checkmark \paral \feature{B};\checkmark)$
-	\scalebox{0.8}{$
-		\begin{array}{lll}
-		\semdenp{\checkmark} &=& \{(\emptyset,1)\}\\
-		\semdenp{\feature{A};\checkmark} &=& \semdenp{\feature{A};\cdot}(\semdenp{\checkmark})=
-		\semdenp{\feature{A};\cdot}(\{(\emptyset,1)\})=\{(\feature{A},1)\}\\
-		\semdenp{\feature{A};\checkmark \paral \feature{B};\checkmark} &=& 
-		\semdenp{\cdot \paral \cdot}(\semdenp{\feature{A};\checkmark},\semdenp{\feature{B};\checkmark})=
-		\semdenp{\cdot \paral \cdot}(\{(\feature{A},1)\},\{(\feature{B},1)\})=\\
-		&& \{(\feature{A}\feature{B},\frac{1}{2}),(\feature{B}\feature{A},\frac{1}{2})\}\\
-		\end{array}
-		$}
-	\vspace*{1em} \hrule
-	
-	
-	\caption{Ejemplo de la ejecución de las reglas de la semántica denotacional (2/2).\label{example:denot:2}}
+        \hrule
+        \vspace*{1em}
+        
+        \centering $P_{4} = (\feature{A};\checkmark \choice_{p} \feature{B};\nil)$\review
+        
+        %(\feature{A};\checkmark \choice_{p} \feature{B};\nil)
+        \scalebox{0.8}{$
+                \begin{array}{lll}
+                \semdenp{\nil} &=& \emptyset\\
+                \semdenp{\feature{B};\nil} &=& \semdenp{\feature{B};\cdot}(\semdenp{\nil}) =\semdenp{\feature{B};\cdot}(\emptyset)= \emptyset\\
+                \semdenp{\checkmark} &=& \{(\emptyset,1)\}\\
+                \semdenp{\feature{A};\checkmark} &=& \semdenp{\feature{A};\cdot}(\semdenp{\checkmark})=
+                \semdenp{\feature{A};\cdot}(\{(\emptyset,1)\})=\{(\feature{A},1)\}\\
+                \semdenp{\feature{A};\checkmark \choice_{\frac{1}{7}} \feature{B};\nil} &=& 
+                \semdenp{\cdot \choice_{\frac{1}{7}} \cdot}(\semdenp{\feature{A};\checkmark},\semdenp{\feature{B};\nil})\\
+                &=&\semdenp{\cdot \choice_{\frac{1}{7}} \cdot}(\{(\feature{A},1)\},\emptyset)= \{(\feature{A},\frac{1}{7})\}
+                \end{array}
+                $}
+        
+        \vspace*{1em} \hrule\vspace*{1em}
+        \centering $P_{5} = (\feature{A};\checkmark \paral \feature{B};\checkmark)$\review
+        
+        %$(\feature{A};\checkmark \paral \feature{B};\checkmark)$
+        \scalebox{0.8}{$
+                \begin{array}{lll}
+                \semdenp{\checkmark} &=& \{(\emptyset,1)\}\\
+                \semdenp{\feature{A};\checkmark} &=& \semdenp{\feature{A};\cdot}(\semdenp{\checkmark})=
+                \semdenp{\feature{A};\cdot}(\{(\emptyset,1)\})=\{(\feature{A},1)\}\\
+                \semdenp{\feature{A};\checkmark \paral \feature{B};\checkmark} &=& 
+                \semdenp{\cdot \paral \cdot}(\semdenp{\feature{A};\checkmark},\semdenp{\feature{B};\checkmark})=
+                \semdenp{\cdot \paral \cdot}(\{(\feature{A},1)\},\{(\feature{B},1)\})=\\
+                && \{(\feature{A}\feature{B},\frac{1}{2}),(\feature{B}\feature{A},\frac{1}{2})\}\\
+                \end{array}
+                $}
+        \vspace*{1em} \hrule
+        
+        
+        \caption{Ejemplo de la ejecución de las reglas de la semántica denotacional (2/2).\label{example:denot:2}}
 \end{figure}
 
 
@@ -382,6 +340,6 @@ desde los elementos terminales u hojas hasta la raíz.
 
 %%% Local Variables: 
 %%% mode: latex
-%%% TeX-master: "../../main"
-%%% ispell-local-dictionary: "castellano"
+%%% TeX-master: "main"
+%%% ispell-local-dictionary: "english"
 %%% End: 
