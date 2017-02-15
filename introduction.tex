@@ -18,7 +18,6 @@ stages of the production process. Some of the existing approaches use algebras a
 semantics~\cite{szw05,kkm06,prb11,acl13}, while others use propositional or first order
 logic~\cite{man02,ka07,abgf10,atfg10,nnz14}.
 
-
 \begin{figure}[t]
 
 \linefigure
@@ -244,15 +243,98 @@ into the operational semantics of~\fodaPA. In this paper we represent costs with
 natural numbers. This is not a drawback of our formalism because we can assume a
 minimum cost unit, and therefore, any cost can be represented as a multiple of this unit.
 
+Formal methods and process algebras 
+have demonstrated being a useful tool
+to describe systems behavior.
+They have evolved to extend their relations
+to support probabilistic models~\cite{pp01,l19911}.
 
-\begin{itemize}
-\item Hablar de las probabilidades en métodos formales.
-\item Carlos debe buscar alguna referencia de SPL con probabilidades
-\item Las probabilidades ayudan en los SPL. Por ejemplo en testing
-  se pueden comprobar con mayor fiabilidad los productos o componentes
-  que aparecen con mayor probabilidad.
-\end{itemize}
+Figures like the displayed trees
+describes how are assigned probabilities inside the
+system behavior.
+Is relevant to notice that the probability
+of execute a transition \textit{t} 
+is not necessarily equal to the other probabilities 
+from the same level.
 
+\begin{figure}[h]
+	\hspace{50px}
+	\begin{minipage}{0.4\hsize}       
+		
+		
+		\begin{minipage}{0.2\hsize}
+			\scalebox{0.6}{
+				\begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=2cm, semithick]
+				
+				\node[circle,draw] (A)   {};
+				\node[circle,draw] (B) [below left of=A]   {};
+				\node[regular polygon,regular polygon sides=3,draw,scale=0.8] (F) [below of=B]   {T};
+				\node[circle,draw] (C) [below right of=A]   {};
+				\node[circle,draw] (D) [below left of=C]   {};
+				\node[circle,draw] (E) [below right of=C]   {};
+				\node[regular polygon,regular polygon sides=3,draw,scale=0.8] (G) [below  of=D]   {T};
+				\node[regular polygon,regular polygon sides=3,draw,scale=0.8] (H) [below  of=E]   {T};			
+				
+				\path (A) edge [] node [pos=0.5, above left, draw=white, opacity=0, text opacity=1]{1/3} (B);
+				\path (B) edge [] node [pos=0.5, left, draw=white, opacity=0, text opacity=1]{a} (F);
+				\path (A) edge [] node [pos=0.5, above right, draw=white, opacity=0, text opacity=1]{1/2} (C);
+				\path (C) edge [] node [pos=0.5, above left, draw=white, opacity=0, text opacity=1]{1/2} (D);
+				\path (C) edge [] node [pos=0.5, above right, draw=white, opacity=0, text opacity=1]{1/2} (E);
+				\path (D) edge [] node [pos=0.5, right, draw=white, opacity=0, text opacity=1]{b} (G);
+				\path (E) edge [] node [pos=0.5, left, draw=white, opacity=0, text opacity=1]{c} (H);
+				\end{tikzpicture}
+			}
+		\end{minipage}
+	\end{minipage}
+	\begin{minipage}{0.4\hsize}       
+		
+		
+		
+		
+		\begin{minipage}{0.2\hsize}
+			\scalebox{0.6}{
+				\begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=4cm, semithick]
+				\node[circle,draw] (A)   {};
+				\node[regular polygon,regular polygon sides=3,draw,scale=0.8] (B) [below left of=A]   {T};
+				\node[regular polygon,regular polygon sides=3,draw,scale=0.8] (C) [below  of=A]   {T};			
+				\node[regular polygon,regular polygon sides=3,draw,scale=0.8] (D) [below right of=A]   {T};			
+				
+				\path (A) edge [] node [pos=0.5, above left, draw=white, opacity=0, text opacity=1]{1/3} (B);
+				\path (A) edge [] node [pos=0.5, left, draw=white, opacity=0, text opacity=1]{1/3} (C);
+				\path (A) edge [] node [pos=0.5, above right, draw=white, opacity=0, text opacity=1]{1/3} (D);
+				
+				\end{tikzpicture}}
+		\end{minipage}
+		
+	\end{minipage}
+	
+\end{figure}
+
+These models allow to assign a real value
+between 0 and 1 to each transition in order to execute
+an event.
+
+Several research projects have proven that
+statistic analysis over Software Product
+Lines allow to determine several SPL characteristics
+like the certainty of finding valid products among
+complex models ~\cite{tllv15,tlll15,chssgl13,dpcslsh17}.
+Some of them~\cite{tllv15,tlll15} describe models
+to run statistical analysis to represent Software
+Product Lines by defining an specific set of operational
+rules to compute their defined syntax elements.
+These models demonstrate their ability by being
+integrated to standard tools like QFLan, Microsoft's
+SMT Z3 and MultiVeStA. Others like ~\cite{chssgl13}
+focuses on testing SPLs properties like reliability,
+this research article defines three verification
+techniques like a probabilistic model checker on
+each product, on a model range or testing the behavior
+relations with other models. Other articles focus on
+describing use cases~\cite{dpcslsh17} analyzing the
+probability of finding features inside valid products.
+An interesting feature is that any of the referenced
+research articles describe their approaches using multisets.
 
 
 
