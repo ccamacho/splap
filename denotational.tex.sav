@@ -1,0 +1,132 @@
+\subsection{Denotational Semantics}
+\label{sec:stat:den}
+
+\begin{itemize}
+\item The model: products (set of features) with probability.
+\item Each product appears only onces
+\item The sum of all probabilities lies in $[0,1]$.
+\end{itemize}
+
+
+%\todo{Explicar el modelo con más detalle,  y el motivo por el que se necesitan multiconjnutos}
+
+\bdfn\label{def:den:pr}
+  Let us consider the set $\calM\subseteq\calP(\calP(\calF)\times
+  (0,1]))$ defined as follows: $M\in\calM$ if the following
+  conditions hold:
+  \begin{itemize}
+  \item $M\subseteq \calP(\calF)\times (0,1]$ \\
+  \item $(P,q),(P,r)\in M$ entonces $q=r$ \\
+  \item $1\geq\sum_{(P,q)\in M} q$ \\
+  \end{itemize}
+\edfn
+
+\begin{itemize}
+\item The multisets in will appear in the operational semantics.
+\item We need to convert these multisets into sets of the model. It is
+  possible if the conditions of Proposition~\ref{prop:pr:accum} hold.
+\end{itemize}
+
+\bdfn
+  Let $M \subseteq \calP(\calF)\times [0,1]$ a multi set then we
+  define the operator $\accum$ as follows:
+  $$\accum(M) = \left\{(P,p)\ | \ p=\sum_{(P,q)\in M}q\ ,\ p>0\right\}$$
+
+\edfn
+\bprop\label{prop:pr:accum}
+ Let $M\subseteq \calP(\calF)\times [0,1]$ be a multiset, if $1\geq\sum_{(P,q)\in M} q$
+ then $\accum(M)\in\calM$.
+\eprop
+
+
+\begin{itemize}
+\item Operators of the operational semantics.
+\end{itemize}
+
+
+\bdfn\label{def:semantic:operators}
+
+  \begin{itemize}\mbox{ }
+
+  \item $\semdenp{\nil}=\emptyset$
+
+  \item $\semdenp{\checkmark}=\{(\emptyset,1)\}$
+
+  \item
+    $\semdenp{\feature{A};\cdot}(M)=
+      \accum\bigl(\lbag(\{\feature{A}\}\cup P,p)\ |\ (P,p)\in M\rbag\bigr)
+      % \accum\bigl(
+      %    \{ (\{\feature{A}\} \cup P,p ) |\   (P,p) \in M\}\bigr)
+         $
+
+  \item
+    $\semdenp{\ofeature{A};_{r}\cdot}(M)=
+                \accum\bigl(\lbag(\emptyset , 1-r )\rbag\uplus\lbag (\{\feature{A}\}\cup P, r\cdot p ) \ |\ (P,p) \in M\rbag\bigr)$
+
+  \item
+    $\semdenp{\cdot\choice_{r}\cdot}(M_{1},M_{2})=\accum\bigl(\lbag(P,r\cdot p  ) \ |\ (P,p) \in
+    M_{1}\rbag \uplus \lbag(Q, (1-r)\cdot q  ) \ |\ (Q,q) \in M_{2}\rbag\bigr) $
+  \item
+    $
+        \semdenp{\cdot\paral\cdot}(M_{1},M_{2})= \accum\Bigl(
+                \lbag (P\cup Q, p\cdot q)  |\ (P,p) \in M_{1},\ (Q,q) \in M_{2}\rbag\Bigr)
+    $
+
+  \item
+    $\semdenp{\require{A}{B}{\cdot}}(M)=\accum\left(\begin{array}{l}
+      \lbag\bigl(P,p\bigr)\ |\  (P,p)\in M, \feature{A}\not\in P\rbag\ \uplus\\
+      \lbag\bigl(\{\feature{B}\}\cup P ,p\bigr)\ |\ (P,p)\in M, \feature{A}\in P\rbag \\
+      \end{array}\right)$
+
+  \item
+    $\semdenp{\exclude{A}{B}{\cdot}}(M)=\begin{array}[t]{l}
+      \{(P,p)\ |\ (P,p)\in M, \feature{A}\not\in P\}\cup\\
+      \{(P,p)\ |\ (P,p)\in M, \feature{B}\not\in P\}
+      \end{array}$
+
+    \item $\semdenp{\mandatory{A}{\cdot}}(M) = \semdenp{\feature{A};{\cdot}}(M)$
+
+    \item
+      $\semdenp{\forbid{A}{\cdot}}(M) = \{(P,p)\ |\ (P, p) \in M, \feature{A}\not\in P      \}$
+
+  \end{itemize}
+\edfn
+
+%\todo{explicar los operadores}
+
+
+
+
+
+\bprop\label{prp:domain:prob}
+  Dados  $M,M_{1}, M_{2}\in\calM$,
+  la probabilidad $p\in(0,1]$ y
+  las características $\feature{A},\feature{B}\in\calF$, entonces:
+  \begin{itemize}
+  \item $\semdenp{\feature{A};\cdot}(M)\in\calM$
+  \item $\semdenp{\ofeature{A};_{r}\cdot}(M)\in\calM$
+  \item $\semdenp{\cdot\choice_{r}\cdot}(M_{1},M_{2})\in\calM$
+  \item $\semdenp{\cdot\paral\cdot}(M_{1},M_{2})\in\calM$
+  \item $\semdenp{\require{A}{B}{\cdot}}(M)\in\calM$
+  \item $\semdenp{\exclude{A}{B}{\cdot}}(M)\in\calM$
+  \item $\semdenp{\mandatory{A}{\cdot}}(M)\in\calM$
+  \item $\semdenp{\forbid{A}{\cdot}}(M)\in\calM$
+  \end{itemize}
+
+
+  \begin{proof}
+    It is easy to check that all multisets appearing in
+    Definition~\ref{def:semantic:operators}
+    meet the conditions of Proposition~\ref{prp:domain:prob}.
+  \end{proof}
+\eprop
+
+
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "main"
+%%% ispell-local-dictionary: "english"
+%%% End:
