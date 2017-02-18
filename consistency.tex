@@ -1,33 +1,28 @@
-\section{Consistence of the probabilistic model}
-\label{sec:stat:consis}
+%\subsection{Consistence of the probabilistic model}
+%\label{sec:stat:consis}
 
-\begin{itemize}
-\item If we remove the probabilities we obtain a non probabilistic model
-\item If the non probabilistic is consistent iff the probailistic
-  model is consistent
-\item A mon probabilistic model is consistent if if has products
-  (see~\cite{acl13}).
-\item A probabilistic model is consistent if $\ham(P)>0$.
-\end{itemize}
+\mncomment{Comprobad que lo que digo en este parrafo es lo que queriais decir porque dais pocas pistas!}
 
+Finally we prove an important property of our probabilistic language: its consistency. We say that a non-probabilistic SPL model is \emph{consistent} if it has products~\cite{acl13}.  In our case, we can define consistency by having $\ham(P)>0$. We will prove that a translation from our probabilistic framework into the non-probabilistic one keeps consistency in the expected way. 
 
 \bdfn
-  The function $\np:\fodaPAp\mapsto \fodaPA$ is defined as follows:
+  We define the translation function $\np:\fodaPAp\mapsto \fodaPA$ as follows:
   \begin{displaymath}
      \np(P)=
      \begin{cases}
-       \ofeature{A};P & \mathrm{si}\ P=\feature{A};_pP\\
-       P \choice Q & \mathrm{si}\ P \choice_{p} Q \\
-       P & \mathrm{en\ cualquier\ otro\ caso}
+       \ofeature{A};\np(P) & \mathrm{if}\ P=\feature{A};_pP\\
+       \np(P) \choice \np(Q) & \mathrm{if}\ P \choice_{p} Q \\
+       \mncomment{arreglar esto} P & \mathrm{otherwise}
      \end{cases}
   \end{displaymath}
+\mncomment{la traducción estaba mal, muy mal, vamos, fatal. Hay que aplicar np a $P$ y $Q$, asi que el otherwise hay que poner todos los casos}
 \edfn
 
 
 
 \bprop\label{prop:relnonprob}
-  Let $P,Q\in\fodaPAp$, 
-  
+  Let $P,Q\in\fodaPAp$,
+
   \begin{enumerate}
   \item\label{prop:relnonprob-a} $P\vtranp{s}{p}Q$ iff $\np(P)\vtran{s}\np(Q)$.
   \item\label{prop:relnonprob-b} $pr\in\prod(\np(P))$ iff there is
@@ -42,18 +37,18 @@
     probabilistic model. By Lemma~\ref{dfn:pr:sum} we know that any
     derived trace in the probabilistic model has a non nul probability.
   \end{proof}
-  
+
 \eprop
 
 % As a direct consequence of the previous result we have the following Corollary.
 % \bcor\label{cor:relnonprob}
 %   Let $P,Q\in\fodaPAp$, There exists $p\in(0,1)$ such that
 %   $(pr,p)\in\prodp(P)$ iff there exist $q\in(0,1)$ such that
-%   $(pr,q)\in\semdenp(P)$.  
+%   $(pr,q)\in\semdenp(P)$.
 % \ecor
 
-%%% Local Variables: 
+%%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "main"
 %%% ispell-local-dictionary: "english"
-%%% End: 
+%%% End:
