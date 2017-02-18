@@ -1,9 +1,10 @@
-\section{Operational Semantics}
-\label{sec:stat:oper}
+%\subsection{Operational Semantics}
+%\label{sec:stat:oper}
+
 
 \begin{figure*}[h]
         \linefigure
-        
+
         \centering\scalebox{0.95}{%
         $
         \begin{array}{*{3}{l@{}c@{\hspace{4em}}}}
@@ -11,13 +12,13 @@
         \nombreRegla{feat} & \feature{A};P\tranp{\feature{A}}{1}P \\
         \nombreRegla{ofeat1} & \ofeature{A};_{p}P\tranp{\feature{A}}{p}P &
         \nombreRegla{ofeat2} & \ofeature{A};_{p}P\tranp{\checkmark}{(1-p)}\nil\\
-        \nombreRegla{cho1} & \displaystyle \frac{P\tranp{\feature{A}}{p} P_1}{P\choice_{q} Q\tranp{\feature{A}}{p\cdot q} P_1}&  
+        \nombreRegla{cho1} & \displaystyle \frac{P\tranp{\feature{A}}{p} P_1}{P\choice_{q} Q\tranp{\feature{A}}{p\cdot q} P_1}&
         \nombreRegla{cho2} & \displaystyle\frac{Q\tranp{\feature{A}}{q} Q_1}{P\choice_{p} Q\tranp{\feature{A}}{(1-p)\cdot q}Q_1}\\
         \nombreRegla{con1} & \displaystyle\frac{P\tranp{\feature{A}}{p} P_1}{P\paral Q\tranp{\feature{A}}{\frac{p}{2}}P_1\paral Q} &
         \nombreRegla{con2} & \displaystyle\frac{Q\tranp{\feature{A}}{q} Q_1}{P\paral Q\tranp{\feature{A}}{\frac{q}{2}}P\paral Q_1}\\
         \nombreRegla{con3} & \displaystyle\frac{P\tranp{\checkmark}{q}\nil, Q\tranp{\checkmark}{p}\nil}{P\paral Q\tranp{\checkmark}{p\cdot q}\nil} &\\
         \nombreRegla{con4} & \displaystyle\frac{P\tranp{\feature{A}}{p} P_1, Q\tranp{\checkmark}{q}\nil}{P\paral Q\tranp{\feature{A}}{\frac{p\cdot q}{2}} P_1} &
-        \nombreRegla{con5} & \displaystyle\frac{P\tranp{\checkmark}{p}\nil,Q\tranp{\feature{A}}{q} Q_1}{P\paral Q\tranp{\feature{A}}{\frac{p\cdot q}{2}} Q_1} \\  
+        \nombreRegla{con5} & \displaystyle\frac{P\tranp{\checkmark}{p}\nil,Q\tranp{\feature{A}}{q} Q_1}{P\paral Q\tranp{\feature{A}}{\frac{p\cdot q}{2}} Q_1} \\
         %
         %
         \nombreRegla{req1} & \displaystyle
@@ -27,8 +28,8 @@
         \frac{P \tranp{\feature{A}}{p} P_1}{\require{A}{B}{P}\tranp{\feature{A}}{p} \mandatory{B}{P_1}} & \\
         % \nombreRegla{req3} & \displaystyle
         % \frac{P \tranp{\feature{B}}{p} P_1}{\require{A}{B}{P}
-        %   \tranp{\feature{B}}{p} P_1} & 
-        \nombreRegla{req3} &  \displaystyle  
+        %   \tranp{\feature{B}}{p} P_1} &
+        \nombreRegla{req3} &  \displaystyle
         \frac{P \tranp{\feature{\checkmark}}{p} \nil}{\require{A}{B}{P}
                 \tranp{\feature{\checkmark}}{p} \nil}\\
         \nombreRegla{excl1} &    \displaystyle
@@ -42,7 +43,7 @@
         &
         \nombreRegla{excl4} & \displaystyle
         \frac{P \tranp{\checkmark}{p} \nil}{\exclude{A}{B}{P}\tranp{\checkmark}{p}\nil}\\
-        
+
         \nombreRegla{forb1} & \displaystyle
         \frac{P \tranp{\feature{B}}{p} P_1,\ \feature{B}\neq\feature{A}}{\forbid{A}{P}
                 \tranp{\feature{B}}{p} \forbid{A}{P_1}} &
@@ -54,10 +55,10 @@
         %       \tran{\feature{B}} \forbid{A}{P_1}},\ \feature{B}\neq\feature{A} &
         %      \nombreRegla{forb4} & \displaystyle
         %     \frac{P\tran{\feature{A}}P_2 \tran{\feature{\checkmark}} P_1}{\forbid{A}{P}
-        %       \tran{\checkmark} \nil}\\ 
-        %     
-        % 
-        % 
+        %       \tran{\checkmark} \nil}\\
+        %
+        %
+        %
         \nombreRegla{mand1} &  \displaystyle\frac{P\tranp{\checkmark}{p} \nil}{\mandatory{A}{P}
                 \tranp{\feature{A}}{p} \checkmark}  &
         \nombreRegla{mand2} &  \displaystyle\frac{P\tranp{\feature{A}}p P_1}{\mandatory{A}{P}\tranp{\feature{A}}p P_1} \\
@@ -65,24 +66,24 @@
                 P_1,\ \feature{A}\neq\feature{B}}{\mandatory{A}{P}\tranp{\feature{B}}p \mandatory{A}{P_1}}
         \\
         \multicolumn{4}{c}{\feature{A},\feature{B},\feature{C}\in\calF,\ a\in\calF\cup\{\checkmark\}}
-        
-        \end{array}  
+
+        \end{array}
         $}
-        
+
         \noindent
-        
+
         \linefigure
-        
+
         \caption{\fodaPAp\ operational semantics.  \label{fig:sos-rules}}
 
-        
+
 \end{figure*}
 
-The rules in Figure~\ref{fig:sos-rules} describe the behavior of
-\fodaPAp. These rules are essentially the same as the ones of
-\fodaPA~\cite{acl13}, but with the addition of probabilities. So let
-us focus on the explanation of the probabilities. Rules
-$\nombreRegla{tick}$ and $\nombreRegla{feat}$ 
+In Figure~\ref{fig:sos-rules} we present the set of rules formally defining  the operational behavior of
+\fodaPAp. These rules essentially coincide with the ones corresponding
+\fodaPA~\cite{acl13}, but with the addition of probabilities. Next we focus 
+on the explanation of the role of probabilities. Rules
+$\nombreRegla{tick}$ and $\nombreRegla{feat}$
 show the corresponding feature with probability 1.
 %
 Rules  $\nombreRegla{ofeat1}$ and $\nombreRegla{ofeat2}$ deal with the
@@ -95,7 +96,7 @@ behavior of the probabilistic choice operator. The left branch is
 selected with probability $p$ and the right with probability $1-p$.
 %
 It is important to note rules for the conjunction operator
-(Rules $\nombreRegla{con1}$ to $\nombreRegla{con4}$) 
+(Rules $\nombreRegla{con1}$ to $\nombreRegla{con4}$)
 distribute the probability equitably between both
 branches, that is, $\frac{1}{2}$.
 %
@@ -122,13 +123,13 @@ termination of a product.
   \begin{displaymath}
     P=P_0\tranp{a_1}{p_1}P_1\tranp{a_2}{p_2}P_2\cdots P_{n-1}\tranp{a_n}{p_n} P_n=Q
   \end{displaymath}
-\item 
+\item
   $(pr,p)\in\prodp(P)$ si y sólo si $p>0$ y $p=\sum\lbag q\ |\
   P\vtranp{s\checkmark}{q} Q \y \product{s}=pr \rbag$
 \item $\ham(P)=\rbag p\ |\ \exists pr: (pr,p)\in\prodp(P)$
 \item $\waste(P) = 1-\ham(P)$
 \end{enumerate}
-  
+
 \edfn
 
 
@@ -141,18 +142,18 @@ termination of a product.
 
 
 \blem\label{lem:sum:prob}
-  Let  $P,\ Q\in\fodaPAp$,  
+  Let  $P,\ Q\in\fodaPAp$,
   \begin{enumerate}
   \item $P\tranp{\feature{A}}{p}Q$ then $p\in(0,1]$.
   \item $P\vtranp{s}{p}Q$ then $p\in(0,1]$.
-  \item 
+  \item
     $\sum \lbag p\, |\ \exists \feature{A}\in\calF,\ Q\in\fodaPA:\
     P\tranp{\feature{A}}{p}Q \rbag\in[0,1]$
 
-  \item 
+  \item
     $\sum \lbag p\, |\ \exists \feature{s}\in\calF^*,\ Q\in\fodaPA:\
     P\tranp{\feature{s}}{p}Q \rbag\in[0,1]$
-  \item 
+  \item
     $\ham(P)\in [0,1]$
   \end{enumerate}
 \elem
@@ -161,7 +162,7 @@ termination of a product.
 
 
 
-%%% Local Variables: 
+%%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "main"
-%%% End: 
+%%% End:
