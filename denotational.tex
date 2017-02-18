@@ -7,15 +7,19 @@ each product appears one and the sum of all the probabilities associated with pr
 
 %\todo{Explicar el modelo con más detalle,  y el motivo por el que se necesitan multiconjnutos}
 
-\mncomment{Me he bloqueado. Se quiere definir primero el dominio semantico, supongo. Asi que habria que definir $\calM$, creo. Luego, durante el resto de la seccion, en lugar de decir $M \subseteq \calP(\calF)\times [0,1]$ habria que decir $M\in \calM$, no? Supongo esto y continuo. Si he supuesto algo mal, corregidlo, please.}
+\mncomment{Me he bloqueado. Se quiere definir primero el dominio
+  semantico, supongo. Asi que habria que definir $\calM$, creo. Luego,
+  durante el resto de la seccion, en lugar de decir $M \subseteq
+  \calP(\calF)\times [0,1]$ habria que decir $M\in \calM$, no? Supongo
+  esto y continuo. Si he supuesto algo mal, corregidlo,
+  please.}\lcomen{Ha veces que lo que hay son elementos 
+$MM \subseteq \calP(\calF)\times [0,1]$ que no cumplen la condición de \calM.}
 
 \bdfn\label{def:den:pr}
 We define the semantic domain $\calM$ as the largest set $\calM\subseteq\calP(\calP(\calF)\times
   (0,1]))$ such that if $M\in\calM$ then the following
   conditions hold:
   \begin{itemize}
-  \item \mncomment{He quitado esta condicion porque es redundante.}
-  %$M\subseteq \calP(\calF)\times (0,1]$
   \item If $(P,q)\in M$ and $(P,r)\in M$ then $q=r$.
   \item $0\leq \sum \lbag q \ | \ \exists P: (P,q)\in M\rbag \leq 1$.
   \end{itemize}
@@ -28,18 +32,22 @@ We define the semantic domain $\calM$ as the largest set $\calM\subseteq\calP(\c
 %\end{itemize}
 
 %\bdfn
-Let $M \in \calM$. \mncomment{Ponia que es un multiset. Si es un objeto semantico, es un set, no??}
+Let $M$ a multiset  with elements in the set $\calP(\calF)\times [0,1]$.
 We define the operator $\accum$ as follows:
   $$\accum(M) = \left\{(P,p)\ \left| \ p=\sum_{(P,q)\in M}q \wedge p>0\right. \right\}$$
 \edfn
 
 The following result is immediate.
-\mncomment{Creo que lo he entendido! Poneis los $M$ que sean multiconjuntos para sumar todas las probabilidades y asociarselas al P!! QUe mal contado esta.... Luis, haz una iteracion y luego sigo.}
-
 \bprop\label{prop:pr:accum}
- Let $M\subseteq \in \calM$. \mncomment{otra vez lo de multiset. Puede que yo no haya entendido algo? Pero vamos, si es un multiset, no tiene sentido que ponga $M\subseteq \calP(\calF) \times [0,1]$.}
+ Let $M$ be a multiset with elements in the set $\calP(\calF)\times
+ [0,1]$
+ \mncomment{otra vez lo de multiset. Puede que yo no haya entendido
+   algo? Pero vamos, si es un multiset, no tiene sentido que ponga
+   $M\subseteq \calP(\calF) \times [0,1]$.}\lcomen{En la mayoría de
+   los operadores semántics salen multiconjuntos. Por eso $M$ debe ser
+ un multiconjunto.}
  %be a multiset, 
- If $1\geq\sum_{(P,q)\in M} q$
+ If $1\geq\sum\lbag q\ |\ (P,q)\in M\rbag$
  then $\accum(M)\in\calM$.
 \eprop
 
