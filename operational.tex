@@ -136,32 +136,24 @@ Let $P\in\fodaPAp$. We define the set of probabilistic products of $P$, denoted 
 \{(pr,p)\ |\ p>0 \wedge p=\sum\lbag q\ |\
   P\vtranp{s\checkmark}{q} Q \y \product{s}=pr \rbag\}
 \end{displaymath}
+\mncomment{$\product{s}$ no definido! Ya os digo yo que no se puede asumir que el PC son mega-expertos en SPL}
 \item We define the total probability of $P$, denoted by $\ham(P)$, as $\rbag p\ |\ \exists pr: (pr,p)\in\prodp(P)$. In addition, we define $\waste(P) = 1-\ham(P)$.
 \edfn
 
-
-\begin{itemize}
-\item Si tengo una traza su probabilidad es mayor que 0.
-\item La suma de las probabilidades de todos los productos están en el
-  intervalo [0,1].
-\end{itemize}
-
-
+The following result shows some properties, concerning probabilities, of the operational semantics. In particular, we have that the probability of (sequences of) transitions is greater than zero and that the probabilities of products belong to $[0,1]$.
 
 \blem\label{lem:sum:prob}
-  Let  $P,\ Q\in\fodaPAp$,
+  Let  $P,\ Q\in\fodaPAp$.We have the following results.
   \begin{enumerate}
-  \item $P\tranp{\feature{A}}{p}Q$ then $p\in(0,1]$.
-  \item $P\vtranp{s}{p}Q$ then $p\in(0,1]$.
+  \item If $P\tranp{\feature{A}}{p}Q$ then $p\in(0,1]$. 
+        If $P\vtranp{s}{p}Q$ then $p\in(0,1]$.
   \item
-    $\sum \lbag p\, |\ \exists \feature{A}\in\calF,\ Q\in\fodaPA:\
-    P\tranp{\feature{A}}{p}Q \rbag\in[0,1]$
-
+    $\sum \lbag p\, |\ \exists \feature{A}\in\calF,\ Q\in\fodaPAp:\
+    P\tranp{\feature{A}}{p}Q \rbag\in[0,1]$.
   \item
     $\sum \lbag p\, |\ \exists \feature{s}\in\calF^*,\ Q\in\fodaPA:\
-    P\tranp{\feature{s}}{p}Q \rbag\in[0,1]$
-  \item
-    $\ham(P)\in [0,1]$
+    P\tranp{\feature{s}}{p}Q \rbag\in[0,1]$.
+  \item $\ham(P)\in [0,1]$.
   \end{enumerate}
 \elem
 
