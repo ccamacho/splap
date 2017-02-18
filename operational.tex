@@ -75,10 +75,10 @@
         \linefigure
 
         \caption{\fodaPAp\ operational semantics.  \label{fig:sos-rules}}
-
-
 \end{figure*}
 
+\mncomment{No he leído la semántica operacional con cuidado: confío en Luis :-)}
+%
 In Figure~\ref{fig:sos-rules} we present the set of rules formally defining  the operational behavior of
 \fodaPAp. These rules essentially coincide with the ones corresponding
 \fodaPA~\cite{acl13}, but with the addition of probabilities. Next we focus 
@@ -98,38 +98,45 @@ selected with probability $p$ and the right with probability $1-p$.
 It is important to note rules for the conjunction operator
 (Rules $\nombreRegla{con1}$ to $\nombreRegla{con4}$)
 distribute the probability equitably between both
-branches, that is, $\frac{1}{2}$.
+branches, that is, $\frac{1}{2}$. We have preferred to use a simple definition of this operator, but it is easy to replace it by a more involved version of a probabilistic parallel operator~\cite{ahk98}.
 %
 Rule $\nombreRegla{con5}$ requires that both branches agree on the
 termination of a product.
 %
+We use \emph{multisets} of transitions to consider different occurrences of the same transition. So, if a transition can be derived in several ways, each derivation generates a different
+instance of this transition. For example, let us consider the
+term
+$P=\ofeature{A} \choice_{\frac12} \ofeature{A}$, where trailing occurrences of
+$\nil$ have been omitted. If we were not careful, we would have
+the transition $P\tranp{\feature{A}}{\frac12}\nil$ only once, while we
+should have this transition twice. So, if a transition can be derived in
+several ways, we consider that each derivation generates a
+different instance. In particular, we will later consider multisets of computations as well.
+%
+We will use the delimiters~$\lbag$ and~$\rbag$ to denote
+multisets.
+
+The following result, the proof is immediate, show that successful termination leads to $\nil$.
+\mncomment{Esto pa que sirve? Es obvio, no?}
 
 \blem\label{lem:check}
-  Dados los tÃ©rminos $P,Q\in\fodaPA$ y la probabilidad $p\in(0,1]$, $P\tranp{\checkmark}{p}{Q}$ si y sÃ³lo si $Q=\nil$.
+Let $P,Q\in\fodaPAp$ and $p\in(0,1]$. We have $P\tranp{\checkmark}{p}{Q}$ if and only if $Q=\nil$.
 \elem
 
+Next we present some notions associated with the composition of consecutive transitions. 
 
-\begin{itemize}
-\item Hay que introducir la notaticiÃ³n de multiconjuntos
-\item Hay que explicar la necesidad de los multiconjuntos.
-\item $\ham(P)$ es lo que suman las probabilidades de los productos
-  del tÃ©rmino.
-\end{itemize}
-
-\bdfn\label{def:trtrantions}
-\begin{enumerate}
-\item $P\vtranp{s}{p}Q$ iff si $s=a_1a_2\cdots a_n$ y $p=p_1\cdot
-  p_2\cdot \cdots p_{n}$ and
-  \begin{displaymath}
+\bdfn\label{def:trtrantions} Let $P,Q\in\fodaPAp$. We write  $P\vtranp{s}{p}Q$ if there exist a sequence of consecutive transitions
+\begin{displaymath}
     P=P_0\tranp{a_1}{p_1}P_1\tranp{a_2}{p_2}P_2\cdots P_{n-1}\tranp{a_n}{p_n} P_n=Q
-  \end{displaymath}
-\item
-  $(pr,p)\in\prodp(P)$ si y sÃ³lo si $p>0$ y $p=\sum\lbag q\ |\
-  P\vtranp{s\checkmark}{q} Q \y \product{s}=pr \rbag$
-\item $\ham(P)=\rbag p\ |\ \exists pr: (pr,p)\in\prodp(P)$
-\item $\waste(P) = 1-\ham(P)$
-\end{enumerate}
+\end{displaymath}
+where $n\geq 0$, $s=a_1a_2\cdots a_n$ and $p=p_1\cdot p_2\cdot \cdots p_{n}$.
 
+Let $P\in\fodaPAp$. We define the set of probabilistic products of $P$, denoted by $\prodp(P)$, as the set
+\begin{displaymath}
+$\{(pr,p)\ |\ $p>0$ \wedge $p=\sum\lbag q\ |\
+  P\vtranp{s\checkmark}{q} Q \y \product{s}=pr \rbag\}$
+\end{displaymath}
+\item We define the total probability of $P$, denote by $\ham(P)$, as \rbag p\ |\ \exists pr: (pr,p)\in\prodp(P)$. In addition, we define $\waste(P) = 1-\ham(P)$.
 \edfn
 
 
