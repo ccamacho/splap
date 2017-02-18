@@ -1,9 +1,12 @@
 %\subsection{Consistence of the probabilistic model}
 %\label{sec:stat:consis}
 
-\mncomment{Comprobad que lo que digo en este parrafo es lo que queriais decir porque dais pocas pistas!}
+\mncomment{Comprobad que lo que digo en este parrafo es lo que
+  queriais decir porque dais pocas pistas!}
+\lcomen{es correcto}
 
 \mncomment{No veo la utilidad de esto pero a lo mejor lo haceis porque es tipico en SPL... ni idea... pero yo lo quitaba sin piedad...}
+\lcomen{Nos lo dijeron bastante en el primer artículo}
 
 Finally we prove an important property of our probabilistic language: its consistency. We say that a non-probabilistic SPL model is \emph{consistent} if it has products~\cite{acl13}.  In our case, we can define consistency by having $\ham(P)>0$. We will prove that a translation from our probabilistic framework into the non-probabilistic one keeps consistency in the expected way.
 
@@ -12,32 +15,33 @@ Finally we prove an important property of our probabilistic language: its consis
   \begin{displaymath}
      \np(P)=
      \begin{cases}
+       \checkmark & \mathrm{if}\ P=\checkmark\\
+       \feature{A};\np(P) & \mathrm{if}\ P=\feature{A};P\\
        \ofeature{A};\np(P) & \mathrm{if}\ P=\feature{A};_pP\\
        \np(P) \choice \np(Q) & \mathrm{if}\ P \choice_{p} Q \\
-       \np(P) & \mathrm{esta mal!!! otherwise}
+       \np(P) \paral \np(Q) & \mathrm{if}\ P \paral Q \\
+       \np(P) \paral \np(Q) & \mathrm{if}\ P \paral Q \\
+       \require{A}{B}{\np(P)}  & \mathrm{if}\ \require{A}{B}{P}\\
+       \exclude{A}{B}{\np(P)} & \mathrm{if}\ \exclude{A}{B}{P}\\
+       \mandatory{A}{\np(P)} \paral & \mathrm{if}\ \mandatory{A}{P}\\
+       \forbid{A}{\np(P)} \paral & \mathrm{if}\ \forbid{A}{P}\\
+       P & \mathrm{otherwise}
      \end{cases}
   \end{displaymath}
 \edfn
-\mncomment{la traduccion esta mal, muy mal. Hay que aplicar np a $P$ y $Q$, asi que el otherwise hay que poner todos los casos}
 
 The proof of the following result is straightforward by taking into account that our operational semantics rules are the same, if we discard probabilities, as in~\cite{acl13}. Therefore, any sequence of transitions
-derived in the probabilistic model can be also derived in the non probabilistic model. In addition, by Lemma~\ref{dfn:pr:sum} \mncomment{Que lema es este?} we know that any derived trace in the probabilistic model has a positive probability.
+derived in the probabilistic model can be also derived in the non probabilistic model~\ref{lem:pr:sum1}. In addition, by Lemma~\ref{lem:pr:sum2} \mncomment{Que lema es este?} we know that any derived trace in the probabilistic model has a positive probability.
 
-\bprop\label{prop:relnonprob}
+\bthm\label{thm:relnonprob}
   Let $P,Q\in\fodaPAp$. We have 
  $P\vtranp{s}{p}Q$ if and only if $\np(P)\vtran{s}\np(Q)$.
   Moreover, we have $pr\in\prod(\np(P))$ if and only if there exists
     $p>0$ such that $(pr,p)\in\prodp(P)$.
   % \item\label{prop:relnonprob-c} $pr\in\semden{\np(P)}$ si y sólo si existe $p>0$ tal que $(pr,p)\in\semdenp{P}$.
   % \item\label{prop:relnonprob-d} Existe $p\in(0,1)$ tal que $(pr,p)\in\prodp(P)$ si y sólo si existe $q\in(0,1)$ tal que $(pr,q)\in\semdenp{P}$.
- \eprop
+ \ethm
 
-% As a direct consequence of the previous result we have the following Corollary.
-% \bcor\label{cor:relnonprob}
-%   Let $P,Q\in\fodaPAp$, There exists $p\in(0,1)$ such that
-%   $(pr,p)\in\prodp(P)$ iff there exist $q\in(0,1)$ such that
-%   $(pr,q)\in\semdenp(P)$.
-% \ecor
 
 %%% Local Variables:
 %%% mode: latex

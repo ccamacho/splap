@@ -115,9 +115,12 @@ different instance. In particular, we will later consider multisets of computati
 %
 We will use the delimiters~$\lbag$ and~$\rbag$ to denote
 multisets.\mncomment{donde estan definidos $\lbag$ and~$\rbag$?? Poned una notacion standard, algo del estilo $\{ \!\!\!\:|\;$ y $\;| \!\!\!\:\}$}
+\lcomen{No había visto antes ningún libro de multiconjuntos, cuando lo
+he buscado aparecía ese símbolo, es más mono ¿no?}
 
 The following result, the proof is immediate, show that successful termination leads to $\nil$.
 \mncomment{Esto pa que sirve? Es obvio, no?}
+\lcomen{Simplifica las demostraciones. Lo podemos poner como un ``remark''}
 
 \blem\label{lem:check}
 Let $P,Q\in\fodaPAp$ and $p\in(0,1]$. We have $P\tranp{\checkmark}{p}{Q}$ if and only if $Q=\nil$.
@@ -129,15 +132,19 @@ Next we present some notions associated with the composition of consecutive tran
 \begin{displaymath}
     P=P_0\tranp{a_1}{p_1}P_1\tranp{a_2}{p_2}P_2\cdots P_{n-1}\tranp{a_n}{p_n} P_n=Q
 \end{displaymath}
-where $n\geq 0$, $s=a_1a_2\cdots a_n$ and $p=p_1\cdot p_2\cdot \cdots p_{n}$.
+where $n\geq 0$, $s=a_1a_2\cdots a_n$ and $p=p_1\cdot p_2\cdot \cdots
+p_{n}$. 
+
+Let $s\in\calF^*$ be a trace, we denote the product
+$\product{s}\subseteq\calF$ as the set consisting on all features
+in $s$.
 
 Let $P\in\fodaPAp$. We define the set of probabilistic products of $P$, denoted by $\prodp(P)$, as the set
 \begin{displaymath}
 \{(pr,p)\ |\ p>0 \wedge p=\sum\lbag q\ |\
   P\vtranp{s\checkmark}{q} Q \y \product{s}=pr \rbag\}
 \end{displaymath}
-\mncomment{$\product{s}$ no definido! Ya os digo yo que no se puede asumir que el PC son mega-expertos en SPL}
-\item We define the total probability of $P$, denoted by $\ham(P)$, as $\rbag p\ |\ \exists pr: (pr,p)\in\prodp(P)$. In addition, we define $\waste(P) = 1-\ham(P)$.
+\item We define the total probability of $P$, denoted by $\ham(P)$, as $\sum\lbag p\ |\ \exists pr: (pr,p)\in\prodp(P)\rbag$. In addition, we define $\waste(P) = 1-\ham(P)$.
 \edfn
 
 The following result shows some properties, concerning probabilities, of the operational semantics. In particular, we have that the probability of (sequences of) transitions is greater than zero and that the probabilities of products belong to $[0,1]$.
