@@ -1,54 +1,54 @@
-\section{Ocultando conjuntos de características}
+\section{Hiding sets of features}
 \label{sec:stat:hid}
 
-El cálculo de la probabilidad de una característica dentro
-de una línea de productos software, permite determinar
-cuan utilizado será este componente dentro de la familia
-de productos. Esta probabilidad se ve afectada por
-aquellos operadores sintácticos que influyan en la 
-cardinalidad del número de productos válidos a generar,
-es decir, en los operadores de selección única y en los
-operadores de selección opcional ($P \choice_{p} Q$ y $\ofeature{A};_{p} P$ respectivamente)
-así como sus dependencias y restricciones.
+Computing the probability of a single features in a software product line
+allows is a measure of the occurrences of this features in the set of
+products. For instance, in case of testing it is interesting to know
+the most frequent components to focus the testing in these components. 
+This probability is affected by the  dependencies and restrictions of
+the feature. 
 
-Esta condición es de suma importancia para la optimización de
-los términos del álgebra, ya que de esa manera 
-todo aquel elemento sintáctico que no influya en la cardinalidad
-del conjunto de productos válidos puede ser eliminada del modelo.
 
-%Why we do this?
-%\begin{itemize}
-%\item The probability of a feature
-%\item Consequences of make visible only one feature (plus its
-%  dependencies and restrictions).
-%\end{itemize}
+In order to compute the probability of a set of features we are going
+to use a hiding operator: we are going to hide other features. The
+reason of doing this is that it maybe not feasible to compute all the
+products of the software product line. But we expect that we can
+achieve this if we restrict ourselves to a subset of features. So the
+non interesting features are considered a new feature that we will
+denote as $\bot\not\in\calF$, we consider the set $\calFbot =
+\calF\cup\{\bot\}$.
 
+\begin{figure}
+  \centering
+\begin{displaymath}
+    \begin{array}{ccccc}
+      \nombreRegla{hid1} & 
+      \frac{P\tran{\fA}_p P', \fA\in\calA}{P\hide{\calA}\tran{\bot}_p P'\hide{\calA}} &
+      \qquad \qquad \qquad&
+      \nombreRegla{hid2} &     
+        \frac{P\tran{\fA}_p P', \fA\not\in\calA}{P\hide{\calA}\tran{\fA}_p P'\hide{\calA}}
+    \end{array}
+  \end{displaymath}
+  
+  \caption{Operational semanitcs for the hiding operator}
+  \label{fig:oper-hid}
+\end{figure}
+
+
+
+So we extend the set of operators with a new one: hiding a set of
+features in a term.
 \bdfn
-  Dado el conjunto de características $\calA\subseteq \calF$ y un término $P\in\fodaPAp$,
-  el operador $P\hide{\calA}$
-  representa el ocultamiento sintáctico de las características en el conjunto $\calA$
-  para el término $P$.
+  Let $\calA\subseteq \calF$ be a subset of features and
+  $P\in\fodaPAp$ be a term,
+  the $P\hide{\calA}$
+  hiding operator of the features in $\calA$
+  for the term $P$.
 \edfn
 
-De esta manera se necesita una nueva característica $\bot\not\in\calF$. $\calFbot =
-\calF\cup\{\bot\}$. $\calA\subseteq\calF$.
+Next we need to give the semantics of the new operator. First, the
+operational semantics is given by the rules appearing in Figure~\ref{fig:oper-hid}.
 
-\subsection{Semántica operacional}
-
-A continuación se describen las nuevas reglas de la semántica operacional
-para el procesamiento de la característica de ocultamiento.
-
-\begin{displaymath}
-  \begin{array}{ccccc}
-    \nombreRegla{hid1} & 
-    \frac{P\tran{\fA}_p P', \fA\in\calA}{P\hide{\calA}\tran{\bot}_p P'\hide{\calA}} &
-    \qquad \qquad \qquad&
-    \nombreRegla{hid2} &     
-    \frac{P\tran{\fA}_p P', \fA\not\in\calA}{P\hide{\calA}\tran{\fA}_p P'\hide{\calA}}
-  \end{array}
-\end{displaymath}
-
-\subsection{Semántica denotacional}
 
 \bdfn
   Dado el producto $pr\subseteq\calF$ y el conjunto de características ocultas $\calA\subseteq\calF$
