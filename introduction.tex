@@ -2,21 +2,25 @@
 \section{Introduction}
 \label{ref:introduction}
 
+%The main purpose of Software Product Lines (in short, \SPLs) is to produce products
+%while increasing productivity and shortening the time-to-market period. \SPLs\ depend
+%on which software products are being produced and which of them are better for
+%a specific criterion. When products are represented in a product line organization,
+%several modeling approaches can be used to increase both quality and productivity.
+%In most cases this is represented in the form of features, relationships and
+%constraints. For instance, some of these approaches are FODA~\cite{kchnp90},
+%RSEB~\cite{mj98} and PLUSS~\cite{k05,ebb06}.
 
-The main purpose of Software Product Lines (in short, \SPLs) is to produce products
-while increasing productivity and shortening the time-to-market period. \SPLs\ depend
-on which software products are being produced and which of them are better for
-a specific criterion. When products are represented in a product line organization,
-several modeling approaches can be used to increase both quality and productivity.
-In most cases this is represented in the form of features, relationships and
-constraints. For instance, some of these approaches are FODA~\cite{kchnp90},
+During the last years, software product lines (in short, \SPLs) have become a widely adopted mechanism for efficient software development. Carnegie Mellon Software Engineering Institute defines a \SPL\ as ``a set of software-intensive systems that share a common, managed set of features satisfying the specific needs of a particular market segment or mission and that are developed from a common set of core assets in a prescribed way''. Basically, the main goal of \SPLs\ is to increase the productivity for creating software products, which is achieved by selecting those software systems that are better for a specific criterion (e.g. a software system is less expensive than others, it requires less time to be processed, etc.). Currently, different approaches for representing the product line organization can be found in the literature, such as FODA~\cite{kchnp90},
 RSEB~\cite{mj98} and PLUSS~\cite{k05,ebb06}.
 
-Automatic and formal approaches arise from these graphical representations to model
-variability and commonality of systems. Formal models allow for detecting errors in the early
-stages of the production process. Some of the existing approaches use algebras and
-semantics~\cite{szw05,kkm06,prb11,acl13}, while others use propositional or first order
-logic~\cite{man02,ka07,abgf10,atfg10,nnz14}.
+Graphical approaches are commonly used to model \SPLs. Feature Oriented Domain Analysis~\cite{kchnp90} (in short, \FODA) is a well-known graphical approach for representing commonality and variability of systems. Fig.~\ref{fig:foda:relations} shows all \FODA\ relationships and constraints.
+% and Figure~\ref{section:introduction:figure:examples}
+% shows some examples of how
+% \FODA\ diagrams are built.
+Although this kind of solutions is useful to easily model \SPLs, a formal approach is needed for automatizing the analysis process and detecting errors in the early stages of the production process. It is therefore required that graphical representations are translated into mathematical entities~\cite{nak10}. In this case, the original graphical representation of \FODA\ must be provided with formal semantics base~\cite{bhst04}. 
+%
+This  issue is solved by using \fodaPA~\cite{acl13}, a formal framework to represent \FODA\ diagrams using process algebras. \fodaPA\ can be applied not only to \FODA, but also to represent other feature-related problems and variability models. Additionally, some of the existing formal approaches use algebras and semantics~\cite{szw05,kkm06,prb11,acl13}, while others use propositional or first order logic~\cite{man02,ka07,abgf10,atfg10,nnz14}.
 
 \begin{figure}[t]
 
@@ -212,55 +216,47 @@ logic~\cite{man02,ka07,abgf10,atfg10,nnz14}.
 % \caption{Examples of \FODA\ Diagrams.\label{section:introduction:figure:examples}}
 % \end{figure}
 
-Feature Oriented Domain Analysis~\cite{kchnp90} (in short, \FODA) is a graphical
-representation of commonality and variability of systems. Figure~\ref{fig:foda:relations}
-shows all \FODA\ relationships and constraints.
-% and Figure~\ref{section:introduction:figure:examples}
-% shows some examples of how
-% \FODA\ diagrams are built.
-In order to perform automatic analysis,  graphical representations
-must be transformed into mathematical entities~\cite{nak10}.
-Thus, it is necessary to provide the original
-\FODA\ graphical representation with formal semantics base, where automated analysis can be
-performed~\cite{bhst04}. This  issue is solved by using \fodaPA~\cite{acl13}, a formal
-framework to represent \FODA\ diagrams using process algebras. \fodaPA\
-can only be applied not only to
-\FODA, but also to represent other feature-related
-problems and variability models.
+%Feature Oriented Domain Analysis~\cite{kchnp90} (in short, \FODA) is a graphical
+%representation of commonality and variability of systems. Figure~\ref{fig:foda:relations}
+%shows all \FODA\ relationships and constraints.
+%% and Figure~\ref{section:introduction:figure:examples}
+%% shows some examples of how
+%% \FODA\ diagrams are built.
+%In order to perform automatic analysis,  graphical representations
+%must be transformed into mathematical entities~\cite{nak10}.
+%Thus, it is necessary to provide the original
+%\FODA\ graphical representation with formal semantics base, where automated analysis can be
+%performed~\cite{bhst04}. This  issue is solved by using \fodaPA~\cite{acl13}, a formal
+%framework to represent \FODA\ diagrams using process algebras. \fodaPA\
+%can only be applied not only to
+%\FODA, but also to represent other feature-related
+%problems and variability models.
 
-Costs within our formal framework refer to the required effort to add a feature to a product
-under construction. This cost refers to many factors depending on the context of the
-product line organization. For example, the cost of adding a feature to a product can be
-equal to the number of lines of code of a software component~\cite{n07,babc09}, or the
-effort, in terms of human hours, to develop that module. This effort is usually measured by using
-functional metrics~\cite{j04,cg08,hko13}. The cost of adding third-party modules, both
-commercial and open source, to our \SPL\ could be the time associated with integrating it into
-the product line organization.
+%Costs within our formal framework refer to the required effort to add a feature to a product
+%under construction. This cost refers to many factors depending on the context of the
+%product line organization. For example, the cost of adding a feature to a product can be
+%equal to the number of lines of code of a software component~\cite{n07,babc09}, or the
+%effort, in terms of human hours, to develop that module. This effort is usually measured by using
+%functional metrics~\cite{j04,cg08,hko13}. The cost of adding third-party modules, both
+%commercial and open source, to our \SPL\ could be the time associated with integrating it into
+%the product line organization.
 
-The order in which features are computed is important in many software projects and
-has an  important relevance to the final cost of the project. This order can be easily incorporated
-into the operational semantics of~\fodaPA. In this paper we represent costs with
-natural numbers. This is not a drawback of our formalism because we can assume a
-minimum cost unit, and therefore, any cost can be represented as a multiple of this unit.
+%The order in which features are computed is important in many software projects and
+%has an  important relevance to the final cost of the project. This order can be easily incorporated
+%into the operational semantics of~\fodaPA. In this paper we represent costs with
+%natural numbers. This is not a drawback of our formalism because we can assume a
+%minimum cost unit, and therefore, any cost can be represented as a multiple of this unit.
 
-Formal methods and process algebras 
-have demonstrated being a useful tool
-to describe systems behavior.
-They have evolved to extend their relations
-to support probabilistic models~\cite{pp01,l19911}.
+It is worth to mention that the order in which features are processed to create a specific product is directly reflected in its final cost. In a previous work we introduced costs in our formal framework for representing the required effort to include a feature to the product under construction~\cite{clc16}. This cost may represent different aspects of a feature, such us lines of code of a given software component or effort, in human hours, to include a software component into a project, just to name a few, that usually depends on the target of the product line organization. Thus, efficiently processing features for building high quality products becomes a time-consuming and challenging task. Unfortunately, there are some situations where the representation of the \SPL\ generates a combinatorial explosion, making unpractical to analyze all possible combinations.
 
-Figures like the displayed trees
-describes how are assigned probabilities inside the
-system behavior.
-Is relevant to notice that the probability
-of execute a transition \textit{t} 
-is not necessarily equal to the other probabilities 
-from the same level.
+\acomen{Aquí introduzco probabilidades. Manuel, tu magia aquí! :)}
 
+In order to alleviate this issue, we propose a probabilistic extension of our previous work \fodaPA. We use probabilistic information to identify those features that are more frequently used by computing the probability of having a feature in a specific \SPL. Hence, the computation is focused on those features with a high probability to be present in the final product, reducing the total computation required for generating valid products.
+
+Formal methods and process algebras have evolved to extend their relations to support probabilistic models~\cite{pp01,l19911}. Figures like the displayed trees describe how probabilities are assigned in the system behavior (see Fig.~\ref{fig:displayedTrees}). These models allow to assign a real value between 0 and 1 to each transition in order to execute an event. It is important to notice that the probability of execute a transition \textit{t} is not necessarily equal to the other probabilities from the same level. 
 \begin{figure}[h]
 	\hspace{50px}
-	\begin{minipage}{0.4\hsize}       
-		
+	\begin{minipage}{0.4\hsize}       		
 		
 		\begin{minipage}{0.2\hsize}
 			\scalebox{0.6}{
@@ -288,9 +284,6 @@ from the same level.
 	\end{minipage}
 	\begin{minipage}{0.4\hsize}       
 		
-		
-		
-		
 		\begin{minipage}{0.2\hsize}
 			\scalebox{0.6}{
 				\begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=4cm, semithick]
@@ -308,36 +301,24 @@ from the same level.
 		
 	\end{minipage}
 	
+	\caption{Displayed trees representing probabilities.}
+	\label{fig:displayedTrees}
+	
 \end{figure}
 
-These models allow to assign a real value
-between 0 and 1 to each transition in order to execute
-an event.
+\acomen{He puesto título y referencia a esta figura (Fig. 2). Please, check!}
 
-Several research projects have proven that
-statistic analysis over Software Product
-Lines allow to determine several SPL characteristics
-like the certainty of finding valid products among
-complex models ~\cite{tllv15,tlll15,chssgl13,dpcslsh17}.
-Some of them~\cite{tllv15,tlll15} describe models
-to run statistical analysis to represent Software
-Product Lines by defining an specific set of operational
-rules to compute their defined syntax elements.
-These models demonstrate their ability by being
-integrated to standard tools like QFLan, Microsoft's
-SMT Z3 and MultiVeStA. Others like ~\cite{chssgl13}
-focuses on testing SPLs properties like reliability,
-this research article defines three verification
-techniques like a probabilistic model checker on
-each product, on a model range or testing the behavior
-relations with other models. Other articles focus on
-describing use cases~\cite{dpcslsh17} analyzing the
-probability of finding features inside valid products.
-An interesting feature is that any of the referenced
-research articles describe their approaches using multisets.
+\acomen{Carlos, he cambiado el siguiente texto con referencias a papers de probabilidades. Please, check para ver que no digo nada cantoso)}
 
+Several works in the literature show that statistic analysis over \SPLs\ allow to determine relevant characteristics, like the certainty of finding valid products among complex models~\cite{tllv15,tlll15,chssgl13,dpcslsh17}. 
+%
+Some of these works describe models to run statistical analysis over \SPLs, where pre-defined syntax elements are computed by applying a specific set of operational rules~\cite{tllv15,tlll15}. These models demonstrate their ability to be integrated into standard tools like QFLan, Microsoft's SMT Z3 and MultiVeStA. 
+%
+%Some of these works describe models to run statistical analysis to represent \SPLs\ by defining an specific set of operational rules to compute their defined syntax elements~\cite{tllv15,tlll15}. These models demonstrate their ability by being integrated to standard tools like QFLan, Microsoft's SMT Z3 and MultiVeStA. 
+%
+Cordy et al. focus on testing properties of \SPLs, like reliability, which defines three verification techniques, a probabilistic model checker on each product, on a model range, and testing the behavior relations with other models~\cite{chssgl13}. Other works focus on describing use cases for analyzing the probability of finding features inside valid products~\cite{dpcslsh17}. %An interesting feature is that any of the referenced research articles describe their approaches using multisets.
 
-
+The rest of the paper is structured as follows. Section \ref{sec:stat:sintax} presents the sintaxis of our approach. Section \ref{sec:stat:oper} describes the operational smantics. In section \ref{sec:stat:consis} we describe the consistence of the probabilistic model. \acomen{Hay que incluir el resto de secciones. No estoy seguro si el orden de las que hay es correcto, algunas están en español.}
 
 %%% Local Variables:
 %%% mode: latex
