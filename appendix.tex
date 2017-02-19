@@ -1,7 +1,7 @@
 \appendix
 \section{Proofs of Setion~\ref{sec:equivalence}}\label{app:proofs}
 
-\blem\label{prop:pref}
+\blem\label{lem:pref}
   Dado el término $P\in\fodaPAp$ y la característica $\feature{A}\in\calF$, 
   entonces $(pr,p)\in\prodp(\feature{A};P)$ si y sólo si
   $$p=\sum\lbag r\ |\ (pr',r)\in\prodp(P) \y pr'\cup\{\feature{A}\} = pr\rbag$$
@@ -100,7 +100,7 @@
   alternar $s$ y $s'$ por $\inter(s,s')$.
 \edfn
 
-\blem\label{lem:paral1}
+\blem\label{lem:paral}
   Dados los términos $P,Q\in\fodaPAp$, las probabilidades $p,q\in (0,1)$y las trazas $s,s'\in\calF^*$ 
   tal que $p=\sum\lbag p'\ |\ P\vtranp{s\checkmark}{p'}\nil\rbag$ y 
   $q=\sum\lbag q'\| |\ Q\vtranp{s'}{q'}\nil\rbag$
@@ -239,7 +239,7 @@
     \end{description}
 \elem
 
-\blem\label{prop:mand}
+\blem\label{lem:mand}
   Dado el término  $P\in\fodaPAp$ y la característica $\feature{A}\in\calF$, $P\vtranp{s\checkmark}{p}\nil$.
   \begin{enumerate}
   \item $\f{A}\in s$ si y sólo si $\mandatory{A}{P}\vtranp{s\checkmark}{p}\nil$.

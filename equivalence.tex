@@ -1,13 +1,13 @@
 \section{Equivalence between the operational and denotational semantics}\label{sec:equivalence}
-
-\begin{itemize}
-\item We prove the equivalence of the operational semantics and
-  denotational semantics.
-\item The proofs are in the appendix
-\end{itemize}
+Up to now we have defined two different semantics for our language:
+the products derived from the operational semantics and the products
+obtained from the denotational semantics. It is important that
+both semantics coincide, so we can chose the approach that suits
+better in any moment. All the proofs have a similar structure and they
+are included in Appendix~\ref{app:proofs}. 
 
 \bprop\label{prop:pref}
-  Dado el término $P\in\fodaPAp$, y la característica $\feature{A}\in\calF$, entonces
+  Let $P\in\fodaPAp$ be a term and $\feature{A}\in\calF$ be a feature, then
   $$\prodp(\feature{A};P)=\semdenp{\feature{A};\cdot}(\prodp(P))$$
 \begin{proof}
   This proposition is an inmmediate consequence of
@@ -15,13 +15,10 @@
 \end{proof}
 \eprop
 
-
 \bprop\label{prop:prefopt}
-  Dado el término $P\in\fodaPAp$, la característica $\feature{A}\in\calF$ y la probabilidad $q\in (0,1)$, entonces
+  Let  $P\in\fodaPAp$ be a term, $\feature{A}\in\calF$ be a
+  feature, and $q\in (0,1)$, be a a probability; then
   $$\prodp(\ofeature{A};_qP)=\semdenp{\ofeature{A};_q\cdot}(\prodp(P))$$
-  \bprf
-    Esto es consecuencia de la proposición~\ref{prop:prefopt}.
-  \eprf
 \begin{proof}
   This proposition is an inmmediate consequence of
   Lemma~\ref{lem:prefopt} in the Appendix~\ref{app:proofs}
@@ -30,7 +27,7 @@
 
 
 \bprop\label{prop:choice}
-  Dados los términos $P,Q\in\fodaPAp$, y la probabilidad $q\in (0,1)$, entonces
+  Let $P,Q\in\fodaPAp$ be terms and $q\in (0,1)$ be a probability, then
   $$\prodp(P\choice_q Q)=\semdenp{\cdot\choice_q\cdot}\bigl(\prodp(P),\prodp(Q)\bigr)$$
 \begin{proof}
   This proposition is an inmmediate consequence of
@@ -40,7 +37,7 @@
 
 
 \bprop\label{prop:paral}
-  Dados los términos $P,Q\in\fodaPAp$, y la probabilidad $q\in (0,1)$, entonces
+  Let $P,Q\in\fodaPAp$, then
   $$\prodp(P\paral Q)=\semdenp{\cdot\paral\cdot}\bigl(\prodp(P),\prodp(Q)\bigr)$$
 \begin{proof}
   This proposition is an inmmediate consequence of
@@ -49,7 +46,7 @@
 \eprop
 
 \bprop\label{prop:mand}
-  Dado el término   $P\in\fodaPAp$  y la característica  $\feature{A}\in\calF$, entonces $(pr,p)\in$ si y sólo si
+  Let $P\in\fodaPAp$  be a term and $\feature{A}\in\calF$ be a feature, then
   $$\prodp(\mandatory{A}{P})=\semdenp{\mandatory{A}{\cdot}}(\prodp(P))$$
 \begin{proof}
   This proposition is an inmmediate consequence of
@@ -57,8 +54,8 @@
 \end{proof}
 \eprop
 
-\bprop\label{cor:forb}
-  Dado el término $P\in\fodaPAp$ y la característica $\feature{A}\in\calF$, entonces 
+\bprop\label{prop:forb}
+  Let $P\in\fodaPAp$ be a term and $\feature{A}\in\calF$ be a feature, then
   $$\prodp(\forbid{A}{P})=\semdenp{\forbid{A}{\cdot}}(\prodp(P))$$
 \begin{proof}
   This proposition is an inmmediate consequence of
@@ -67,8 +64,8 @@
 \eprop
 
 \bprop\label{prop:req}
-  Dado el término $P\in\fodaPAp$ y las características $\feature{A},\feature{B}\in\calF$,
-  entonces
+  Let $P\in\fodaPAp$ be a term and $\feature{A},\feature{B}\in\calF$
+  be features, then
   \begin{displaymath}
     \prodp(\require{A}{B}{P})=\semdenp{\require{A}{B}{\cdot}}(\prodp(P))
   \end{displaymath}
@@ -79,7 +76,8 @@
 \eprop
 
 \bprop\label{prop:excl}
-  Dado el término $P\in\fodaPAp$ y las características $\feature{A},\feature{B}\in\calF$, entonces
+  Let $P\in\fodaPAp$ be a term and $\feature{A},\feature{B}\in\calF$
+  be features, then
   \begin{displaymath}
     \prodp(\exclude{A}{B}{P})=\semdenp{\exclude{A}{B}{\cdot}}(\prodp(P))
   \end{displaymath}
@@ -90,11 +88,12 @@
 \eprop
 
 \bthm\label{prop:equivprob}
-  Dado el término $P\in\fodaPAp$ y el producto $pr\in\prod(\np(P))$. $(pr,p)\in\semdenp{P}$ si y sólo si
+  Let $P\in\fodaPAp$ be a term, $pr\subseteq\calF$ be a product, and
+  $p\in(0,1]$ a probability. Then$ (pr,p)\in\semdenp{P}$ if and only if
   $(pr,p)\in\prodp(P)$.
   \textit{Demostración.}
-    La demostración es trivial por inducción estructural sobre $P$
-    al usar los corolarios~\ref{prop:pref}, \ref{prop:prefopt}, \ref{prop:choice},
+  The proof is immediate by structural induction on $P$ by using propositions
+  \ref{prop:pref}, \ref{prop:prefopt}, \ref{prop:choice},
     \ref{prop:paral},  \ref{prop:mand}, \ref{prop:forb}, \ref{prop:req}, y~\ref{prop:excl}.
 \ethm
 

@@ -3,7 +3,9 @@
 \mncomment{Comprobad que he interpretado bien lo que ponia en los itemizes originales}
 
 Next we define a denotational semantics for the terms of our language. The main features of the semantic domain are that we consider products (set of features) with probability,
-each product appears one and the sum of all the probabilities associated with products belongs to the interval $[0,1]$. First, we precisely define the members of the semantic domain.
+each product appears one and the sum of all the probabilities
+associated with products belongs to the interval $(0,1]$. First, we
+precisely define the members of the semantic domain. 
 
 %\todo{Explicar el modelo con más detalle,  y el motivo por el que se necesitan multiconjnutos}
 
@@ -52,14 +54,26 @@ The following result is immediate.
 \eprop
 
 
-\begin{itemize}
-\item Operators of the operational semantics.
-\end{itemize}
+Next we define the operators of the denotational semantics. Multisets
+meeting the conditions of the previous Proposition appear when
+defining these operators. For instance, the prefix operator
+$\semden{\fA;}(M)$ should add feature $\fA$ to any product in $M$. Let
+suppose that 
+$M=\{
+   (\{\fB,\fA\},\frac{1}{2}), 
+   (\{\fB\},\frac{1}{2})\}$. 
+If we add $\fA$ to the products of $M$, we obtain the product
+$\{\fA,\fB\}$ repeated twice with probability $\frac{1}{2}$. So we
+need to apply the function $\accum$ to accumulate both probabilities
+and obtain a single product with probability $1$. Also in this
+definition we use the multiset union denoted by $\uplus$.
 
 
 \bdfn\label{def:semantic:operators}
-
-  \begin{itemize}\mbox{ }
+  Let $M,M_1,M_2\in\calM$, $\fA,\fB\in\calF$, and $p\in(0,1]$. For any operator appearing in
+  Definition~\ref{sec:stat:sintax} we define its denotational operator
+  as follows:
+  \begin{itemize}
 
   \item $\semdenp{\nil}=\emptyset$
 
@@ -108,13 +122,14 @@ The following result is immediate.
 %\todo{explicar los operadores}
 
 
-
-
-
+It is easy to check that all multisets appearing in the previous
+definition meet the conditions of Proposition~\ref{prop:pr:accum}. So
+the operators are actually well defined. This is formalized in the
+following Proposition.
 \bprop\label{prp:domain:prob}
-  Dados  $M,M_{1}, M_{2}\in\calM$,
-  la probabilidad $p\in(0,1]$ y
-  las características $\feature{A},\feature{B}\in\calF$, entonces:
+  Let  $M,M_{1}, M_{2}\in\calM$,
+  $p\in(0,1]$ a probability, and 
+  $\feature{A},\feature{B}\in\calF$, then:
   \begin{itemize}
   \item $\semdenp{\feature{A};\cdot}(M)\in\calM$
   \item $\semdenp{\ofeature{A};_{r}\cdot}(M)\in\calM$
@@ -125,13 +140,6 @@ The following result is immediate.
   \item $\semdenp{\mandatory{A}{\cdot}}(M)\in\calM$
   \item $\semdenp{\forbid{A}{\cdot}}(M)\in\calM$
   \end{itemize}
-
-
-  \begin{proof}
-    It is easy to check that all multisets appearing in
-    Definition~\ref{def:semantic:operators}
-    meet the conditions of Proposition~\ref{prp:domain:prob}.
-  \end{proof}
 \eprop
 
 
