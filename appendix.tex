@@ -333,6 +333,69 @@
     \end{description}
 \elem
 
+\section{Proofs of Section~\ref{sec:stat:hid}}
+
+\bprop
+  $P\hide\calA\vtran{s}_r$ si y sólo si $r=\sum\lbag p \ |\ P\vtran{s'}_p Q,\
+  s=s'\hide\calA\rbag$
+  \textit{Demostración.}
+    La demostración es realizada por inducción sobre la longitud
+    de la traza $s$. Si la longitud es cero el resultado es trivial. Entonces
+    se supone que
+    $s=\fA\cdot s_1$. Si $\fA=bot$ entonces cualquier transición
+    $P\hideA\tran{s}{p}Q\hideA$ puede ser dividida en transiciones,
+    posiblemente mas de una, como por ejemplo.
+    \begin{displaymath}
+      P\hideA\tran{\bot}_{r_1}P_1\hideA\vtran{s_1}_{r2}Q
+    \end{displaymath}
+    Entonces se tiene
+    \begin{displaymath}
+      \begin{split}
+        r = \sum\lbag p\ |\ P\hideA\vtran{s}_p Q\rbag = 
+        \sum\lbag r_1\cdot r2\ |\
+        P\hideA\tran{\bot}_{r_1}P_1\hideA\vtran{s_1}_{r2}Q\rbag =\\
+        \sum\lbag r_1'\cdot r2\ |\
+        P\hideA\tran{\fB}_{r_1'}P_1'\hideA\vtran{s_1}_{r2}Q,\ \fB\in\calA\rbag
+      \end{split}
+    \end{displaymath}
+    Ahora por cada una de las $r_1'$, se puede aplicar el método inductivo a cada una de las
+    transiciones $P_1'\hideA\vtran{s_1}_{r2}Q$ para obtener 
+    $r_2=\sum\lbag r2'\ |\ P_1=\vtran{s_1'}Q,\
+    s_1=s_1'\hideA\rbag$. Continuando la ecuación anterior :
+    \begin{displaymath}
+      \begin{split}
+        \sum\lbag r_1'\cdot r2\ |\
+        P\hideA\tran{\fB}_{r_1'}P_1'\hideA\vtran{s_1}_{r2}Q,\
+        \fB\in\calA\rbag=\\
+        \sum\lbag r_1'\cdot r2'\ |\ P\hideA\tran{\fB}_{r_1'}P_1'\vtran{s_1'}_{r2'}Q,\
+        \fB\in\calA.\ s_1=s_1'\hideA\rbag = \\
+        \sum\lbag r_1\cdot r2'\ |\ P\hideA\tran{\bot}_{r_1}P_1\vtran{s_1'}_{r2'}Q,\
+        \fB\in\calA.\ s_1=s_1'\hideA\rbag =\\
+        \sum\lbag r\ |\ P\vtran{s'}_{r}Q,\ s=s'\hideA\rbag
+      \end{split}
+    \end{displaymath}
+    El caso cuando $\fA\not\in\calA$ es similar al anterior, solo necesita saltar el paso de $\fB$ a $\bot$.
+  
+\eprop
+
+
+\paragraph{Proof of Propisition~\ref{prop:hid}}\label{prof:prop:hid}
+     $(pr,p)\in \prodp(P\hideA)$ si y sólo si
+    \begin{displaymath}
+      \begin{split}
+        p = \sum\lbag r\ |\
+        P\hideA\tran{s\checkmark}_rP'\hideA.\ pr=\product{s}\rbag =\\
+        \sum\lbag r\ |\ P\tran{s'\checkmark}_rP',\ s=s'\hideA,\
+        pr=\product{s}\rbag=\\
+        \sum\lbag r\ |\ P\tran{s'\checkmark}_rP',\ s=pr\hideA\rbag =
+        \\
+        \sum\lbag r\ |\ (pr',r)\in\prodp(P),\ pr'=pr\hideA\rbag =
+      \end{split}
+    \end{displaymath}
+    De tal manera $(pr,p)\in\prodp(P\hideA)$ si y sólo si
+    $(pr,p)\in\semdenp{(\prodp(P))\hideA}$
+
+
 
 %%% Local Variables:
 %%% mode: latex
