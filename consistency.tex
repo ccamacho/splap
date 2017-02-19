@@ -23,15 +23,18 @@ Finally we prove an important property of our probabilistic language: its consis
        \np(P) \paral \np(Q) & \mathrm{if}\ P \paral Q \\
        \require{A}{B}{\np(P)}  & \mathrm{if}\ \require{A}{B}{P}\\
        \exclude{A}{B}{\np(P)} & \mathrm{if}\ \exclude{A}{B}{P}\\
-       \mandatory{A}{\np(P)} \paral & \mathrm{if}\ \mandatory{A}{P}\\
-       \forbid{A}{\np(P)} \paral & \mathrm{if}\ \forbid{A}{P}\\
+       \mandatory{A}{\np(P)} & \mathrm{if}\ \mandatory{A}{P}\\
+       \forbid{A}{\np(P)} & \mathrm{if}\ \forbid{A}{P}\\
        P & \mathrm{otherwise}
      \end{cases}
   \end{displaymath}
 \edfn
 
 The proof of the following result is straightforward by taking into account that our operational semantics rules are the same, if we discard probabilities, as in~\cite{acl13}. Therefore, any sequence of transitions
-derived in the probabilistic model can be also derived in the non probabilistic model~\ref{lem:pr:sum1}. In addition, by Lemma~\ref{lem:pr:sum2} \mncomment{Que lema es este?} we know that any derived trace in the probabilistic model has a positive probability.
+derived in the probabilistic model can be also derived in the non
+probabilistic. In addition, by
+Lemma~\ref{lem:sum:prob}  we know that any derived trace in the
+probabilistic model has a non null probability.
 
 \bthm\label{thm:relnonprob}
   Let $P,Q\in\fodaPAp$. We have 
