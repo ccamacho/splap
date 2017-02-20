@@ -1,106 +1,111 @@
 \section{Equivalence between the operational and denotational semantics}\label{sec:equivalence}
-Up to now we have defined two different semantics for our language:
+We have defined two different semantics for our language:
 the products derived from the operational semantics and the products
 obtained from the denotational semantics. It is important that
-both semantics coincide, so we can chose the approach that suits
-better in any moment. All the proofs have a similar structure and they
-are included in Appendix~\ref{app:proofs}. 
+both semantics coincide, so that we can chose the approach that suits
+better in any moment. The proof of the following result is an immediate consequence of Lemmas~\ref{lem:prefopt}--\ref{lem:excl} (see the appendix of the paper).
 
-\bprop\label{prop:pref}
+\bprop\label{prop:DenoOpe}
+%\label{prop:pref}
   Let $P\in\fodaPAp$ be a term and $\feature{A}\in\calF$ be a feature, then
   $$\prodp(\feature{A};P)=\semdenp{\feature{A};\cdot}(\prodp(P))$$
-\begin{proof}
-  This proposition is an inmmediate consequence of
-  Lemma~\ref{lem:pref} in the Appendix~\ref{app:proofs}
-\end{proof}
-\eprop
+%\begin{proof}
+%  This proposition is an inmmediate consequence of
+%  Lemma~\ref{lem:pref} in the Appendix~\ref{app:proofs}
+%\end{proof}
+%\eprop
+%
+%\bprop\label{prop:prefopt}
 
-\bprop\label{prop:prefopt}
-  Let  $P\in\fodaPAp$ be a term, $\feature{A}\in\calF$ be a
+Let  $P\in\fodaPAp$ be a term, $\feature{A}\in\calF$ be a
   feature, and $q\in (0,1)$, be a a probability; then
   $$\prodp(\ofeature{A};_qP)=\semdenp{\ofeature{A};_q\cdot}(\prodp(P))$$
-\begin{proof}
-  This proposition is an inmmediate consequence of
-  Lemma~\ref{lem:prefopt} in the Appendix~\ref{app:proofs}
-\end{proof}
-\eprop
+%\begin{proof}
+%  This proposition is an inmmediate consequence of
+%  Lemma~\ref{lem:prefopt} in the Appendix~\ref{app:proofs}
+%\end{proof}
+%\eprop
+%
+%
+%\bprop\label{prop:choice}
 
-
-\bprop\label{prop:choice}
-  Let $P,Q\in\fodaPAp$ be terms and $q\in (0,1)$ be a probability, then
+Let $P,Q\in\fodaPAp$ be terms and $q\in (0,1)$ be a probability, then
   $$\prodp(P\choice_q Q)=\semdenp{\cdot\choice_q\cdot}\bigl(\prodp(P),\prodp(Q)\bigr)$$
-\begin{proof}
-  This proposition is an inmmediate consequence of
-  Lemma~\ref{lem:choice} in the Appendix~\ref{app:proofs}
-\end{proof}
-\eprop
+%\begin{proof}
+%  This proposition is an inmmediate consequence of
+%  Lemma~\ref{lem:choice} in the Appendix~\ref{app:proofs}
+%\end{proof}
+%\eprop
+%
+%
+%\bprop\label{prop:paral}
 
-
-\bprop\label{prop:paral}
-  Let $P,Q\in\fodaPAp$, then
+Let $P,Q\in\fodaPAp$, then
   $$\prodp(P\paral Q)=\semdenp{\cdot\paral\cdot}\bigl(\prodp(P),\prodp(Q)\bigr)$$
-\begin{proof}
-  This proposition is an inmmediate consequence of
-  Lemma~\ref{lem:paral} in the Appendix~\ref{app:proofs}
-\end{proof}
-\eprop
+%\begin{proof}
+%  This proposition is an inmmediate consequence of
+%  Lemma~\ref{lem:paral} in the Appendix~\ref{app:proofs}
+%\end{proof}
+%\eprop
+%
+%\bprop\label{prop:mand}
 
-\bprop\label{prop:mand}
-  Let $P\in\fodaPAp$  be a term and $\feature{A}\in\calF$ be a feature, then
+Let $P\in\fodaPAp$  be a term and $\feature{A}\in\calF$ be a feature, then
   $$\prodp(\mandatory{A}{P})=\semdenp{\mandatory{A}{\cdot}}(\prodp(P))$$
-\begin{proof}
-  This proposition is an inmmediate consequence of
-  Lemma~\ref{lem:mand} in the Appendix~\ref{app:proofs}
-\end{proof}
-\eprop
+%\begin{proof}
+%  This proposition is an inmmediate consequence of
+%  Lemma~\ref{lem:mand} in the Appendix~\ref{app:proofs}
+%\end{proof}
+%\eprop
+%
+%\bprop\label{prop:forb}
 
-\bprop\label{prop:forb}
-  Let $P\in\fodaPAp$ be a term and $\feature{A}\in\calF$ be a feature, then
+Let $P\in\fodaPAp$ be a term and $\feature{A}\in\calF$ be a feature, then
   $$\prodp(\forbid{A}{P})=\semdenp{\forbid{A}{\cdot}}(\prodp(P))$$
-\begin{proof}
-  This proposition is an inmmediate consequence of
-  Lemma~\ref{lem:forb} in the Appendix~\ref{app:proofs}
-\end{proof}
-\eprop
+%\begin{proof}
+%  This proposition is an inmmediate consequence of
+%  Lemma~\ref{lem:forb} in the Appendix~\ref{app:proofs}
+%\end{proof}
+%\eprop
+%
+%\bprop\label{prop:req}
 
-\bprop\label{prop:req}
-  Let $P\in\fodaPAp$ be a term and $\feature{A},\feature{B}\in\calF$
+Let $P\in\fodaPAp$ be a term and $\feature{A},\feature{B}\in\calF$
   be features, then
-  \begin{displaymath}
-    \prodp(\require{A}{B}{P})=\semdenp{\require{A}{B}{\cdot}}(\prodp(P))
-  \end{displaymath}
-\begin{proof}
-  This proposition is an inmmediate consequence of
-  Lemma~\ref{lem:req} in the Appendix~\ref{app:proofs}
-\end{proof}
-\eprop
+$$\prodp(\require{A}{B}{P})=\semdenp{\require{A}{B}{\cdot}}(\prodp(P))$$
+%\begin{proof}
+%  This proposition is an inmmediate consequence of
+%  Lemma~\ref{lem:req} in the Appendix~\ref{app:proofs}
+%\end{proof}
+%\eprop
+%
+%\bprop\label{prop:excl}
 
-\bprop\label{prop:excl}
-  Let $P\in\fodaPAp$ be a term and $\feature{A},\feature{B}\in\calF$
+Let $P\in\fodaPAp$ be a term and $\feature{A},\feature{B}\in\calF$
   be features, then
-  \begin{displaymath}
-    \prodp(\exclude{A}{B}{P})=\semdenp{\exclude{A}{B}{\cdot}}(\prodp(P))
-  \end{displaymath}
-\begin{proof}
-  This proposition is an inmmediate consequence of
-  Lemma~\ref{lem:excl} in the Appendix~\ref{app:proofs}
-\end{proof}
-\eprop
+$$    \prodp(\exclude{A}{B}{P})=\semdenp{\exclude{A}{B}{\cdot}}(\prodp(P))$$
+%\begin{proof}
+%  This proposition is an inmmediate consequence of
+%  Lemma~\ref{lem:excl} in the Appendix~\ref{app:proofs}
+%\end{proof}
+%\eprop
+
+The proof of the following result is an immediate consequence, by structural induction on $P$, of
+Proposition~\ref{prop:DenoOpe}.
+
+%  \ref{prop:pref}, \ref{prop:prefopt}, \ref{prop:choice},
+%    \ref{prop:paral},  \ref{prop:mand}, \ref{prop:forb}, \ref{prop:req}, y~\ref{prop:excl}.
 
 \bthm\label{prop:equivprob}
   Let $P\in\fodaPAp$ be a term, $pr\subseteq\calF$ be a product, and
-  $p\in(0,1]$ a probability. Then$ (pr,p)\in\semdenp{P}$ if and only if
+  $p\in(0,1]$ be a probability. We have $ (pr,p)\in\semdenp{P}$ if and only if
   $(pr,p)\in\prodp(P)$.
-  \textit{Demostración.}
-  The proof is immediate by structural induction on $P$ by using propositions
-  \ref{prop:pref}, \ref{prop:prefopt}, \ref{prop:choice},
-    \ref{prop:paral},  \ref{prop:mand}, \ref{prop:forb}, \ref{prop:req}, y~\ref{prop:excl}.
 \ethm
 
 
-  
-%%% Local Variables: 
+
+%%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "main"
 %%% ispell-local-dictionary: "english"
-%%% End: 
+%%% End:
