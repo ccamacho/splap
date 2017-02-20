@@ -1,12 +1,12 @@
 \section{Hiding sets of features}
 \label{sec:stat:hid}
 
-Computing the probability of a single features in a software product line
-allows is a measure of the occurrences of this features in the set of
-products. For instance, in case of testing it is interesting to know
-the most frequent components to focus the testing in these components. 
+The probability of a single feature in a software product line
+is a measure of the occurrences of this features in the set of
+products. For instance, in case of testing, it is interesting to know
+the most frequent components to focus on these components.
 This probability is affected by the  dependencies and restrictions of
-the feature. 
+the feature.
 
 
 In order to compute the probability of a set of features we are going
@@ -22,14 +22,14 @@ denote as $\bot\not\in\calF$, we consider the set $\calFbot =
   \centering
 \begin{displaymath}
     \begin{array}{ccccc}
-      \nombreRegla{hid1} & 
+      \nombreRegla{hid1} &
       \frac{P\tran{\fA}_p P', \fA\in\calA}{P\hide{\calA}\tran{\bot}_p P'\hide{\calA}} &
       \qquad \qquad \qquad&
-      \nombreRegla{hid2} &     
+      \nombreRegla{hid2} &
         \frac{P\tran{\fA}_p P', \fA\not\in\calA}{P\hide{\calA}\tran{\fA}_p P'\hide{\calA}}
     \end{array}
   \end{displaymath}
-  
+
   \caption{Operational semanitcs for the hiding operator}
   \label{fig:oper-hid}
 \end{figure}
@@ -37,7 +37,7 @@ denote as $\bot\not\in\calF$, we consider the set $\calFbot =
 
 
 So we extend the set of operators with a new one: hiding a set of
-features in a term. 
+features in a term.
 
 \bdfn
   Let $\calA\subseteq \calF$ be a subset of features and
@@ -49,7 +49,7 @@ features in a term.
 
 Next we need to give the semantics of the new operator. First, the
 operational semantics is given by the rules appearing in
-Figure~\ref{fig:oper-hid}. 
+Figure~\ref{fig:oper-hid}.
 
 In order to define the denotational semantics of the new operator,
 first we need an auxiliary function that hides all some features
@@ -69,9 +69,9 @@ from a given product.
   \end{displaymath}
   Analogously, for any trace $s\in\calF^{*}$, $s\hide\calA$ is the
   resulting
-  trace of 
+  trace of
   substituting of any  occurrence of a feature $\fA\in\calA$ by
-  the symbol $\bot$ in $s$. 
+  the symbol $\bot$ in $s$.
 \edfn
 
 \bdfn
@@ -98,9 +98,9 @@ proven by the next Proposition.
 Finally, the next proposition allows to \emph{remove} the hiding
 operator from any term. The idea is to substitute any occurrence of
 the hidden actions by the symbol $\bot$. Let us note that we cannot
-hide actions that appear in the restriction operators.  
+hide actions that appear in the restriction operators.
 \bprop
-  Let $P,Q\in\fodaPAp$ be terms, $r\in (0,1]$ be a probability, and 
+  Let $P,Q\in\fodaPAp$ be terms, $r\in (0,1]$ be a probability, and
   $\calA\subseteq\calF$ be a set of hidden actions, then
   \begin{itemize}
   \item $\semdenp{\checkmark\hide\calA}=\semdenp{\checkmark}$
@@ -119,9 +119,9 @@ hide actions that appear in the restriction operators.
       \end{cases}$
   \item $\semdenp{(P\choice_P Q)\hide\calA}=\semdenp{(P\hide\calA)\choice_P (Q\hide\calA)}$
   \item $\semdenp{(P\paral Q)\hide\calA}=\semdenp{(P\hide\calA)\paral (Q\hide\calA)}$
-  \item If $\fA,\fB\not\in\calA$ entonces 
+  \item If $\fA,\fB\not\in\calA$ entonces
     $\semdenp{(\require{A}{B}{P})\hide\calA}=\semdenp{\require{A}{B}{(P\hide\calA)}}$
-  \item If $\fA,\fB\not\in\calA$ entonces 
+  \item If $\fA,\fB\not\in\calA$ entonces
     $\semdenp{(\exclude{B}{P})\hide\calA}=\semdenp{\exclude{A}{B}{(P\hide\calA)}}$
   \end{itemize}
   \begin{proof}
@@ -131,7 +131,7 @@ hide actions that appear in the restriction operators.
 \eprop
 
 
-%%% Local Variables: 
+%%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "main"
-%%% End: 
+%%% End:
