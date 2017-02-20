@@ -127,14 +127,15 @@ following result.
 %  \end{itemize}
 $$ \begin{array}{lll}
 \bullet\ \semdenp{\feature{A};\cdot}(M)\in\calM &
-\bullet\ \semdenp{\ofeature{A};_{r}\cdot}(M)\in\calM&
-\bullet\ \semdenp{\cdot\choice_{r}\cdot}(M_{1},M_{2})\in\calM\\
 \bullet\ \semdenp{\cdot\paral\cdot}(M_{1},M_{2})\in\calM&
+\bullet\ \semdenp{\mandatory{A}{\cdot}}(M)\in\calM\\
+\bullet\ \semdenp{\ofeature{A};_{r}\cdot}(M)\in\calM&
 \bullet\ \semdenp{\require{A}{B}{\cdot}}(M)\in\calM&
-\bullet\ \semdenp{\exclude{A}{B}{\cdot}}(M)\in\calM\\
-\bullet\ \semdenp{\mandatory{A}{\cdot}}(M)\in\calM&
-\bullet\ \semdenp{\forbid{A}{\cdot}}(M)\in\calM
+\bullet\ \semdenp{\forbid{A}{\cdot}}(M)\in\calM\\
+\bullet\ \semdenp{\cdot\choice_{r}\cdot}(M_{1},M_{2})\in\calM&
+\bullet\ \semdenp{\exclude{A}{B}{\cdot}}(M)\in\calM
   \end{array}$$
+
 \eprop
 
 
