@@ -18,7 +18,7 @@ Graphical approaches are commonly used to model \SPLs. Feature Oriented Domain A
 % and Figure~\ref{section:introduction:figure:examples}
 % shows some examples of how
 % \FODA\ diagrams are built.
-Although this kind of solutions is useful to easily model \SPLs, a formal approach is needed for automatizing the analysis process and detecting errors in the early stages of the production process. It is therefore required that graphical representations are translated into mathematical entities~\cite{nak10}. In this case, the original graphical representation of \FODA\ must be provided with formal semantics base~\cite{bhst04}. 
+Although this kind of solutions is useful to easily model \SPLs, a formal approach is needed for automatizing the analysis process and detecting errors in the early stages of the production process. It is therefore required that graphical representations are translated into mathematical entities~\cite{nak10}. In this case, the original graphical representation of \FODA\ must be provided with formal semantics base~\cite{bhst04}.
 %
 This  issue is solved by using \fodaPA~\cite{acl13}, a formal framework to represent \FODA\ diagrams using process algebras. \fodaPA\ can be applied not only to \FODA, but also to represent other feature-related problems and variability models. Additionally, some of the existing formal approaches use algebras and semantics~\cite{szw05,kkm06,prb11,acl13}, while others use propositional or first order logic~\cite{man02,ka07,abgf10,atfg10,nnz14}.
 
@@ -247,13 +247,13 @@ This  issue is solved by using \fodaPA~\cite{acl13}, a formal framework to repre
 %natural numbers. This is not a drawback of our formalism because we can assume a
 %minimum cost unit, and therefore, any cost can be represented as a multiple of this unit.
 
-It is worth to mention that the order in which features are processed to create a specific product is directly reflected in its final cost. In a previous work we introduced costs in our formal framework for representing the required effort to include a feature to the product under construction~\cite{clc16}. This cost may represent different aspects of a feature, such us lines of code of a given software component or effort, in human hours, to include a software component into a project, just to name a few, that usually depends on the target of the product line organization. Thus, efficiently processing features for building high quality products becomes a time-consuming and challenging task. Unfortunately, there are some situations where the representation of the \SPL\ generates a combinatorial explosion, making unpractical to analyze all possible combinations.
+It is worth to mention that the order in which features are processed to create a specific product is directly reflected in its final cost. In a previous work we introduced costs in our formal framework for representing the required effort to include a feature to the product under construction~\cite{cln16}. This cost may represent different aspects of a feature, such us lines of code of a given software component or effort, in human hours, to include a software component into a project, just to name a few, that usually depends on the target of the product line organization. Thus, efficiently processing features for building high quality products becomes a time-consuming and challenging task. Unfortunately, there are some situations where the representation of the \SPL\ generates a combinatorial explosion, making unpractical to analyze all possible combinations.
 
 \acomen{Aquí introduzco probabilidades. Manuel, tu magia aquí! :)}
 
 In order to alleviate this issue, we propose a probabilistic extension of our previous work \fodaPA. We use probabilistic information to identify those features that are more frequently used by computing the probability of having a feature in a specific \SPL. Hence, the computation is focused on those features with a high probability to be present in the final product, reducing the total computation required for generating valid products.
 
-Formal methods and process algebras have evolved to extend their relations to support probabilistic models~\cite{pp01,l19911}. Figures like the displayed trees describe how probabilities are assigned in the system behavior (see Fig.~\ref{fig:displayedTrees}). These models allow to assign a real value between 0 and 1 to each transition in order to execute an event. It is important to notice that the probability of execute a transition \textit{t} is not necessarily equal to the other probabilities from the same level. 
+Formal methods and process algebras have evolved to extend their relations to support probabilistic models~\cite{pp01,l19911}. Figures like the displayed trees describe how probabilities are assigned in the system behavior (see Fig.~\ref{fig:displayedTrees}). These models allow to assign a real value between 0 and 1 to each transition in order to execute an event. It is important to notice that the probability of execute a transition \textit{t} is not necessarily equal to the other probabilities from the same level.
 \begin{figure}[h]
 	\hspace{50px}
 	\begin{minipage}{0.4\hsize}       		
@@ -269,7 +269,7 @@ Formal methods and process algebras have evolved to extend their relations to su
 				\node[circle,draw] (D) [below left of=C]   {};
 				\node[circle,draw] (E) [below right of=C]   {};
 				\node[regular polygon,regular polygon sides=3,draw,scale=0.8] (G) [below  of=D]   {T};
-				\node[regular polygon,regular polygon sides=3,draw,scale=0.8] (H) [below  of=E]   {T};			
+				\node[regular polygon,regular polygon sides=3,draw,scale=0.8] (H) [below  of=E]   {T};			 
 				
 				\path (A) edge [] node [pos=0.5, above left, draw=white, opacity=0, text opacity=1]{1/3} (B);
 				\path (B) edge [] node [pos=0.5, left, draw=white, opacity=0, text opacity=1]{a} (F);
@@ -282,15 +282,15 @@ Formal methods and process algebras have evolved to extend their relations to su
 			}
 		\end{minipage}
 	\end{minipage}
-	\begin{minipage}{0.4\hsize}       
+	\begin{minipage}{0.4\hsize}
 		
 		\begin{minipage}{0.2\hsize}
 			\scalebox{0.6}{
 				\begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=4cm, semithick]
 				\node[circle,draw] (A)   {};
 				\node[regular polygon,regular polygon sides=3,draw,scale=0.8] (B) [below left of=A]   {T};
-				\node[regular polygon,regular polygon sides=3,draw,scale=0.8] (C) [below  of=A]   {T};			
-				\node[regular polygon,regular polygon sides=3,draw,scale=0.8] (D) [below right of=A]   {T};			
+				\node[regular polygon,regular polygon sides=3,draw,scale=0.8] (C) [below  of=A]   {T};			 
+				\node[regular polygon,regular polygon sides=3,draw,scale=0.8] (D) [below right of=A]   {T};			 
 				
 				\path (A) edge [] node [pos=0.5, above left, draw=white, opacity=0, text opacity=1]{1/3} (B);
 				\path (A) edge [] node [pos=0.5, left, draw=white, opacity=0, text opacity=1]{1/3} (C);
@@ -310,11 +310,11 @@ Formal methods and process algebras have evolved to extend their relations to su
 
 \acomen{Carlos, he cambiado el siguiente texto con referencias a papers de probabilidades. Please, check para ver que no digo nada cantoso)}
 
-Several works in the literature show that statistic analysis over \SPLs\ allow to determine relevant characteristics, like the certainty of finding valid products among complex models~\cite{tllv15,tlll15,chssgl13,dpcslsh17}. 
+Several works in the literature show that statistic analysis over \SPLs\ allow to determine relevant characteristics, like the certainty of finding valid products among complex models~\cite{tllv15,tlll15,chssgl13,dpcslsh17}.
 %
-Some of these works describe models to run statistical analysis over \SPLs, where pre-defined syntax elements are computed by applying a specific set of operational rules~\cite{tllv15,tlll15}. These models demonstrate their ability to be integrated into standard tools like QFLan, Microsoft's SMT Z3 and MultiVeStA. 
+Some of these works describe models to run statistical analysis over \SPLs, where pre-defined syntax elements are computed by applying a specific set of operational rules~\cite{tllv15,tlll15}. These models demonstrate their ability to be integrated into standard tools like QFLan, Microsoft's SMT Z3 and MultiVeStA.
 %
-%Some of these works describe models to run statistical analysis to represent \SPLs\ by defining an specific set of operational rules to compute their defined syntax elements~\cite{tllv15,tlll15}. These models demonstrate their ability by being integrated to standard tools like QFLan, Microsoft's SMT Z3 and MultiVeStA. 
+%Some of these works describe models to run statistical analysis to represent \SPLs\ by defining an specific set of operational rules to compute their defined syntax elements~\cite{tllv15,tlll15}. These models demonstrate their ability by being integrated to standard tools like QFLan, Microsoft's SMT Z3 and MultiVeStA.
 %
 Cordy et al. focus on testing properties of \SPLs, like reliability, which defines three verification techniques, a probabilistic model checker on each product, on a model range, and testing the behavior relations with other models~\cite{chssgl13}. Other works focus on describing use cases for analyzing the probability of finding features inside valid products~\cite{dpcslsh17}. %An interesting feature is that any of the referenced research articles describe their approaches using multisets.
 
