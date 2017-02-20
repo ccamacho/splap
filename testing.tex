@@ -1,85 +1,82 @@
 % $Id$
 
-\section{Implementación}
+\section{Tool}
 \label{sec:stat:impl}
 
-La siguiente sección presenta los resultados obtenidos
-de la implementación de la semántica denotacional
-para la extensión probabilística.
-De igual manera se describen en esta sección detalles
-sobre posibles usos prácticos de la extensión
-probabilística.
+The following section shows the denotational semantics
+implementation for the probabilistic extension.
+The tool source code is available in the
+main project site \url{http://simba.fdi.ucm.es/at/} at the
+\href{http://simba.fdi.ucm.es/at/probabilistic/implementation_splap.tar}{probabilistic extension}.
+Also this section describes details about different possible
+practical usages for the probabilistic extension.
 
-Han sido utilizados modelos de variabilidad con 1500
-características, lo que no permite escribirlos de manera manual.
-Para llevar a cabo esta tarea ha sido utilizado el
-generador de modelos de características BeTTy~\cite{SeguraHBC11}.
-Los parámetros de configuración utilizados en BeTTy han
-sido los siguientes: 
+In this section are described variability models with 1500
+features, what does not allow to describe them manually.
+To achieve this we used a feature model generator tool 
+called BeTTy~\cite{SeguraHBC11}.
+The generation parameters used to create the BeTTy models were:
 
 \begin{itemize}
-	\item La probabilidad de que exista una característica obligatoria es de un 20\%.
-	\item La probabilidad de que exista una característica opcional es de un 30\%.
-	\item La probabilidad de que una característica este dentro de una relación de \emph{selección única} un 25\%.
-	\item La probabilidad de que una característica este dentro de una relación de \emph{paralelo} un 25\%.
+	\item The probability of a mandatory feature is 20\%.
+	\item The probability of an optional feature is 30\%.
+	\item The probability of having features in a \emph{choose-1} is 25\%.
+	\item The probability of having features in a \emph{paralel} is 25\%.
 \end{itemize}
 
+There are two main practical applications among
+the software product lines analysis using probabilistic methods.
 
-Existen dos aplicaciones prácticas dentro del
-análisis de líneas de productos usando métodos probabilísticos.
+The first is that is possible to calculate a
+feature probability, allowing to assign
+testing resources in a more optimized way allowing
+the testing of those more probable features against
+those less probable inside the product line
+environment.
 
-La primera es que es posible calcular la probabilidad
-de una característica, que permitirá asignar recursos
-de manera mas eficiente al probar las
-características con mayor probabilidad de ocurrencia
-dentro de la línea de productos.
-
-Otra aplicación es la de estimar la cobertura de las
-pruebas dentro de las 
-líneas de productos ya que es posible
-determinar cuantos productos serán abarcados por las 
-pruebas, teniendo en cuenta que con este modelo, no 
-es posible determinar que porcentaje representan las
-características probadas dentro del número total de
-características que conforman el producto.
+Another application is about estimate the testing
+coverage in the product line as is possible to
+determine how many products will be covered among the
+available tests.
 
 \begin{figure}[h]
 	\centering
 	\linefigure
 	\includegraphics[width=0.8\hsize,angle=0]{plot_probs_times.eps}
 	\linefigure
-	\caption{Tiempo de procesamiento para un modelo con 1500 características}\label{fig:plot:probs:times}
+	\caption{Computing time analysis for a 1500 features model.}\label{fig:plot:probs:times}
 \end{figure}
 
-La figura \ref{fig:plot:probs:times} muestra el tiempo
-en calcular la probabilidad de cada característica dentro
-del modelo, es importante destacar que los tiempos calculados
-son lineales de acuerdo a la longitud del término.
-Para todas las características es similar porque para cada
-característica debe recorrerse el término completo.
+Figure \ref{fig:plot:probs:times} shows the computing
+time needed to calculate the probability of each feature
+inside the feature model, in this case the time to get
+the time for all features is linear and related to 
+the term length.
+For each feature we are getting similar times because the
+term needs to be processed in each run.
 
-Existe una variación entre el tiempo en calcular la
-probabilidad de cada característica y es posible que sea
-por el estado actual del nodo donde se ha ejecutado la simulación.
+There is a variation between the computing each
+feature time and it is possible that this is due
+to the state of the node in which we are running the task
+and not related to the algorithm itself.
 
-Al ser tiempos de ejecución tan cortos cualquier retraso en 
-la planificación del proceso puede tener como consecuencia un
-pequeño retraso en su ejecución lo que repercutirá en el resultado
-final, esta variación puede considerarse insignificante ya que los
-tiempos de ejecución están en el rango de 15 y 38 milisegundos
-para cada característica dentro del modelo.
+As the simulations are getting times in the milliseconds
+order, is easy that because of any delay in the algorithm
+execution might lead to small time variations which will
+impact the algorithm performance, this variation is insignificant
+because the time range goes between 15 and 38 milliseconds
+for each feature inside the model.
 
-El modelo utilizado en la simulación ha sido ejecutado
-en varias ocasiones, teniendo resultados similares en la banda
-de 15 y 20 milisegundos, con algunas características procesándose
-en la banda superior entre 20 y 38 milisegundos.
+The computed model was executed several times, having similar
+results with execution times between 15 y 20 milliseconds, with
+some features being computed with times between 20 and 38 milliseconds.
 
 \begin{figure}[h]
 	\centering
 	\linefigure
 	\includegraphics[width=0.8\hsize,angle=0]{plot_probs_probs.eps}
 	\linefigure
-	\caption{Cálculo de las probabilidades para un modelo de variabilidad de 1500 características}\label{fig:plot:probs:probs}
+	\caption{Probabilistic analysis for a 1500 features model.}\label{fig:plot:probs:probs}
 \end{figure}
 
 La figura \ref{fig:plot:probs:probs} muestra gráficamente
@@ -95,30 +92,23 @@ claramente agrupaciones de características con mayor probabilidad.
 	\linefigure
 	\includegraphics[width=0.8\hsize,angle=0]{plot_probs_probs_sorted.eps}
 	\linefigure
-	\caption{Cálculo de las probabilidades para un modelo de variabilidad de 1500 características ordenadas decrecientement}\label{fig:plot:probs:probs:sorted}
+	\caption{Probabilistic analysis for a 1500 features model, decreasingly sorted.}\label{fig:plot:probs:probs:sorted}
 \end{figure}
 
-La figura \ref{fig:plot:probs:probs:sorted} muestra
-los resultados de la figura \ref{fig:plot:probs:probs}
-ordenados de manera descendiente, esto permite describir con
-un detalle mayor aquellas características con mayor 
-probabilidad de ocurrencia.
+Figure \ref{fig:plot:probs:probs:sorted} shows
+the results from figure \ref{fig:plot:probs:probs}
+sorted decreasingly, this view allows to study with a greater detail
+those features with greater probability ob being part of
+a valid product.
 
-En este caso particular es posible identificar
-que aquellas características con probabilidad mayor
-a 0.75 se encuentran en solo 450 características
-de las 1500 del modelo. Este análisis permitiría
-establecer que probando aproximadamente el 28\% de
-los componentes de la línea de producto se abarcarían
-pruebas sobre componentes que estarían en el 75\%
-del total de productos.
+In this specific case is possible to identify
+that those features with a greater probability of
+0.75 are only 450 of the total of 1500 features.
+This analysis might allow to establish that
+by testing only the 28\% of the software product line components
+we will test features inside at least the 75\% of the
+total products.
 
-
-
-
-
-
- 
 %\begin{figure}[t]
 %$$
 %\begin{array}{ccc}
