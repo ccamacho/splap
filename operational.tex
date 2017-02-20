@@ -78,7 +78,7 @@
 \end{figure*}
 
 In Figure~\ref{fig:sos-rules} we present the set of rules formally defining  the operational behavior of
-\fodaPAp. These rules essentially coincide with the ones corresponding
+\fodaPAp. These rules essentially coincide with the ones corresponding to
 \fodaPA~\cite{acl13}, but with the addition of probabilities. Next we focus
 on the explanation of the role of probabilities. Rules
 $\nombreRegla{tick}$ and $\nombreRegla{feat}$
@@ -91,17 +91,17 @@ are not null.
 %
 Rules $\nombreRegla{cho1}$ and $\nombreRegla{cho2}$ define the
 behavior of the probabilistic choice operator. The left branch is
-selected with probability $p$ and the right with probability $1-p$.
+selected with probability~$p$ and the right one with probability~$1-p$.
 %
-It is important to note rules for the conjunction operator
-(Rules $\nombreRegla{con1}$ to $\nombreRegla{con4}$)
-distribute the probability equitably between both
+It is important to note that the rules for the conjunction operator, $\nombreRegla{con1}$ to $\nombreRegla{con4}$,
+equitably distribute the probability between both
 branches, that is, $\frac{1}{2}$. We have preferred to use a simple definition of this operator, but it is easy to replace it by a more involved version of a probabilistic parallel operator~\cite{ahk98}.
 %
 Rule $\nombreRegla{con5}$ requires that both branches agree on the
 termination of a product.
 %
-We use \emph{multisets} of transitions to consider different occurrences of the same transition. So, if a transition can be derived in several ways, each derivation generates a different
+
+We use \emph{multisets} of transitions to consider different occurrences of the same transition. So, if a transition can be derived in several ways, then each derivation generates a different
 instance of this transition. For example, let us consider the
 term
 $P=\ofeature{A} \choice_{\frac12} \ofeature{A}$, where trailing occurrences of
@@ -127,7 +127,7 @@ Next we present some notions associated with the composition of consecutive tran
     P=P_0\tranp{a_1}{p_1}P_1\tranp{a_2}{p_2}P_2\cdots P_{n-1}\tranp{a_n}{p_n} P_n=Q
 \end{displaymath}
 where $n\geq 0$, $s=a_1a_2\cdots a_n$ and $p=p_1\cdot p_2\cdot \cdots
-p_{n}$. We say that $s$ is a trace of $P$.
+p_{n}$. We say that $s$ is a trace of~$P$.
 
 Let $s\in\calF^*$ be a trace of $P$. We define the product
 $\product{s}\subseteq\calF$ as the set consisting on all features belonging to
@@ -138,7 +138,7 @@ Let $P\in\fodaPAp$. We define the set of probabilistic products of $P$, denoted 
 \{(pr,p)\ |\ p>0 \wedge p=\sum\lbag q\ |\
   P\vtranp{s\checkmark}{q} Q \y \product{s}=pr \rbag\}
 \end{displaymath}
-\item We define the total probability of $P$, denoted by $\ham(P)$, as $\sum\lbag p\ |\ \exists pr: (pr,p)\in\prodp(P)\rbag$. In addition, we define $\waste(P) = 1-\ham(P)$.
+\item We define the total probability of $P$, denoted by $\ham(P)$, as the value $\sum\lbag p\ |\ \exists pr: (pr,p)\in\prodp(P)\rbag$. In addition, we define $\waste(P) = 1-\ham(P)$.
 \edfn
 
 The following result shows some properties, concerning probabilities, of the operational semantics. In particular, we have that the probability of (sequences of) transitions is greater than zero and that the probabilities of products belong to $[0,1]$.
