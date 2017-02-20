@@ -1,12 +1,6 @@
 %\subsection{Consistence of the probabilistic model}
 %\label{sec:stat:consis}
 
-\mncomment{Comprobad que lo que digo en este parrafo es lo que
-  queriais decir porque dais pocas pistas!}
-\lcomen{es correcto}
-
-\mncomment{No veo la utilidad de esto pero a lo mejor lo haceis porque es tipico en SPL... ni idea... pero yo lo quitaba sin piedad...}
-\lcomen{Nos lo dijeron bastante en el primer artículo}
 
 Finally we prove an important property of our probabilistic language: its consistency. We say that a non-probabilistic SPL model is \emph{consistent} if it has products~\cite{acl13}.  In our case, we can define consistency by having $\ham(P)>0$. We will prove that a translation from our probabilistic framework into the non-probabilistic one keeps consistency in the expected way.
 
@@ -16,16 +10,16 @@ Finally we prove an important property of our probabilistic language: its consis
      \np(P)=
      \begin{cases}
        \checkmark & \mathrm{if}\ P=\checkmark\\
+       \nil & \mathrm{if}\ P=\nil\\
        \feature{A};\np(P) & \mathrm{if}\ P=\feature{A};P\\
        \ofeature{A};\np(P) & \mathrm{if}\ P=\feature{A};_pP\\
        \np(P) \choice \np(Q) & \mathrm{if}\ P \choice_{p} Q \\
        \np(P) \paral \np(Q) & \mathrm{if}\ P \paral Q \\
-       \np(P) \paral \np(Q) & \mathrm{if}\ P \paral Q \\
        \require{A}{B}{\np(P)}  & \mathrm{if}\ \require{A}{B}{P}\\
        \exclude{A}{B}{\np(P)} & \mathrm{if}\ \exclude{A}{B}{P}\\
        \mandatory{A}{\np(P)} & \mathrm{if}\ \mandatory{A}{P}\\
-       \forbid{A}{\np(P)} & \mathrm{if}\ \forbid{A}{P}\\
-       P & \mathrm{otherwise}
+       \forbid{A}{\np(P)} & \mathrm{if}\ \forbid{A}{P}
+       %P & \mathrm{otherwise}
      \end{cases}
   \end{displaymath}
 \edfn
@@ -37,7 +31,7 @@ Lemma~\ref{lem:sum:prob}  we know that any derived trace in the
 probabilistic model has a non null probability.
 
 \bthm\label{thm:relnonprob}
-  Let $P,Q\in\fodaPAp$. We have 
+  Let $P,Q\in\fodaPAp$. We have
  $P\vtranp{s}{p}Q$ if and only if $\np(P)\vtran{s}\np(Q)$.
   Moreover, we have $pr\in\prod(\np(P))$ if and only if there exists
     $p>0$ such that $(pr,p)\in\prodp(P)$.
