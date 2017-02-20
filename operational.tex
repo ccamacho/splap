@@ -2,7 +2,7 @@
 %\label{sec:stat:oper}
 
 
-\begin{figure*}[h]
+\begin{figure*}[t]
         \linefigure
 
         \centering\scalebox{0.95}{%
@@ -77,11 +77,9 @@
         \caption{\fodaPAp\ operational semantics.  \label{fig:sos-rules}}
 \end{figure*}
 
-\mncomment{No he leido la semantica operacional con cuidado: confio en Luis :-)}
-%
 In Figure~\ref{fig:sos-rules} we present the set of rules formally defining  the operational behavior of
 \fodaPAp. These rules essentially coincide with the ones corresponding
-\fodaPA~\cite{acl13}, but with the addition of probabilities. Next we focus 
+\fodaPA~\cite{acl13}, but with the addition of probabilities. Next we focus
 on the explanation of the role of probabilities. Rules
 $\nombreRegla{tick}$ and $\nombreRegla{feat}$
 show the corresponding feature with probability 1.
@@ -114,30 +112,26 @@ several ways, we consider that each derivation generates a
 different instance. In particular, we will later consider multisets of computations as well.
 %
 We will use the delimiters~$\lbag$ and~$\rbag$ to denote
-multisets.\mncomment{donde estan definidos $\lbag$ and~$\rbag$?? Poned una notacion standard, algo del estilo $\{ \!\!\!\:|\;$ y $\;| \!\!\!\:\}$}
-\lcomen{No había visto antes ningún libro de multiconjuntos, cuando lo
-he buscado aparecía ese símbolo, es más mono ¿no?}
+multisets.
 
-The following result, the proof is immediate, show that successful termination leads to $\nil$.
-\mncomment{Esto pa que sirve? Es obvio, no?}
-\lcomen{Simplifica las demostraciones. Lo podemos poner como un ``remark''}
+The following result, the proof is immediate, shows that successful termination leads to $\nil$.
 
 \blem\label{lem:check}
 Let $P,Q\in\fodaPAp$ and $p\in(0,1]$. We have $P\tranp{\checkmark}{p}{Q}$ if and only if $Q=\nil$.
 \elem
 
-Next we present some notions associated with the composition of consecutive transitions. 
+Next we present some notions associated with the composition of consecutive transitions.
 
 \bdfn\label{def:trtrantions} Let $P,Q\in\fodaPAp$. We write  $P\vtranp{s}{p}Q$ if there exist a sequence of consecutive transitions
 \begin{displaymath}
     P=P_0\tranp{a_1}{p_1}P_1\tranp{a_2}{p_2}P_2\cdots P_{n-1}\tranp{a_n}{p_n} P_n=Q
 \end{displaymath}
 where $n\geq 0$, $s=a_1a_2\cdots a_n$ and $p=p_1\cdot p_2\cdot \cdots
-p_{n}$. 
+p_{n}$. We say that $s$ is a trace of $P$.
 
-Let $s\in\calF^*$ be a trace, we denote the product
-$\product{s}\subseteq\calF$ as the set consisting on all features
-in $s$.
+Let $s\in\calF^*$ be a trace of $P$. We define the product
+$\product{s}\subseteq\calF$ as the set consisting on all features belonging to
+$s$.
 
 Let $P\in\fodaPAp$. We define the set of probabilistic products of $P$, denoted by $\prodp(P)$, as the set
 \begin{displaymath}
@@ -152,7 +146,7 @@ The following result shows some properties, concerning probabilities, of the ope
 \blem\label{lem:sum:prob}
   Let  $P,\ Q\in\fodaPAp$.We have the following results.
   \begin{enumerate}
-  \item If $P\tranp{\feature{A}}{p}Q$ then $p\in(0,1]$. 
+  \item If $P\tranp{\feature{A}}{p}Q$ then $p\in(0,1]$.
         If $P\vtranp{s}{p}Q$ then $p\in(0,1]$.
   \item
     $\sum \lbag p\, |\ \exists \feature{A}\in\calF,\ Q\in\fodaPAp:\
