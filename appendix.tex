@@ -280,14 +280,14 @@
         $P\tranp{\f{A}}{p_1}P_1\vtranp{s_1\checkmark}{q}\nil$.  Al
         aplicar la regla~\nombreRegla{req2} se obtiene
         $\require{A}{B}{P}\tranp{\f{A}}{p_1}\mandatory{B}{P_1}$.
-        Obtenemos el resultado al aplicar la
-        proposición~\ref{prop:mand}.
+        Obtenemos el resultado al aplicar el 
+        lema~\ref{lem:mand}.
       \item[$s=\f{B}s_1$.] En este caso existe $p_1,q\in(0,1)$ tal que
         $P\tranp{\f{A}}{p_1}P_1\vtranp{s_1\checkmark}{q}\nil$.  Al
         aplicar la regla~\nombreRegla{req2} se obtiene
-        $\require{A}{B}{P}\tran{\f{B}}{p_1}\mandatory{A}{P_1}$.  Se
-        obtiene el resultado al aplicar la
-        proposición~\ref{prop:mand}.
+        $\require{A}{B}{P}\tranp{\f{B}}{p_1}\mandatory{A}{P_1}$.  Se
+        obtiene el resultado al aplicar el
+        lema~\ref{lem:mand}.
       \item[$s=\f{C}s_1$ con $\f{C}\neq\f{A}$ y $\f{C}\neq\f{A}$.]  En
         este caso existe $p_1,q\in(0,1)$ tal que
         $P\tranp{\f{C}}{p_1}P_1\vtranp{s_1\checkmark}{q}\nil$.  Al
@@ -336,7 +336,7 @@
 \section{Proofs of Section~\ref{sec:stat:hid}}
 
 \bprop
-  $P\hide\calA\vtran{s}_r$ si y sólo si $r=\sum\lbag p \ |\ P\vtran{s'}_p Q,\
+  $P\hide\calA\vtran{s}_rQ$ si y sólo si $r=\sum\lbag p \ |\ P\vtran{s'}_p Q,\
   s=s'\hide\calA\rbag$
   \textit{Demostración.}
     La demostración es realizada por inducción sobre la longitud
@@ -384,10 +384,10 @@
     \begin{displaymath}
       \begin{split}
         p = \sum\lbag r\ |\
-        P\hideA\tran{s\checkmark}_rP'\hideA.\ pr=\product{s}\rbag =\\
-        \sum\lbag r\ |\ P\tran{s'\checkmark}_rP',\ s=s'\hideA,\
+        P\hideA\vtran{s\checkmark}_rP'\hideA.\ pr=\product{s}\rbag =\\
+        \sum\lbag r\ |\ P\vtran{s'\checkmark}_rP',\ s=s'\hideA,\
         pr=\product{s}\rbag=\\
-        \sum\lbag r\ |\ P\tran{s'\checkmark}_rP',\ s=pr\hideA\rbag =
+        \sum\lbag r\ |\ P\vtran{s'\checkmark}_rP',\ s=pr\hideA\rbag =
         \\
         \sum\lbag r\ |\ (pr',r)\in\prodp(P),\ pr'=pr\hideA\rbag =
       \end{split}
