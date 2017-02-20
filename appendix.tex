@@ -2,7 +2,7 @@
 \section{Proofs of Section~\ref{sec:equivalence}}\label{app:proofs}
 
 \blem\label{lem:pref}
-  Given $P\in\fodaPAp$ and $\feature{A}\in\calF$, 
+  Given $P\in\fodaPAp$ and $\feature{A}\in\calF$,
   then $(pr,p)\in\prodp(\feature{A};P)$ if and only if
   $$p=\sum\lbag r\ |\ (pr',r)\in\prodp(P) \y pr'\cup\{\feature{A}\} = pr\rbag$$
 \begin{proof}
@@ -26,7 +26,7 @@
 \elem
 
 \blem\label{lem:prefopt}
-  Given $P\in\fodaPAp$, $\feature{A}\in\calF$ and $q\in (0,1)$, 
+  Given $P\in\fodaPAp$, $\feature{A}\in\calF$ and $q\in (0,1)$,
   then $(pr,p)\in\prodp(\ofeature{A};_qP)$ if and only if $(pr,p)=(\emptyset,1-q)$ or
   $$p=q\cdot \sum\{r\ |\ (pr',r)\in\prodp(P) \y pr'\cup\{\feature{A}\} = pr\}$$
   \bprf
@@ -38,7 +38,7 @@
      \end{itemize}
      So, if $pr=\product{\feature{A}\cdot s'}$ then
      $pr\neq\emptyset$. So then
-     $(\emptyset,1-q)\in\prodp(\ofeature{A};_qP)$. Now suppose 
+     $(\emptyset,1-q)\in\prodp(\ofeature{A};_qP)$. Now suppose
      $pr\neq\emptyset$, then $(pr,p)\in\prodp(\ofeature{A};_qP)$ if and only if
      \begin{equation*}
        \begin{split}
@@ -54,7 +54,7 @@
 
 
 \blem\label{lem:choice1}
- Given $P,Q\in\fodaPAp$ and $q\in (0,1)$, then 
+ Given $P,Q\in\fodaPAp$ and $q\in (0,1)$, then
  $P\choice_q Q\vtranp{s}{r} R$ if and only if
  \begin{itemize}
  \item $P\vtranp{s}{r'} R$ y $r=q\cdot r'$, o
@@ -73,7 +73,7 @@
       p = \left(q\cdot\sum\{r\ |\ (pr,r)\in\prodp(P) \}\right) +
       \left((1-q)\cdot\sum\{r\ |\ (pr,r)\in\prodp(Q)\}\right)
     \end{split}
-  \end{equation*}  
+  \end{equation*}
   \begin{proof}
     $(pr,p)\in\prodp(P\choice_q Q)$ if and only if
     \begin{equation*}
@@ -102,7 +102,7 @@
 
 \blem\label{lem:paral}
   Given the terms $P,Q\in\fodaPAp$, the probabilities $p,q\in (0,1)$ and the
-  traces $s,s'\in\calF^*$ 
+  traces $s,s'\in\calF^*$
   such $p=\sum\lbag p'\ |\ P\vtranp{s\checkmark}{p'}\nil\rbag$ and
   $q=\sum\lbag q'\| |\ Q\vtranp{s'}{q'}\nil\rbag$
   then
@@ -110,7 +110,7 @@
   \begin{proof}
     By induction of $|s|+|s'|$.
     \begin{description}
-    \item[$|s|+|s'|=0$] Since 
+    \item[$|s|+|s'|=0$] Since
       $P\paral Q\tranp{\checkmark}{r}\nil$
       if and only if $P\tranp{\checkmark}{r_1}\nil$,
       $Q\tranp{\checkmark}{r_2}\nil$, y $r=r_1\cdot r_2$,
@@ -164,7 +164,7 @@
           \sum\scaleleftright{\lbag}{  \frac{r'}{2}\cdot\left(\underbrace{\sum \scaleleftright{\lbag}{ r''\ \vstretch{4}{|}\
                   \begin{split}
                     P'\paral Q\vtranp{s''\checkmark}{r''}\nil\y \\s''\in\inter(s_1,s')
-                  \end{split}}{\rbag}}_{\mathrm{hip\acute{o}tesis\ de\ inducci\acute{o}n:}\ p_1\cdot q} \right) \ \vstretch{4}{|}\ 
+                  \end{split}}{\rbag}}_{\mathrm{hip\acute{o}tesis\ de\ inducci\acute{o}n:}\ p_1\cdot q} \right) \ \vstretch{4}{|}\
             P\tranp{\f{A}}{r'}P'\y P'\in\calP  }{\rbag} = \\
           \sum\scaleleftright{\lbag}{  \frac{r'}{2}\cdot (p_1\cdot q) \  \vstretch{2}{|}\ P\tranp{\f{A}}{r'}P' \y P'\in\calP   }{\rbag} = \\
           \frac{(p_1\cdot q)}{2}\cdot  \sum\lbag  r'\ |\ P\tranp{\f{A}}{r'}P' \y P'\in\calP  \rbag = \\
@@ -177,15 +177,15 @@
       the first action of $s$ is given in first place.
       Then we have to group the probabilistic
       information when the first action of $s'$ happens in first place.
-       
+
       There are two possibilities, if these actions exist or not.
       Depending on $s'$ we can obtain the following options.
       \begin{description}
-      \item[$|s'|=0$] 
+      \item[$|s'|=0$]
         In this case we have $q=\sum\lbag q'\ |\ Q\tranp{\checkmark}{q'}\nil \rbag$,
         If $Q\tranp{\checkmark}{q'}\nil$, when applying
         the rule $\nombreRegla{con4}$ and then obtain
-        $P\paral Q\tranp{\f{A}}{\frac{r'\cdot q'}{2}} P_1$. 
+        $P\paral Q\tranp{\f{A}}{\frac{r'\cdot q'}{2}} P_1$.
         In this case we obtain
         \begin{equation}
           \label{eq:paral5}
@@ -214,7 +214,7 @@
             \frac{1}{2}(p\cdot q) + \frac{1}{2}(p\cdot q)= p\cdot q
           \end{split}
         \end{equation}
-       \item[$|s'|>0$] Let consider $s'=\f{B}\cdot s_2$. 
+       \item[$|s'|>0$] Let consider $s'=\f{B}\cdot s_2$.
         In this case we consider the alternations where
         $Q$ produces the feature $\f{B}$ in first place, which is,
         that first we apply the rule~\nombreRegla{con2}. Considering
@@ -233,8 +233,8 @@
         \item $P\paral Q\tranp{\f{A}}{p'}{\frac{r}{2}} P'\paral Q\vtranp{s''\checkmark}{p'}\nil $ where $s''$ is an alternation of
         $s_1$ and $s'$, or
         \item $P\paral Q\tranp{\f{B}}{q'}{\frac{r}{2}} P\paral Q'\vtranp{s''\checkmark}{p'}\nil $ where $s''$ is an alternation of
-        $s$ and $s_2$, 
-        \end{enumerate}        
+        $s$ and $s_2$,
+        \end{enumerate}
         So forth,
         \begin{equation}
           \label{eq:paral7}
@@ -247,7 +247,7 @@
         \end{equation}
       \end{description}
     \end{description}
-\end{proof}    
+\end{proof}
 \elem
 
 \blem\label{lem:mand}
@@ -277,7 +277,7 @@
 \blem\label{lem:req}
   Given $P\in\fodaPAp$, $\feature{A},\feature{B}\in\calF$, $s\in\calF^*$
   and $p\in(0,1)$. Then $P\vtranp{s\checkmark}{p}\nil$ if and only if
-  $\require{A}{B}{P}\vtranp{s'\checkmark}p\nil$ y 
+  $\require{A}{B}{P}\vtranp{s'\checkmark}p\nil$ y
   $s'$ and it has some of the forms:
   $\f{A}\not\in s$ and $s'=s$, $\f{B}\in s$ y $s'=s$, or
   $\f{A}\in s$, $\f{B}\not\in s$ y $s'=s\cdot\f{B}$.
@@ -302,7 +302,7 @@
       \item[$s=\f{C}s_1$ con $\f{C}\neq\f{A}$ y $\f{C}\neq\f{A}$.]
         In this case exists $p_1,q\in(0,1)$ such as
         $P\tranp{\f{C}}{p_1}P_1\vtranp{s_1\checkmark}{q}\nil$.
-        When applying the rule~\nombreRegla{req1}, we obtain 
+        When applying the rule~\nombreRegla{req1}, we obtain
         $ \require{A}{B}{P}\tranp{\f{C}}{p_1}\require{A}{B}{P_1} $, and
         then the result of applying the inductive hypothesis over
         $s_1$.
@@ -313,22 +313,22 @@
 
 
 \blem\label{lem:excl}
-  Given$P\in\fodaPAp$, $\feature{A},\feature{B}\in\calF$, $s\in\calF^*$ and 
+  Given$P\in\fodaPAp$, $\feature{A},\feature{B}\in\calF$, $s\in\calF^*$ and
   $p\in(0,1)$. Then $P\vtran{s\checkmark}{p}\nil$ if and only if
   $\exclude{A}{B}{P}\vtranp{s\checkmark}{p}\nil$, $\f{A}\not\in s$ and $\f{B}\not\in s$.
   \begin{proof}
     By the induction of the length of $s$.
     \begin{description}
-    \item[$|s|=0$] In this case $P\tranp{\checkmark}{p}\nil$. 
+    \item[$|s|=0$] In this case $P\tranp{\checkmark}{p}\nil$.
       We obtain the result of applying the rule~\nombreRegla{excl4}.
     \item[$|s|>0$] Now it is possible to distinguish three cases depending
     on the first feature of $s$:
       \begin{description}
       \item[$s=\f{A}s_1$.] In this case exists $p_1,q\in(0,1)$
-        such that $P\tranp{\f{A}}{p_1}P_1\vtranp{s_1\checkmark}{q}\nil$. 
+        such that $P\tranp{\f{A}}{p_1}P_1\vtranp{s_1\checkmark}{q}\nil$.
         When applyinght rule~\nombreRegla{req2}
         we obtain $\require{A}{B}{P}\tranp{\f{A}}{p_1}\forbid{B}{P_1}$.
-        Now based on the proposition~\ref{prop:mand1}, 
+        Now based on the proposition~\ref{prop:mand1},
         \begin{itemize}
         \item $\f{B}\in s_1$ if and only if $\mandatory{B}{P_1}\vtranp{s_1\cdot \checkmark}{q}\nil$.
         \item $\f{B}\not\in s_1$ if and only if  $\mandatory{B}{P_1}\vtranp{s_1\f{B}\checkmark}{q}\nil$.
@@ -346,9 +346,9 @@
       \end{proof}
 \elem
 
-\section{Proofs of Section~\ref{sec:stat:hid}}
+\section{Proofs of Section~\ref{sec:stat:hid}}\label{appendixB}
 
-\bprop
+\bprop\label{prop:appendixB}
   $P\hide\calA\vtran{s}_rQ$ if and only if $r=\sum\lbag p \ |\ P\vtran{s'}_p Q,\
   s=s'\hide\calA\rbag$
   \begin{proof}
@@ -363,7 +363,7 @@
     then we have
     \begin{displaymath}
       \begin{split}
-        r = \sum\lbag p\ |\ P\hideA\vtran{s}_p Q\rbag = 
+        r = \sum\lbag p\ |\ P\hideA\vtran{s}_p Q\rbag =
         \sum\lbag r_1\cdot r2\ |\
         P\hideA\tran{\bot}_{r_1}P_1\hideA\vtran{s_1}_{r2}Q\rbag =\\
         \sum\lbag r_1'\cdot r2\ |\
@@ -372,7 +372,7 @@
     \end{displaymath}
     Now for each one of $r_1'$, we can apply the inductive
     method to each one of the transitions
-    $P_1'\hideA\vtran{s_1}_{r2}Q$ to obtain 
+    $P_1'\hideA\vtran{s_1}_{r2}Q$ to obtain
     $r_2=\sum\lbag r2'\ |\ P_1=\vtran{s_1'}Q,\
     s_1=s_1'\hideA\rbag$. COntinuing the last equation:
     \begin{displaymath}
