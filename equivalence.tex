@@ -3,91 +3,21 @@ We have defined two different semantics for our language:
 the products derived from the operational semantics and the products
 obtained from the denotational semantics. It is important that
 both semantics coincide, so that we can chose the approach that suits
-better in any moment. The proof of the following result is an immediate consequence of Lemmas~\ref{lem:prefopt}--\ref{lem:excl} (see the appendix of the paper).
+better in any moment. The proof of the following result is an immediate consequence of Lemmas~\ref{lem:pref}--\ref{lem:excl} (see the Appendix~\ref{app:proofs} of the paper).
 
 \bprop\label{prop:DenoOpe}
 %\label{prop:pref}
-  Let $P\in\fodaPAp$ be a term and $\feature{A}\in\calF$ be a feature, then
-  $$\prodp(\feature{A};P)=\semdenp{\feature{A};\cdot}(\prodp(P))$$
-%\begin{proof}
-%  This proposition is an inmmediate consequence of
-%  Lemma~\ref{lem:pref} in the Appendix~\ref{app:proofs}
-%\end{proof}
-%\eprop
-%
-%\bprop\label{prop:prefopt}
-
-Let  $P\in\fodaPAp$ be a term, $\feature{A}\in\calF$ be a
-  feature, and $q\in (0,1)$, be a a probability; then
-  $$\prodp(\ofeature{A};_qP)=\semdenp{\ofeature{A};_q\cdot}(\prodp(P))$$
-%\begin{proof}
-%  This proposition is an inmmediate consequence of
-%  Lemma~\ref{lem:prefopt} in the Appendix~\ref{app:proofs}
-%\end{proof}
-%\eprop
-%
-%
-%\bprop\label{prop:choice}
-
-Let $P,Q\in\fodaPAp$ be terms and $q\in (0,1)$ be a probability, then
-  $$\prodp(P\choice_q Q)=\semdenp{\cdot\choice_q\cdot}\bigl(\prodp(P),\prodp(Q)\bigr)$$
-%\begin{proof}
-%  This proposition is an inmmediate consequence of
-%  Lemma~\ref{lem:choice} in the Appendix~\ref{app:proofs}
-%\end{proof}
-%\eprop
-%
-%
-%\bprop\label{prop:paral}
-
-Let $P,Q\in\fodaPAp$, then
-  $$\prodp(P\paral Q)=\semdenp{\cdot\paral\cdot}\bigl(\prodp(P),\prodp(Q)\bigr)$$
-%\begin{proof}
-%  This proposition is an inmmediate consequence of
-%  Lemma~\ref{lem:paral} in the Appendix~\ref{app:proofs}
-%\end{proof}
-%\eprop
-%
-%\bprop\label{prop:mand}
-
-Let $P\in\fodaPAp$  be a term and $\feature{A}\in\calF$ be a feature, then
-  $$\prodp(\mandatory{A}{P})=\semdenp{\mandatory{A}{\cdot}}(\prodp(P))$$
-%\begin{proof}
-%  This proposition is an inmmediate consequence of
-%  Lemma~\ref{lem:mand} in the Appendix~\ref{app:proofs}
-%\end{proof}
-%\eprop
-%
-%\bprop\label{prop:forb}
-
-Let $P\in\fodaPAp$ be a term and $\feature{A}\in\calF$ be a feature, then
-  $$\prodp(\forbid{A}{P})=\semdenp{\forbid{A}{\cdot}}(\prodp(P))$$
-%\begin{proof}
-%  This proposition is an inmmediate consequence of
-%  Lemma~\ref{lem:forb} in the Appendix~\ref{app:proofs}
-%\end{proof}
-%\eprop
-%
-%\bprop\label{prop:req}
-
-Let $P\in\fodaPAp$ be a term and $\feature{A},\feature{B}\in\calF$
-  be features, then
-$$\prodp(\require{A}{B}{P})=\semdenp{\require{A}{B}{\cdot}}(\prodp(P))$$
-%\begin{proof}
-%  This proposition is an inmmediate consequence of
-%  Lemma~\ref{lem:req} in the Appendix~\ref{app:proofs}
-%\end{proof}
-%\eprop
-%
-%\bprop\label{prop:excl}
-
-Let $P\in\fodaPAp$ be a term and $\feature{A},\feature{B}\in\calF$
-  be features, then
-$$    \prodp(\exclude{A}{B}{P})=\semdenp{\exclude{A}{B}{\cdot}}(\prodp(P))$$
-%\begin{proof}
-%  This proposition is an inmmediate consequence of
-%  Lemma~\ref{lem:excl} in the Appendix~\ref{app:proofs}
-%\end{proof}
+  Let $P,Q\in\fodaPAp$ be terms, $\feature{A},\feature{B}\in\calF$ be features and $q\in (0,1)$, be a probability. We have the following results:
+  $$\begin{array}{lll}
+  \prodp(\feature{A};P)&=&\semdenp{\feature{A};\cdot}(\prodp(P))\\
+  \prodp(\ofeature{A};_qP)&=&\semdenp{\ofeature{A};_q\cdot}(\prodp(P))\\
+  \prodp(P\choice_q Q)&=&\semdenp{\cdot\choice_q\cdot}\bigl(\prodp(P),\prodp(Q)\bigr)\\
+  \prodp(P\paral Q)&=&\semdenp{\cdot\paral\cdot}\bigl(\prodp(P),\prodp(Q)\bigr)\\
+  \prodp(\mandatory{A}{P})&=&\semdenp{\mandatory{A}{\cdot}}(\prodp(P))\\
+  \prodp(\forbid{A}{P})&=&\semdenp{\forbid{A}{\cdot}}(\prodp(P))\\
+  \prodp(\require{A}{B}{P})&=&\semdenp{\require{A}{B}{\cdot}}(\prodp(P))\\
+  \prodp(\exclude{A}{B}{P})&=&\semdenp{\exclude{A}{B}{\cdot}}(\prodp(P))
+\end{array}$$
 \eprop
 
 The proof of the following result is an immediate consequence, by structural induction on $P$, of
