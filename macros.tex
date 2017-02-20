@@ -225,7 +225,7 @@
 
 \newcommand{\product}[1]{\lfloor #1\rfloor}
 \newcommand{\waste}{\ensuremath{\mathtt{waste}}}
-\newcommand{\ham}{\ensuremath{\mathtt{ham}}}
+\newcommand{\ham}{\ensuremath{\mathtt{TotProb}}}
 \newcommand{\nombreRegla}[1]{\ensuremath{\mathbf{[#1]}}}
 \newcommand{\tvacia}{\ensuremath{\epsilon}}
 \newcommand{\traces}[1]{\ensuremath{\mathtt{tr}(#1)}}
@@ -311,7 +311,7 @@
                    minimum height=2em,
                    inner sep=2pt,
                    text centered,
-                   },             
+                   },
             feature/.style={
              rectangle,draw
             },
@@ -431,7 +431,7 @@
     stringstyle=\color[rgb]{0.627,0.126,0.941},
     morekeywords={xml, ref, xs, version, targetNamespace, minOccurs, maxOccurs}
     }\lstset{#1}}{}
-    
+
     \lstdefinestyle{Bash}
 {language=bash,
 keywordstyle=\color{blue},
@@ -440,15 +440,15 @@ morekeywords={peter@kbpet},
 alsoletter={:~$},
 morekeywords=[2]{peter@kbpet:},
 keywordstyle=[2]{\color{red}},
-literate={\$}{{\textcolor{red}{\$}}}1 
+literate={\$}{{\textcolor{red}{\$}}}1
          {:}{{\textcolor{red}{:}}}1
          {~}{{\textcolor{red}{\textasciitilde}}}1,
 }
 
-%%% Local Variables: 
+%%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "main"
-%%% End: 
+%%% End:
 
 
 %%%
@@ -544,7 +544,7 @@ literate={\$}{{\textcolor{red}{\$}}}1
 
     \newcommand*\circled[1]{\tikz[baseline=(char.base)]{
             \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
-            
+
 \tikzstyle{every node}=[draw=black,thick,anchor=west]
 \tikzstyle{selected}=[draw=red,fill=red!30]
 \tikzstyle{optional}=[dashed,fill=gray!50]
