@@ -1,75 +1,50 @@
 % $Id$
 
-\section{Tool}
+\section{Implementation}
 \label{sec:stat:impl}
 
-The following section shows the denotational semantics
-implementation for the probabilistic extension.
-The tool source code is available in the
-main project site \url{http://simba.fdi.ucm.es/at/} at the
-\href{http://simba.fdi.ucm.es/at/probabilistic/implementation_splap.tar}{probabilistic extension}.
-Also this section describes details about different possible
-practical usages for the probabilistic extension.
-
-In this section are described variability models with 1500
-features, what does not allow to describe them manually.
-To achieve this we used a feature model generator tool 
-called BeTTy~\cite{SeguraHBC11}.
-The generation parameters used to create the BeTTy models were:
+This section presents the results obtained from an experimental study. These experiments have
+been carried out by using our implementation of the denotational semantics for the probabilistic 
+extension. The source code is available at the main project site \footnote{http://simba.fdi.ucm.es/at/probabilistic/implementation\_splap.tar}.
+In these experiments, different variability models consisting of 1500 features have been used. The generator of model features BeTTy has been used~\cite{SeguraHBC11} to create these models. The parameters for generating the BeTTy models are following 
+described:
 
 \begin{itemize}
-	\item The probability of a mandatory feature is 20\%.
-	\item The probability of an optional feature is 30\%.
-	\item The probability of having features in a \emph{choose-1} is 25\%.
-	\item The probability of having features in a \emph{paralel} is 25\%.
+	\item The probability of having a mandatory feature is 0.2.
+	\item The probability of having an optional feature is 0.3.
+	\item The probability of having a feature in a \emph{choose-1} relation is 0.25.
+	\item The probability of having a feature in a \emph{paralel} relation is 0.25.
 \end{itemize}
 
-There are two main practical applications among
-the software product lines analysis using probabilistic methods.
-
-The first is that is possible to calculate a
-feature probability, allowing to assign
-testing resources in a more optimized way allowing
-the testing of those more probable features against
-those less probable inside the product line
-environment.
-
-Another application is about estimate the testing
-coverage in the product line as is possible to
-determine how many products will be covered among the
-available tests.
+In the field of \SPLs\ analysis, using probabilistic methods, there are two practical applications. The first
+application consist in calculating the probability of having a feature in a specific product, which allows to 
+efficiently assign resources by priorizing those features with a high probability of being included into 
+the \SPL. The second application consists in estimating the testing coverage in the product line. This 
+allows to calculate those products that can be generated in the testing process.
 
 \begin{figure}[h]
 	\centering
 	\linefigure
 	\includegraphics[width=0.8\hsize,angle=0]{plot_probs_times.eps}
 	\linefigure
-	\caption{Computing time analysis for a 1500 features model.}\label{fig:plot:probs:times}
+	\caption{Computing time analysis for a model consisting of 1500 features.}\label{fig:plot:probs:times}
 \end{figure}
 
-Figure \ref{fig:plot:probs:times} shows the computing
-time needed to calculate the probability of each feature
-inside the feature model, in this case the time to get
-the time for all features is linear and related to 
-the term length.
-For each feature we are getting similar times because the
-term needs to be processed in each run.
+Fig.\ref{fig:plot:probs:times} shows the computing time required to calculate the probability of having 
+each feature in the model. In this case, the total time to obtain the probability for all the features is linear 
+with respect to the total length of the analyzed term. However, there is a small variation in the processing time 
+for calculating the probability of each single feature. We suppose that his variation in mainly 
+caused by the inherent noise of the node where the experiment is launched (e.g. disk latencies, operating 
+system overhead, memory paging, etc.) and, therefore, it is not related to the algorithm itself.
 
-There is a variation between the computing each
-feature time and it is possible that this is due
-to the state of the node in which we are running the task
-and not related to the algorithm itself.
+Since the processing time for each feature is relatively low, it being around of milliseconds, a single delay in 
+the process scheduling may have a direct impact in overall algorithm performance. However, this overhead 
+can be considered insignificant since, in general, the time for processing each feature in the model ranges 
+from 15 to 28 milliseconds. 
 
-As the simulations are getting times in the milliseconds
-order, is easy that because of any delay in the algorithm
-execution might lead to small time variations which will
-impact the algorithm performance, this variation is insignificant
-because the time range goes between 15 and 38 milliseconds
-for each feature inside the model.
-
-The computed model was executed several times, having similar
-results with execution times between 15 y 20 milliseconds, with
-some features being computed with times between 20 and 38 milliseconds.
+The model used in the experiments has been executed several times, providing similar results. That is, the 
+major part of the features require between 15 and 20 milliseconds to be processed, while there is a minor 
+part of the features requiring between 20 and 38 milliseconds.
 
 \begin{figure}[h]
 	\centering
@@ -79,12 +54,14 @@ some features being computed with times between 20 and 38 milliseconds.
 	\caption{Probabilistic analysis for a 1500 features model.}\label{fig:plot:probs:probs}
 \end{figure}
 
-Figure \ref{fig:plot:probs:probs} shows graphically
-the probability of each feature in the model.
-Thanks to this representation it is possible to
-identify groups of features with greater probability of
-being inside a valid product and for example test
-more accurately the model features.
+Fig.\ref{fig:plot:probs:probs} shows the probability of each feature in the analysed model, where x-axis 
+represents the feature ID and y-axis represents the probability. For the sake of clarity, we provide a chart by 
+sorting the features by using its probability as sorting criteria (see Fig.~\ref{fig:plot:probs:probs:sorted}). 
+This chart clearly shows that there exists different groups of features having a similar probability.
+
+In this case, there are 450 features with, at least, a probability of 0.75 for being in the final product. This analysis 
+might allow to establish that by testing only the 28\% of the software product line components we will test 
+features inside at least the 75\% of the total products.
 
 \begin{figure}[h]
 	\centering
@@ -93,20 +70,6 @@ more accurately the model features.
 	\linefigure
 	\caption{Probabilistic analysis for a 1500 features model, decreasingly sorted.}\label{fig:plot:probs:probs:sorted}
 \end{figure}
-
-Figure \ref{fig:plot:probs:probs:sorted} shows
-the results from figure \ref{fig:plot:probs:probs}
-sorted decreasingly, this view allows to study with a greater detail
-those features with greater probability ob being part of
-a valid product.
-
-In this specific case is possible to identify
-that those features with a greater probability of
-0.75 are only 450 of the total of 1500 features.
-This analysis might allow to establish that
-by testing only the 28\% of the software product line components
-we will test features inside at least the 75\% of the
-total products.
 
 %\begin{figure}[t]
 %$$
