@@ -10,8 +10,8 @@ the most frequent components to focus our analysis on these components.
 %
 In order to compute the probability of a set of features we are going
 to \emph{hide} other features. We hide features because it is usually not feasible to compute all the
-products of the software product line. However, we expect to achieve our goal if we restrict ourselves to a subset of features. So, 
-non interesting features are transformed into a new feature, 
+products of the software product line. However, we expect to achieve our goal if we restrict ourselves to a subset of features. So,
+non interesting features are transformed into a new feature,
 denoted by $\bot\not\in\calF$, and we consider the set $\calFbot =
 \calF\cup\{\bot\}$.
 
@@ -38,19 +38,19 @@ features in a term.
 
 \bdfn
   Let $\calA\subseteq \calF$ be a subset of features and
-  $P\in\fodaPAp$ be a term,
-  the $P\hide{\calA}$
-  hiding operator of the features in $\calA$
+  $P\in\fodaPAp$ be a term. We have that 
+   $P\hide{\calA}$ denotes the 
+  hiding of the features in $\calA$
   for the term $P$.
 \edfn
 
-Next we need to give the semantics of the new operator. First, the
+We need to define the semantics of the new operator. First, the
 operational semantics is given by the rules appearing in
 Figure~\ref{fig:oper-hid}.
-
+%
 In order to define the denotational semantics of the new operator,
-first we need an auxiliary function that hides all some features
-from a given product.
+first we need an auxiliary function that hides some features
+of a given product.
 
 \bdfn
   Let $pr\subseteq\calF$ be a product and $\calA\subseteq\calF$
@@ -64,10 +64,10 @@ from a given product.
       \emptyset & \mbox{si } pr\cap\calA=\emptyset\\
     \end{cases}
   \end{displaymath}
-  Analogously, for any trace $s\in\calF^{*}$, $s\hide\calA$ is the
-  resulting
-  trace of
-  substituting of any  occurrence of a feature $\fA\in\calA$ by
+  
+  Analogously, for any sequence $s\in\calF^{*}$ we consider taht $s\hide\calA$ denotes the
+  trace resulting of
+  substituting any  occurrence of a feature $\fA\in\calA$ by
   the symbol $\bot$ in $s$.
 \edfn
 
@@ -79,15 +79,17 @@ from a given product.
   \end{displaymath}
 \edfn
 
-As in the case of the other operators, we have to prove that the
-operational semantics and the denotational semantics coincide. This is
-proven by the next Proposition.
+Finally, we have to prove that the
+operational semantics and the denotational semantics coincide. 
+%
+The proof of the following result is an immediate consequence of Proposition~\ref{prop:appendixB} (see Appendix~\ref{appendixB}).
+%This is proven by the next result.
+
 \bprop\label{prop:hid}
   \begin{displaymath}
     \prodp(P\hideA)  = \semdenp{\prodp(P)\hideA}
   \end{displaymath}
   \begin{proof}
-    The proof is in the Appendix, page~\pageref{prof:prop:hid}.
   \end{proof}
 \eprop
 
