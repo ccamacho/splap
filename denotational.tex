@@ -1,9 +1,7 @@
 \subsection{Denotational Semantics}
 \label{sec:stat:den}
 
-Next we define a denotational semantics for the terms of our language. The main features of the semantic domain are that we consider products (set of features) with probability,
-each product appears one and the sum of all the probabilities
-associated with products belongs to the interval $(0,1]$. First, we
+Next we define a denotational semantics for the terms of our language. The main features of the semantic domain are that we consider products (set of features) with probability such that the sum of all the probabilities associated with products belongs to the interval $(0,1]$. First, we
 precisely define the members of the semantic domain.
 
 %\todo{Explicar el modelo con más detalle,  y el motivo por el que se necesitan multiconjnutos}
@@ -13,7 +11,7 @@ We define the semantic domain $\calM$ as the largest set $\calM\subseteq\calP(\c
   (0,1]))$ such that if $A\in\calM$ then the following
   conditions hold:
   \begin{itemize}
-  \item If $(P,q)\in A$ and $(P,r)\in M$ then $q=r$.
+  \item If $(P,q)\in A$ and $(P,r)\in A$ then $q=r$.
   \item $0\leq \sum \lbag q \ | \ \exists P: (P,q)\in A\rbag \leq 1$.
   \end{itemize}
 %\edfn
@@ -49,13 +47,13 @@ $M=\{
    (\{\fB,\fA\},\frac{1}{2}),
    (\{\fB\},\frac{1}{2})\}$.
 If we add $\fA$ to the products of $M$ then we obtain the product
-$\{\fA,\fB\}$ twice, with probability $\frac{1}{2}$ associated with each occurrence. So we
+$\{\fA,\fB\}$ twice, having probability $\frac{1}{2}$ associated with each occurrence. So we
 need to apply the function $\accum$ to accumulate both probabilities
-and obtain a single product with probability $1$. 
+and obtain a single product with probability~$1$.
 
 
 \bdfn\label{def:semantic:operators}
-  Let $M,M_1,M_2\in\calM$, $\fA,\fB\in\calF$, and $p\in(0,1]$. For any operator appearing in
+  Let $M,M_1,M_2\in\calM$, $\fA,\fB\in\calF$ and $p\in(0,1]$. For any operator appearing in
   Definition~\ref{sec:stat:sintax} we define its denotational operator
   as follows:
   \begin{itemize}
@@ -107,7 +105,7 @@ and obtain a single product with probability $1$.
 %\todo{explicar los operadores}
 
 
-It is easy to check that all multisets appearing in the previous
+It is easy to check that all the multisets appearing in the previous
 definition meet the conditions of Proposition~\ref{prop:pr:accum}. So,
 the operators are actually well defined. This is formalized in the
 following result.
@@ -135,7 +133,6 @@ $$ \begin{array}{lllll}
 \bullet\ \semdenp{\cdot\choice_{r}\cdot}(M_{1},M_{2})\in\calM& &
 \bullet\ \semdenp{\exclude{A}{B}{\cdot}}(M)\in\calM
   \end{array}$$
-
 \eprop
 
 
