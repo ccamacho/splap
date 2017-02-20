@@ -3,11 +3,13 @@
 \section{Implementation}
 \label{sec:stat:impl}
 
-This section presents the results obtained from an experimental study. These experiments have
-been carried out by using our implementation of the denotational semantics for the probabilistic 
-extension. The source code is available at the main project site \footnote{http://simba.fdi.ucm.es/at/probabilistic/implementation\_splap.tar}.
-In these experiments, different variability models consisting of 1500 features have been used. The generator of model features BeTTy has been used~\cite{SeguraHBC11} to create these models. The parameters for generating the BeTTy models are following 
-described:
+This section presents the results obtained from an experimental study to show the applicability of our 
+approach. These experiments have been carried out by using our implementation of the denotational 
+semantics for the probabilistic extension. The source code is available at the main project site 
+\footnote{http://simba.fdi.ucm.es/at/probabilistic/implementation\_splap.tar}. In these experiments, 
+different variability models consisting of 1500 features have been used. The generator of model 
+features BeTTy has been used to create these models~\cite{SeguraHBC11}. The parameters for 
+generating the BeTTy models are following described:
 
 \begin{itemize}
 	\item The probability of having a mandatory feature is 0.2.
@@ -17,7 +19,7 @@ described:
 \end{itemize}
 
 In the field of \SPLs\ analysis, using probabilistic methods, there are two practical applications. The first
-application consist in calculating the probability of having a feature in a specific product, which allows to 
+application consists in calculating the probability of having a feature in a specific product, which allows to 
 efficiently assign resources by priorizing those features with a high probability of being included into 
 the \SPL. The second application consists in estimating the testing coverage in the product line. This 
 allows to calculate those products that can be generated in the testing process.
@@ -31,20 +33,20 @@ allows to calculate those products that can be generated in the testing process.
 \end{figure}
 
 Fig.\ref{fig:plot:probs:times} shows the computing time required to calculate the probability of having 
-each feature in the model. In this case, the total time to obtain the probability for all the features is linear 
+each feature in a product. In this case, the total time to obtain the probability for all the features is linear 
 with respect to the total length of the analyzed term. However, there is a small variation in the processing time 
 for calculating the probability of each single feature. We suppose that his variation in mainly 
 caused by the inherent noise of the node where the experiment is launched (e.g. disk latencies, operating 
 system overhead, memory paging, etc.) and, therefore, it is not related to the algorithm itself.
 
 Since the processing time for each feature is relatively low, it being around of milliseconds, a single delay in 
-the process scheduling may have a direct impact in overall algorithm performance. However, this overhead 
+the process scheduling may have a direct impact in overall algorithm performance. Hence, this overhead 
 can be considered insignificant since, in general, the time for processing each feature in the model ranges 
-from 15 to 28 milliseconds. 
+from 15 to 28 milliseconds.
 
 The model used in the experiments has been executed several times, providing similar results. That is, the 
 major part of the features require between 15 and 20 milliseconds to be processed, while there is a minor 
-part of the features requiring between 20 and 38 milliseconds.
+part of the features requiring a processing time between 20 and 38 milliseconds.
 
 \begin{figure}[h]
 	\centering
@@ -56,12 +58,12 @@ part of the features requiring between 20 and 38 milliseconds.
 
 Fig.\ref{fig:plot:probs:probs} shows the probability of each feature in the analysed model, where x-axis 
 represents the feature ID and y-axis represents the probability. For the sake of clarity, we provide a chart by 
-sorting the features by using its probability as sorting criteria (see Fig.~\ref{fig:plot:probs:probs:sorted}). 
+sorting the features using its probability as sorting criteria (see Fig.~\ref{fig:plot:probs:probs:sorted}). 
 This chart clearly shows that there exists different groups of features having a similar probability.
 
-In this case, there are 450 features with, at least, a probability of 0.75 for being in the final product. This analysis 
-might allow to establish that by testing only the 28\% of the software product line components we will test 
-features inside at least the 75\% of the total products.
+In this case, there are 450 features with, at least, a probability of 0.75 for being in a final product. As a conclusion, 
+this analysis might allow to establish that only testing the 28\% of the software product line components, the features
+included in, at least, the 75\% of the generated products, are tested.
 
 \begin{figure}[h]
 	\centering
