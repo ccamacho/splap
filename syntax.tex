@@ -1,14 +1,14 @@
-\section{$\fodaPAp$: Syntax and Semantics}
+\section{$\fodaPAp$: syntax and semantics}
 \label{sec:stat:sintaxMain}
-In this section we introduce our language. In addition to provide its syntax, we define an operational semantics and a denotational semantics. In the next section we will show the equivalence between these two semantic frameworks.
+In this section we introduce our language. In addition to present its syntax, we define an operational semantics and a denotational semantics. In the next section we will show the equivalence between these two semantic frameworks.
 
 \subsection{Syntax and operational semantics}
 \label{sec:stat:sintax}
 Following our previous work~\cite{acl13,cln16}, we will consider a
 set of features. We denote this set by $\calF$ and consider that $\feature{A}, \feature{B},
 \feature{C}$ range over $\calF$. We have a special feature
-$\checkmark\not\in\calF$ to mark the end  of a product. The syntax we consider is similar to
-\fodaPA. The probabilities are introduced in the choice operator $P \choice_{p} Q $ and in
+$\checkmark\not\in\calF$ to mark the end  of a product. We consider a syntax similar to
+\fodaPA, where probabilities are introduced in the choice operator $P \choice_{p} Q $ and in
 the optional feature operator $\ofeature{A};_{p} P$. We do not allow
 \emph{degenerated} probabilities, that is, for all probability $p$ we have $0< p<1$.
 
