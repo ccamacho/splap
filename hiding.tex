@@ -2,23 +2,20 @@
 \label{sec:stat:hid}
 
 The probability of a single feature in a software product line
-is a measure of the occurrences of this features in the set of
+is a measure of the occurrences of this feature in the set of
 products. For instance, in case of testing, it is interesting to know
-the most frequent components to focus on these components.
-This probability is affected by the  dependencies and restrictions of
-the feature.
-
-
+the most frequent components to focus our analysis on these components.
+%Let us remark that this probability is affected by the dependencies and restrictions of
+%the feature.
+%
 In order to compute the probability of a set of features we are going
-to use a hiding operator: we are going to hide other features. The
-reason of doing this is that it maybe not feasible to compute all the
-products of the software product line. But we expect that we can
-achieve this if we restrict ourselves to a subset of features. So the
-non interesting features are considered a new feature that we will
-denote as $\bot\not\in\calF$, we consider the set $\calFbot =
+to \emph{hide} other features. We hide features because it is usually not feasible to compute all the
+products of the software product line. However, we expect to achieve our goal if we restrict ourselves to a subset of features. So, 
+non interesting features are transformed into a new feature, 
+denoted by $\bot\not\in\calF$, and we consider the set $\calFbot =
 \calF\cup\{\bot\}$.
 
-\begin{figure}
+\begin{figure}[t]
   \centering
 \begin{displaymath}
     \begin{array}{ccccc}
@@ -36,7 +33,7 @@ denote as $\bot\not\in\calF$, we consider the set $\calFbot =
 
 
 
-So we extend the set of operators with a new one: hiding a set of
+We extend the set of operators with a new one: hiding a set of
 features in a term.
 
 \bdfn
