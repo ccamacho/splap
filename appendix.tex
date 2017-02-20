@@ -1,18 +1,18 @@
 \appendix
-\section{Proofs of Setion~\ref{sec:equivalence}}\label{app:proofs}
+\section{Proofs of Section~\ref{sec:equivalence}}\label{app:proofs}
 
 \blem\label{lem:pref}
-  Dado el término $P\in\fodaPAp$ y la característica $\feature{A}\in\calF$, 
-  entonces $(pr,p)\in\prodp(\feature{A};P)$ si y sólo si
+  Given $P\in\fodaPAp$ and $\feature{A}\in\calF$, 
+  then $(pr,p)\in\prodp(\feature{A};P)$ if and only if
   $$p=\sum\lbag r\ |\ (pr',r)\in\prodp(P) \y pr'\cup\{\feature{A}\} = pr\rbag$$
 \begin{proof}
-  La otra transición de $\feature{A};P$ es
-  $\feature{A};P\tranp{\feature{A}}{1}Q$.  Entonces
-  $\feature{A};P\vtranp{s}{p}P$ si y sólo si
+  The other transition of $\feature{A};P$ is
+  $\feature{A};P\tranp{\feature{A}}{1}Q$.  Then
+  $\feature{A};P\vtranp{s}{p}P$ if and only if
   \begin{displaymath}
     \feature{A};P\tranp{\feature{A}}{1}P\vtranp{s}{p}Q\quad\y\quad s=\feature{A}\cdot s'
   \end{displaymath}
-  Entonces
+  then
   \begin{equation*}
     \begin{split}
       p = \sum\lbag r \ |\ \feature{A};P\vtranp{s\checkmark}{p} \nil \y \product{s}=pr \ \rbag =\\
@@ -26,20 +26,20 @@
 \elem
 
 \blem\label{lem:prefopt}
-  Dado el término $P\in\fodaPAp$, la característica $\feature{A}\in\calF$, y la probabilidad $q\in (0,1)$, 
-  entonces $(pr,p)\in\prodp(\ofeature{A};_qP)$ si y sólo si $(pr,p)=(\emptyset,1-q)$ o
+  Given $P\in\fodaPAp$, $\feature{A}\in\calF$ and $q\in (0,1)$, 
+  then $(pr,p)\in\prodp(\ofeature{A};_qP)$ if and only if $(pr,p)=(\emptyset,1-q)$ or
   $$p=q\cdot \sum\{r\ |\ (pr',r)\in\prodp(P) \y pr'\cup\{\feature{A}\} = pr\}$$
   \bprf
-    Existen dos transiciones para $\ofeature{A};_qP$: $\ofeature{A};_qP\tranp{\feature{A}}{q} P$ y
-     $\ofeature{A};_qP\tranp{\checkmark}{1-q}\nil$. Por lo tanto si $\ofeature{A};_qP\vtranp{s}{r}Q$ entonces
+    There exist two transitions to $\ofeature{A};_qP$: $\ofeature{A};_qP\tranp{\feature{A}}{q} P$ and
+     $\ofeature{A};_qP\tranp{\checkmark}{1-q}\nil$. So forth if $\ofeature{A};_qP\vtranp{s}{r}Q$ then
      \begin{itemize}
      \item $s=\checkmark$ y $r=1-q$, o
      \item $s=\feature{A}\cdot s'$, $P\vtranp{s}{r'}Q$, y $r=q\cdot r'$.
      \end{itemize}
-     Además, si $pr=\product{\feature{A}\cdot s'}$ entonces
-     $pr\neq\emptyset$. Por lo tanto 
-     $(\emptyset,1-q)\in\prodp(\ofeature{A};_qP)$. Ahora suponemos 
-     $pr\neq\emptyset$, entonces $(pr,p)\in\prodp(\ofeature{A};_qP)$ si y sólo si
+     So, if $pr=\product{\feature{A}\cdot s'}$ then
+     $pr\neq\emptyset$. So then
+     $(\emptyset,1-q)\in\prodp(\ofeature{A};_qP)$. Now suppose 
+     $pr\neq\emptyset$, then $(pr,p)\in\prodp(\ofeature{A};_qP)$ if and only if
      \begin{equation*}
        \begin{split}
          d = \sum\lbag r\ |\ \ofeature{A};_qP\vtran{s\checkmark}\nil\y \product{s}=pr\rbag=\\
@@ -54,20 +54,20 @@
 
 
 \blem\label{lem:choice1}
- Dados los términos $P,Q\in\fodaPAp$, y la probabilidad $q\in (0,1)$, entonces 
- $P\choice_q Q\vtranp{s}{r} R$ si y sólo si
+ Given $P,Q\in\fodaPAp$ and $q\in (0,1)$, then 
+ $P\choice_q Q\vtranp{s}{r} R$ if and only if
  \begin{itemize}
  \item $P\vtranp{s}{r'} R$ y $r=q\cdot r'$, o
  \item $Q\vtranp{s}{r'} R$ y $r=(1-q)\cdot r'$
  \end{itemize}
  \bprf
-   Este lema es consecuencia de las reglas~\nombreRegla{cho1} y~\nombreRegla{cho2} de la semántica operacional.
+   This lemma is a consequence of rules~\nombreRegla{cho1} y~\nombreRegla{cho2} from the operational semantics.
  \eprf
 \elem
 
 \blem\label{lem:choice}
-  Dados los términos $P,Q\in\fodaPAp$, y la probabilidad $q\in (0,1)$, entonces
-  $(pr,p)\in\prodp(P\choice_q Q)$ si y sólo si
+  Given $P,Q\in\fodaPAp$ and $q\in (0,1)$, then
+  $(pr,p)\in\prodp(P\choice_q Q)$ if and only if
   \begin{equation*}
     \begin{split}
       p = \left(q\cdot\sum\{r\ |\ (pr,r)\in\prodp(P) \}\right) +
@@ -75,7 +75,7 @@
     \end{split}
   \end{equation*}  
   \begin{proof}
-    $(pr,p)\in\prodp(P\choice_q Q)$ si y sólo si
+    $(pr,p)\in\prodp(P\choice_q Q)$ if and only if
     \begin{equation*}
       \begin{split}
         p = \sum\lbag  r\ |\ P\choice_q Q\vtran{s\checkmark}_{r}\nil\rbag=\\
@@ -96,24 +96,25 @@
 
 
 \bdfn
-  Dadas las trazas $s,s'\in\calF^*$, se denota el conjunto de trazas obtenidas de
-  alternar $s$ y $s'$ por $\inter(s,s')$.
+  Given the traces $s,s'\in\calF^*$, we denote the set of traces
+  obtained from alternate $s$ and $s'$ por $\inter(s,s')$.
 \edfn
 
 \blem\label{lem:paral}
-  Dados los términos $P,Q\in\fodaPAp$, las probabilidades $p,q\in (0,1)$y las trazas $s,s'\in\calF^*$ 
-  tal que $p=\sum\lbag p'\ |\ P\vtranp{s\checkmark}{p'}\nil\rbag$ y 
+  Given the terms $P,Q\in\fodaPAp$, the probabilities $p,q\in (0,1)$ and the
+  traces $s,s'\in\calF^*$ 
+  such $p=\sum\lbag p'\ |\ P\vtranp{s\checkmark}{p'}\nil\rbag$ and
   $q=\sum\lbag q'\| |\ Q\vtranp{s'}{q'}\nil\rbag$
-  Entonces
+  then
   $$p\cdot q = \sum\lbag r\ |\ P\paral Q\vtranp{s''\checkmark}{r}\nil\y s''\in\inter(s,s)\rbag$$
-  \textit{Demostración.}
-    Por inducción de $|s|+|s'|$.
+  \begin{proof}
+    By induction of $|s|+|s'|$.
     \begin{description}
-    \item[$|s|+|s'|=0$] Desde 
+    \item[$|s|+|s'|=0$] Since 
       $P\paral Q\tranp{\checkmark}{r}\nil$
-      si y sólo si $P\tranp{\checkmark}{r_1}\nil$,
+      if and only if $P\tranp{\checkmark}{r_1}\nil$,
       $Q\tranp{\checkmark}{r_2}\nil$, y $r=r_1\cdot r_2$,
-      se sostiene lo siguiente:
+      behold the following:
       \begin{equation}
         \label{eq:paral1}
         \begin{split}
@@ -124,11 +125,11 @@
           \sum \lbag  r_1 \cdot q |\  P\tranp{\checkmark}{r_1}\nil\rbag = q\cdot \sum \lbag  r_1  |\  P\tranp{\checkmark}{r_1}\nil\rbag = q\cdot p
         \end{split}
       \end{equation}
-    \item[$|s|+|s'|>0$] Supóngase que  $|s|>0$ (para el caso cuando $|s'|>0$
-      es simétrico). Consideremos que $s=\feature{A}\cdot s_1$.
-      Ahora consideremos el multiconjunto 
-      $\calP=\lbag P'\ |\ P\tranp{\f{A}}{r'} P'\vtranp{s_1\checkmark}{p'}\nil\rbag$ y dado $r_1 = \sum\lbag r\ |\ P\tranp{\f{A}}{r} P'\y P'\in\calP\rbag$ y
-      $p_1=\sum\lbag r\ |\ P'\vtranp{s_1\checkmark}{r}\nil\y P'\in\calP\rbag$. Es facil verificar que $p=r_1\cdot p_1$:
+    \item[$|s|+|s'|>0$] Suppose that $|s|>0$ (in the case $|s'|>0$
+      is symmetric). Let's consider that $s=\feature{A}\cdot s_1$.
+      Now consider the multiset
+      $\calP=\lbag P'\ |\ P\tranp{\f{A}}{r'} P'\vtranp{s_1\checkmark}{p'}\nil\rbag$ and given $r_1 = \sum\lbag r\ |\ P\tranp{\f{A}}{r} P'\y P'\in\calP\rbag$ and
+      $p_1=\sum\lbag r\ |\ P'\vtranp{s_1\checkmark}{r}\nil\y P'\in\calP\rbag$. It easy to verify that $p=r_1\cdot p_1$:
       \begin{equation}
         \label{eq:paral2}
         \begin{split}
@@ -138,11 +139,11 @@
           p_1\cdot\sum\lbag  r'\ |\  P\tranp{\f{A}}{r'} P'\y P'\in\calP \rbag = r_1\cdot p_1
         \end{split}
       \end{equation}
-      Para cualquier $P'\in\calP$, y luego por la hipótesis de inducción obtenemos
+      For any $P'\in\calP$, and then for the inductive hypothesis we obtain
       $$
       p'\cdot q =\sum\lbag r\ |\ P'\paral Q\vtranp{s''\checkmark}{r}\y s''\in\inter(s_1,s')\rbag
       $$
-      Por lo tanto
+      So forth
       \begin{equation}
         \label{eq:paral3}
         \begin{split}
@@ -151,11 +152,12 @@
           q\cdot \sum\lbag r\ |\ P'\vtranp{s_1\checkmark}\nil\y P'\in\calP\rbag=p_1\cdot q
         \end{split}
       \end{equation}
-      Entonces para cualquier $P'\in\calP$ se obtiene $P\paral Q\vtranp{s''\checkmark}{r}\nil$
-      donde $P\tranp{\f{A}}{r'}P'$, $r=\frac{r'}{2}\cdot p'\cdot q$ y $s''$
-      es la alternación de $s$ y $s'$. Por lo tanto
+      then for any $P'\in\calP$ we obtain $P\paral Q\vtranp{s''\checkmark}{r}\nil$
+      where $P\tranp{\f{A}}{r'}P'$, $r=\frac{r'}{2}\cdot p'\cdot q$ y $s''$
+      is the alternation of $s$ and $s'$. So forth
       \begin{equation}
         \label{eq:paral4}
+        \tiny{
         \begin{split}
           \sum\lbag  r\ |\ P\paral Q\tranp{\f{A}}{\frac{r_1}{2}}P'\paral Q\vtranp{s''\checkmark}{r_2}\nil\y P'\tranp{\f{A}}{r_1}P' \y \\ r=\frac{r_1}{2}\cdot r_1\y s''\in\inter(s_1,s') \rbag = \\
           \sum\scaleleftright{\lbag}{\frac{r'}{2}\cdot r'' \  \vstretch{2}{|}\ P\tranp{\f{A}}{r'}P'\y P'\paral Q\vtranp{s''\checkmark}{r''}\nil\y s''\in\inter(s_1,s') }{\rbag} = \\
@@ -168,20 +170,23 @@
           \frac{(p_1\cdot q)}{2}\cdot  \sum\lbag  r'\ |\ P\tranp{\f{A}}{r'}P' \y P'\in\calP  \rbag = \\
           \frac{1}{2}(p_1\cdot q\cdot r_1)=\frac{1}{2}(p\cdot q)
         \end{split}
+	    }
       \end{equation}
-      La ecuación \ref{eq:paral4} agrupa todas las probabilidades de alternar $s$ y $s'$ donde
-      la primera acción de $s$ se dá en primer lugar. Luego se tiene que agrupar la información probabilística
-      cuando la primera acción de $s'$ ocurre en primer lugar.
+      The equation \ref{eq:paral4} groups all probabilities
+      of alternating  $s$ and $s'$ where
+      the first action of $s$ is given in first place.
+      Then we have to group the probabilistic
+      information when the first action of $s'$ happens in first place.
        
-      Existen dos posibilidades, si esas acciones existen o no.
-      Dependiendo de $s'$ se obtienen las siguientes posibilidades.
+      There are two possibilities, if these actions exist or not.
+      Depending on $s'$ we can obtain the following options.
       \begin{description}
       \item[$|s'|=0$] 
-        En este case tenemos $q=\sum\lbag q'\ |\ Q\tranp{\checkmark}{q'}\nil \rbag$,
-        Si $Q\tranp{\checkmark}{q'}\nil$, al aplicar
-        la regla $\nombreRegla{con4}$ y así obtener
+        In this case we have $q=\sum\lbag q'\ |\ Q\tranp{\checkmark}{q'}\nil \rbag$,
+        If $Q\tranp{\checkmark}{q'}\nil$, when applying
+        the rule $\nombreRegla{con4}$ and then obtain
         $P\paral Q\tranp{\f{A}}{\frac{r'\cdot q'}{2}} P_1$. 
-        En este caso se obtiene
+        In this case we obtain
         \begin{equation}
           \label{eq:paral5}
           \begin{split}
@@ -192,12 +197,14 @@
             \frac{1}{2}(q\cdot p_1)\cdot(\underbrace{\sum\lbag r'\ |\ P\tranp{\f{A}}{r'}P'\y P'\in\calP \rbag}_{r_1})=\frac{1}{2}(q\cdot p_1\cdot r_1)=\frac{1}{2}(q\cdot p)
           \end{split}
         \end{equation}
-        La única transición de $P\paral Q$ que permite alternar $s$ y $s'$ son de la forma
+        The only transition of $P\paral Q$ that allows
+        to alternate $s$ and $s'$ have the form
         \begin{enumerate}
-        \item $P\paral Q\tranp{\f{A}}{\frac{r'}{2}} P'\paral Q\vtranp{s''\checkmark}{p'}\nil $ como se indica arriba, o
+        \item $P\paral Q\tranp{\f{A}}{\frac{r'}{2}} P'\paral Q\vtranp{s''\checkmark}{p'}\nil $ as is indicated above
+        , or
         \item $P\paral Q\tranp{\f{A}}{\frac{q'\cdot r'}{2}} P'\vtranp{s''\checkmark}{p'}\nil $.
         \end{enumerate}
-        Por lo tanto
+        So forth
         \begin{equation}
           \begin{split}
             \label{eq:paral5}
@@ -207,25 +214,28 @@
             \frac{1}{2}(p\cdot q) + \frac{1}{2}(p\cdot q)= p\cdot q
           \end{split}
         \end{equation}
-       \item[$|s'|>0$] Consideremos $s'=\f{B}\cdot s_2$. 
-        En este caso se consideran las alternaciones donde
-        $Q$ produce la característica $\f{B}$ en primer lugar, lo que es,
-        que primero se aplica la regla~\nombreRegla{con2}. Considerando el
-        multiconjunto $\calQ=\lbag Q'\ |\ Q\tranp{\f{B}}{r}Q'\vtranp{s_2\checkmark}{q'}\nil]$, y dado
-        $r_2=\sum\lbag r\ |\ Q\tranp{\f{B}}{r}Q'\y Q'\in\calQ\rbag$ y $q_1=\sum\lbag r\ |\ Q'\vtranp{s_2\checkmark}{r}\nil\y Q'\in\calQ\rbag$.
-        Con un razonamiento similar al de las ecuaciones~\eqref{eq:paral1} y~\eqref{eq:paral2} se obtiene que $q=r_2\cdot q_1$ y
+       \item[$|s'|>0$] Let consider $s'=\f{B}\cdot s_2$. 
+        In this case we consider the alternations where
+        $Q$ produces the feature $\f{B}$ in first place, which is,
+        that first we apply the rule~\nombreRegla{con2}. Considering
+        the multiset $\calQ=\lbag Q'\ |\ Q\tranp{\f{B}}{r}Q'\vtranp{s_2\checkmark}{q'}\nil]$, and given
+        $r_2=\sum\lbag r\ |\ Q\tranp{\f{B}}{r}Q'\y Q'\in\calQ\rbag$ and $q_1=\sum\lbag r\ |\ Q'\vtranp{s_2\checkmark}{r}\nil\y Q'\in\calQ\rbag$.
+        With a similar reasoning to te equations~\eqref{eq:paral1} and~\eqref{eq:paral2} we obtain that $q=r_2\cdot q_1$ and
         \begin{equation}
           \label{eq:paral6}
           \begin{split}
             \sum\lbag  r\ |\ P\paral Q\tranp{\f{B}}{\frac{r_1}{2}}P\paral Q'\vtranp{s''\checkmark}{r_2}\nil\y\\ r=\frac{r_1}{2}\cdot r_1\y s''\in\inter(s,s_2) \rbag = \frac{1}{2}(p\cdot q)
           \end{split}
         \end{equation}
-        La única transición de $P\paral Q$ que implique alternar $s$ y $s'$ son de la forma:
+        The only transition of $P\paral Q$ that implies to alternate
+        $s$ and $s'$ have the form:
         \begin{enumerate}
-        \item $P\paral Q\tranp{\f{A}}{p'}{\frac{r}{2}} P'\paral Q\vtranp{s''\checkmark}{p'}\nil $ donde $s''$ es una alternación de $s_1$ y $s'$, o
-        \item $P\paral Q\tranp{\f{B}}{q'}{\frac{r}{2}} P\paral Q'\vtranp{s''\checkmark}{p'}\nil $ donde $s''$ es una alternación de $s$ y $s_2$, 
+        \item $P\paral Q\tranp{\f{A}}{p'}{\frac{r}{2}} P'\paral Q\vtranp{s''\checkmark}{p'}\nil $ where $s''$ is an alternation of
+        $s_1$ and $s'$, or
+        \item $P\paral Q\tranp{\f{B}}{q'}{\frac{r}{2}} P\paral Q'\vtranp{s''\checkmark}{p'}\nil $ where $s''$ is an alternation of
+        $s$ and $s_2$, 
         \end{enumerate}        
-        Por lo tanto,
+        So forth,
         \begin{equation}
           \label{eq:paral7}
           \begin{split}
@@ -237,63 +247,64 @@
         \end{equation}
       \end{description}
     \end{description}
+\end{proof}    
 \elem
 
 \blem\label{lem:mand}
-  Dado el término  $P\in\fodaPAp$ y la característica $\feature{A}\in\calF$, $P\vtranp{s\checkmark}{p}\nil$.
+  Given$P\in\fodaPAp$, $\feature{A}\in\calF$ and $P\vtranp{s\checkmark}{p}\nil$.
   \begin{enumerate}
-  \item $\f{A}\in s$ si y sólo si $\mandatory{A}{P}\vtranp{s\checkmark}{p}\nil$.
-  \item $\f{A}\not\in s$ si y sólo si $\mandatory{A}{P}\vtranp{s\f{A}\checkmark}{p}\nil$.
+  \item $\f{A}\in s$ if and only if $\mandatory{A}{P}\vtranp{s\checkmark}{p}\nil$.
+  \item $\f{A}\not\in s$ if and only if $\mandatory{A}{P}\vtranp{s\f{A}\checkmark}{p}\nil$.
   \end{enumerate}
-  \textit{Demostración.}
-    En ambos casos la demostración se realiza por inducción de la longitud de $|s|$.
+  \begin{proof}
+    In both cases the demonstration is made by induction of th length
+    of $|s|$.
     \lcomen{I think it is trivial, is it necessary to write it in detail.}
+  \end{proof}
 \elem
 
 
 \blem\label{lem:forb}
-  Dado el término  $P\in\fodaPAp$, la característica $\feature{A}\in\calF$, la traza $s\in\calF^*$ y la probabilidad
-  $p\in(0,1)$. $P\vtranp{s\checkmark}{p}\nil$, si y sólo si
+  Given $P\in\fodaPAp$, $\feature{A}\in\calF$, $s\in\calF^*$ and
+  $p\in(0,1)$. $P\vtranp{s\checkmark}{p}\nil$, if and only if
   $\forbid{P}{A}\vtranp{s\checkmark}{p}\nil$ y $\f{A}\not\in s$.
   \begin{proof}
-    La demostración es simple por inducción de la longitud de $s$.
+    The demonstration is simple by the induction on the length of $s$.
   \end{proof}
 \elem
 
 
 \blem\label{lem:req}
-  Dado el término  $P\in\fodaPAp$, las características $\feature{A},\feature{B}\in\calF$, la traza $s\in\calF^*$
-  y la probabilidad $p\in(0,1)$. Entonces $P\vtranp{s\checkmark}{p}\nil$ si y sólo si
+  Given $P\in\fodaPAp$, $\feature{A},\feature{B}\in\calF$, $s\in\calF^*$
+  and $p\in(0,1)$. Then $P\vtranp{s\checkmark}{p}\nil$ if and only if
   $\require{A}{B}{P}\vtranp{s'\checkmark}p\nil$ y 
-  $s'$ y tiene alguna de las siguientes formas:
-  $\f{A}\not\in s$ y $s'=s$, $\f{B}\in s$ y $s'=s$, o
+  $s'$ and it has some of the forms:
+  $\f{A}\not\in s$ and $s'=s$, $\f{B}\in s$ y $s'=s$, or
   $\f{A}\in s$, $\f{B}\not\in s$ y $s'=s\cdot\f{B}$.
   \begin{proof}
-    Se realiza por inducción de la longitud de $s$.
+    By induction of the length of $s$.
     \begin{description}
-    \item[$|s|=0$] En este caso $P\tranp{\checkmark}{p}\nil$.  Se
-      obtiene el resultado aplicando la regla~\nombreRegla{req3}.
-    \item[$|s|>0$] Ahora se pueden distinguir tres casos dependiendo
-      de la primera característica de $s$:
+    \item[$|s|=0$] In this case $P\tranp{\checkmark}{p}\nil$.
+    We obtain the result applying the rule~\nombreRegla{req3}.
+    \item[$|s|>0$] Now we can distinguish three cases depending on
+    the first feature of $s$:
       \begin{description}
-      \item[$s=\f{A}s_1$.] En este caso existe $p_1,q\in(0,1)$ tal que
-        $P\tranp{\f{A}}{p_1}P_1\vtranp{s_1\checkmark}{q}\nil$.  Al
-        aplicar la regla~\nombreRegla{req2} se obtiene
+      \item[$s=\f{A}s_1$.] In this case exists $p_1,q\in(0,1)$ such as
+        $P\tranp{\f{A}}{p_1}P_1\vtranp{s_1\checkmark}{q}\nil$.  When
+        applying the rule~\nombreRegla{req2} we obtain
         $\require{A}{B}{P}\tranp{\f{A}}{p_1}\mandatory{B}{P_1}$.
-        Obtenemos el resultado al aplicar el 
-        lema~\ref{lem:mand}.
-      \item[$s=\f{B}s_1$.] En este caso existe $p_1,q\in(0,1)$ tal que
-        $P\tranp{\f{A}}{p_1}P_1\vtranp{s_1\checkmark}{q}\nil$.  Al
-        aplicar la regla~\nombreRegla{req2} se obtiene
-        $\require{A}{B}{P}\tranp{\f{B}}{p_1}\mandatory{A}{P_1}$.  Se
-        obtiene el resultado al aplicar el
-        lema~\ref{lem:mand}.
-      \item[$s=\f{C}s_1$ con $\f{C}\neq\f{A}$ y $\f{C}\neq\f{A}$.]  En
-        este caso existe $p_1,q\in(0,1)$ tal que
-        $P\tranp{\f{C}}{p_1}P_1\vtranp{s_1\checkmark}{q}\nil$.  Al
-        aplicar la regla~\nombreRegla{req1}, se obtiene
-        $ \require{A}{B}{P}\tranp{\f{C}}{p_1}\require{A}{B}{P_1} $, y
-        luego el resultado al aplicar la hipótesis de inducción sobre
+        We obtain the result when applying the lemma~\ref{lem:mand}.
+      \item[$s=\f{B}s_1$.] In this case exists $p_1,q\in(0,1)$ such as
+        $P\tranp{\f{A}}{p_1}P_1\vtranp{s_1\checkmark}{q}\nil$.
+        When applying the rule~\nombreRegla{req2} we obtain
+        $\require{A}{B}{P}\tranp{\f{B}}{p_1}\mandatory{A}{P_1}$.
+        We obtain the result when applying the lemma~\ref{lem:mand}.
+      \item[$s=\f{C}s_1$ con $\f{C}\neq\f{A}$ y $\f{C}\neq\f{A}$.]
+        In this case exists $p_1,q\in(0,1)$ such as
+        $P\tranp{\f{C}}{p_1}P_1\vtranp{s_1\checkmark}{q}\nil$.
+        When applying the rule~\nombreRegla{req1}, we obtain 
+        $ \require{A}{B}{P}\tranp{\f{C}}{p_1}\require{A}{B}{P_1} $, and
+        then the result of applying the inductive hypothesis over
         $s_1$.
       \end{description}
     \end{description}
@@ -302,53 +313,54 @@
 
 
 \blem\label{lem:excl}
-  Dado el término $P\in\fodaPAp$, las características $\feature{A},\feature{B}\in\calF$, la traza $s\in\calF^*$ y
-  la probabilidad $p\in(0,1)$. Entonces $P\vtran{s\checkmark}{p}\nil$ si y sólo si
-  $\exclude{A}{B}{P}\vtranp{s\checkmark}{p}\nil$, $\f{A}\not\in s$ y $\f{B}\not\in s$.
-  \textit{Demostración.}
-    Se realiza la demostración por la inducción de la longitud de $s$.
+  Given$P\in\fodaPAp$, $\feature{A},\feature{B}\in\calF$, $s\in\calF^*$ and 
+  $p\in(0,1)$. Then $P\vtran{s\checkmark}{p}\nil$ if and only if
+  $\exclude{A}{B}{P}\vtranp{s\checkmark}{p}\nil$, $\f{A}\not\in s$ and $\f{B}\not\in s$.
+  \begin{proof}
+    By the induction of the length of $s$.
     \begin{description}
-    \item[$|s|=0$] En este caso $P\tranp{\checkmark}{p}\nil$. 
-      Se obtiene el resultado al aplicar la regla~\nombreRegla{excl4}.
-    \item[$|s|>0$] Ahora pueden distinguirse tres casos dependiendo de la
-    primera característica de $s$:
+    \item[$|s|=0$] In this case $P\tranp{\checkmark}{p}\nil$. 
+      We obtain the result of applying the rule~\nombreRegla{excl4}.
+    \item[$|s|>0$] Now it is possible to distinguish three cases depending
+    on the first feature of $s$:
       \begin{description}
-      \item[$s=\f{A}s_1$.] En este caso existe $p_1,q\in(0,1)$
-        tal que $P\tranp{\f{A}}{p_1}P_1\vtranp{s_1\checkmark}{q}\nil$. 
-        Al aplicar la regla~\nombreRegla{req2}
-        se obtiene $\require{A}{B}{P}\tranp{\f{A}}{p_1}\forbid{B}{P_1}$.
-        Ahora por la proposición~\ref{prop:mand1}, 
+      \item[$s=\f{A}s_1$.] In this case exists $p_1,q\in(0,1)$
+        such that $P\tranp{\f{A}}{p_1}P_1\vtranp{s_1\checkmark}{q}\nil$. 
+        When applyinght rule~\nombreRegla{req2}
+        we obtain $\require{A}{B}{P}\tranp{\f{A}}{p_1}\forbid{B}{P_1}$.
+        Now based on the proposition~\ref{prop:mand1}, 
         \begin{itemize}
-        \item $\f{B}\in s_1$ si y sólo si $\mandatory{B}{P_1}\vtranp{s_1\cdot \checkmark}{q}\nil$.
-        \item $\f{B}\not\in s_1$ si y sólo si  $\mandatory{B}{P_1}\vtranp{s_1\f{B}\checkmark}{q}\nil$.
+        \item $\f{B}\in s_1$ if and only if $\mandatory{B}{P_1}\vtranp{s_1\cdot \checkmark}{q}\nil$.
+        \item $\f{B}\not\in s_1$ if and only if  $\mandatory{B}{P_1}\vtranp{s_1\f{B}\checkmark}{q}\nil$.
         \end{itemize}
-      \item[$s=\f{C}s_1$ con $\f{C}\neq\f{A}$.]
-        En este caso es $p_1,q\in(0,1)$
-        tal que $P\tranp{\f{C}}{p_1}P_1\vtranp{s_1\checkmark}{q}\nil$.
-        Al aplicar la regla~\nombreRegla{req1},  se obtiene
+      \item[$s=\f{C}s_1$ with $\f{C}\neq\f{A}$.]
+        In this case is $p_1,q\in(0,1)$
+        such that $P\tranp{\f{C}}{p_1}P_1\vtranp{s_1\checkmark}{q}\nil$.
+        When applying rule~\nombreRegla{req1},  we obtain
         $
         \require{A}{B}{P}\tranp{\f{C}}{p_1}\require{A}{B}{P_1}
-        $, y luego el resultado se obtiene al aplicar la  hipótesis de inducción sobre $s_1$.
+        $, and then the result is obtained when applying the inductive
+        hypothesis over $s_1$.
       \end{description}
     \end{description}
+      \end{proof}
 \elem
 
 \section{Proofs of Section~\ref{sec:stat:hid}}
 
 \bprop
-  $P\hide\calA\vtran{s}_rQ$ si y sólo si $r=\sum\lbag p \ |\ P\vtran{s'}_p Q,\
+  $P\hide\calA\vtran{s}_rQ$ if and only if $r=\sum\lbag p \ |\ P\vtran{s'}_p Q,\
   s=s'\hide\calA\rbag$
-  \textit{Demostración.}
-    La demostración es realizada por inducción sobre la longitud
-    de la traza $s$. Si la longitud es cero el resultado es trivial. Entonces
-    se supone que
-    $s=\fA\cdot s_1$. Si $\fA=bot$ entonces cualquier transición
-    $P\hideA\tran{s}{p}Q\hideA$ puede ser dividida en transiciones,
-    posiblemente mas de una, como por ejemplo.
+  \begin{proof}
+    The proof is achieved by induction over the length of the trace
+    $s$. If the length is zero the result is trivial. Then its supposed that
+    $s=\fA\cdot s_1$. Si $\fA=bot$ then any transition
+    $P\hideA\tran{s}{p}Q\hideA$ can be divided in transitions,
+    possibly more than one, for example.
     \begin{displaymath}
       P\hideA\tran{\bot}_{r_1}P_1\hideA\vtran{s_1}_{r2}Q
     \end{displaymath}
-    Entonces se tiene
+    then we have
     \begin{displaymath}
       \begin{split}
         r = \sum\lbag p\ |\ P\hideA\vtran{s}_p Q\rbag = 
@@ -358,10 +370,11 @@
         P\hideA\tran{\fB}_{r_1'}P_1'\hideA\vtran{s_1}_{r2}Q,\ \fB\in\calA\rbag
       \end{split}
     \end{displaymath}
-    Ahora por cada una de las $r_1'$, se puede aplicar el método inductivo a cada una de las
-    transiciones $P_1'\hideA\vtran{s_1}_{r2}Q$ para obtener 
+    Now for each one of $r_1'$, we can apply the inductive
+    method to each one of the transitions
+    $P_1'\hideA\vtran{s_1}_{r2}Q$ to obtain 
     $r_2=\sum\lbag r2'\ |\ P_1=\vtran{s_1'}Q,\
-    s_1=s_1'\hideA\rbag$. Continuando la ecuación anterior :
+    s_1=s_1'\hideA\rbag$. COntinuing the last equation:
     \begin{displaymath}
       \begin{split}
         \sum\lbag r_1'\cdot r2\ |\
@@ -374,13 +387,14 @@
         \sum\lbag r\ |\ P\vtran{s'}_{r}Q,\ s=s'\hideA\rbag
       \end{split}
     \end{displaymath}
-    El caso cuando $\fA\not\in\calA$ es similar al anterior, solo necesita saltar el paso de $\fB$ a $\bot$.
-  
+    The case when $\fA\not\in\calA$ is similar to the last one,
+    we just the to skip the step from $\fB$ to $\bot$.
+  \end{proof}
 \eprop
 
 
-\paragraph{Proof of Propisition~\ref{prop:hid}}\label{prof:prop:hid}
-     $(pr,p)\in \prodp(P\hideA)$ si y sólo si
+\paragraph{Proof of Proposition~\ref{prop:hid}}\label{prof:prop:hid}
+     $(pr,p)\in \prodp(P\hideA)$ if and only if
     \begin{displaymath}
       \begin{split}
         p = \sum\lbag r\ |\
@@ -392,7 +406,7 @@
         \sum\lbag r\ |\ (pr',r)\in\prodp(P),\ pr'=pr\hideA\rbag =
       \end{split}
     \end{displaymath}
-    De tal manera $(pr,p)\in\prodp(P\hideA)$ si y sólo si
+    Such that $(pr,p)\in\prodp(P\hideA)$ if and only if
     $(pr,p)\in\semdenp{(\prodp(P))\hideA}$
 
 
