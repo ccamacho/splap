@@ -2,7 +2,7 @@
 \section{Results for the proof of Proposition~\ref{prop:DenoOpe}}\label{app:proofs}
 
 \blem\label{lem:pref}
-  Given $P\in\fodaPAp$ and $\feature{A}\in\calF$,
+  Let $P\in\fodaPAp$ and $\feature{A}\in\calF$,
   then $(pr,p)\in\prodp(\feature{A};P)$ if and only if
   $$p=\sum\lbag r\ |\ (pr',r)\in\prodp(P) \y pr'\cup\{\feature{A}\} = pr\rbag$$
 \begin{proof}
@@ -26,7 +26,7 @@
 \elem
 
 \blem\label{lem:prefopt}
-  Given $P\in\fodaPAp$, $\feature{A}\in\calF$ and $q\in (0,1)$,
+  Let $P\in\fodaPAp$, $\feature{A}\in\calF$ and $q\in (0,1)$,
   then $(pr,p)\in\prodp(\ofeature{A};_qP)$ if and only if $(pr,p)=(\emptyset,1-q)$ or
   $$p=q\cdot \sum\{r\ |\ (pr',r)\in\prodp(P) \y pr'\cup\{\feature{A}\} = pr\}$$
   \bprf
@@ -54,19 +54,20 @@
 
 
 \blem\label{lem:choice1}
- Given $P,Q\in\fodaPAp$ and $q\in (0,1)$, then
+ Let $P,Q\in\fodaPAp$ and $q\in (0,1)$, then
  $P\choice_q Q\vtranp{s}{r} R$ if and only if
  \begin{itemize}
  \item $P\vtranp{s}{r'} R$ y $r=q\cdot r'$, o
  \item $Q\vtranp{s}{r'} R$ y $r=(1-q)\cdot r'$
  \end{itemize}
- \bprf
-   This lemma is a consequence of rules~\nombreRegla{cho1} y~\nombreRegla{cho2} from the operational semantics.
- \eprf
+ \begin{proof}
+   This lemma is a consequence of rules~\nombreRegla{cho1}
+   y~\nombreRegla{cho2} from the operational semantics.
+ \end{proof}
 \elem
 
 \blem\label{lem:choice}
-  Given $P,Q\in\fodaPAp$ and $q\in (0,1)$, then
+  Let $P,Q\in\fodaPAp$ and $q\in (0,1)$, then
   $(pr,p)\in\prodp(P\choice_q Q)$ if and only if
   \begin{equation*}
     \begin{split}
@@ -96,13 +97,13 @@
 
 
 \bdfn
-  Given the traces $s,s'\in\calF^*$, we denote the set of traces
+  Let $s,s'\in\calF^*$ be traces, we denote the set of traces
   obtained from alternate $s$ and $s'$ por $\inter(s,s')$.
 \edfn
 
 \blem\label{lem:paral}
-  Given the terms $P,Q\in\fodaPAp$, the probabilities $p,q\in (0,1)$ and the
-  traces $s,s'\in\calF^*$
+  Let $P,Q\in\fodaPAp$, $p,q\in (0,1)$ and
+  $s,s'\in\calF^*$
   such $p=\sum\lbag p'\ |\ P\vtranp{s\checkmark}{p'}\nil\rbag$ and
   $q=\sum\lbag q'\| |\ Q\vtranp{s'}{q'}\nil\rbag$
   then
@@ -129,8 +130,8 @@
       is symmetric). Let's consider that $s=\feature{A}\cdot s_1$.
       Now consider the multiset
       $\calP=\lbag P'\ |\ P\tranp{\f{A}}{r'} P'\vtranp{s_1\checkmark}{p'}\nil\rbag$ and given $r_1 = \sum\lbag r\ |\ P\tranp{\f{A}}{r} P'\y P'\in\calP\rbag$ and
-      $p_1=\sum\lbag r\ |\ P'\vtranp{s_1\checkmark}{r}\nil\y P'\in\calP\rbag$. It easy to verify that $p=r_1\cdot p_1$:
-      \begin{equation}
+      $p_1=\sum\lbag r\ |\ P'\vtranp{s_1\checkmark}{r}\nil\y P'\in\calP\rbag$. It easy to verify that $p=r_1\cdot p_1$:\\
+      \scalebox{0.9}{\parbox{1.1\hsize}{\begin{equation}
         \label{eq:paral2}
         \begin{split}
           p = \sum\lbag  r\ |\ P\vtranp{s\checkmark}{r}\nil \rbag =  \\
@@ -138,7 +139,7 @@
           \sum\scaleleftright{\lbag}{r'\cdot\underbrace{\left(\sum\lbag p'\ |\ P'\vtranp{s_1\checkmark}{p'}\nil\rbag\right)}_{p_1}\ \vstretch{2}{|}\  P\tranp{\f{A}}{r'} P'\y P'\in\calP}{\rbag} =\\
           p_1\cdot\sum\lbag  r'\ |\  P\tranp{\f{A}}{r'} P'\y P'\in\calP \rbag = r_1\cdot p_1
         \end{split}
-      \end{equation}
+      \end{equation}}}\\
       For any $P'\in\calP$, and then for the inductive hypothesis we obtain
       $$
       p'\cdot q =\sum\lbag r\ |\ P'\paral Q\vtranp{s''\checkmark}{r}\y s''\in\inter(s_1,s')\rbag
@@ -154,25 +155,24 @@
       \end{equation}
       then for any $P'\in\calP$ we obtain $P\paral Q\vtranp{s''\checkmark}{r}\nil$
       where $P\tranp{\f{A}}{r'}P'$, $r=\frac{r'}{2}\cdot p'\cdot q$ y $s''$
-      is the alternation of $s$ and $s'$. So forth
-      \begin{equation}
+      is the alternation of $s$ and $s'$. So forth\\
+      \scalebox{0.8}{\parbox{1.3\hsize}{\begin{equation}
         \label{eq:paral4}
-        \tiny{
         \begin{split}
           \sum\lbag  r\ |\ P\paral Q\tranp{\f{A}}{\frac{r_1}{2}}P'\paral Q\vtranp{s''\checkmark}{r_2}\nil\y P'\tranp{\f{A}}{r_1}P' \y \\ r=\frac{r_1}{2}\cdot r_1\y s''\in\inter(s_1,s') \rbag = \\
           \sum\scaleleftright{\lbag}{\frac{r'}{2}\cdot r'' \  \vstretch{2}{|}\ P\tranp{\f{A}}{r'}P'\y P'\paral Q\vtranp{s''\checkmark}{r''}\nil\y s''\in\inter(s_1,s') }{\rbag} = \\
           \sum\scaleleftright{\lbag}{  \frac{r'}{2}\cdot\left(\underbrace{\sum \scaleleftright{\lbag}{ r''\ \vstretch{4}{|}\
                   \begin{split}
                     P'\paral Q\vtranp{s''\checkmark}{r''}\nil\y \\s''\in\inter(s_1,s')
-                  \end{split}}{\rbag}}_{\mathrm{hip\acute{o}tesis\ de\ inducci\acute{o}n:}\ p_1\cdot q} \right) \ \vstretch{4}{|}\
+                  \end{split}}{\rbag}}_{\mathrm{induction\ hypothesis:}\ p_1\cdot q} \right) \ \vstretch{4}{|}\
             P\tranp{\f{A}}{r'}P'\y P'\in\calP  }{\rbag} = \\
           \sum\scaleleftright{\lbag}{  \frac{r'}{2}\cdot (p_1\cdot q) \  \vstretch{2}{|}\ P\tranp{\f{A}}{r'}P' \y P'\in\calP   }{\rbag} = \\
           \frac{(p_1\cdot q)}{2}\cdot  \sum\lbag  r'\ |\ P\tranp{\f{A}}{r'}P' \y P'\in\calP  \rbag = \\
           \frac{1}{2}(p_1\cdot q\cdot r_1)=\frac{1}{2}(p\cdot q)
         \end{split}
-	    }
-      \end{equation}
-      The equation \ref{eq:paral4} groups all probabilities
+      \end{equation}}}
+
+      Equation~\ref{eq:paral4} groups all probabilities
       of alternating  $s$ and $s'$ where
       the first action of $s$ is given in first place.
       Then we have to group the probabilistic
@@ -186,17 +186,17 @@
         If $Q\tranp{\checkmark}{q'}\nil$, when applying
         the rule $\nombreRegla{con4}$ and then obtain
         $P\paral Q\tranp{\f{A}}{\frac{r'\cdot q'}{2}} P_1$.
-        In this case we obtain
-        \begin{equation}
+        In this case we obtain\\
+        \scalebox{0.9}{\parbox{1.1\hsize}{\begin{equation}
           \label{eq:paral5}
           \begin{split}
             \sum\lbag  r\ |\  P\paral Q\tranp{\f{A}}{\frac{q'\cdot r'}{2}} P'\vtranp{s_1\checkmark}{p'}\nil\y r=p'\cdot \frac{q'\cdot r'}{2}\rbag=\\
-            \sum\lbag \frac{1}{2}(p'\cdot r'\cdot q' \ |\  P\paral Q\tranp{\f{A}}{\frac{q'\cdot r'}{2}} P'\vtranp{s_1\checkmark}{p'}\nil \rbag=\\
-            \sum\lbag \frac{1}{2}(p'\cdot r'\cdot (\underbrace{\sum\lbag q'\ |\ Q\tranp{\checkmark}{q'}\nil \rbag}_{q}) \ |\  P\tranp{\f{A}}{r'}P'\y P'\vtranp{s_1\checkmark}{p'}\nil \rbag=\\
+            \sum\lbag \frac{1}{2}\cdot(p'\cdot r'\cdot q' \ |\  P\paral Q\tranp{\f{A}}{\frac{q'\cdot r'}{2}} P'\vtranp{s_1\checkmark}{p'}\nil \rbag=\\
+            \sum\lbag \frac{1}{2}\cdot(p'\cdot r'\cdot (\underbrace{\sum\lbag q'\ |\ Q\tranp{\checkmark}{q'}\nil \rbag}_{q}) \ |\  P\tranp{\f{A}}{r'}P'\y P'\vtranp{s_1\checkmark}{p'}\nil \rbag=\\
             \frac{q}{2}\cdot \sum\lbag r'\cdot (\underbrace{\sum\lbag p'\ |\ P'\vtranp{s_1\checkmark}{p'}\nil \rbag}_{p_1}) \ |\  P\tranp{\f{A}}{r'}P'\y P'\in\calP \rbag=\\
-            \frac{1}{2}(q\cdot p_1)\cdot(\underbrace{\sum\lbag r'\ |\ P\tranp{\f{A}}{r'}P'\y P'\in\calP \rbag}_{r_1})=\frac{1}{2}(q\cdot p_1\cdot r_1)=\frac{1}{2}(q\cdot p)
+            \frac{1}{2}(q\cdot p_1)\cdot(\underbrace{\sum\lbag r'\ |\ P\tranp{\f{A}}{r'}P'\y P'\in\calP \rbag}_{r_1})=\frac{1}{2}\cdot(q\cdot p_1\cdot r_1)=\frac{1}{2}(q\cdot p)
           \end{split}
-        \end{equation}
+        \end{equation}}}\\
         The only transition of $P\paral Q$ that allows
         to alternate $s$ and $s'$ have the form
         \begin{enumerate}
@@ -218,7 +218,7 @@
         In this case we consider the alternations where
         $Q$ produces the feature $\f{B}$ in first place, which is,
         that first we apply the rule~\nombreRegla{con2}. Considering
-        the multiset $\calQ=\lbag Q'\ |\ Q\tranp{\f{B}}{r}Q'\vtranp{s_2\checkmark}{q'}\nil]$, and given
+        the multiset $\calQ=\lbag Q'\ |\ Q\tranp{\f{B}}{r}Q'\vtranp{s_2\checkmark}{q'}\nil\rbag$, and given
         $r_2=\sum\lbag r\ |\ Q\tranp{\f{B}}{r}Q'\y Q'\in\calQ\rbag$ and $q_1=\sum\lbag r\ |\ Q'\vtranp{s_2\checkmark}{r}\nil\y Q'\in\calQ\rbag$.
         With a similar reasoning to te equations~\eqref{eq:paral1} and~\eqref{eq:paral2} we obtain that $q=r_2\cdot q_1$ and
         \begin{equation}
@@ -230,9 +230,9 @@
         The only transition of $P\paral Q$ that implies to alternate
         $s$ and $s'$ have the form:
         \begin{enumerate}
-        \item $P\paral Q\tranp{\f{A}}{p'}{\frac{r}{2}} P'\paral Q\vtranp{s''\checkmark}{p'}\nil $ where $s''$ is an alternation of
+        \item $P\paral Q\tranp{\f{A}}{p'\cdot\frac{r}{2}} P'\paral Q\vtranp{s''\checkmark}{p'}\nil $ where $s''$ is an alternation of
         $s_1$ and $s'$, or
-        \item $P\paral Q\tranp{\f{B}}{q'}{\frac{r}{2}} P\paral Q'\vtranp{s''\checkmark}{p'}\nil $ where $s''$ is an alternation of
+        \item $P\paral Q\tranp{\f{B}}{q'\cdot\frac{r}{2}} P\paral Q'\vtranp{s''\checkmark}{p'}\nil $ where $s''$ is an alternation of
         $s$ and $s_2$,
         \end{enumerate}
         So forth,
@@ -251,7 +251,7 @@
 \elem
 
 \blem\label{lem:mand}
-  Given$P\in\fodaPAp$, $\feature{A}\in\calF$ and $P\vtranp{s\checkmark}{p}\nil$.
+  Let $P\in\fodaPAp$, $\feature{A}\in\calF$ and $P\vtranp{s\checkmark}{p}\nil$.
   \begin{enumerate}
   \item $\f{A}\in s$ if and only if $\mandatory{A}{P}\vtranp{s\checkmark}{p}\nil$.
   \item $\f{A}\not\in s$ if and only if $\mandatory{A}{P}\vtranp{s\f{A}\checkmark}{p}\nil$.
@@ -259,15 +259,14 @@
   \begin{proof}
     In both cases the demonstration is made by induction of th length
     of $|s|$.
-    \lcomen{I think it is trivial, is it necessary to write it in detail.}
   \end{proof}
 \elem
 
 
 \blem\label{lem:forb}
-  Given $P\in\fodaPAp$, $\feature{A}\in\calF$, $s\in\calF^*$ and
+  Let $P\in\fodaPAp$, $\feature{A}\in\calF$, $s\in\calF^*$ and
   $p\in(0,1)$. $P\vtranp{s\checkmark}{p}\nil$, if and only if
-  $\forbid{P}{A}\vtranp{s\checkmark}{p}\nil$ y $\f{A}\not\in s$.
+  $\forbid{P}{A}\vtranp{s\checkmark}{p}\nil$ and $\f{A}\not\in s$.
   \begin{proof}
     The demonstration is simple by the induction on the length of $s$.
   \end{proof}
@@ -275,12 +274,12 @@
 
 
 \blem\label{lem:req}
-  Given $P\in\fodaPAp$, $\feature{A},\feature{B}\in\calF$, $s\in\calF^*$
+  Let $P\in\fodaPAp$, $\feature{A},\feature{B}\in\calF$, $s\in\calF^*$
   and $p\in(0,1)$. Then $P\vtranp{s\checkmark}{p}\nil$ if and only if
-  $\require{A}{B}{P}\vtranp{s'\checkmark}p\nil$ y
+  $\require{A}{B}{P}\vtranp{s'\checkmark}p\nil$ and
   $s'$ and it has some of the forms:
-  $\f{A}\not\in s$ and $s'=s$, $\f{B}\in s$ y $s'=s$, or
-  $\f{A}\in s$, $\f{B}\not\in s$ y $s'=s\cdot\f{B}$.
+  $\f{A}\not\in s$ and $s'=s$, $\f{B}\in s$ and $s'=s$, or
+  $\f{A}\in s$, $\f{B}\not\in s$ and $s'=s\cdot\f{B}$.
   \begin{proof}
     By induction of the length of $s$.
     \begin{description}
@@ -299,7 +298,7 @@
         When applying the rule~\nombreRegla{req2} we obtain
         $\require{A}{B}{P}\tranp{\f{B}}{p_1}\mandatory{A}{P_1}$.
         We obtain the result when applying the lemma~\ref{lem:mand}.
-      \item[$s=\f{C}s_1$ con $\f{C}\neq\f{A}$ y $\f{C}\neq\f{A}$.]
+      \item[$s=\f{C}s_1$ with $\f{C}\neq\f{A}$ y $\f{C}\neq\f{A}$.]
         In this case exists $p_1,q\in(0,1)$ such as
         $P\tranp{\f{C}}{p_1}P_1\vtranp{s_1\checkmark}{q}\nil$.
         When applying the rule~\nombreRegla{req1}, we obtain
@@ -313,8 +312,8 @@
 
 
 \blem\label{lem:excl}
-  Given$P\in\fodaPAp$, $\feature{A},\feature{B}\in\calF$, $s\in\calF^*$ and
-  $p\in(0,1)$. Then $P\vtran{s\checkmark}{p}\nil$ if and only if
+  Let $P\in\fodaPAp$, $\feature{A},\feature{B}\in\calF$, $s\in\calF^*$ and
+  $p\in(0,1)$. Then $P\vtranp{s\checkmark}{p}\nil$ if and only if
   $\exclude{A}{B}{P}\vtranp{s\checkmark}{p}\nil$, $\f{A}\not\in s$ and $\f{B}\not\in s$.
   \begin{proof}
     By the induction of the length of $s$.
@@ -328,7 +327,7 @@
         such that $P\tranp{\f{A}}{p_1}P_1\vtranp{s_1\checkmark}{q}\nil$.
         When applyinght rule~\nombreRegla{req2}
         we obtain $\require{A}{B}{P}\tranp{\f{A}}{p_1}\forbid{B}{P_1}$.
-        Now based on the proposition~\ref{prop:mand1},
+        Now based on Lemma~\ref{lem:mand},
         \begin{itemize}
         \item $\f{B}\in s_1$ if and only if $\mandatory{B}{P_1}\vtranp{s_1\cdot \checkmark}{q}\nil$.
         \item $\f{B}\not\in s_1$ if and only if  $\mandatory{B}{P_1}\vtranp{s_1\f{B}\checkmark}{q}\nil$.
@@ -346,19 +345,19 @@
       \end{proof}
 \elem
 
-\section{Proofs of Section~\ref{sec:stat:hid}}\label{appendixB}
+\section{Proofs of Section~\ref{sec:stat:hidMain}}\label{appendixB}
 
 \bprop\label{prop:appendixB}
-  $P\hide\calA\vtran{s}_rQ$ if and only if $r=\sum\lbag p \ |\ P\vtran{s'}_p Q,\
+  $P\hide\calA\vtran{s}_rQ\hide\calA$ if and only if $r=\sum\lbag p \ |\ P\vtran{s'}_p Q,\
   s=s'\hide\calA\rbag$
   \begin{proof}
     The proof is achieved by induction over the length of the trace
     $s$. If the length is zero the result is trivial. Then its supposed that
-    $s=\fA\cdot s_1$. Si $\fA=bot$ then any transition
-    $P\hideA\tran{s}{p}Q\hideA$ can be divided in transitions,
+    $s=\fA\cdot s_1$. If $\fA=\bot$ then any transition
+    $P\hideA\vtranp{s}{p}Q\hideA$ can be divided in transitions,
     possibly more than one, for example.
     \begin{displaymath}
-      P\hideA\tran{\bot}_{r_1}P_1\hideA\vtran{s_1}_{r2}Q
+      P\hideA\tranp{\bot}{r_1}P_1\hideA\vtran{s_1}_{r2}Q
     \end{displaymath}
     then we have
     \begin{displaymath}
@@ -373,8 +372,8 @@
     Now for each one of $r_1'$, we can apply the inductive
     method to each one of the transitions
     $P_1'\hideA\vtran{s_1}_{r2}Q$ to obtain
-    $r_2=\sum\lbag r2'\ |\ P_1=\vtran{s_1'}Q,\
-    s_1=s_1'\hideA\rbag$. COntinuing the last equation:
+    $r_2=\sum\lbag r2'\ |\ P_1\vtran{s_1'}Q,\
+    s_1=s_1'\hideA\rbag$. Continuing the last equation:
     \begin{displaymath}
       \begin{split}
         \sum\lbag r_1'\cdot r2\ |\
@@ -406,7 +405,7 @@
         \sum\lbag r\ |\ (pr',r)\in\prodp(P),\ pr'=pr\hideA\rbag =
       \end{split}
     \end{displaymath}
-    Such that $(pr,p)\in\prodp(P\hideA)$ if and only if
+    So, $(pr,p)\in\prodp(P\hideA)$ if and only if
     $(pr,p)\in\semdenp{(\prodp(P))\hideA}$
 
 
