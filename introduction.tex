@@ -257,78 +257,64 @@ In order to alleviate this issue, we propose a probabilistic extension of our pr
 The study of probabilistic extensions of formal methods can be dated back to the end of the 1980s. This is already a well established area, with many long contributions extending classical formalisms (Process Algebras, I/O Automata, Finite State Machines, Input Output Transition Systems, among others) to include probabilistic information~\cite{ls91,rgs95,cdsy99,nun03,lnr06,csv07,dghm08,hm09,hn10,dghm14,agl16}.
 %
 %
-
-
-
-
-
-
-
-
-
-
-
-The inclusion of 
-\acomen{Aquí introduzco probabilidades. Manuel, tu magia aquí! :)}
-
-
-Formal methods and process algebras have evolved to extend their relations to support probabilistic models~\cite{pp01,l19911}. Figures like the displayed trees describe how probabilities are assigned in the system behavior (see Figure~\ref{fig:displayedTrees}). These models allow to assign a real value between 0 and 1 to each transition in order to execute an event. It is important to notice that the probability of execute a transition \textit{t} is not necessarily equal to the other probabilities from the same level.
-\begin{figure}[h]
-	\hspace{50px}
-	\begin{minipage}{0.4\hsize}       		
-		
-		\begin{minipage}{0.2\hsize}
-			\scalebox{0.6}{
-				\begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=2cm, semithick]
-				
-				\node[circle,draw] (A)   {};
-				\node[circle,draw] (B) [below left of=A]   {};
-				\node[regular polygon,regular polygon sides=3,draw,scale=0.8] (F) [below of=B]   {T};
-				\node[circle,draw] (C) [below right of=A]   {};
-				\node[circle,draw] (D) [below left of=C]   {};
-				\node[circle,draw] (E) [below right of=C]   {};
-				\node[regular polygon,regular polygon sides=3,draw,scale=0.8] (G) [below  of=D]   {T};
-				\node[regular polygon,regular polygon sides=3,draw,scale=0.8] (H) [below  of=E]   {T};			 
-				
-				\path (A) edge [] node [pos=0.5, above left, draw=white, opacity=0, text opacity=1]{1/3} (B);
-				\path (B) edge [] node [pos=0.5, left, draw=white, opacity=0, text opacity=1]{a} (F);
-				\path (A) edge [] node [pos=0.5, above right, draw=white, opacity=0, text opacity=1]{1/2} (C);
-				\path (C) edge [] node [pos=0.5, above left, draw=white, opacity=0, text opacity=1]{1/2} (D);
-				\path (C) edge [] node [pos=0.5, above right, draw=white, opacity=0, text opacity=1]{1/2} (E);
-				\path (D) edge [] node [pos=0.5, right, draw=white, opacity=0, text opacity=1]{b} (G);
-				\path (E) edge [] node [pos=0.5, left, draw=white, opacity=0, text opacity=1]{c} (H);
-				\end{tikzpicture}
-			}
-		\end{minipage}
-	\end{minipage}
-	\begin{minipage}{0.4\hsize}
-		
-		\begin{minipage}{0.2\hsize}
-			\scalebox{0.6}{
-				\begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=4cm, semithick]
-				\node[circle,draw] (A)   {};
-				\node[regular polygon,regular polygon sides=3,draw,scale=0.8] (B) [below left of=A]   {T};
-				\node[regular polygon,regular polygon sides=3,draw,scale=0.8] (C) [below  of=A]   {T};			 
-				\node[regular polygon,regular polygon sides=3,draw,scale=0.8] (D) [below right of=A]   {T};			 
-				
-				\path (A) edge [] node [pos=0.5, above left, draw=white, opacity=0, text opacity=1]{1/3} (B);
-				\path (A) edge [] node [pos=0.5, left, draw=white, opacity=0, text opacity=1]{1/3} (C);
-				\path (A) edge [] node [pos=0.5, above right, draw=white, opacity=0, text opacity=1]{1/3} (D);
-				
-				\end{tikzpicture}}
-		\end{minipage}
-		
-	\end{minipage}
-	
-	\caption{Displayed trees representing probabilities.}
-	\label{fig:displayedTrees}
-	
-\end{figure}
-
-\acomen{He puesto título y referencia a esta figura (Fig. 2). Please, check!}
-
+\mncomment{He comentado la figura y la explicaci�n porque este modelo no se parece en nada al que genera la sem�ntica operacional: en nuestro caso, las transiciones tienen accion y probabilidad.}
+%Figures like the displayed trees describe how probabilities are assigned in the system behavior (see Figure~\ref{fig:displayedTrees}). These models allow to assign a real value between 0 and 1 to each transition in order to execute an event. It is important to notice that the probability of execute a transition \textit{t} is not necessarily equal to the other probabilities from the same level.
+%\begin{figure}[h]
+%	\hspace{50px}
+%	\begin{minipage}{0.4\hsize}       		
+%		
+%		\begin{minipage}{0.2\hsize}
+%			\scalebox{0.6}{
+%				\begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=2cm, semithick]
+%				
+%				\node[circle,draw] (A)   {};
+%				\node[circle,draw] (B) [below left of=A]   {};
+%				\node[regular polygon,regular polygon sides=3,draw,scale=0.8] (F) [below of=B]   {T};
+%				\node[circle,draw] (C) [below right of=A]   {};
+%				\node[circle,draw] (D) [below left of=C]   {};
+%				\node[circle,draw] (E) [below right of=C]   {};
+%				\node[regular polygon,regular polygon sides=3,draw,scale=0.8] (G) [below  of=D]   {T};
+%				\node[regular polygon,regular polygon sides=3,draw,scale=0.8] (H) [below  of=E]   {T};			 
+%				
+%				\path (A) edge [] node [pos=0.5, above left, draw=white, opacity=0, text opacity=1]{1/3} (B);
+%				\path (B) edge [] node [pos=0.5, left, draw=white, opacity=0, text opacity=1]{a} (F);
+%				\path (A) edge [] node [pos=0.5, above right, draw=white, opacity=0, text opacity=1]{1/2} (C);
+%				\path (C) edge [] node [pos=0.5, above left, draw=white, opacity=0, text opacity=1]{1/2} (D);
+%				\path (C) edge [] node [pos=0.5, above right, draw=white, opacity=0, text opacity=1]{1/2} (E);
+%				\path (D) edge [] node [pos=0.5, right, draw=white, opacity=0, text opacity=1]{b} (G);
+%				\path (E) edge [] node [pos=0.5, left, draw=white, opacity=0, text opacity=1]{c} (H);
+%				\end{tikzpicture}
+%			}
+%		\end{minipage}
+%	\end{minipage}
+%	\begin{minipage}{0.4\hsize}
+%		
+%		\begin{minipage}{0.2\hsize}
+%			\scalebox{0.6}{
+%				\begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=4cm, semithick]
+%				\node[circle,draw] (A)   {};
+%				\node[regular polygon,regular polygon sides=3,draw,scale=0.8] (B) [below left of=A]   {T};
+%				\node[regular polygon,regular polygon sides=3,draw,scale=0.8] (C) [below  of=A]   {T};			 
+%				\node[regular polygon,regular polygon sides=3,draw,scale=0.8] (D) [below right of=A]   {T};			 
+%				
+%				\path (A) edge [] node [pos=0.5, above left, draw=white, opacity=0, text opacity=1]{1/3} (B);
+%				\path (A) edge [] node [pos=0.5, left, draw=white, opacity=0, text opacity=1]{1/3} (C);
+%				\path (A) edge [] node [pos=0.5, above right, draw=white, opacity=0, text opacity=1]{1/3} (D);
+%				
+%				\end{tikzpicture}}
+%		\end{minipage}
+%		
+%	\end{minipage}
+%	
+%	\caption{Displayed trees representing probabilities.}
+%	\label{fig:displayedTrees}
+%	
+%\end{figure}
+%
+%\acomen{He puesto título y referencia a esta figura (Fig. 2). Please, check!}
+%
 \acomen{Carlos, he cambiado el siguiente texto con referencias a papers de probabilidades. Please, check para ver que no digo nada cantoso)}
-
+%
 Several works in the literature show that statistic analysis over \SPLs\ allow to determine relevant characteristics, like the certainty of finding valid products among complex models~\cite{tllv15,tlll15,chssgl13,dpcslsh17}.
 %
 Some of these works describe models to run statistical analysis over \SPLs, where pre-defined syntax elements are computed by applying a specific set of operational rules~\cite{tllv15,tlll15}. These models demonstrate their ability to be integrated into standard tools like QFLan, Microsoft's SMT Z3 and MultiVeStA.
