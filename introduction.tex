@@ -315,17 +315,20 @@ The study of probabilistic extensions of formal methods can be dated back to the
 %
 \acomen{Carlos, he cambiado el siguiente texto con referencias a papers de probabilidades. Please, check para ver que no digo nada cantoso)}
 %
-Several works in the literature show that statistic analysis over \SPLs\ allow to determine relevant characteristics, like the certainty of finding valid products among complex models~\cite{tllv15,tlll15,chssgl13,dpcslsh17}.
+Although the addition of probabilistic information to model \SPLs\ is relatively new, there are already several proposals in the literature~\cite{chssgl13,tllv15,tlll15,dpcslsh17}. In particular, this previous work shows that statistic analysis allows users to determine relevant characteristics, like the certainty of finding valid products among complex models~\cite{dpcslsh17}.
 %
-Some of these works describe models to run statistical analysis over \SPLs, where pre-defined syntax elements are computed by applying a specific set of operational rules~\cite{tllv15,tlll15}. These models demonstrate their ability to be integrated into standard tools like QFLan, Microsoft's SMT Z3 and MultiVeStA.
+Another approach~\cite{chssgl13} focus on testing properties of \SPLs, like reliability, by defining three verification techniques: a probabilistic model checker on each product, on a model range, and testing the behavior relations with other models.
+%
+Some of these approaches describe models to run statistical analysis over \SPLs, where pre-defined syntactic elements are computed by applying a specific set of operational rules~\cite{tllv15,tlll15}. These models demonstrate their ability to be integrated into standard tools like QFLan, Microsoft's SMT Z3 and MultiVeStA.
 %
 %Some of these works describe models to run statistical analysis to represent \SPLs\ by defining an specific set of operational rules to compute their defined syntax elements~\cite{tllv15,tlll15}. These models demonstrate their ability by being integrated to standard tools like QFLan, Microsoft's SMT Z3 and MultiVeStA.
 %
-Cordy et al. focus on testing properties of \SPLs, like reliability, which defines three verification techniques, a probabilistic model checker on each product, on a model range, and testing the behavior relations with other models~\cite{chssgl13}. Other works focus on describing use cases for analyzing the probability of finding features inside valid products~\cite{dpcslsh17}. %An interesting feature is that any of the referenced research articles describe their approaches using multisets.
+%Other works focus on describing use cases for analyzing the probability of finding features inside valid products~\cite{dpcslsh17}. %An interesting feature is that any of the referenced research articles describe their approaches using multisets.
 
-The rest of the paper is structured as follows. Section \ref{sec:stat:sintaxMain} presents our language. Section \ref{sec:equivalenceMain} describes the equivalence between the operational and denotational semantics. In section \ref{sec:stat:hidMain} we describe how the sets of features are hidden. Section~\ref{sec:stat:impl} shows our implementation of the denotational semantics for the probabilistic extension. Finally, section~\ref{section:jstat:concs} presents our conclusions and some future work.
+ 
 
-\acomen{He cambiado el nombre de secciones (label) repetidas. Please, check!.}
+The rest of the paper is structured as follows. Section \ref{sec:stat:sintaxMain} presents our language. Section \ref{sec:equivalenceMain} is used to prove the equivalence between the operational and denotational semantics. In section \ref{sec:stat:hidMain} we extend our language to describe how sets of features can be hidden. Section~\ref{sec:stat:impl} shows our implementation of the denotational semantics for the probabilistic extension. Finally, section~\ref{section:jstat:concs} presents our conclusions and some future work.
+
 
 %%% Local Variables:
 %%% mode: latex
