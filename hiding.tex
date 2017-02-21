@@ -54,10 +54,10 @@ of a given product.
 
 \bdfn
   Let $pr\subseteq\calF$ be a product and $\calA\subseteq\calF$
-  be a set of features. The \emph{hidden operation of the set $\calA$
+  be a set of features. The \emph{hiding of the set $\calA$
     in $pr$}, denoted by $pr\hide{\calA}$, is defined as follows:
   \begin{displaymath}
-    pr\hide{\calA} = \{\fA\ |\ \fA\in pr,\
+    pr\hide{\calA} = \{\fA\ |\ \fA\in pr\wedge
     \fA\not\in\calA\}\cup
     \begin{cases}
       \{\bot\} & \mbox{si } pr\cap\calA\neq\emptyset\\
@@ -68,7 +68,7 @@ of a given product.
   Analogously, for any sequence $s\in\calF^{*}$ we consider taht $s\hide\calA$ denotes the
   trace resulting of
   substituting any  occurrence of a feature $\fA\in\calA$ by
-  the symbol $\bot$ in $s$.
+  the symbol~$\bot$ in~$s$.
 \edfn
 
 \bdfn
