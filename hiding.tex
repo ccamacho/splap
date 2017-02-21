@@ -16,6 +16,8 @@ denoted by $\bot\not\in\calF$, and we consider the set $\calFbot =
 \calF\cup\{\bot\}$.
 
 \begin{figure}[t]
+        \linefigure
+
   \centering
 \begin{displaymath}
     \begin{array}{ccccc}
@@ -26,6 +28,7 @@ denoted by $\bot\not\in\calF$, and we consider the set $\calFbot =
         \frac{P\tran{\fA}_p P', \fA\not\in\calA}{P\hide{\calA}\tran{\fA}_p P'\hide{\calA}}
     \end{array}
   \end{displaymath}
+        \linefigure
 
   \caption{Operational semanitcs for the hiding operator}
   \label{fig:oper-hid}
@@ -38,8 +41,8 @@ features in a term.
 
 \bdfn
   Let $\calA\subseteq \calF$ be a subset of features and
-  $P\in\fodaPAp$ be a term. We have that 
-   $P\hide{\calA}$ denotes the 
+  $P\in\fodaPAp$ be a term. We have that
+   $P\hide{\calA}$ denotes the
   hiding of the features in $\calA$
   for the term $P$.
 \edfn
@@ -64,7 +67,7 @@ of a given product.
       \emptyset & \mbox{si } pr\cap\calA=\emptyset\\
     \end{cases}
   \end{displaymath}
-  
+
   Analogously, for any sequence $s\in\calF^{*}$ we consider that $s\hide\calA$ denotes the
   trace produced from $s$ after replacing all the occurrences of features belonging to $\calA$ by the symbol~$\bot$ in~$s$.
 \edfn
@@ -78,7 +81,7 @@ of a given product.
 \edfn
 
 Finally, we have to prove that the
-operational semantics and the denotational semantics coincide. 
+operational semantics and the denotational semantics coincide.
 %
 The proof of the following result is an immediate consequence of Proposition~\ref{prop:appendixB} (see Appendix~\ref{appendixB}).
 %This is proven by the next result.
