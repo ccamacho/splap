@@ -104,9 +104,8 @@ termination of a product.
 We use \emph{multisets} of transitions to consider different occurrences of the same transition. So, if a transition can be derived in several ways, then each derivation generates a different
 instance of this transition. For example, let us consider the
 term
-$P=\feature{A} \choice_{\frac12} \feature{A}$, where trailing occurrences of
-$\nil$ have been omitted. If we were not careful, we would have
-the transition $P\tranp{\feature{A}}{\frac12}\nil$ only once, while we
+$P=\feature{A}\checkmark \choice_{\frac12} \feature{A}\checkmark$. If we were not careful, we would have
+the transition $P\tranp{\feature{A}}{\frac12}\checkmark$ only once, while we
 should have this transition twice. So, if a transition can be derived in
 several ways, we consider that each derivation generates a
 different instance. In particular, we will later consider multisets of computations as well.
