@@ -98,29 +98,28 @@ hide actions that appear in the restriction operators. The proof of the followin
 
 \bprop
   Let $P,Q\in\fodaPAp$ be terms, $r\in (0,1]$ be a probability, and
-  $\calA\subseteq\calF$ be a set of hidden actions. We have:
-  \begin{itemize}
-  \item $\semdenp{\checkmark\hide\calA}=\semdenp{\checkmark}$
-  \item $\semdenp{\nil\hide\calA}=\semdenp{\nil}$
-  \item
-      $\semdenp{(\fA;P)\hide\calA}=
+  $\calA\subseteq\calF$ be a set of hidden actions. We have the following results:
+  $$\begin{array}{rll} 
+  \semdenp{\checkmark\hide\calA}&=&\semdenp{\checkmark}\\
+  \semdenp{\nil\hide\calA}&=&\semdenp{\nil}\\
+  \semdenp{(\fA;P)\hide\calA}&=&
       \begin{cases}
         \semdenp{\bot;(P\hide\calA)} & \mbox{si } A\in\calA\\
         \semdenp{\fA;(P\hide\calA)} & \mbox{si } A\not\in\calA\\
-      \end{cases}$
-  \item
-      $\semdenp{(\ofA;_rP)\hide\calA}=
+      \end{cases}\\
+  \semdenp{(\ofA;_rP)\hide\calA}&=&
       \begin{cases}
         \semdenp{\overline{\bot};_r(P\hide\calA)} & \mbox{si } A\in\calA\\
         \semdenp{\ofA;_r(P\hide\calA)} & \mbox{si } A\not\in\calA\\
-      \end{cases}$
-  \item $\semdenp{(P\choice_P Q)\hide\calA}=\semdenp{(P\hide\calA)\choice_P (Q\hide\calA)}$
-  \item $\semdenp{(P\paral Q)\hide\calA}=\semdenp{(P\hide\calA)\paral (Q\hide\calA)}$
-  \item If $\fA,\fB\not\in\calA$ entonces
-    $\semdenp{(\require{A}{B}{P})\hide\calA}=\semdenp{\require{A}{B}{(P\hide\calA)}}$
-  \item If $\fA,\fB\not\in\calA$ entonces
-    $\semdenp{(\exclude{B}{P})\hide\calA}=\semdenp{\exclude{A}{B}{(P\hide\calA)}}$
-  \end{itemize}
+      \end{cases}\\
+  \semdenp{(P\choice_P Q)\hide\calA}&=&\semdenp{(P\hide\calA)\choice_P (Q\hide\calA)}\\
+  \semdenp{(P\paral Q)\hide\calA}&=&\semdenp{(P\hide\calA)\paral (Q\hide\calA)}\\
+  \multicolumn{3}{l}{\mathrm{If\ } \fA,\fB\not\in\calA \mathrm{\ then\ }
+    \semdenp{(\require{A}{B}{P})\hide\calA}=\semdenp{\require{A}{B}{(P\hide\calA)}}}\\
+  \multicolumn{3}{l}{\mathrm{If\ } \fA,\fB\not\in\calA \mathrm{\ then\ }
+    \semdenp{(\exclude{B}{P})\hide\calA}=\semdenp{\exclude{A}{B}{(P\hide\calA)}}}
+  \end{array}$$
+\mncomment{Luis, faltan casos: que ocurre si $A$ y/o B$ pertenecen al conjunto ocultado??}
 %  \begin{proof}
 %    In order to prove this properties it is enough to apply
 %    Proposition~\ref{prop:hid}.
