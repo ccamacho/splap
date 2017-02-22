@@ -114,14 +114,12 @@ hide actions that appear in the restriction operators. The proof of the followin
       \end{cases}\\
   \semdenp{(P\choice_P Q)\hide\calA}&=&\semdenp{(P\hide\calA)\choice_P (Q\hide\calA)}\\
   \semdenp{(P\paral Q)\hide\calA}&=&\semdenp{(P\hide\calA)\paral (Q\hide\calA)}\\
-  \multicolumn{3}{l}{\mathrm{If\ } \fA,\fB\not\in\calA \mathrm{\ then\ }
-    \semdenp{(\require{A}{B}{P})\hide\calA}=\semdenp{\require{A}{B}{(P\hide\calA)}}}\\
   \mathrm{If\ } \fA,\fB\not\in\calA \mathrm{\ then\ }
     \semdenp{(\require{A}{B}{P})\hide\calA}&=&\semdenp{\require{A}{B}{(P\hide\calA)}}\\
-  \multicolumn{3}{l}{\mathrm{If\ } \fA,\fB\not\in\calA \mathrm{\ then\ }
-    \semdenp{(\exclude{B}{P})\hide\calA}=\semdenp{\exclude{A}{B}{(P\hide\calA)}}}
+  \mathrm{If\ } \fA,\fB\not\in\calA \mathrm{\ then\ }
+    \semdenp{(\exclude{B}{P})\hide\calA}&=&\semdenp{\exclude{A}{B}{(P\hide\calA)}}
   \end{array}$$
-\mncomment{Luis, faltan casos: que ocurre si $A$ y/o $B$ pertenecen al conjunto ocultado??}
+\mncomment{Luis, faltan casos, no? Que ocurre si $A$ y/o $B$ pertenecen al conjunto ocultado en los dos ultimos items??}
 %  \begin{proof}
 %    In order to prove this properties it is enough to apply
 %    Proposition~\ref{prop:hid}.
