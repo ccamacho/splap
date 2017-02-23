@@ -63,8 +63,8 @@ of a given product.
     pr\hide{\calA} = \{\fA\ |\ \fA\in pr\wedge
     \fA\not\in\calA\}\cup
     \begin{cases}
-      \{\bot\} & \mbox{si } pr\cap\calA\neq\emptyset\\
-      \emptyset & \mbox{si } pr\cap\calA=\emptyset\\
+      \{\bot\} & \mbox{if } pr\cap\calA\neq\emptyset\\
+      \emptyset & \mbox{if } pr\cap\calA=\emptyset\\
     \end{cases}
   \end{displaymath}
 
@@ -104,13 +104,13 @@ hide actions that appear in the restriction operators. The proof of the followin
   \semdenp{\nil\hide\calA}&=&\semdenp{\nil}\\[0.5em]
   \semdenp{(\fA;P)\hide\calA}&=&
       \begin{cases}
-        \semdenp{\bot;(P\hide\calA)} & \mbox{si } A\in\calA\\
-        \semdenp{\fA;(P\hide\calA)} & \mbox{si } A\not\in\calA\\
+        \semdenp{\bot;(P\hide\calA)} & \mbox{if } A\in\calA\\
+        \semdenp{\fA;(P\hide\calA)} & \mbox{if } A\not\in\calA\\
       \end{cases}\\[1em]
   \semdenp{(\ofA;_rP)\hide\calA}&=&
       \begin{cases}
-        \semdenp{\overline{\bot};_r(P\hide\calA)} & \mbox{si } A\in\calA\\
-        \semdenp{\ofA;_r(P\hide\calA)} & \mbox{si } A\not\in\calA\\
+        \semdenp{\overline{\bot};_r(P\hide\calA)} & \mbox{if } A\in\calA\\
+        \semdenp{\ofA;_r(P\hide\calA)} & \mbox{if } A\not\in\calA\\
       \end{cases}\\[1em]
   \semdenp{(P\choice_P Q)\hide\calA}&=&\semdenp{(P\hide\calA)\choice_P (Q\hide\calA)}\\[0.5em]
   \semdenp{(P\paral Q)\hide\calA}&=&\semdenp{(P\hide\calA)\paral (Q\hide\calA)}\\[0.5em]
