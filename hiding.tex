@@ -47,7 +47,7 @@ features in a term.
   for the term $P$.
 \edfn
 
-We need to define the semantics of the new operator. First, the
+We need to define the semantics of the new operator. The
 operational semantics is given by the rules appearing in
 Figure~\ref{fig:oper-hid}.
 %
@@ -99,7 +99,7 @@ hide actions that appear in the restriction operators. The proof of the followin
 \bprop
   Let $P,Q\in\fodaPAp$ be terms, $r\in (0,1]$ be a probability, and
   $\calA\subseteq\calF$ be a set of hidden actions. We have the following results:
-  $$\begin{array}{rll} 
+  $$\begin{array}{rll}
   \semdenp{\checkmark\hide\calA}&=&\semdenp{\checkmark}\\[0.5em]
   \semdenp{\nil\hide\calA}&=&\semdenp{\nil}\\[0.5em]
   \semdenp{(\fA;P)\hide\calA}&=&
@@ -123,7 +123,7 @@ hide actions that appear in the restriction operators. The proof of the followin
   pertenecen al conjunto ocultado en los dos ultimos
   items??}\lcomen{Efectivamente no es completo y no pretende
   serlo. Está dicho en el párrafo anterior, cuando queremos calcular
-  la probabilidad de una (o un 
+  la probabilidad de una (o un
   conjunto) feature, debemos añadir sus dependencias y
   restricciones.}
 %  \begin{proof}
