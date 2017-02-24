@@ -74,8 +74,11 @@ and obtain a single product with probability~$1$.
                 \accum\bigl(\lbag(\emptyset , 1-r )\rbag\uplus\lbag (\{\feature{A}\}\cup P, r\cdot p ) \ |\ (P,p) \in M\rbag\bigr)$
 
   \item
-    $\semdenp{\cdot\choice_{r}\cdot}(M_{1},M_{2})=\accum\bigl(\lbag(P,r\cdot p  ) \ |\ (P,p) \in
-    M_{1}\rbag \uplus \lbag(Q, (1-r)\cdot q  ) \ |\ (Q,q) \in M_{2}\rbag\bigr) $
+    $\semdenp{\cdot\choice_{r}\cdot}(M_{1},M_{2})=\accum
+    \left(\begin{array}{l}
+    \lbag(P,r\cdot p  ) \ |\ (P,p) \in M_{1}\rbag \uplus\\ 
+    \lbag(Q, (1-r)\cdot q  ) \ |\ (Q,q) \in M_{2}\rbag
+    \end{array}\right) $
   \item
     $
         \semdenp{\cdot\paral\cdot}(M_{1},M_{2})= \accum\Bigl(
@@ -101,8 +104,6 @@ and obtain a single product with probability~$1$.
 
   \end{itemize}
 \edfn
-
-%\todo{explicar los operadores}
 
 
 It is easy to check that all the multisets appearing in the previous
