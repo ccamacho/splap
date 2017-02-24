@@ -20,13 +20,13 @@ BNF expression:
 $$
 \begin{array}{ll}
 P::=& \checkmark \barra \nil \barra \feature{A};P \barra
-\ofeature{A};_{p} P \barra P \choice_{p} Q \barra P \paral Q \barra
+\ofeature{A};_{p} P \barra P \choice_{p} P \barra P \paral P \barra
 \\
 & \exclude{A}{B}{P}\barra  \require{A}{B}{P}\barra  \forbid{A}{P}\barra  \mandatory{A}{P}\\
 \end{array}
 $$
 \noindent
-where $\feature{A} \in \calF$ and $p\in(0,1)$. The set of terms of the
+where $\feature{A},\feature{B} \in \calF$ and $p\in(0,1)$. The set of terms of the
 algebra will be denoted by  $\fodaPAp$.
 \edfn
 
