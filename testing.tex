@@ -5,13 +5,14 @@
 
 
 This section presents the results obtained from an experimental study to show the applicability of our
-approach. In order to carry out this study, we have implemented the proposed probabilistic extension by a tool. The source code 
+approach. In order to carry out this study, we have developed a tool to implement the proposed probabilistic extension. The source code
 of this tool is available at the main project site.
 \footnote{\url{http://simba.fdi.ucm.es/at/probabilistic/implementation_splap.tar}}
-The simulations were executed based on the implementation of the denotational
-semantics for the probabilistic extension. We have used a variability model consisting of 
+%The simulations were executed based on the implementation of the denotational
+%semantics for the probabilistic extension. 
+We have used a variability model consisting of
 1500 features. This variability model
-was generated randomly using BeTTy~\cite{SeguraHBC11}. The parameters for
+was randomly generated using BeTTy~\cite{SeguraHBC11}. The parameters for
 generating the BeTTy model are the following:
 
 \begin{itemize}
@@ -35,9 +36,9 @@ allows us to calculate those products that can be generated in the testing proce
 Figure~\ref{fig:plot:probs:times} shows the computing time required to calculate the probability of having
 each feature in a product.
 %In this case, the total time to obtain the probability for all the features is linear with respect to the total length of the analyzed term
-\mncomment{Que quiere decir esto? Suena raro porque yo esperaria complejidad $O(2^n)$ siendo $n$ el numero de probabilidades que salen en el termino. Pero vamos, que yo no  se mucho de complejidad!}\ccomen{Es cierto, no lo demostramos ni lo analizamos}. 
-\acomen{Yo simplemente quitaría esa frase, lo de que la complejidad es lineal}
-It is important to remark that there is a small variation in the processing time for calculating the probability of each single feature. We think that his variation in mainly caused by the inherent noise of the node where the experiment is launched (e.g. disk latencies, operating
+%\mncomment{Que quiere decir esto? Suena raro porque yo esperaria complejidad $O(2^n)$ siendo $n$ el numero de probabilidades que salen en el termino. Pero vamos, que yo no  se mucho de complejidad!}\ccomen{Es cierto, no lo demostramos ni lo analizamos}.
+%\acomen{Yo simplemente quitaría esa frase, lo de que la complejidad es lineal}
+It is important to remark that there is a small variation in the processing time for calculating the probability of each single feature. We think that his variation is mainly caused by the inherent noise of the node where the experiment is launched (e.g. disk latencies, operating
 system overhead, memory paging, etc.) and, therefore, it is not related to the algorithm itself.
 
 Since the processing time for each feature is relatively low, being around milliseconds, a single delay in
@@ -62,7 +63,7 @@ represents the feature ID and the $y$-axis represents the probability. For the s
 This chart clearly shows that there exist different groups of features having a similar probability.
 %
 In this case, there are 450 features with, at least, a probability equal to 0.75 of being in a final product. As a conclusion,
-this analysis might allow us to establish that by testing only the 28\% of the software product line components, we can ensure that 
+this analysis might allow us to establish that by testing only the 28\% of the software product line components, we can ensure that
 %the features
 %included in,
 at least, the 75\% of the generated products, are tested.\mncomment{He reescrito un poco esta frase porque no la entendia. Please, check}
