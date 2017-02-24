@@ -84,6 +84,8 @@
 
 \bibliographystyle{splncs03}
 \bibliography{concu,concuPL}
+\pagebreak
+
 \input{appendix}
 
 %\bibliographystyle{abbrv}
