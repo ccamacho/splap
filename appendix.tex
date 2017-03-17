@@ -29,12 +29,12 @@
   Let $P\in\fodaPAp$, $\feature{A}\in\calF$ and $q\in (0,1)$,
   then $(pr,p)\in\prodp(\ofeature{A};_qP)$ if and only if $(pr,p)=(\emptyset,1-q)$ or
   $$p=q\cdot \sum\{r\ |\ (pr',r)\in\prodp(P) \y pr'\cup\{\feature{A}\} = pr\}$$
-  \bprf
+   \begin{proof}
     There exist two transitions to $\ofeature{A};_qP$: $\ofeature{A};_qP\tranp{\feature{A}}{q} P$ and
      $\ofeature{A};_qP\tranp{\checkmark}{1-q}\nil$. So forth if $\ofeature{A};_qP\vtranp{s}{r}Q$ then
      \begin{itemize}
-     \item $s=\checkmark$ y $r=1-q$, o
-     \item $s=\feature{A}\cdot s'$, $P\vtranp{s}{r'}Q$, y $r=q\cdot r'$.
+     \item $s=\checkmark$ and $r=1-q$, or
+     \item $s=\feature{A}\cdot s'$, $P\vtranp{s}{r'}Q$, and $r=q\cdot r'$.
      \end{itemize}
      So, if $pr=\product{\feature{A}\cdot s'}$ then
      $pr\neq\emptyset$. So then
@@ -49,7 +49,7 @@
          q\cdot\sum\lbag r'\ |\ (pr',r')\in\prodp(P)\y \{\feature{A}\}\cup pr'=pr\rbag
        \end{split}
      \end{equation*}
-  \eprf
+  \end{proof}
 \elem
 
 
