@@ -93,11 +93,15 @@ Rules $\nombreRegla{cho1}$ and $\nombreRegla{cho2}$ define the
 behavior of the probabilistic choice operator. The left branch is
 selected with probability~$p$ and the right one with probability~$1-p$.
 %
-It is important to note that the rules for the conjunction operator, $\nombreRegla{con1}$ to $\nombreRegla{con4}$,
+It is important to note that the rules for the conjunction operator,
+$\nombreRegla{con1}$,
+$\nombreRegla{con2}$,
+$\nombreRegla{con4}$ and 
+$\nombreRegla{con5}$,
 equitably distribute the probability between both
 branches, that is, $\frac{1}{2}$. We have preferred to use a simple definition of this operator, but it is easy to replace it by a more involved version of a probabilistic parallel operator~\cite{ahk98}.
 %
-Rule $\nombreRegla{con5}$ requires that both branches agree on the
+Rule $\nombreRegla{con3}$ requires that both branches agree on the
 termination of a product.
 %
 
@@ -113,7 +117,7 @@ different instance. In particular, we will later consider multisets of computati
 We will use the delimiters~$\lbag$ and~$\rbag$ to denote
 multisets and $\uplus$ to denote the union of multisets.
 
-The following result, the proof is immediate, shows that successful termination leads to $\nil$.
+The following result, which proof is immediate, shows that successful termination leads to $\nil$.
 
 \blem\label{lem:check}
 Let $P,Q\in\fodaPAp$ and $p\in(0,1]$. We have $P\tranp{\checkmark}{p}{Q}$ if and only if $Q=\nil$.
@@ -151,14 +155,11 @@ The following result shows some properties, concerning probabilities, of the ope
     $\sum \lbag p\, |\ \exists \feature{A}\in\calF,\ Q\in\fodaPAp:\
     P\tranp{\feature{A}}{p}Q \rbag\in[0,1]$.
   \item
-    $\sum \lbag p\, |\ \exists \feature{s}\in\calF^*,\ Q\in\fodaPA:\
-    P\tranp{\feature{s}}{p}Q \rbag\in[0,1]$.
+    $\sum \lbag p\, |\ \exists s\in\calF^*,\ Q\in\fodaPAp:\
+    P\tranp{s\checkmark}{p}Q \rbag\in[0,1]$.
   \item $\ham(P)\in [0,1]$.
   \end{enumerate}
 \elem
-
-
-
 
 
 %%% Local Variables:

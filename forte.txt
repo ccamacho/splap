@@ -1,0 +1,117 @@
+----------------------- REVIEW 1 ---------------------
+PAPER: 18
+TITLE: Probabilistic software product lines
+AUTHORS: Luis Llana, Carlos Camacho, Alberto Núñez and Manuel Núñez
+
+Overall evaluation: -1 (weak reject)
+
+----------- Overall evaluation -----------
+This paper presents a probabilistic extension of fodaA, a process algebra for the modelling of product lines.
+
+It is not clear to me the utility of such extension and the explanation provided by the authors is not quite convincing. The authors say: “We use probabilistic information to identify those features that are more frequently used by computing the probability of having a feature in a specific SPL.” and provide an example in which they detect that 28% of the features appear in 75% of the product later claiming that “This means that, at least, the 75% of the generated products are tested by only analyzing the 28% of the software components in the SPL.” This is not necessarily so since (1) it could easily be the case that all products include some of the 72% remaining features (hence no product can be fully tested) and (2) the selected 28% of the features may have relatively low influence on the operational behaviour of the products.  Therefore, I doubt of the significance of the contribution in this article.
+
+Also, though technically correct to the extend I checked, all proofs and techniques seem routine. Otherwise the article is fairly well written.
+
+MINOR REMARKS:
+
+done:p2, -6: “a experimental” ->  “an experimental”
+
+done:p4, -5: “[con1] to [con4]” should actually be “[con1], [con2], [con4] and [con5]”
+
+done:p4, -2: [con5] should be [con3]
+
+p4: at this point, it should be good if some brief explanation of the intuition of “A => B in P”,  “A =/> B in P”, and “P => A” is given.  This are uncommon operations.
+
+done:p5, 10: “the proof is immediate” -> “which proof is immediate”
+
+done:p5, -2: “fodaA” -> “SPLA^{\mathcal{P}}
+
+done:p5, -2: “P \rightarrow^{s} Q” should be “P \Rightarrow^{s\surd} Q”, otherwise the sum could be larger than 1
+
+done:p6, Def. 3, 4th line in the formula:  “A;_{p} P” should be “\overline{A};_{p} P”
+
+este resultado se sobreentiende:p8, Theorem 2: the expression [[P]]^{\mathcal{P}} was not formally introduced. Also, it will be mor compact and elegant if the last sentence is changed to “We have that $[[P]]^{\mathcal{P}} = prod^{\mathcal{P}}(P)$.
+
+no estoy seguro:p9, Prop. 4: “[[prod^{\mathcal{P}}(P)[A] ]]^{\mathcal{P}}” should be “[[ ·[A] ]]^{\mathcal{P}}(prod^{\mathcal{P}}(P))”
+
+??p10, Sec. 5: Why did you use a randomly generated case study? usually these exercises are far removed from reality.  Wasn’t it possible to use toyish but more realistic case study?
+
+done:p11, +4: “his variation” -> “this variation”
+
+
+----------------------- REVIEW 2 ---------------------
+PAPER: 18
+TITLE: Probabilistic software product lines
+AUTHORS: Luis Llana, Carlos Camacho, Alberto Núñez and Manuel Núñez
+
+Overall evaluation: -2 (reject)
+
+----------- Overall evaluation -----------
+The paper introduces the syntax for probabilistic software product lines (SPLs).
+The authors establish denotational and operational semantics and show their equivalence.
+Lastly, a small case study is presented showcasing their tool.
+
+The paper is split in 6 sections:
+1) Introduction
+2) Syntax and Semantics, where the mathematical backbone of the paper is presented and semantics are introduced,
+3) Equivalence of the operational and denotational semantics
+4) Hiding sets of features, describing a hiding operator
+5) Implementation, presents the supporting tool via a small case study
+6) Conclusions
+
+The paper appears to be mathematically rigorous in its definitions and results.
+Proofs are provided in an appendix, which increases the overall readability of the main
+body of the paper. The proofs appear to be sound.
+
+As the authors point out themselves: probabilistic extensions of formal methods are not new.
+Probabilities have been used in SPLs before and the authors name a few, i.e. [5,6,11,18].
+I will say that most of the related work are experience reports and case studies and a
+mathematically sound underpinning framework is wanted/needed.
+
+Further, I absolutely agree that introducing probabilities into SPLs is very meaningful - but I think the paper is presented in an unfortunate state.
+
+As a reader, I appreciate the presentation of two semantics and the consequent sound
+proof of their equivalence - but I am wondering about the relevance (of having two).
+Likewise, I can see the importance of a hiding operator - but why not introduce it in the semantics in the first place, rather than having a separate section for it. I suppose the authors did this for readability?
+
+Section 5, assuming I understood correctly, presents the tool that computes the probability of a feature to be included into the SPL and the resulting probability of each product. This, in turn, allows for assigning sufficient resources, eg. for testing purposes.
+Various plots are given, but the analysis of the results is too thinly spread. What do these calculations represent or imply? How does the resulting probabilistic SPL look like? What is the connection to Figure 5?
+
+Having the main focus lie on the mathematical details may be wanted in this case, but having an abundance of technical lemmata and a weak analysis of experimental results obfuscates the purpose of probabilities in SPL in the first place. Therefore, I think having a shift of focus will help the presentation of the paper and its overall appearance and reception.
+
+I do think the paper presents interesting work, but due to its current presentation I recommend a reject.
+
+GENERAL COMMENTS:
+- Restructure Sections 2,3 and 4
+- Provide an example of a probabilistic SPL model (similar to Figure 1)
+- Show and focus on the novelty on the presented work over related papers, i.e. mathematical framework rather than experience reports etc.
+- Strengthen the analysis of Section 5. What do the computations imply?
+
+DETAILED COMMENTS:
+- "The Carnegie Mellon Software Engineering Institute defines [...]"  -> Provide citation/reference/link
+- "Graphical approaches are commonly used to model SPLs." -> Give related work, citations. What is commonly used?
+- page 2 paragraph 2: "Hence, the computation focuses on those features with a high probability [...]" -> What is computed?
+- page 2 paragraph 2: "The results are promising." -> Vague
+- page 3 related work: Point out the essential difference to related work and your novelties over those.
+- page 3: "[...] QFLan, Microsoft's SMT Z3, and MultiVeStA." -> Provide Reference
+- page 3 last paragraph before Section 2: "[...] and some lnes of future work" -> lines
+- page 5 Definition of prod^P(P) and thereafter: Shouldn't the summation range over values in a set, rather than sets?
+Intuitively, I assume I know what this means, but I have never seen this notation.
+- Lemma 2: Q is defined twice, i.e. as SPLA and fodaA
+- Page 6: paragraph before Definition 3: Maybe call 'consistency' 'nonemptiness'? Otherwise it appears you prove that the language satisfies a condition which you are about to define.
+- Definition 4: I assume P refers to the powerset? (This is only an educated guess, since it was never introduced and yet is used in SPLA^P too)
+- Section 5 fourth bullet point: "paralel" -> parallel
+- page 11 paragraph 1: "We think that his [...]" -> We think that this
+
+
+----------------------- REVIEW 3 ---------------------
+PAPER: 18
+TITLE: Probabilistic software product lines
+AUTHORS: Luis Llana, Carlos Camacho, Alberto Núñez and Manuel Núñez
+
+Overall evaluation: 1 (weak accept)
+
+----------- Overall evaluation -----------
+This paper presents a probabilistic extension to a formal framework that specifies and analyzes software product lines. The probabilistic information is used to compute the probability of different features. The paper gives a formal description of this system. A tool that implements this approach is also presented, together with experimental results that show the value of the approach.
+
+The paper is well written and very much in scope for the conference. The research direction is exciting and provides for a finer analysis of software product lines. On the negative side it is not clear to me who provides the inputs to the framework. Do the come from some probabilistic usage profiles derived from actual usages of the products? This should be clarified in the paper.
