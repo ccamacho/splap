@@ -76,6 +76,316 @@ at least, the 75\% of the generated products, are tested.
         \caption{Probabilistic analysis for a 1500 features model, decreasingly sorted.}\label{fig:plot:probs:probs:sorted}
 \end{figure}
 
+
+
+The execution time for each model seems to be linear.
+
+Now we want to see the behavior between several feature models.
+
+
+We have generated randomly 10 feature models with 1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000 and 10000 features respectively.
+
+All the models were created based in the
+same criteria than the previous experiment:
+
+
+\begin{itemize}
+	\item The probability of having a mandatory feature is 0.2.
+	\item The probability of having an optional feature is 0.3.
+	\item The probability of having a feature in a \emph{choose-1} relation is 0.25.
+	\item The probability of having a feature in a \emph{paralel} relation is 0.25.
+\end{itemize}
+
+For each feature model was taken 100 features
+randomly, and
+for each of them we have calculate the 
+time required to calculate its
+probability.
+
+
+
+\begin{figure}[h]
+	\centering
+	\linefigure
+	\includegraphics[width=0.8\hsize,angle=0]{boxplot.eps}
+	\linefigure
+	\caption{Comparison between different product models.}\label{fig:plot:probs:boxplot}
+\end{figure}
+
+
+
+Now we can compare the last results with the one obtained using \fodaPA~\cite{acl13}
+and the cost extension \fodaPAc~\cite{clc16}.
+
+
+Figure~\ref{fig:plot:probs:boxplot} shows a boxplot bleh bleh.
+
+
+
+
+
+% First, we check the satisfiability of the generated model. 
+% In Subsection~\ref{subsection:satifiability:module} some results 
+% presented the scalability of this approach are shown. Then, 
+% after checking that the model is satisfiable in Subsection~\ref{subsection:denotational:semantics}
+% we apply the denotational semantic rules in this model in order to show the complete set of products, and to calculate the warnings and errors.
+
+
+\subsection{Satisfiability module}
+\label{subsection:satifiability:module}
+\begin{figure}[t]
+	\centering
+	\begin{minipage}{0.4\hsize}
+		\begin{tabular}{|cc|}
+			\hline
+			Features&    Time (ms.)\\
+			01000 & 67\\
+			01500 & 71\\
+			02000 & 105\\
+			02500 & 140\\
+			03000 & 164\\
+			03500 & 153\\
+			04000 & 193\\
+			04500 & 410\\
+			05000 & 331\\
+			05500 & 339\\
+			06000 & 441\\
+			06500 & 289\\
+			07000 & 369\\
+			
+			\hline
+		\end{tabular}
+	\end{minipage}
+	\begin{minipage}{0.4\hsize}
+		\begin{tabular}{|cc|}
+			\hline
+			Features&    Time (ms.)\\
+			07500 & 529\\
+			08000 & 556\\
+			08500 & 682\\
+			09000 & 428\\
+			09500 & 639\\
+			10000 & 620\\
+			10500 & 396\\
+			11000 & 513\\
+			11500 & 575\\
+			12000 & 552\\
+			12500 & 413\\
+			13000 & 513\\
+			13500 & 503\\
+			\hline
+		\end{tabular}
+	\end{minipage}
+	\caption{Satisfiability benchmark from \cite{acl13}.\label{figure:tool:sat:benchmakr}}
+\end{figure}
+
+This module computes the satisfiability of an \SPL\ by
+using the results in Section~\ref{subsection:satifiability:module}. So it 
+computes the formula associated with an \SPL. Then, by using a SAT-solver,
+we check the satisfiability of the formula. Since the module has been developed in JAVA, we have used the SAT4j.
+
+The experiments were run with a number of different features ranging from $1000$ to $13500$. Figure~\ref{figure:tool:sat:benchmakr} shows the
+time needed to compute the satisfiability of the 
+\SPLs\ with respect to the number of features in the model.
+
+\subsection{Denotational semantic module}
+\label{subsection:denotational:semantics}
+
+This module computes the products of an \fodaPA\ term according to the semantics presented in this paper. 
+
+
+\begin{figure}[t]
+	\centering
+	\begin{tabular}{rrr}
+		Features&       Time (ms.)&    Products\\
+		50 & 6 & 48 \\
+		60 & 25 & 108 \\
+		70 & 15 & 104 \\
+		80 & 8 & 31 \\
+		90 & 38 & 0 \\
+		100 & 55 & 1404 \\
+		110 & 13 & 12 \\
+		120 & 2139 & 1 \\
+		130 & 511 & 24802 \\
+		140 & 7 & 6 \\
+		150 & 786126 & 1312848 \\
+		160 & 136 & 5670 \\
+		170 & 42 & 398 \\
+		180 & 744 & 6384 \\
+		190 & 1390 & 7232 \\
+		200 & 960000 & - \\
+		210 & 97770 & 800544 \\
+		220 & 263 & 51 \\
+		230 & 47 & 8 \\
+		240 & 65 & 29 \\
+		250 & 191 & 5920 \\
+		260 & 205 & 7296 \\
+		270 & 250 & 4301 \\
+		280 & 960000 & - \\
+		290 & 65 & 3 \\
+		300 & 960000 & - \\
+	\end{tabular}
+	\caption{Denotational benchmark from \cite{acl13}.\label{figure:tool:den:benchmark}}
+\end{figure}
+
+The experiments were run with a number of different features ranging from $50$ to $300$.
+%Each experiment was executed 50 times. 
+The results are in Figure~\ref{figure:tool:den:benchmark}.
+There are three columns of values in this table: The first one
+contains the
+number of features,
+the second one contains the time required to complete the experiment, and 
+the last one contain the number of products needed to give an answer. 
+This number is a lower bound of the total number of features of the model
+with the property that if it is 0 then the model is not satisfiable. A dash
+in the last column indicates that we did not obtain any answer after a 15
+minute timeout. 
+
+
+
+
+
+Now with the results from the cost extension bleh bleh...
+
+Model used:
+
+
+
+
+\begin{figure}[t]
+	\linefigure
+	
+	\scriptsize
+	\begin{tabular}{p{0.5\hsize}p{0.5\hsize}}
+		$$
+		\begin{array}{l}
+		\runlist =  \\                        
+		\hspace*{1em}\require{N1}{W}{}(\\
+		\hspace*{2em}\require{N2}{D}{}(\\
+		\hspace*{3em}\require{P}{MS}{}(\\
+		\hspace*{4em}\require{P}{NA}{}(\\
+		\hspace*{5em}\exclude{W}{D}{}(\\    
+		\hspace*{6em}\feature{S};( \\
+		\hspace*{7em}\feature{R};( \\
+		\hspace*{8em}\ofeature{W};(\feature{AP};\checkmark\choice\feature{NG};\checkmark)\\
+		\hspace*{8em}\paral\\
+		\hspace*{8em}\ofeature{D};(\feature{MS};\checkmark\choice\feature{SS};\checkmark)\\
+		\hspace*{8em}\paral\\
+		\hspace*{8em}\ofeature{M};(\feature{NA};\checkmark\choice\feature{NR};\checkmark)\\
+		\hspace*{7em})\\
+		\hspace*{7em}\paral\\
+		\hspace*{7em}\feature{E};(\feature{P};\checkmark\choice\feature{T};\checkmark)\\  
+		\hspace*{7em}\paral\\
+		\hspace*{7em}\feature{N};(\ofeature{N1};\checkmark\choice\ofeature{N2};\checkmark)\\  
+		\hspace*{6em})\\
+		\hspace*{5em})\\   
+		\hspace*{4em})\\   
+		\hspace*{3em})\\   
+		\hspace*{2em})\\          
+		\hspace*{1em})\\
+		
+		\end{array}
+		$$ &
+		\begin{tabular}[t]{ll}
+			\parbox[t]{0.8\hsize}{
+				$ $\\
+				$\feature{S}$ : Chef Server \\
+				$\feature{R}$ : Roles \\
+				$\feature{E}$ : Environments \\
+				$\feature{N}$ : Nodes \\
+				$\feature{P}$ : Production       \\        
+				$\feature{T}$ : Test  \\
+				$\feature{W}$ : Web server \\
+				$\feature{D}$ : Database Server  \\      
+				$\feature{M}$ : Monitoring  service \\
+				$\feature{AP}$ : Apache        \\     
+				$\feature{NG}$ : Nginx      \\       
+				$\feature{MS}$ : MySQL        \\     
+				$\feature{SS}$ : SQLServer      \\   
+				$\feature{NA}$ : Nagios        \\     
+				$\feature{NE}$ : New Relic  \\
+				$\feature{N1}$ : Node 1        \\     
+				$\feature{N2}$ : Node 2    
+			}
+			
+		\end{tabular}                                               
+	\end{tabular}                           
+	
+	\hrule
+	\caption{\FODA\ to \fodaPA\ from~\cite{clc16}.}
+	\label{figure:chef:term}
+\end{figure}
+
+
+
+
+
+We have tested our implementation in an 8-node cluster, where each node has
+the following configuration:
+\begin{description}
+	\item[Operating System:] Ubuntu 14.04-trusty
+	\item[RAM:] 4GB
+	\item[Processor:] Intel(R) Xeon(R) CPU E5-2670 0 @ 2.60GHz
+	\item[CPU cores:] 4
+\end{description}
+
+\begin{figure}[t]
+	\centering
+	\linefigure
+	\resizebox{\columnwidth}{!}{%
+		\begin{tabular}{|c|c|c|c|c|c|c|}
+			\cline{2-7}
+			\multicolumn{1}{c|}{} & 1 Worker & 2 Workers & 4 Workers & 8 Workers & 16 Workers & 32 Workers  \\
+			\hline
+			1 Node & 2010.44763303 & 1060.80047798 & 586.014445066 & 543.712262154 & 521.616870165 & 521.292215109 \\
+			\hline
+			2 Nodes & 2059.06947899 & 1046.87119007 & 575.115453959 & 296.285589933 & 366.384442091 & 341.007520199 \\
+			\hline
+			4 Nodes & 2031.25184584 & 1093.52087283 & 586.344302893 & 320.010899067 & 300.745616913 & 382.748430014 \\
+			\hline
+			8 Nodes & 2207.35427213 & 1143.951792 & 576.370896101 & 495.507214785 & 308.374300957 & 287.340030909 \\
+			\hline
+		\end{tabular}
+	}\\
+	\includegraphics[width=0.7\hsize, height=5cm,angle=0]{plot_cluster.eps}
+	\linefigure
+	\caption{Cluster execution times for 1, 2, 4 and 8 nodes; and 1, 2, 4, 8, 16 and 32 workers  from~\cite{clc16}.}\label{fig:cluster}
+\end{figure}
+
+The \fodaPA\ term used to be computed with our distributed
+implementation is \textit{run-list} (Figure~\ref{figure:chef:term}). 
+This term generates a total of 97648 valid products. 
+Figure~\ref{fig:cluster} shows the execution times when computing all
+the products for \textit{run-list} for all the
+different configuration between workers and nodes.   The best results are
+obtained
+by using  8 nodes and 32 workers (287.34 seconds), although the gain is not very
+relevant with respect to simpler configurations. For instance, 
+the gain of the configuration with 8 nodes and 32 workers with
+respect to the one
+with 4 nodes and 16 workers is only 13.41 seconds (4.67\% of
+performance improvement). 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 %\begin{figure}[t]
 %$$
 %\begin{array}{ccc}
