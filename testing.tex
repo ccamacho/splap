@@ -82,13 +82,13 @@ de la implementacion con un modelo de 1500 caracteristicas, es
 posible extender las pruebas y comparar distintos modelos
 de caracteristicas.
 
-We have generated randomly 13 feature models with 1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000, 11000, 12000 and 13000 features respectively.
+We have generated randomly feature models with 1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000 and 10000 features respectively.
 
 
 \begin{figure}[h]
 	\centering
 	\begin{minipage}[b]{0.48\textwidth}
-		\includegraphics[width=\textwidth]{boxplot.eps}
+		\includegraphics[width=\textwidth]{boxplot_0_2.eps}
 		\caption{Comparison between product models.}\label{fig:plot:probs:boxplot}
 	\end{minipage}
 	\hfill
@@ -109,16 +109,13 @@ probability.
 
 
 
-
-
-
-
 Figure~\ref{fig:plot:probs:boxplot} shows el grafico
 que representa los tiempos de ejecucion del algoritmo en forma de un
-boxplot. Puede notarse que la mediana entre cada modelo se incrementa
+boxplot. Puede notarse que la mediana entre los modelos
+se incrementa
 de manera paulatina. Sin embargo, 
 el 50\% de los tiempos de ejecucion a partir de los 
-modelos con 8000 caracteristicas incrementa de manera notable.
+modelos con 90 caracteristicas incrementa de manera notable.
 
 
 En relacion con los tiempos de ejecucion, tambien se han
@@ -132,6 +129,36 @@ ejecutaron las pruebas, este tiene las siguientes caracteristicas:
 	\item[CPU cores:] 4
 \end{description}
 
+
+
+
+\begin{figure}[h]
+	\centering
+	\begin{minipage}[b]{0.48\textwidth}
+		\includegraphics[width=\textwidth]{boxplot_0_1.eps}
+		\caption{Comparison between product models.}\label{fig:plot:probs:boxplot_0_1}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[b]{0.48\textwidth}
+		\includegraphics[width=\textwidth]{boxplot_0_5.eps}
+		\caption{Memory usage.}\label{fig:plot:probs:boxplot_0_5}
+	\end{minipage}
+\end{figure}
+
+
+Adicionalmente se han modificado los modelos para
+determinar si variando la probabilidad del
+operador de paralelo el comportamiento del
+algoritmo cambia.
+
+Figure~\ref{fig:plot:probs:boxplot_0_1} shows
+the times to get random features in a feature model
+in which the probability of finding a parallel operand is
+1\% and Figure~\ref{fig:plot:probs:boxplot_0_5}
+shows the same approach varying the probability to
+50\%, in this specific case last two feature models
+the ones with 9000 and 10000 features have timed out 
+due to memory consumption.
 
 
 \subsection{Comparison between results and related work}
