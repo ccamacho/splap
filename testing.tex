@@ -117,6 +117,8 @@ de manera paulatina. Sin embargo,
 el 50\% de los tiempos de ejecucion a partir de los 
 modelos con 90 caracteristicas incrementa de manera notable.
 
+Figure~\ref{fig:plot:probs:boxplotmem} shows the memory usage
+in the mean time the algorithm is running.
 
 En relacion con los tiempos de ejecucion, tambien se han
 tomado muestras del uso de la memoria del servidor en el que se
@@ -130,6 +132,10 @@ ejecutaron las pruebas, este tiene las siguientes caracteristicas:
 \end{description}
 
 
+Adicionalmente se han modificado los modelos para
+determinar si variando la probabilidad del
+operador de paralelo el comportamiento del
+algoritmo cambia.
 
 
 \begin{figure}[h]
@@ -145,7 +151,20 @@ ejecutaron las pruebas, este tiene las siguientes caracteristicas:
 	\end{minipage}
 \end{figure}
 
+Figure~\ref{fig:plot:probs:boxplot_0_1} shows
+the times to get random features in a feature model
+in which the probability of finding a parallel operand is
+1\% and Figure~\ref{fig:plot:probs:boxplot_0_5}
+shows the same approach varying the probability to
+50\%, in this specific case last two feature models
+the ones with 9000 and 10000 features have timed out 
+due to memory consumption.
 
+Figure~\ref{fig:plot:probs:boxplot_0_1} and Figure~\ref{fig:plot:probs:boxplot_0_1_mem} shows the
+algorithm performance and memory usage having a probability of 1\% of finding a parallel operand.
+
+Figure~\ref{fig:plot:probs:boxplot_0_5} and Figure~\ref{fig:plot:probs:boxplot_0_5_mem}shows the
+algorithm performance and memory usage having a probability of 50\% of finding a parallel operand.
 
 
 \begin{figure}[h]
@@ -162,19 +181,14 @@ ejecutaron las pruebas, este tiene las siguientes caracteristicas:
 \end{figure}
 
 
-Adicionalmente se han modificado los modelos para
-determinar si variando la probabilidad del
-operador de paralelo el comportamiento del
-algoritmo cambia.
 
-Figure~\ref{fig:plot:probs:boxplot_0_1} shows
-the times to get random features in a feature model
-in which the probability of finding a parallel operand is
-1\% and Figure~\ref{fig:plot:probs:boxplot_0_5}
-shows the same approach varying the probability to
-50\%, in this specific case last two feature models
-the ones with 9000 and 10000 features have timed out 
-due to memory consumption.
+
+
+
+
+
+
+
 
 
 \subsection{Comparison between results and related work}
