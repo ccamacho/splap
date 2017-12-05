@@ -322,9 +322,23 @@ Some of these approaches describe models to run statistical analysis over \SPLs,
 %
 %Other works focus on describing use cases for analyzing the probability of finding features inside valid products~\cite{dpcslsh17}. %An interesting feature is that any of the referenced research articles describe their approaches using multisets.
 
+The main contributions of this work can be summarized as:
+
+\begin{itemize}
+
+	\item 
+	
+	A model that uses probabilistic information to determine the probability of having a feature in a specific \SPL. In contrast with our previous work~\cite{acl13,clc16}, which mainly focuses in defining an algebraic language to describe Software Product Lines and using a cost model for comparing valid products, this approach is targeted to identify those features that are more frequently used to generate a product. Basically, the idea is to focus on those features with a high probability to be present in the final product and, therefore, reducing the required processing to generate valid products. 
+		
+	\item In order to show the applicability and scalability of our approach, a thorough empirical study, using different configurations to generate a wide-spectrum of variability models, has been carried out. These variability models have been generated using BeTTy~\cite{SeguraHBC11}.
+	
+	\item A complete comparison between the overall implementation performance of the probabilistic extension and the denotational semantic module from \fodaPA~\cite{acl13}. The obtained results show that the denotational semantics of the probabilistic extension implementation dramatically improves the performance
+in comparison with the denotational semantics implementations presented in previous works.
+
+\end{itemize}
 
 
-The rest of the paper is structured as follows. Section \ref{sec:stat:sintaxMain} presents our language. Section \ref{sec:equivalenceMain} is used to prove the equivalence between the operational and denotational semantics. In section \ref{sec:stat:hidMain} we extend our language to define how sets of features can be hidden. Section~\ref{sec:stat:impl} shows our implementation of the denotational semantics for the probabilistic extension. Finally, section~\ref{section:jstat:concs} presents our conclusions and some lnes of future work.
+The rest of the paper is structured as follows. Section \ref{sec:stat:sintaxMain} presents our language. Section \ref{sec:equivalenceMain} is used to prove the equivalence between the operational and denotational semantics. In section \ref{sec:stat:hidMain} we extend our language to define how sets of features can be hidden. Section~\ref{sec:stat:impl} presents an empirical study that has been carried out by using our implementation of the denotational semantics for the probabilistic extension. Finally, section~\ref{section:jstat:concs} presents our conclusions and some lnes of future work.
 
 
 %%% Local Variables:

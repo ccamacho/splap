@@ -1,17 +1,21 @@
 % $Id$
 
-\section{Implementation}
+\section{Empirical study}
 \label{sec:stat:impl}
 
+In the field of \SPLs\ analysis, the use of probabilistic methods carries two practical applications. The first one consists in calculating the probability of having a feature in a specific product. This allows us to efficiently assign resources by prioritizing those features with a high probability of being included into the \SPL. The second application consists in estimating the testing coverage in the product line, which allows us to calculate those products that can be generated in the testing process.
 
-This section presents the results obtained from an experimental study to show the applicability of our
+This section presents the results obtained from an experimental study to show the applicability and scalability of our
 approach. In order to carry out this study, we have developed a tool to implement the proposed probabilistic extension. The source code
-of this tool is available at the main project site.
-\footnote{\url{http://ccamacho.github.io/phd/resources/03_splap.tar}}
+of this tool is available at the main project site
+\footnote{\url{http://ccamacho.github.io/phd/resources/03_splap.tar}}. The experiments have been executed in a computer with the following features: Intel(R) Xeon(R) Quad-Core CPU E5-2670 @ 2.60GHz, 64 GB of RAM memory and Centos 7 Operating System.
+
 %The simulations were executed based on the implementation of the denotational
 %semantics for the probabilistic extension. 
-We have used a variability model consisting of
-1500 features. This variability model
+
+Firstly, we have carried out an experiment to show the computing time required to calculate the probability of having
+each feature in a product. In order to run this experiment, a variability model consisting of
+1500 features has been used. This variability model
 was randomly generated using BeTTy~\cite{SeguraHBC11}. The parameters for
 generating the BeTTy model are the following:
 
@@ -22,9 +26,6 @@ generating the BeTTy model are the following:
         \item The probability of having a feature in a \emph{paralel} relation is 0.25.
 \end{itemize}
 
-In the field of \SPLs\ analysis, the use of probabilistic methods carries two practical applications. The first one consists in calculating the probability of having a feature in a specific product. This allows us to efficiently assign resources by prioritizing those features with a high probability of being included into the \SPL. The second application consists in estimating the testing coverage in the product line. This
-allows us to calculate those products that can be generated in the testing process.
-
 \begin{figure}[h]
         \centering
         \linefigure
@@ -33,8 +34,7 @@ allows us to calculate those products that can be generated in the testing proce
         \caption{Computing time analysis for a model consisting of 1500 features.}\label{fig:plot:probs:times}
 \end{figure}
 
-Figure~\ref{fig:plot:probs:times} shows the computing time required to calculate the probability of having
-each feature in a product.
+Figure~\ref{fig:plot:probs:times} shows the obtained results from this experiment, where the x-axis depicts the ID of each generated feature and the y-axis represents the time required to calculate the probability of having a feature in a product.
 %In this case, the total time to obtain the probability for all the features is linear with respect to the total length of the analyzed term
 %\mncomment{Que quiere decir esto? Suena raro porque yo esperaria complejidad $O(2^n)$ siendo $n$ el numero de probabilidades que salen en el termino. Pero vamos, que yo no  se mucho de complejidad!}\ccomen{Es cierto, no lo demostramos ni lo analizamos}.
 %\acomen{Yo simplemente quitaría esa frase, lo de que la complejidad es lineal}
@@ -75,131 +75,88 @@ this analysis might allow us to establish that by testing only the 28\% of the s
 %included in,
 at least, the 75\% of the generated products, are tested.
 
+Secondly, an experiment to analyze the scalability of our approach have been carried out. We are interested in investigating both the execution time and the amount of memory required for processing a model, when the number of features increases. Hence, we use different configurations for creating a wide spectrum of variability models, which are randomly generated, using a different number of features that ranges from 1,000 to 10,000. Specifically for each case, that is, given a configuration and a number of features, a model is randomly generated 30 times. Additionally, for each model, 100 features are 
+randomly selected and, for each one, both the processing time and memory required to calculate its probability are analyzed.
 
+Table~\ref{scalaExperiment} shows the used configurations to generate the variability models for this experiment, 
+where \textit{Conf. ID} represents the configuration ID, 
+ \textit{Mandatory} represents the probability of having a mandatory feature, 
+ \textit{Optional} represents the probability of having an optional feature,
+ \textit{Choose-1} represents the probability of having a feature in a \textit{choose-1} relation and
+ \textit{Parallel} represents the probability of having a feature in a parallel relation.
 
-Ahora que se ha podido determinar el comportamiento
-de la implementacion con un modelo de 1500 caracteristicas, es
-posible extender las pruebas y comparar distintos modelos
-de caracteristicas.
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+\textbf{Conf. ID} & \textbf{Mandatory} &  \textbf{Optional} &  \textbf{Choose-1} &  \textbf{Parallel} \\ \hline
+	Config\_1		& 0.58	& 0.15	& 0.15	& 0.01 	\\ \hline
+	Config\_2		& 0.7		& 0.15 	& 0.15	& 0.2		\\ \hline
+	Config\_3		& 0.2		& 0.15 	& 0.15 	& 0.5 	\\ \hline
+\end{tabular}
+\caption{Configuration of the scalability experiments.}
+\label{scalaExperiment}
+\end{table}
 
-We have generated randomly feature models with 1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000 and 10000 features respectively.
-
-
-\begin{figure}[h]
-	\centering
-	\begin{minipage}[b]{0.48\textwidth}
-		\includegraphics[width=\textwidth]{boxplot_0_2.eps}
-		\caption{Feature models computing with probability of 20\% of having parallel operands.}\label{fig:plot:probs:boxplot}
-	\end{minipage}
-	\hfill
-	\begin{minipage}[b]{0.48\textwidth}
-		\includegraphics[width=\textwidth]{boxplot_mem.eps}
-		\caption{Memory usage graph for feature models with probability of 20\% of having parallel operands.}\label{fig:plot:probs:boxplotmem}
-	\end{minipage}
-\end{figure}
-
-
-All the models were created based on the
-same criteria than the previous experiment.
-For each feature model was taken 100 features
-randomly, and for each of them we have calculate the 
-time required to calculate its
-probability.
-
-
-
-
-Figure~\ref{fig:plot:probs:boxplot} shows el grafico
-que representa los tiempos de ejecucion del algoritmo en forma de un
-boxplot. Puede notarse que la mediana entre los modelos
-se incrementa
-de manera paulatina. Sin embargo, 
-el 50\% de los tiempos de ejecucion a partir de los 
-modelos con 90 caracteristicas incrementa de manera notable.
-
-Figure~\ref{fig:plot:probs:boxplotmem} shows the memory usage
-in the mean time the algorithm is running.
-
-En relacion con los tiempos de ejecucion, tambien se han
-tomado muestras del uso de la memoria del servidor en el que se
-ejecutaron las pruebas, este tiene las siguientes caracteristicas:
-
-\begin{description}
-	\item[Operating System:] Centos 7
-	\item[RAM:] 64GB
-	\item[Processor:] Intel(R) Xeon(R) CPU E5-2670 0 @ 2.60GHz
-	\item[CPU cores:] 4
-\end{description}
-
-
-Adicionalmente se han modificado los modelos para
-determinar si variando la probabilidad del
-operador de paralelo el comportamiento del
-algoritmo cambia.
-
+Figure~\ref{fig:plot:probs:boxplot_0_1} and figure~\ref{fig:plot:probs:boxplot_0_1_mem} show the execution time and the required amount of memory, respectively, for processing the variability models generated using \textit{Config\_1}. In these models, only 1\% of the features have a parallel relation. In general, the processing time when the number of features increases is linear. Only in few cases, where the number of features ranges from 5000 to 8000, the results provide anomalous values. This is mainly caused due to the random nature of the generated models. On the contrary, the memory usage depicts that there are several groups where the memory usage remains constant, one group of models containing between 3,000 and 5,000 features and other group of models containing between 7,000 and 10,000 features. In summary, our implementation shows good scalability results for processing the models generated using \textit{Config\_1} in such a way it requires, in the worst case scenario, 215 ms and 0.32 GB of RAM to process the model.
 
 \begin{figure}[h]
 	\centering
 	\begin{minipage}[b]{0.48\textwidth}
 		\includegraphics[width=\textwidth]{boxplot_0_1.eps}
-		\caption{Feature models computing with probability of 1\% of having parallel operands.}\label{fig:plot:probs:boxplot_0_1}
+		\caption{Execution time for processing models generated with \textit{Config\_1}.}\label{fig:plot:probs:boxplot_0_1}
 	\end{minipage}
 	\hfill
 	\begin{minipage}[b]{0.48\textwidth}
 		\includegraphics[width=\textwidth]{boxplot_0_1_mem.eps}
-		\caption{Memory usage graph for feature models with probability of 1\% of having parallel operands.}\label{fig:plot:probs:boxplot_0_1_mem}
+		\caption{Memory usage for processing models generated with \textit{Config\_1}.}\label{fig:plot:probs:boxplot_0_1_mem}
 	\end{minipage}
 \end{figure}
 
-Figure~\ref{fig:plot:probs:boxplot_0_1} shows
-the times to get random features in a feature model
-in which the probability of finding a parallel operand is
-1\% and Figure~\ref{fig:plot:probs:boxplot_0_5}
-shows the same approach varying the probability to
-50\%, in this specific case last two feature models
-the ones with 9000 and 10000 features have timed out 
-due to memory consumption.
+Figure~\ref{fig:plot:probs:boxplot_0_2} and figure~\ref{fig:plot:probs:boxplot_0_2_mem} show the results for analyzing the models generated using \textit{Config\_2}. It is important to remark that 20\% of the features in the generated models have a parallel relation. In this case, both the execution time and memory usage for processing a model when the number of features increases are exponential. These charts clearly show a turning point when the model reaches 6,000 features and, therefore, the required processing time and  memory are significantly lower for those models that do not reach 6,000 features. However, the requirements to process the model in the worst case scenario, that is, using a model containing 10,000 features, are 300 sec. and 3.84 GB of RAM memory, which are acceptable.
 
-Figure~\ref{fig:plot:probs:boxplot_0_1} and Figure~\ref{fig:plot:probs:boxplot_0_1_mem} shows the
-algorithm performance and memory usage having a probability of 1\% of finding a parallel operand.
+\begin{figure}[h]
+	\centering
+	\begin{minipage}[b]{0.48\textwidth}
+		\includegraphics[width=\textwidth]{boxplot_0_2.eps}
+		\caption{Execution time for processing models generated with \textit{Config\_2}.}\label{fig:plot:probs:boxplot_0_2}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[b]{0.48\textwidth}
+		\includegraphics[width=\textwidth]{boxplot_mem.eps}
+		\caption{Memory usage for processing models generated with \textit{Config\_2}.}\label{fig:plot:probs:boxplot_0_2_mem}
+	\end{minipage}
+\end{figure}
 
-Figure~\ref{fig:plot:probs:boxplot_0_5} and Figure~\ref{fig:plot:probs:boxplot_0_5_mem}shows the
-algorithm performance and memory usage having a probability of 50\% of finding a parallel operand.
+Figure~\ref{fig:plot:probs:boxplot_0_5} and figure~\ref{fig:plot:probs:boxplot_0_5_mem} show the results for processing the models generated using \textit{Config\_3}. In this case, the half of the features in the model have a parallel relation. Similarly than the previous experiment, these charts show that both the execution time and the memory usage for processing a model when the number of features increases are exponential. The same turning point located in the previous models generated using \textit{Config\_2}, that is, when the model reaches 6,000 features, is located in the obtained results. The requirements for processing a model, that is, execution time and memory usage, grow much faster for processing these models than the ones required for processing the models using previous configurations. Also, it is important to notice that the models containing 9,000 and 10,000 features cannot be processed due to memory limitations.
+
+Broadly speaking, these results show that increasing the number of features having a parallel relation has a direct impact on the overall performance. In fact, increasing the number of features having a parallel relations generates a combinatorial explosion that hampers the processing of models. First, the execution time to completely process a model significantly grows. Second, large amounts of memory are required to store those combinations. In some cases, using large models with a high percentage of features having a parallel relation may cause a bottleneck in the memory system. In fact, those models generated using \textit{Config\_3} with 9,000 and 10,000 features cannot be processed using 64 GB of RAM.
 
 
 \begin{figure}[h]
 	\centering
 	\begin{minipage}[b]{0.48\textwidth}
 		\includegraphics[width=\textwidth]{boxplot_0_5.eps}
-		\caption{Feature models computing with probability of 50\% of having parallel operands.}\label{fig:plot:probs:boxplot_0_5}
+		\caption{Execution time for processing models generated with \textit{Config\_3}.}\label{fig:plot:probs:boxplot_0_5}
 	\end{minipage}
 	\hfill
 	\begin{minipage}[b]{0.48\textwidth}
 		\includegraphics[width=\textwidth]{boxplot_0_5_mem.eps}
-		\caption{Memory usage graph for feature models with probability of 50\% of having parallel operands.}\label{fig:plot:probs:boxplot_0_5_mem}
+		\caption{Memory usage for processing models generated with \textit{Config\_3}.}\label{fig:plot:probs:boxplot_0_5_mem}
 	\end{minipage}
 \end{figure}
 
 
 
-
-
-
-
-
-
-
-
+%%%------------------------------------------------------------------------------------------------------------------------------------------------
 
 \subsection{Comparison between results and related work}
 \label{sec:stat:impl:comp}
 
-
 Now we can compare the last results with the one obtained using \fodaPA~\cite{acl13}
 and the cost extension \fodaPAc~\cite{clc16}.
 
-
-Specifically we want to compare the implementation performance when
+Specifically we want to compare the implementation performance
 between the probabilistic extension and the denotation denotational semantic module
 from \fodaPA~\cite{acl13}.
 
