@@ -11,7 +11,7 @@
 %constraints. For instance, some of these approaches are FODA~\cite{kchnp90},
 %RSEB~\cite{mj98} and PLUSS~\cite{k05,ebb06}.
 
-During the last years, software product lines (in short, \SPLs) have become a widely adopted mechanism for efficient software development. The Carnegie Mellon Software Engineering Institute defines an \SPL\ as ``a set of software-intensive systems that share a common, managed set of features satisfying the specific needs of a particular market segment or mission and that are developed from a common set of core assets in a prescribed way''~\cite{mcg01}. Basically, the main goal of \SPLs\ is to increase the productivity for creating software products, which is achieved by selecting those software systems that are better for a specific criterion (e.g. a software system is less expensive than others, it requires less time to be processed, etc). Currently, different approaches for representing the product line organization can be found in the literature, such as FODA~\cite{kchnp90},
+During the last years, software product lines (in short, \SPLs) have become a widely adopted mechanism for efficient software development. The Carnegie Mellon Software Engineering Institute defines an \SPL\ as ``a set of software-intensive systems that share a common, managed set of features satisfying the specific needs of a particular market segment or mission and that are developed from a common set of core assets in a prescribed way''~\cite{mcg01}. Basically, the main goal of \SPLs\ is to increase the productivity for creating software products, which is achieved by selecting those software systems that are better for a specific criterion (e.g. a software system is less expensive than others, it requires less time to be processed, etc.). Currently, different approaches for representing the product line organization can be found in the literature, such as FODA~\cite{kchnp90},
 RSEB~\cite{mj98} and PLUSS~\cite{k05,ebb06}.
 
 Graphical approaches are commonly used to model \SPLs. Feature Oriented Domain Analysis~\cite{kchnp90} (in short, \FODA) is a well-known graphical approach for representing commonality and variability of systems. Figure~\ref{fig:foda:relations} shows all \FODA\ relationships and constraints.
@@ -330,10 +330,10 @@ The main contributions of this work can be summarized as:
 	
 	A model that uses probabilistic information to determine the probability of having a feature in a specific \SPL. In contrast with our previous work~\cite{acl13,clc16}, which mainly focuses in defining an algebraic language to describe Software Product Lines and using a cost model for comparing valid products, this approach is targeted to identify those features that are more frequently used to generate a product. Basically, the idea is to focus on those features with a high probability to be present in the final product and, therefore, reducing the required processing to generate valid products. 
 		
-	\item In order to show the applicability and scalability of our approach, a thorough empirical study, using different configurations to generate a wide-spectrum of variability models, has been carried out. These variability models have been generated using BeTTy~\cite{SeguraHBC11}.
+	\item  A thorough empirical study, using different configurations to generate a wide-spectrum of variability models. The  study has been carried out in order to show the applicability and scalability of our approach. These variability models have been generated using BeTTy~\cite{SeguraHBC11}.
 	
 	\item A complete comparison between the overall implementation performance of the probabilistic extension and the denotational semantic module from \fodaPA~\cite{acl13}. The obtained results show that the denotational semantics of the probabilistic extension implementation dramatically improves the performance
-in comparison with the denotational semantics implementations presented in previous works.
+in comparison with the denotational semantics implementations presented in previous work.
 
 \end{itemize}
 

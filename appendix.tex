@@ -62,7 +62,7 @@
  \end{itemize}
  \begin{proof}
    This lemma is a consequence of rules~\nombreRegla{cho1}
-   y~\nombreRegla{cho2} from the operational semantics.
+   and~\nombreRegla{cho2} from the operational semantics.
  \end{proof}
 \elem
 
@@ -97,8 +97,8 @@
 
 
 \bdfn
-  Let $s,s'\in\calF^*$ be traces, we denote the set of traces
-  obtained from alternate $s$ and $s'$ por $\inter(s,s')$.
+  Let $s,s'\in\calF^*$ be traces, we denote with $\inter(s,s')$ the set of traces
+  obtained by alternating $s$ and $s'$.
 \edfn
 
 \blem\label{lem:paral}
@@ -114,7 +114,7 @@
     \item[$|s|+|s'|=0$] Since
       $P\paral Q\tranp{\checkmark}{r}\nil$
       if and only if $P\tranp{\checkmark}{r_1}\nil$,
-      $Q\tranp{\checkmark}{r_2}\nil$, y $r=r_1\cdot r_2$,
+      $Q\tranp{\checkmark}{r_2}\nil$, and $r=r_1\cdot r_2$,
       behold the following:
       \begin{equation}
         \label{eq:paral1}
@@ -126,7 +126,7 @@
           \sum \lbag  r_1 \cdot q |\  P\tranp{\checkmark}{r_1}\nil\rbag = q\cdot \sum \lbag  r_1  |\  P\tranp{\checkmark}{r_1}\nil\rbag = q\cdot p
         \end{split}
       \end{equation}
-    \item[$|s|+|s'|>0$] Suppose that $|s|>0$ (in the case $|s'|>0$
+    \item[$|s|+|s'|>0$] Suppose that $|s|>0$ (the case $|s'|>0$
       is symmetric). Let's consider that $s=\feature{A}\cdot s_1$.
       Now consider the multiset
       $\calP=\lbag P'\ |\ P\tranp{\f{A}}{r'} P'\vtranp{s_1\checkmark}{p'}\nil\rbag$ and given $r_1 = \sum\lbag r\ |\ P\tranp{\f{A}}{r} P'\y P'\in\calP\rbag$ and
@@ -154,7 +154,7 @@
         \end{split}
       \end{equation}
       then for any $P'\in\calP$ we obtain $P\paral Q\vtranp{s''\checkmark}{r}\nil$
-      where $P\tranp{\f{A}}{r'}P'$, $r=\frac{r'}{2}\cdot p'\cdot q$ y $s''$
+      where $P\tranp{\f{A}}{r'}P'$, $r=\frac{r'}{2}\cdot p'\cdot q$ and $s''$
       is the alternation of $s$ and $s'$. So forth\\
       \scalebox{0.8}{\parbox{1.3\hsize}{\begin{equation}
         \label{eq:paral4}
@@ -174,12 +174,12 @@
 
       Equation~\ref{eq:paral4} groups all probabilities
       of alternating  $s$ and $s'$ where
-      the first action of $s$ is given in first place.
+      the first action of $s$ happens in the first place.
       Then we have to group the probabilistic
-      information when the first action of $s'$ happens in first place.
+      information when the first action of $s'$ happens in the first place.
 
-      There are two possibilities, if these actions exist or not.
-      Depending on $s'$ we can obtain the following options.
+      There are two possibilities, depending on whether these actions exist or not.
+      Depending on $s'$ we obtain the following options.
       \begin{description}
       \item[$|s'|=0$]
         In this case we have $q=\sum\lbag q'\ |\ Q\tranp{\checkmark}{q'}\nil \rbag$,
@@ -198,7 +198,7 @@
           \end{split}
         \end{equation}}}\\
         The only transition of $P\paral Q$ that allows
-        to alternate $s$ and $s'$ have the form
+        to alternate $s$ and $s'$ has the form
         \begin{enumerate}
         \item $P\paral Q\tranp{\f{A}}{\frac{r'}{2}} P'\paral Q\vtranp{s''\checkmark}{p'}\nil $ as is indicated above
         , or
@@ -216,19 +216,19 @@
         \end{equation}
        \item[$|s'|>0$] Let consider $s'=\f{B}\cdot s_2$.
         In this case we consider the alternations where
-        $Q$ produces the feature $\f{B}$ in first place, which is,
-        that first we apply the rule~\nombreRegla{con2}. Considering
-        the multiset $\calQ=\lbag Q'\ |\ Q\tranp{\f{B}}{r}Q'\vtranp{s_2\checkmark}{q'}\nil\rbag$, and given
-        $r_2=\sum\lbag r\ |\ Q\tranp{\f{B}}{r}Q'\y Q'\in\calQ\rbag$ and $q_1=\sum\lbag r\ |\ Q'\vtranp{s_2\checkmark}{r}\nil\y Q'\in\calQ\rbag$.
-        With a similar reasoning to te equations~\eqref{eq:paral1} and~\eqref{eq:paral2} we obtain that $q=r_2\cdot q_1$ and
+        $Q$ produces the feature $\f{B}$ in the first place, that is,
+        first we apply the rule~\nombreRegla{con2}. Considering
+        multiset $\calQ=\lbag Q'\ |\ Q\tranp{\f{B}}{r}Q'\vtranp{s_2\checkmark}{q'}\nil\rbag$, and given
+        $r_2=\sum\lbag r\ |\ Q\tranp{\f{B}}{r}Q'\y Q'\in\calQ\rbag$ and $q_1=\sum\lbag r\ |\ Q'\vtranp{s_2\checkmark}{r}\nil\y Q'\in\calQ\rbag$,
+        with a similar reasoning as for the equations~\eqref{eq:paral1} and~\eqref{eq:paral2} we obtain that $q=r_2\cdot q_1$ and
         \begin{equation}
           \label{eq:paral6}
           \begin{split}
             \sum\lbag  r\ |\ P\paral Q\tranp{\f{B}}{\frac{r_1}{2}}P\paral Q'\vtranp{s''\checkmark}{r_2}\nil\y\\ r=\frac{r_1}{2}\cdot r_1\y s''\in\inter(s,s_2) \rbag = \frac{1}{2}(p\cdot q)
           \end{split}
         \end{equation}
-        The only transition of $P\paral Q$ that implies to alternate
-        $s$ and $s'$ have the form:
+        The only transition of $P\paral Q$ that implies alternating
+        $s$ and $s'$ has the form:
         \begin{enumerate}
         \item $P\paral Q\tranp{\f{A}}{p'\cdot\frac{r}{2}} P'\paral Q\vtranp{s''\checkmark}{p'}\nil $ where $s''$ is an alternation of
         $s_1$ and $s'$, or
@@ -257,8 +257,8 @@
   \item $\f{A}\not\in s$ if and only if $\mandatory{A}{P}\vtranp{s\f{A}\checkmark}{p}\nil$.
   \end{enumerate}
   \begin{proof}
-    In both cases the demonstration is made by induction of the length
-    of $|s|$.
+    In both cases the proof is made by induction of the length
+    of $s$.
   \end{proof}
 \elem
 
@@ -268,7 +268,7 @@
   $p\in(0,1)$. $P\vtranp{s\checkmark}{p}\nil$, if and only if
   $\forbid{P}{A}\vtranp{s\checkmark}{p}\nil$ and $\f{A}\not\in s$.
   \begin{proof}
-    The demonstration is simple by the induction on the length of $s$.
+    The proof is simply by induction on the length of $s$.
   \end{proof}
 \elem
 
@@ -288,22 +288,22 @@
     \item[$|s|>0$] Now we can distinguish three cases depending on
     the first feature of $s$:
       \begin{description}
-      \item[$s=\f{A}s_1$.] In this case exists $p_1,q\in(0,1)$ such as
+      \item[$s=\f{A}s_1$.] In this case there exist $p_1,q\in(0,1)$ such that
         $P\tranp{\f{A}}{p_1}P_1\vtranp{s_1\checkmark}{q}\nil$.  When
         applying the rule~\nombreRegla{req2} we obtain
         $\require{A}{B}{P}\tranp{\f{A}}{p_1}\mandatory{B}{P_1}$.
-        We obtain the result when applying the lemma~\ref{lem:mand}.
-      \item[$s=\f{B}s_1$.] In this case exists $p_1,q\in(0,1)$ such as
+        We obtain the result by applying the lemma~\ref{lem:mand}.
+      \item[$s=\f{B}s_1$.] In this case there exist $p_1,q\in(0,1)$ such that
         $P\tranp{\f{A}}{p_1}P_1\vtranp{s_1\checkmark}{q}\nil$.
         When applying the rule~\nombreRegla{req2} we obtain
         $\require{A}{B}{P}\tranp{\f{B}}{p_1}\mandatory{A}{P_1}$.
-        We obtain the result when applying the lemma~\ref{lem:mand}.
-      \item[$s=\f{C}s_1$ with $\f{C}\neq\f{A}$ y $\f{C}\neq\f{A}$.]
-        In this case exists $p_1,q\in(0,1)$ such as
+        We obtain the result by applying the lemma~\ref{lem:mand}.
+      \item[$s=\f{C}s_1$ with $\f{C}\neq\f{A}$ and $\f{C}\neq\f{A}$.]
+        In this case there exist $p_1,q\in(0,1)$ such that
         $P\tranp{\f{C}}{p_1}P_1\vtranp{s_1\checkmark}{q}\nil$.
         When applying the rule~\nombreRegla{req1}, we obtain
         $ \require{A}{B}{P}\tranp{\f{C}}{p_1}\require{A}{B}{P_1} $, and
-        then the result of applying the inductive hypothesis over
+        then the result by applying the inductive hypothesis over
         $s_1$.
       \end{description}
     \end{description}
@@ -316,16 +316,16 @@
   $p\in(0,1)$. Then $P\vtranp{s\checkmark}{p}\nil$ if and only if
   $\exclude{A}{B}{P}\vtranp{s\checkmark}{p}\nil$, $\f{A}\not\in s$ and $\f{B}\not\in s$.
   \begin{proof}
-    By the induction of the length of $s$.
+    By the induction on the length of $s$.
     \begin{description}
     \item[$|s|=0$] In this case $P\tranp{\checkmark}{p}\nil$.
-      We obtain the result of applying the rule~\nombreRegla{excl4}.
+      We obtain the result by applying the rule~\nombreRegla{excl4}.
     \item[$|s|>0$] Now it is possible to distinguish three cases depending
     on the first feature of $s$:
       \begin{description}
-      \item[$s=\f{A}s_1$.] In this case exists $p_1,q\in(0,1)$
+      \item[$s=\f{A}s_1$.] In this case there exist $p_1,q\in(0,1)$
         such that $P\tranp{\f{A}}{p_1}P_1\vtranp{s_1\checkmark}{q}\nil$.
-        When applyinght rule~\nombreRegla{req2}
+        When applying rule~\nombreRegla{req2}
         we obtain $\require{A}{B}{P}\tranp{\f{A}}{p_1}\forbid{B}{P_1}$.
         Now based on Lemma~\ref{lem:mand},
         \begin{itemize}
@@ -333,12 +333,12 @@
         \item $\f{B}\not\in s_1$ if and only if  $\mandatory{B}{P_1}\vtranp{s_1\f{B}\checkmark}{q}\nil$.
         \end{itemize}
       \item[$s=\f{C}s_1$ with $\f{C}\neq\f{A}$.]
-        In this case is $p_1,q\in(0,1)$
+        In this case there exist $p_1,q\in(0,1)$
         such that $P\tranp{\f{C}}{p_1}P_1\vtranp{s_1\checkmark}{q}\nil$.
         When applying rule~\nombreRegla{req1},  we obtain
         $
         \require{A}{B}{P}\tranp{\f{C}}{p_1}\require{A}{B}{P_1}
-        $, and then the result is obtained when applying the inductive
+        $, and then the result is obtained by applying the inductive
         hypothesis over $s_1$.
       \end{description}
     \end{description}
@@ -352,7 +352,7 @@
   s=s'\hide\calA\rbag$
   \begin{proof}
     The proof is achieved by induction over the length of the trace
-    $s$. If the length is zero the result is trivial. Then its supposed that
+    $s$. If the length is zero the result is trivial. Then we suppose that
     $s=\fA\cdot s_1$. If $\fA=\bot$ then any transition
     $P\hideA\vtranp{s}{p}Q\hideA$ can be divided in transitions,
     possibly more than one, for example.
@@ -369,8 +369,8 @@
         P\hideA\tran{\fB}_{r_1'}P_1'\hideA\vtran{s_1}_{r2}Q,\ \fB\in\calA\rbag
       \end{split}
     \end{displaymath}
-    Now for each one of $r_1'$, we can apply the inductive
-    method to each one of the transitions
+    Now for each $r_1'$, we can apply the inductive
+    method to each of the transitions
     $P_1'\hideA\vtran{s_1}_{r2}Q$ to obtain
     $r_2=\sum\lbag r2'\ |\ P_1\vtran{s_1'}Q,\
     s_1=s_1'\hideA\rbag$. Continuing the last equation:
@@ -386,8 +386,8 @@
         \sum\lbag r\ |\ P\vtran{s'}_{r}Q,\ s=s'\hideA\rbag
       \end{split}
     \end{displaymath}
-    The case when $\fA\not\in\calA$ is similar to the last one,
-    we just the to skip the step from $\fB$ to $\bot$.
+    The case $\fA\not\in\calA$ is similar to the last one:
+    we just skip the step from $\fB$ to $\bot$.
   \end{proof}
 \eprop
 

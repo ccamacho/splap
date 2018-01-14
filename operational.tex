@@ -117,7 +117,7 @@ different instance. In particular, we will later consider multisets of computati
 We will use the delimiters~$\lbag$ and~$\rbag$ to denote
 multisets and $\uplus$ to denote the union of multisets.
 
-The following result, which proof is immediate, shows that successful termination leads to $\nil$.
+The following result, whose proof is immediate, shows that successful termination leads to $\nil$.
 
 \blem\label{lem:check}
 Let $P,Q\in\fodaPAp$ and $p\in(0,1]$. We have $P\tranp{\checkmark}{p}{Q}$ if and only if $Q=\nil$.
@@ -125,7 +125,7 @@ Let $P,Q\in\fodaPAp$ and $p\in(0,1]$. We have $P\tranp{\checkmark}{p}{Q}$ if and
 
 Next we present some notions associated with the composition of consecutive transitions.
 
-\bdfn\label{def:trtrantions} Let $P,Q\in\fodaPAp$. We write  $P\vtranp{s}{p}Q$ if there exist a sequence of consecutive transitions
+\bdfn\label{def:trtrantions} Let $P,Q\in\fodaPAp$. We write  $P\vtranp{s}{p}Q$ if there exists a sequence of consecutive transitions
 \begin{displaymath}
     P=P_0\tranp{a_1}{p_1}P_1\tranp{a_2}{p_2}P_2\cdots P_{n-1}\tranp{a_n}{p_n} P_n=Q
 \end{displaymath}
@@ -133,7 +133,7 @@ where $n\geq 0$, $s=a_1a_2\cdots a_n$ and $p=p_1\cdot p_2\cdot \cdots
 p_{n}$. We say that $s$ is a trace of~$P$.
 
 Let $s\in\calF^*$ be a trace of $P$. We define the product
-$\product{s}\subseteq\calF$ as the set consisting on all features belonging to
+$\product{s}\subseteq\calF$ as the set consisting of all features belonging to
 $s$.
 
 Let $P\in\fodaPAp$. We define the set of probabilistic products of $P$, denoted by $\prodp(P)$, as the set
