@@ -38,7 +38,7 @@ The following result is immediate.
 \eprop
 
 
-Next we define the operators of the denotational semantics. As we have said before, multisets
+Next we define the operators of the denotational semantics (called denotational operators). As we have said before, multisets
 meeting the conditions of the previous result appear when
 defining these operators. For instance, the prefix operator
 $\semden{\fA;}(M)$ should add feature $\fA$ to any product in $M$. Let us
@@ -105,6 +105,15 @@ and obtain a single product with probability~$1$.
   \end{itemize}
 \edfn
 
+
+The denotational semantics for the prefix operator
+$\semdenp{\feature{A};\cdot}(M)$
+and the denotational semantics for the operator
+$\semdenp{\require{A}{B}{\cdot}}(M)$
+behave in the same way if the feature is added
+to the products. In the first case the feature $\feature{A}$ is mandatory
+so it will be added, and in the second case the feature $\feature{B}$ is required
+if the feature $\feature{A}$ is already included in the product.
 
 It is easy to check that all the multisets appearing in the previous
 definition meet the conditions of Proposition~\ref{prop:pr:accum}. So,
