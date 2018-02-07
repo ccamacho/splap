@@ -6,9 +6,14 @@
 In the field of \SPLs\ analysis, the use of probabilistic methods carries two practical applications. The first one consists in calculating the probability of having that feature in a specific product. This allows us to efficiently assign resources by prioritizing those features with a high probability of being included into the \SPL. The second application consists in estimating the testing coverage in the product line, which allows us to calculate those products that can be generated in the testing process.
 
 This section presents the results obtained from an experimental study to show the applicability and scalability of our
-approach. In order to carry out this study, we have developed a tool to implement the proposed probabilistic extension. The source code
+approach.
+In order to carry out this study, we have developed a tool to implement the denotational semantics of the
+probabilistic extension presented in this paper.
+
+The source code
 of this tool is available at the main project site
-\footnote{\url{http://ccamacho.github.io/phd/resources/03_splap.tar}}. The experiments have been executed in a computer with the following features: Intel(R) Xeon(R) Quad-Core CPU E5-2670 @ 2.60GHz, 64 GB of RAM memory and Centos 7 Operating System.
+\footnote{\url{http://ccamacho.github.io/phd/resources/03_splap.tar}}.
+The experiments have been executed in a computer with the following features: Intel(R) Xeon(R) Quad-Core CPU E5-2670 @ 2.60GHz, 64 GB of RAM memory and Centos 7 Operating System.
 
 %The simulations were executed based on the implementation of the denotational
 %semantics for the probabilistic extension. 
@@ -22,7 +27,7 @@ generating the BeTTy model are the following:
 \begin{itemize}
         \item The probability of having a mandatory feature is 0.2.
         \item The probability of having an optional feature is 0.3.
-        \item The probability of having a feature in a \emph{choose-1} relation is 0.25.
+        \item The probability of having a feature in a \emph{choose-one} relation is 0.25.
         \item The probability of having a feature in a \emph{parallel} relation is 0.25.
 \end{itemize}
 
@@ -70,7 +75,7 @@ represents the feature ID and the $y$-axis represents the probability. For the s
 This chart clearly shows that there exist different groups of features having a similar probability.
 %
 In this case, there are 450 features with, at least, a probability equal to 0.75 of being in a final product. As a conclusion,
-this analysis might allow us to establish that by testing only the 28\% of the software product line components, we can ensure that
+this analysis might allow us to establish that by testing only the 30\% of the software product line components, we can ensure that
 %the features
 %included in,
 at least, the 75\% of the generated products, are tested.
@@ -82,14 +87,14 @@ Table~\ref{scalaExperiment} shows the used configurations to generate the variab
 where \textit{Conf. ID} represents the configuration ID, 
  \textit{Mandatory} represents the probability of having a mandatory feature, 
  \textit{Optional} represents the probability of having an optional feature,
- \textit{Choose-1} represents the probability of having a feature in a \textit{choose-1} relation and
+ \textit{Choose-one} represents the probability of having a feature in a \textit{choose-one} relation and
  \textit{Parallel} represents the probability of having a feature in a \textit{parallel} relation.
 
 \begin{table}[h]
 \centering
 \begin{tabular}{|l|c|c|c|c|}
 \hline
-\textbf{Conf. ID} & \textbf{Mandatory} &  \textbf{Optional} &  \textbf{Choose-1} &  \textbf{Parallel} \\ \hline
+\textbf{Conf. ID} & \textbf{Mandatory} &  \textbf{Optional} &  \textbf{Choose-one} &  \textbf{Parallel} \\ \hline
 	Config\_1		& 0.58	& 0.15	& 0.15	& 0.01 	\\ \hline
 	Config\_2		& 0.7		& 0.15 	& 0.15	& 0.2		\\ \hline
 	Config\_3		& 0.2		& 0.15 	& 0.15 	& 0.5 	\\ \hline
@@ -150,15 +155,16 @@ Broadly speaking, these results show that increasing the number of features havi
 
 %%%------------------------------------------------------------------------------------------------------------------------------------------------
 
-\subsection{Comparison between results and related work}
+\subsection{Comparison between current results and previous implementations}
 \label{sec:stat:impl:comp}
 
-We now compare the last results with the ones obtained using \fodaPA~\cite{acl13}
+We now compare the latest results with the ones obtained using \fodaPA~\cite{acl13}
 and the cost extension \fodaPAc~\cite{clc16}.
 
 Specifically we want to compare the implementation performance
-between the probabilistic extension and the denotational semantic module
-from \fodaPA~\cite{acl13}.
+between the implementation of the
+probabilistic extension and the implementation of the
+denotational semantic from \fodaPA~\cite{acl13}.
 
 \begin{figure}[t]
 	\centering
