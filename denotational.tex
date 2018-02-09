@@ -70,14 +70,14 @@ and obtain a single product with probability~$1$.
          $
 
   \item
-    $\semdenp{\ofeature{A};_{r}\cdot}(M)=
-                \accum\bigl(\lbag(\emptyset , 1-r )\rbag\uplus\lbag (\{\feature{A}\}\cup P, r\cdot p ) \ |\ (P,p) \in M\rbag\bigr)$
+    $\semdenp{\ofeature{A};_{p}\cdot}(M)=
+                \accum\bigl(\lbag(\emptyset , 1-p )\rbag\uplus\lbag (\{\feature{A}\}\cup P, p\cdot q ) \ |\ (P,q) \in M\rbag\bigr)$
 
   \item
-    $\semdenp{\cdot\choice_{r}\cdot}(M_{1},M_{2})=\accum
+    $\semdenp{\cdot\choice_{p}\cdot}(M_{1},M_{2})=\accum
     \left(\begin{array}{l}
-    \lbag(P,r\cdot p  ) \ |\ (P,p) \in M_{1}\rbag \uplus\\ 
-    \lbag(Q, (1-r)\cdot q  ) \ |\ (Q,q) \in M_{2}\rbag
+    \lbag(P,p\cdot q  ) \ |\ (P,q) \in M_{1}\rbag \uplus\\
+    \lbag(Q, (1-p)\cdot q  ) \ |\ (Q,q) \in M_{2}\rbag
     \end{array}\right) $
   \item
     $
@@ -124,16 +124,16 @@ following result.
   $p\in(0,1]$ be a probability, and
   $\feature{A},\feature{B}\in\calF$ be features. We have:
 \begin{multicols}{2}
-	\begin{itemize}
-		\item $\semdenp{\feature{A};\cdot}(M)\in\calM$
-		\item $\semdenp{\ofeature{A};_{r}\cdot}(M)\in\calM$
-		\item $\semdenp{\cdot\choice_{r}\cdot}(M_{1},M_{2})\in\calM$
-		\item $\semdenp{\cdot\paral\cdot}(M_{1},M_{2})\in\calM$
-		\item $\semdenp{\require{A}{B}{\cdot}}(M)\in\calM$
-		\item $\semdenp{\exclude{A}{B}{\cdot}}(M)\in\calM$
-		\item $\semdenp{\mandatory{A}{\cdot}}(M)\in\calM$
-		\item $\semdenp{\forbid{A}{\cdot}}(M)\in\calM$
-	\end{itemize}
+        \begin{itemize}
+                \item $\semdenp{\feature{A};\cdot}(M)\in\calM$
+                \item $\semdenp{\ofeature{A};_{p}\cdot}(M)\in\calM$
+                \item $\semdenp{\cdot\choice_{p}\cdot}(M_{1},M_{2})\in\calM$
+                \item $\semdenp{\cdot\paral\cdot}(M_{1},M_{2})\in\calM$
+                \item $\semdenp{\require{A}{B}{\cdot}}(M)\in\calM$
+                \item $\semdenp{\exclude{A}{B}{\cdot}}(M)\in\calM$
+                \item $\semdenp{\mandatory{A}{\cdot}}(M)\in\calM$
+                \item $\semdenp{\forbid{A}{\cdot}}(M)\in\calM$
+        \end{itemize}
 \end{multicols}
 %$$ \begin{array}{lllll}
 %\bullet\ \semdenp{\feature{A};\cdot}(M)\in\calM & &
