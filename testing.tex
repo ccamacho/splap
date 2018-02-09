@@ -28,7 +28,7 @@ generating the BeTTy model are the following:
         \item The probability of having a mandatory feature is 0.2.
         \item The probability of having an optional feature is 0.3.
         \item The probability of having a feature in a \emph{choose-one} relation is 0.25.
-        \item The probability of having a feature in a \emph{parallel} relation is 0.25.
+        \item The probability of having a feature in a \emph{conjunction} relation is 0.25.
 \end{itemize}
 
 \begin{figure}[h]
@@ -88,13 +88,13 @@ where \textit{Conf. ID} represents the configuration ID,
  \textit{Mandatory} represents the probability of having a mandatory feature, 
  \textit{Optional} represents the probability of having an optional feature,
  \textit{Choose-one} represents the probability of having a feature in a \textit{choose-one} relation and
- \textit{Parallel} represents the probability of having a feature in a \textit{parallel} relation.
+ \textit{Conjunction} represents the probability of having a feature in a \textit{conjunction} relation.
 
 \begin{table}[h]
 \centering
 \begin{tabular}{|l|c|c|c|c|}
 \hline
-\textbf{Conf. ID} & \textbf{Mandatory} &  \textbf{Optional} &  \textbf{Choose-one} &  \textbf{Parallel} \\ \hline
+\textbf{Conf. ID} & \textbf{Mandatory} &  \textbf{Optional} &  \textbf{Choose-one} &  \textbf{Conjunction} \\ \hline
 	Config\_1		& 0.58	& 0.15	& 0.15	& 0.01 	\\ \hline
 	Config\_2		& 0.7		& 0.15 	& 0.15	& 0.2		\\ \hline
 	Config\_3		& 0.2		& 0.15 	& 0.15 	& 0.5 	\\ \hline
@@ -103,7 +103,7 @@ where \textit{Conf. ID} represents the configuration ID,
 \label{scalaExperiment}
 \end{table}
 
-Figure~\ref{fig:plot:probs:boxplot_0_1} and figure~\ref{fig:plot:probs:boxplot_0_1_mem} show the execution time and the required amount of memory, respectively, for processing the variability models generated using \textit{Config\_1}. In these models, only 1\% of the features have a parallel relation. In general, the processing time when the number of features increases is linear. Only in few cases, where the number of features ranges from 5000 to 8000, the results provide anomalous values. This is mainly caused by the random nature of the generated models. On the contrary, the memory usage depicts that there are several groups where the memory usage remains constant, one group of models containing between 3,000 and 5,000 features and other group of models containing between 7,000 and 10,000 features. In summary, our implementation shows good scalability results for processing the models generated using \textit{Config\_1}: it requires, in the worst case scenario, 215 ms and 0.32 GB of RAM to process the model.
+Figure~\ref{fig:plot:probs:boxplot_0_1} and figure~\ref{fig:plot:probs:boxplot_0_1_mem} show the execution time and the required amount of memory, respectively, for processing the variability models generated using \textit{Config\_1}. In these models, only 1\% of the features have a conjunction relation. In general, the processing time when the number of features increases is linear. Only in few cases, where the number of features ranges from 5000 to 8000, the results provide anomalous values. This is mainly caused by the random nature of the generated models. On the contrary, the memory usage depicts that there are several groups where the memory usage remains constant, one group of models containing between 3,000 and 5,000 features and other group of models containing between 7,000 and 10,000 features. In summary, our implementation shows good scalability results for processing the models generated using \textit{Config\_1}: it requires, in the worst case scenario, 215 ms and 0.32 GB of RAM to process the model.
 
 \begin{figure}[h]
 	\centering
@@ -118,7 +118,7 @@ Figure~\ref{fig:plot:probs:boxplot_0_1} and figure~\ref{fig:plot:probs:boxplot_0
 	\end{minipage}
 \end{figure}
 
-Figure~\ref{fig:plot:probs:boxplot_0_2} and figure~\ref{fig:plot:probs:boxplot_0_2_mem} show the results for analyzing the models generated using \textit{Config\_2}. It is important to remark that 20\% of the features in the generated models have a parallel relation. In this case, both the execution time and memory usage for processing a model when the number of features increases are exponential. These charts clearly show a turning point when the model reaches 6,000 features and, therefore, the required processing time and  memory are significantly lower for those models that do not reach 6,000 features. However, the requirements to process the model in the worst case scenario, that is, using a model containing 10,000 features, are 300 sec. and 3.84 GB of RAM memory, which are acceptable.
+Figure~\ref{fig:plot:probs:boxplot_0_2} and figure~\ref{fig:plot:probs:boxplot_0_2_mem} show the results for analyzing the models generated using \textit{Config\_2}. It is important to remark that 20\% of the features in the generated models have a conjunction relation. In this case, both the execution time and memory usage for processing a model when the number of features increases are exponential. These charts clearly show a turning point when the model reaches 6,000 features and, therefore, the required processing time and  memory are significantly lower for those models that do not reach 6,000 features. However, the requirements to process the model in the worst case scenario, that is, using a model containing 10,000 features, are 300 sec. and 3.84 GB of RAM memory, which are acceptable.
 
 \begin{figure}[h]
 	\centering
@@ -133,9 +133,9 @@ Figure~\ref{fig:plot:probs:boxplot_0_2} and figure~\ref{fig:plot:probs:boxplot_0
 	\end{minipage}
 \end{figure}
 
-Figure~\ref{fig:plot:probs:boxplot_0_5} and figure~\ref{fig:plot:probs:boxplot_0_5_mem} show the results for processing the models generated using \textit{Config\_3}. In this case, half of the features in the model have a parallel relation. Similarly to the previous experiment, these charts show that both the execution time and the memory usage for processing a model when the number of features increases are exponential. In the obtained results we can observe the same turning point detected in the previous models generated using \textit{Config\_2}, that is, when the model reaches 6,000 features. Model processing requirements, that is, execution time and memory usage, grow much faster for these models than for those based on previous configurations. Also, it is important to notice that the models containing 9,000 and 10,000 features cannot be processed due to memory limitations.
+Figure~\ref{fig:plot:probs:boxplot_0_5} and figure~\ref{fig:plot:probs:boxplot_0_5_mem} show the results for processing the models generated using \textit{Config\_3}. In this case, half of the features in the model have a conjunction relation. Similarly to the previous experiment, these charts show that both the execution time and the memory usage for processing a model when the number of features increases are exponential. In the obtained results we can observe the same turning point detected in the previous models generated using \textit{Config\_2}, that is, when the model reaches 6,000 features. Model processing requirements, that is, execution time and memory usage, grow much faster for these models than for those based on previous configurations. Also, it is important to notice that the models containing 9,000 and 10,000 features cannot be processed due to memory limitations.
 
-Broadly speaking, these results show that increasing the number of features having a parallel relation has a direct impact on the overall performance. In fact, increasing the number of features having a parallel relation generates a combinatorial explosion that hampers the processing of models. First, the execution time to completely process a model significantly grows. Second, large amounts of memory are required to store those combinations. In some cases, using large models with a high percentage of features having a parallel relation may cause a bottleneck in the memory system. In fact, models generated using \textit{Config\_3} with 9,000 and 10,000 features cannot be processed using 64 GB of RAM.
+Broadly speaking, these results show that increasing the number of features having a conjunction relation has a direct impact on the overall performance. In fact, increasing the number of features having a conjunction relation generates a combinatorial explosion that hampers the processing of models. First, the execution time to completely process a model significantly grows. Second, large amounts of memory are required to store those combinations. In some cases, using large models with a high percentage of features having a conjunction relation may cause a bottleneck in the memory system. In fact, models generated using \textit{Config\_3} with 9,000 and 10,000 features cannot be processed using 64 GB of RAM.
 
 
 \begin{figure}[h]
