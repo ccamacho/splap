@@ -1,0 +1,824 @@
+% $Id: fodaa.tex,v 1.32 2013/02/21 00:36:43 luis Exp $
+
+
+\section{$\fodaPA$: syntax and semantics}
+\label{sec:foda:sintaxMain}
+
+In this section we will describe the 
+terms, syntactical and semantic operators
+from \fodaPA\ presented in~\cite{acl13}
+in order to introduce the
+reader to the probabilistic extension presented in this article.
+
+
+\subsection{$\fodaPA$ syntax}
+
+\fodaPA\ terms are denoted as $\calF$,
+which will be an infinite set of features.
+Also, \feature{A}, \feature{B}, \feature{C}\dots\ will
+represent isolated features, belonging to $\calF$.
+%
+Now we need to define the semantic operators in order to establish the
+language semantics.
+
+\bdfn\label{dfn:syntax}
+A \fodaPA\ \emph{software product line} is a term
+with the following syntax::
+$$
+\begin{array}{ll}
+  P::=&   \checkmark \barra \nil \barra \feature{A};P \barra \ofeature{A};P \barra\\
+        &  P \choice Q \barra P\paral Q  \barra   \exclude{A}{B}{P}\barra\\
+        & \require{A}{B}{P}\barra  \forbid{A}{P}\barra  \mandatory{A}{P}
+\end{array}     
+$$
+\noindent 
+where $\feature{A},\feature{B} \in \calF$.
+To the set of terms belonging to the algebra
+will be known as $\fodaPA$.
+\edfn
+
+Now we will proceed to describe each operator meaning and show
+with examples how the operators should be computed based on the
+semantic rules from ~\cite{acl13}.
+
+We propose two terminal symbols, $\nil$ and $\checkmark$,
+which are required to define the language
+semantics and used as a termination mark when processing the
+algebra terms.
+If there is a case in which the $\checkmark$ symbol can be computed
+this means that it is possible to generate a
+valid product from the term, thus
+will be computed immediately the $\nil$ symbol to
+show that is not possible to continue the execution on that
+branch.
+%
+The operators $\feature{A};P$ and $\ofeature{A};P$
+allow to add the feature $\feature{A}$ to any product obtained
+from $P$, where the $\feature{A};P$ operator means that
+$\feature{A}$ is mandatory,
+instead of the operator $\ofeature{A};P$ which means that
+$\feature{A}$ is optional.
+%
+For example, the term $\feature{A};\ofeature{B};\checkmark$ represents
+an \SPL\ with two valid products. In this case we obtain
+a product with the feature \feature{A} and another with the features
+\feature{A} y \feature{B}, as \feature{B} is optional.
+
+In the initial definition for $\fodaPA$ there are two binary operators,
+$P \choice Q$ and $P\paral Q$, where 
+the first denotes the choose-one operator and the second one
+the conjunction or parallel selection.
+
+For example, the term
+$\feature{A};\checkmark\choice (\feature{B};\checkmark\choice \feature{C};\checkmark)$ 
+generated three valid products, each of them with one single feature, a 
+product with the feature \feature{A}, another product with the feature \feature{B} and 
+the last product with the feature \feature{C}.
+%
+The term $\feature{A};(\feature{B};\checkmark\paral \feature{C};\checkmark)$
+describes a valid term including the paralel operator, this means
+to allow the selection of all the features in the product, as in this case
+the features are mandatory.
+This will generate a single product with all the
+features combined as ($\{\fA\fB\fC\}$) o
+products combining the order in which each feature is computed like 
+($\{[\fA\fB\fC],[\fA\fC\fB]\}$).
+
+The operator $\require{A}{B}{P}$
+represents the \emph{requirement} restriction, and the
+$\exclude{A}{B}{P}$ operator shows the \emph{exclusion} restriction.
+%
+For example, the term $\require{A}{B}{\feature{A};\checkmark}$
+generates one product with the features \feature{A} y \feature{B}.
+The term
+$P=\feature{A};(\feature{B};\checkmark\choice\feature{C};\checkmark)$,
+generates two valid products.
+The first with the features $\feature{A}$ and $\feature{B}$,
+and the second with the
+features  $\feature{A}$ and $\feature{C}$.
+If we add a restriction like
+$\exclude{A}{B}{P}$, this new term will generate
+one single product with the features
+$\feature{A}$ and $\feature{C}$. 
+%
+The operator $\mandatory{A}{P}$ is required to 
+represent the requires relationship $\require{A}{B}{P}$.
+When generating the products from the term
+$\require{A}{B}{P}$, it must be taken into account 
+if the feature \feature{A} was computed or not.
+If it was computed, then \feature{B} must be marked to be processed
+later.
+The operator $\mandatory{B}{P}$ is used with this purpose.
+Same behavior applies with the operator $\forbid{B}{P}$.
+If the feature \feature{A} is computed, then, 
+\feature{B} must not be included.
+In this way the operator $\forbid{B}{P}$
+indicates that \feature{B} is hidden.
+
+
+% $Id: operational.tex,v 1.19 2013/02/21 00:36:43 luis Exp $
+%---------------------------------------------------------------------------------------------------------------------------------------------------------------
+\subsection{$\fodaPA$ operational semantics}
+\label{sec:foda:operational}
+
+\begin{figure*}[h]
+	\linefigure
+	\vspace{0.5cm}
+	\centering\scalebox{1}{%
+		$
+		\begin{array}{*{3}{l@{}c@{\hspace{4em}}}}
+		\nombreRegla{tick} & \checkmark\tran{\checkmark}\nil &
+		\nombreRegla{feat} & \feature{A};P\tran{\feature{A}}P \\
+		\nombreRegla{ofeat1} & \ofeature{A};P\tran{\feature{A}}P &
+		\nombreRegla{ofeat2} & \ofeature{A};P\tran{\checkmark}\nil\\
+		\nombreRegla{cho1} & \displaystyle \frac{P\tran{\feature{A}} P_1}{P\choice Q\tran{\feature{A}}P_1}&  
+		\nombreRegla{cho2} & \displaystyle\frac{Q\tran{\feature{A}} Q_1}{P\choice Q\tran{\feature{A}}Q_1}\\
+		\nombreRegla{con1} &  \displaystyle\frac{P\tran{\feature{A}} P_1}{P\paral Q\tran{\feature{A}}P_1\paral Q} &
+		\nombreRegla{con2} & \displaystyle\frac{Q\tran{\feature{A}} Q_1}{P\paral Q\tran{\feature{A}}P\paral Q_1}\\
+		% \nombreRegla{con3} &  \displaystyle\frac{P\tran{\feature{A}} P_1, Q\tran{\checkmark}\nil}{P\paral Q\tran{\feature{A}}P_1\paral Q} &
+		% \nombreRegla{con4} & \displaystyle\frac{P\tran{\feature{A}} P_1, Q\tran{\checkmark}\nil}{Q\paral P\tran{\feature{A}}Q\paral P_1} \\ 
+		\nombreRegla{con3} &  \displaystyle\frac{P\tran{\checkmark}\nil, Q\tran{\checkmark}\nil}{P\paral Q\tran{\checkmark}\nil} &
+		\nombreRegla{req1} & \displaystyle
+		\frac{P \tran{\feature{C}} P_1,\ \feature{C}\neq\feature{A}}{\require{A}{B}{P}
+			\tran{\feature{C}} \require{A}{B}{P_1}} \\
+		\nombreRegla{req2} &  \displaystyle
+		\frac{P \tran{\feature{A}} P_1}{\require{A}{B}{P}\tran{\feature{A}} \mandatory{B}{P_1}} & 
+		\nombreRegla{req3} &  \displaystyle
+		\frac{P \tran{\feature{\checkmark}} \nil}{\require{A}{B}{P}
+			\tran{\feature{\checkmark}} \nil}\\
+		
+		\nombreRegla{excl1} &    \displaystyle
+		\frac{P \tran{\feature{C}} P_1,\ \feature{C}\neq\feature{A} \land \feature{C}\neq\feature{B}}{\exclude{A}{B}{P}
+			\tran{\feature{C}} \exclude{A}{B}{P_1}} &
+		\nombreRegla{excl2} & \displaystyle
+		\frac{P \tran{\feature{A}} P_1}{\exclude{A}{B}{P}
+			\tran{\feature{A}}\forbid{B}{P_1}} \\
+		\nombreRegla{excl3} & \displaystyle
+		\frac{P \tran{\feature{B}} P_1}{\exclude{A}{B}{P}\tran{\feature{B}}\forbid{A}{P_1}}
+		&
+		\nombreRegla{excl4} & \displaystyle
+		\frac{P \tran{\checkmark} \nil}{\exclude{A}{B}{P}\tran{\checkmark}\nil}\\
+		
+		\nombreRegla{forb1} & \displaystyle
+		\frac{P \tran{\feature{B}} P_1,\ \feature{B}\neq\feature{A}}{\forbid{A}{P}
+			\tran{\feature{B}} \forbid{A}{P_1}} &
+		\nombreRegla{forb2} & \displaystyle
+		\frac{P \tran{\checkmark} \nil}{\forbid{A}{P}
+			\tran{\checkmark} \nil}  \\
+		%      \nombreRegla{forb3} & \displaystyle
+		%     \frac{P\tran{\feature{A}}P_2 \tran{\feature{F}} P_1}{\forbid{A}{P}
+		%       \tran{\feature{B}} \forbid{A}{P_1}},\ \feature{B}\neq\feature{A} &
+		%      \nombreRegla{forb4} & \displaystyle
+		%     \frac{P\tran{\feature{A}}P_2 \tran{\feature{\checkmark}} P_1}{\forbid{A}{P}
+		%       \tran{\checkmark} \nil}\\ 
+		%     
+		% 
+		% 
+		\nombreRegla{mand1} &  \displaystyle\frac{P\tran{\checkmark} \nil}{\mandatory{A}{P}
+			\tran{\f A} \checkmark}  &
+		\nombreRegla{mand2} &  \displaystyle\frac{P\tran{\feature{A}} P_1}{\mandatory{A}{P}\tran{\feature{A}} P_1} \\
+		\nombreRegla{mand3} &  \displaystyle\frac{P\tran{\feature{B}}
+			P_1,\ \feature{A}\neq\feature{B}}{\mandatory{A}{P}\tran{\feature{B}} \mandatory{A}{P_1}}
+		\\ \\
+		\multicolumn{4}{c}{\feature{A},\feature{B},\feature{C}\in\calF,\ a\in\calF\cup\{\checkmark\}}
+		\end{array}  
+		$}
+	\vspace{0.5cm}
+	\linefigure
+	
+	\caption{Operational semantic rules of \fodaPA.  \label{fig:spla:sos-rules}}
+	
+	
+	
+\end{figure*}
+
+\bdfn\label{def:insof:trantions}
+Given the terms $P,Q\in\fodaPA$ and the feature
+ $\feature{A}\in\calF\cup\{\checkmark\}$,
+there is a transition from
+$P$ to $Q$ labeled as $\feature{A}$, denoted by
+$P\tran{\feature{A}}Q$, if it can be inferred from the semantic rules
+describe in the figure~\ref{fig:spla:sos-rules}.  
+\edfn
+
+The intuitive meaning of the rule \nombreRegla{tick}
+is that there are no more features to compute, so
+a valid product can be generated, after this, the symbol
+$\nil$ is computed to stop the rules processing.
+
+Rules $\nombreRegla{feat}$, $\nombreRegla{ofeat1}$,
+and $\nombreRegla{ofeat2}$ are related directly with the features
+processing.
+Rule $\nombreRegla{ofeat2}$ show the transition when the
+feature is not computed, then a $\checkmark$
+can be processed creating a valid product.
+The feature \feature{A} is optional in $P$ because
+$P\tran{\feature{A}}P_1$ and $P\tran{\checkmark}\nil$.
+
+
+Rules $\nombreRegla{cho1}$ and $\nombreRegla{cho2}$ 
+are related with the \emph{choose-one} operator, so forth
+when processing 
+$P\choice Q$, it must be chosen among the features in 
+$P$ or the features in $Q$.
+
+The rules  $\nombreRegla{con1}$,  $\nombreRegla{con2}$
+and  $\nombreRegla{con3}$ 
+represents the 
+\emph{parallel} operator.
+The rule $\nombreRegla{con1}$ and  $\nombreRegla{con2}$ show that the parallel operator is symmetrical, so forth,
+any product of  $P\paral Q$
+have to contain the features from  $P$ and $Q$. 
+%
+The rule$\nombreRegla{con3}$ shows that in order to generate a valid product
+both parts of the operator need to be able to execute \nombreRegla{tick}.
+
+The rules~\nombreRegla{req1}, \nombreRegla{req2},
+and \nombreRegla{req3} are related to the requirement
+restriction, which means that once
+a feature is processed another must be also 
+included in the product.
+The rule~\nombreRegla{req1} shows that
+$\require{A}{B}{P}$ behaves like 
+$P$ in the mean time \feature{A} is not computed.
+The rule \nombreRegla{req2} shows that \feature{B}
+is mandatory once \feature{A} is processed.
+Finally, the rule \nombreRegla{req3} is necessary 
+because if any requires restriction was computed, 
+and it can be computed \nombreRegla{tick},
+then we can generate a valid product.
+
+
+The rules related with the exclusion operator, \nombreRegla{excl1}, \nombreRegla{excl2},\nombreRegla{excl3} and \nombreRegla{excl4},
+behaves in a similar way than the requirement rules.
+The rule \nombreRegla{excl1} shows that $\exclude{A}{B}{P}$
+behaves like $P$, iff $P$ can not produce the  feature \feature{A}
+or the feature~\feature{B}.
+The rule~\nombreRegla{excl2} shows that once $P$
+produced \feature{A}, then \feature{B} must be excluded or hidden.
+The rule~\nombreRegla{excl3} describes the same behavior with the
+difference that is taken the opposite feature in the rule. 
+The last exclusion rule \nombreRegla{excl4} shows the system behavior when
+there was no exclusion rule computed. So forth, ${P}$ can compute
+\nombreRegla{tick} and generate a valid product.
+
+The rules~\nombreRegla{forb1} and \nombreRegla{forb2}
+refer to the hiding operators introduced by the rules
+\nombreRegla{excl2} and \nombreRegla{excl3}, 
+where~\nombreRegla{forb1} establishes that in the mean time
+it's not computed the hidden feature, the term can continue with
+the processing, and the rule \nombreRegla{forb2} indicates that
+once processed all the features, if there is no feature hidden, then
+it is possible to generate a valid product.
+
+The rules
+\nombreRegla{mand1}, \nombreRegla{mand2} and~\nombreRegla{mand3} are
+related with the auxiliary operator $\mandatory{A}{P}$.
+The rule~\nombreRegla{mand1} indicates that~\feature{A}
+must be computed before generating a valid product.
+The rule~\nombreRegla{mand2} refers to the step in which once the
+$\mandatory{A}{P}$ relationship is computed, then
+the operator should be removed from the remaining term.
+In the case of the rule \nombreRegla{mand3}, if the the feature in the relationship
+$\mandatory{A}{P}$ is not processed,  then the operator should remain in the term
+until is computed.
+In the contrary case, if the term is fully computed, then \nombreRegla{mand1}
+will generate a valid product.
+
+
+\begin{figure}[h]
+	
+	\centering 
+	
+	\linefigure
+	\vspace{0.5cm}
+	\begin{minipage}{0.3\hsize}\centering
+		\EX{a}
+		\vskip 0.5em
+		
+		\scalebox{0.8}{%
+			\begin{tikzpicture}[->,>=stealth',node distance=1.8cm]
+			\node[syntax] (A)   {$\feature{A};\ofeature{B};\checkmark$};
+			\node[syntax] (B) [below of=A]   {$\ofeature{B};\checkmark$};
+			\node[syntax] (C) [below left of=B]   {\nil};
+			\node[syntax] (D) [below right of=B]   {\checkmark};
+			\node[syntax] (F) [below of=D]   {\nil};
+			
+			\path (A) edge[->] node[right, opacity=0, text opacity=1] {\feature{A}~$\nombreRegla{feat}$} (B)
+			(B) edge[->] node[above left, opacity=0, text opacity=1] {$\nombreRegla{ofeat2}$~\checkmark} (C)
+			(B) edge[->] node[above right, opacity=0, text opacity=1] {\feature{B}~$\nombreRegla{ofeat1}$} (D)
+			%(C) edge[->] node[left] {$\nombreRegla{nil}$~\checkmark} (E)
+			(D) edge[->] node[left, opacity=0, text opacity=1] {$\nombreRegla{nil}$~\checkmark} (F);
+			\end{tikzpicture}
+		}
+		%
+	\end{minipage}
+	\begin{minipage}{0.3\hsize}\centering
+		\EX{b}
+		\vskip 0.5em
+		\scalebox{0.8}{%
+			\begin{tikzpicture}[->,>=stealth',node distance=1.8cm]
+			\node[syntax] (A)   {$\feature{A};\feature{B};\checkmark$};
+			\node[syntax] (B) [below of=A]   {$\feature{B};\checkmark$};
+			\node[syntax] (D) [below of=B]   {\checkmark};
+			\node[syntax] (E) [below of=D]   {\nil};
+			
+			\path (A) edge[->] node[right, opacity=0, text opacity=1] {\feature{A}~$\nombreRegla{feat}$} (B)
+			(B) edge[->] node[right, opacity=0, text opacity=1] {\feature{B}~$\nombreRegla{feat}$} (D)
+			(D) edge[->] node[left, opacity=0, text opacity=1] {$\nombreRegla{nil}$~\checkmark} (E);
+			\end{tikzpicture}
+		}
+	\end{minipage}
+	\begin{minipage}{0.3\hsize}\centering
+		\EX{c}
+		\vskip 0.5em
+		\scalebox{0.8}{%
+			\begin{tikzpicture}[->,>=stealth',auto,node distance=1.8cm]
+			\node[syntax] (A)   {$\feature{A};(\feature{B};\checkmark\choice \feature{C};\checkmark)$};
+			\node[syntax] (B) [below of=A]   {$\feature{B};\checkmark\choice \feature{C};\checkmark$};
+			\node[syntax] (D) [below left of=B,node distance=2.5cm]   {\checkmark};
+			\node[syntax] (E) [below right of=B,node distance=2.5cm]   {\checkmark};
+			\node[syntax] (F) [below  of=E]   {\nil};
+			\node[syntax] (G) [below  of=D]   {\nil};
+			
+			\path (A) edge[->] node [opacity=0, text opacity=1]{\feature{A}~$\nombreRegla{feat}$} (B)
+			(B) edge[->] node[above left, opacity=0, text opacity=1] {\feature{B}~$\nombreRegla{cho1}$} (D)
+			(B) edge[->] node[above right, opacity=0, text opacity=1] {\feature{C}~$\nombreRegla{cho2}$} (E)
+			(D) edge[->] node[left, opacity=0, text opacity=1] {\checkmark~$\nombreRegla{nil}$} (G)
+			(E) edge[->] node[right, opacity=0, text opacity=1] {\checkmark~$\nombreRegla{nil}$} (F);
+			
+			;
+			\end{tikzpicture}
+		}
+	\end{minipage}
+	
+	
+	\vspace{0.5cm}
+	
+	$\begin{array}{ll}
+	\EX{a} &
+	\products{\feature{A};\ofeature{B};\checkmark}=
+	\left\{
+	\begin{array}{l}
+	[\feature{A}],
+	[\feature{A}\feature{B}]%
+	\end{array}
+	\right\}
+	\\ 
+	\EX{b}&
+	\products{\feature{A};\feature{B};\checkmark}=
+	\left\{
+	\begin{array}{l}
+	[\feature{A}\feature{B}]
+	\end{array}
+	\right\}
+	\\ 
+	\EX{c}&
+	\products{\feature{A};(\feature{B};\checkmark\choice \feature{C};\checkmark)}=
+	\left\{
+	\begin{array}{l}
+	\left[\feature{A}\feature{B}\right],
+	\left[\feature{A}\feature{C}\right]\\
+	\end{array}
+	\right\}
+	\end{array}$
+	
+	\vspace{0.5cm}
+	\linefigure
+	\caption{Operational semantics application for the operators 
+		$\nombreRegla{feat}$, $\nombreRegla{ofeat}$ and $\nombreRegla{cho}$.\label{figure:semantics:optcomp}}
+\end{figure}
+
+\begin{figure}[h]
+	\linefigure
+	\vspace{0.5cm}
+	\centering
+	\begin{minipage}[t]{.5\textwidth}
+		\centering
+		\EX{d} \\ \vspace{0.5cm}
+		\scalebox{0.7}{
+			\begin{tikzpicture}[->,>=stealth',auto,node distance=2cm]
+			
+			\node[syntax] (A){$\feature{A};(\feature{B};\checkmark\paral \feature{C};\checkmark)$};
+			\node[syntax] (B) [below of=A]   {$\feature{B};\checkmark\paral \feature{C};\checkmark$};
+			\node[syntax] (D) [below left of=B,node distance=2.5cm]   {$\checkmark\paral \feature{C};\checkmark$};
+			\node[syntax] (E) [below right of=B,node distance=2.5cm]   {$\feature{B};\checkmark\paral \checkmark$};
+			\node[syntax] (F) [below  of=E]   {$\checkmark\paral \checkmark$};
+			\node[syntax] (G) [below  of=D]   {$\checkmark\paral \checkmark$};
+			\node[syntax] (H) [below  of=F]   {\nil};
+			\node[syntax] (I) [below  of=G]   {\nil};
+			
+			
+			\path (A) edge[->] node [opacity=0, text opacity=1]{\feature{A}~$  \nombreRegla{feat}$} (B)
+			(B) edge[->] node[left, opacity=0, text opacity=1] {\feature{B}~$\nombreRegla{con1}$} (D)
+			(B) edge[->] node[right, opacity=0, text opacity=1] {\feature{C}~$\nombreRegla{con2}$} (E)
+			(D) edge[->] node[left, opacity=0, text opacity=1] {\feature{C}~$\nombreRegla{con2}$} (G)
+			(E) edge[->] node[right, opacity=0, text opacity=1] {$\feature{B}~\nombreRegla{con1}$} (F)
+			(F) edge[->] node[right, opacity=0, text opacity=1] {$\checkmark~\nombreRegla{con3}$} (H)
+			(G) edge[->] node[left, opacity=0, text opacity=1] {$\checkmark~\nombreRegla{con3}$} (I)          
+			;
+			\end{tikzpicture}}
+	\end{minipage}% <---------------- Note the use of "%"
+	\begin{minipage}[t]{.5\textwidth}
+		\centering
+		\EX{e} \\ \vspace{0.5cm}
+		\scalebox{0.7}{%
+			
+			\begin{tikzpicture}[->,>=stealth',auto,node distance=2cm]
+			
+			\node[syntax] (A){$\feature{A};(\ofeature{B};\checkmark\paral \feature{C};\checkmark)$};
+			\node[syntax] (B) [below of=A]   {$\ofeature{B};\checkmark\paral \feature{C};\checkmark$};
+			\node[syntax] (C) [below left of=B,node distance=2.5cm]   {$\checkmark\paral \feature{C};\checkmark$};
+			\node[syntax] (D) [below right of=B,node distance=2.5cm]   {$\ofeature{B}\checkmark\paral \checkmark$};
+			\node[syntax] (E) [below of=C,node distance=2.5cm]   {$\checkmark\paral \checkmark$};
+			\node[syntax] (F) [below left of=D,node distance=2.5cm]   {$\checkmark\paral \checkmark$};
+			\node[syntax] (G) [below right of=D,node distance=2.5cm]   {$\nil$};
+			\node[syntax] (H) [below of=E,node distance=2.5cm]   {$\nil$};
+			\node[syntax] (I) [below of=F,node distance=2.5cm]   {$\nil$};			
+			
+			
+			
+			
+			
+			\path (A) edge[->] node [opacity=0, text opacity=1]{\feature{A}~$\nombreRegla{feat}$} (B)
+			
+			(B) edge[->] node[left, opacity=0, text opacity=1] {\feature{B}~$\nombreRegla{con1}$} (C)
+			(B) edge[->] node[right, opacity=0, text opacity=1] {\feature{C}~$\nombreRegla{con2}$} (D)
+			
+			(C) edge[->] node[left, opacity=0, text opacity=1] {\feature{C}~$\nombreRegla{con2}$} (E)
+			
+			(D) edge[->] node[left, opacity=0, text opacity=1] {\feature{B}~$\nombreRegla{con1}$} (F)	
+			(D) edge[->] node[right, opacity=0, text opacity=1] {$\checkmark$~$\nombreRegla{con3}$~$\nombreRegla{ofeat2}$} (G)	
+			
+			(E) edge[->] node[left, opacity=0, text opacity=1] {$\checkmark$~$\nombreRegla{con3}$} (H)	
+			(F) edge[->] node[right, opacity=0, text opacity=1] {$\checkmark$~$\nombreRegla{con3}$} (I)					
+			
+			
+			;		
+			
+			
+			\end{tikzpicture}% 
+		}
+	\end{minipage}
+	\vspace{0.5cm}
+	
+	$\begin{array}{ll}
+	\EX{d}&
+	\products{\feature{A};(\feature{B};\checkmark\paral \feature{C};\checkmark)}=
+	\left\{
+	\begin{array}{l}
+	\left[\feature{A}\feature{B}\feature{C}\right]%, \\
+	% \left[\feature{A}\feature{C}\feature{B}\right]\\ [ABC] y [ACB] son el mismo producto
+	\end{array}
+	\right\}
+	\\
+	\EX{e} &
+	\products{\feature{A};(\ofeature{B};\checkmark\paral \feature{C};\checkmark)}=
+	\left\{
+	\begin{array}{l}
+	\left[\feature{A}\feature{B}\feature{C}\right], 
+	\left[\feature{A}\feature{C}\right]\\ 
+	\end{array}
+	\right\}
+	\end{array}$	
+	\vspace{0.5cm}
+	
+	\linefigure
+	\caption{Operational semantics application for the operator $\nombreRegla{con}$.\label{figure:semantics:optcomp2}}
+	
+\end{figure}
+
+In the examples~\EX{a} and~\EX{b} from figure
+\ref{figure:semantics:optcomp}
+can be described the rules behavior when computing optional or
+mandatory feature.
+The example~\EX{a}, 
+shows that the feature~\feature{B} is optional, in the mean time, in \EX{b}
+is mandatory.
+This condition is described in the example
+\EX{b},
+because there is a term corresponding with the transition
+$\ofeature{B};\checkmark\tran{\checkmark}\nil$,
+which is not present in the example~\EX{a}.
+
+
+\begin{figure}[h]
+	\centering
+	\linefigure
+	\vspace{0.5cm}
+	\centering
+	\begin{minipage}[t]{.4\textwidth}
+		\centering
+		\EX{f} \\ \vspace{0.5cm}
+		
+		\scalebox{0.6}{
+			\begin{tikzpicture}[->,>=stealth',auto,node distance=2cm]
+			
+			\node[syntax] (A){$\exclude{B}{C}{ \feature{A};(\ofeature{B};\checkmark\paral \ofeature{C};\checkmark)}$};
+			\node[syntax] (B) [below of=A]   {$\exclude{B}{C}{(\ofeature{B};\checkmark\paral \ofeature{C};\checkmark)}$};
+			\node[syntax] (C) [below left of=B,node distance=4cm]   {$\forbid{C}{(\checkmark\paral\ofeature{C};\checkmark)}$};
+			\node[syntax] (D) [below of=B,node distance=3cm]   {$\nil$};
+			\node[syntax] (E) [below right=1.5cm and 2cm of B]   {$\forbid{B}{(\ofeature{B};\checkmark\paral\checkmark)}$};
+			\node[syntax] (F) [below  of=C]   {$\nil$};
+			\node[syntax] (G) [below  of=E]   {$\nil$};
+			
+			
+			\path (A) edge[->] node [opacity=0, text opacity=1]{\feature{A}~$\nombreRegla{feat}$~$\nombreRegla{excl1}$} (B)
+			
+			(B) edge[->] node[left, opacity=0, text opacity=1] {\feature{B}~$\nombreRegla{excl2}$} (C)
+			(B) edge[->] node[below right, opacity=0, text opacity=1] {\checkmark~$\nombreRegla{con3}$~$\nombreRegla{ofeat2}$} (D)
+			(B) edge[->] node[right, opacity=0, text opacity=1] {\feature{C}~$\nombreRegla{excl3}$} (E)
+			
+			(C) edge[->] node[right, opacity=0, text opacity=1] {$\checkmark$~$\nombreRegla{ofeat2}$~$\nombreRegla{forb2}$} (F)
+			(E) edge[->] node[right, opacity=0, text opacity=1] {$\checkmark$~$\nombreRegla{ofeat2}$~$\nombreRegla{forb2}$} (G)
+			
+			;
+			\end{tikzpicture}}
+		
+	\end{minipage}% <---------------- Note the use of "%"
+	\begin{minipage}[t]{.6\textwidth}
+		\centering
+		\EX{g} \\ \vspace{0.5cm}
+		\scalebox{0.6}{
+			\begin{tikzpicture}[->,>=stealth',auto,node distance=2cm]
+			
+			
+			\node[syntax] (A){$\require{B}{C}{ \feature{A};(\ofeature{B};\checkmark\paral \ofeature{C};\checkmark)}$};
+			\node[syntax] (B) [below of=A]   {$\require{B}{C}{(\ofeature{B};\checkmark\paral \ofeature{C};\checkmark)}$};
+			\node[syntax] (C) [below left=1cm and 0.5cm of B]   {$\mandatory{C}{(\checkmark\paral\ofeature{C};\checkmark)}$};
+			\node[syntax] (D) [below of=B]   {$\nil$};
+			\node[syntax] (E) [below right=1cm and 0.5cm of B]   {$\require{B}{C}{(\ofeature{B};\checkmark\paral\checkmark)}$};
+			\node[syntax] (F) [below  of=C]   {$\checkmark$};
+			\node[syntax] (G) [below  left=2.5cm and 0.5cm of E]   {$\nil$};
+			\node[syntax] (H) [below  of =E]   {$\mandatory{C}{(\checkmark\paral\checkmark)}$};			
+			\node[syntax] (I) [below  of=H]   {$\checkmark$};			
+			\node[syntax] (J) [below  of=I]   {$\nil$};	
+			\node[syntax] (K) [below  of=F]   {$\nil$};	
+			
+			
+			\path (A) edge[->] node [opacity=0, text opacity=1]{\textbf{\feature{A}~$\nombreRegla{feat}$~$\nombreRegla{excl1}$}} (B)
+			
+			(B) edge[->] node[left, opacity=0, text opacity=1] {\feature{B}~$\nombreRegla{req2}$} (C)
+			(B) edge[->] node[right, opacity=0, text opacity=1] {\checkmark~$\nombreRegla{con3}$} (D)
+			(B) edge[->] node[right, opacity=0, text opacity=1] {\feature{C}~$\nombreRegla{con2}$} (E)
+			
+			(C) edge[->] node[right, opacity=0, text opacity=1] {$\feature{C}$~$\nombreRegla{mand1}$~$\nombreRegla{mand2}$} (F)
+			(E) edge[->] node[below left=0cm and 0.5cm, opacity=0, text opacity=1] {$\checkmark$~$\nombreRegla{ofeat2}$~$\nombreRegla{con3}$} (G)
+			(E) edge[->] node[right, opacity=0, text opacity=1] {$\feature{B}$~$\nombreRegla{ofeat2}$~$\nombreRegla{con3}$} (H)	
+			(F) edge[->] node[right, opacity=0, text opacity=1] {\checkmark~$\nombreRegla{nil}$} (K)	
+			(H) edge[->] node[right, opacity=0, text opacity=1] {$\feature{C}$~$\nombreRegla{mand1}$} (I)
+			(I) edge[->] node[right, opacity=0, text opacity=1] {\checkmark~$\nombreRegla{nil}$} (J)
+			;
+			
+			\end{tikzpicture}}
+	\end{minipage}
+	\vspace{0.5cm}
+	
+	$\begin{array}{ll}
+	\EX{f} &
+	\products{\begin{array}{l}\exclude{B}{C}{ \feature{A};\\(\ofeature{B};\checkmark\paral \ofeature{C};\checkmark)}\end{array}}=
+	\left\{
+	\begin{array}{l}
+	[\feature{A}],
+	\left[\feature{A}\feature{B}\right],
+	\left[\feature{A}\feature{C}\right]\\
+	\end{array}
+	\right\}
+	\\ \\
+	\EX{g}&
+	\products{\begin{array}{l}\require{B}{C}{ \feature{A};\\(\ofeature{B};\checkmark\paral \ofeature{C};\checkmark)}\end{array}}=
+	\left\{
+	\begin{array}{l}
+	
+	\left[\feature{A}\feature{B}\feature{C}\right],
+	[\feature{A}],\left[\feature{A}\feature{C}\right]\\
+	\end{array}
+	\right\}
+	\end{array}$	
+	\vspace{0.5cm}
+	
+	\linefigure	
+	
+	\caption{Operational semantics application for the operators
+		$\nombreRegla{excl}$ and $\nombreRegla{mand}$.\label{figure:semantics:optcomp3}}
+	
+\end{figure}
+
+The example \EX{c} from the figure~\ref{figure:semantics:optcomp}
+and the example~\EX{d} from the figure \ref{figure:semantics:optcomp2}
+show the difference between the choose-one and parallel operators respectively.
+In the \emph{choose-one}, operator the non-necessary part from the term which is not
+needed for processing the next features is removed, 
+in the mean time in the \emph{parallel} operator we keep all the term.
+From the example~\EX{c}, we obtain the traces
+$\feature{A}\feature{B}$ and $\feature{A}\feature{C}$,
+which mean two different products
+$[\feature{A}\feature{B}]$ and $[\feature{A}\feature{C}]$.
+In the contrary, the traces from the example~\EX{d} are $\feature{A}\feature{B}\feature{C}$ and $\feature{A}\feature{C}\feature{B}$,
+generating a unique valid product,
+$[\feature{A}\feature{B}\feature{C}]$.
+In the example \EX{e} it is displayed the same term used in the
+example \EX{d} adding \feature{B} as optional, generating
+$[\feature{A}\feature{B}\feature{C}]$ and
+$[\feature{A}\feature{C}]$.
+
+In the figure~\ref{figure:semantics:optcomp3} with the examples
+\EX{f} and \EX{g}, we can show the \emph{exclusion} and \emph{requirement}
+operators behavior, showing that once those rules are applied will be
+processed the auxiliary operators of \emph{hiding} and \emph{mandatory}
+respectively.
+
+\subsection{$\fodaPA$ denotational semantics}
+\label{sec:foda:denotational}
+
+The \emph{denotational}
+semantics rules do not rely
+on computational steps for transitioning between
+states. A set of functions will be defined
+to model the system behavior, based on describing a
+semantic operator for each syntactical operator in $\fodaPA$.
+
+
+Given the needed mathematical domain, $\calP(\calP(\calF))$,
+if $\calF$ is a set,
+$\calP(\calF)$ will be the superset of $\calF$.
+
+This is achieved using the following definition.
+
+\bdfn\label{def:semmatic:operators}
+Given the products sets $P, Q\in\calP(\calP(\calF))$
+and the features $\feature{A},\feature{B}\in\calF$,
+the following operators are defined:
+
+\begin{itemize}
+	\item $\semden{\nil}=\emptyset$
+	\item $\semden{\checkmark}=\{\emptyset\}$
+	\item 
+	$\semden{\feature{A};\cdot}:\calP(\calP(\calF))\mapsto\calP(\calP(\calF))$
+	as
+	$$\semden{\feature{A};\cdot}(P)=\{\{\feature{A}\}\cup p\ |\ p\in
+	P\}$$
+	
+	\item 
+	$\semden{\ofeature{A};\cdot}:\calP(\calP(\calF))\mapsto\calP(\calP(\calF))$
+	as
+	$$\semden{\ofeature{A};\cdot}(P)=\{\emptyset\}\cup\{\{\feature{A}\}\cup p\ |\ p\in
+	P\}$$
+	
+	\item 
+	$\semden{\cdot\choice\cdot}:\calP(\calP(\calF))\times\calP(\calP(\calF))\mapsto\calP(\calP(\calF))$
+	as 
+	$$\semden{\cdot\choice\cdot}(P,Q)=P\cup Q$$
+	\item 
+	$\semden{\cdot\paral\cdot}:\calP(\calP(\calF))\times\calP(\calP(\calF))\mapsto\calP(\calP(\calF))$
+	as 
+	$$\semden{\cdot\paral\cdot}(P,Q)=\{ p\cup q\ |\ p\in P,\ q\in Q\}$$
+	\item  
+	$\semden{\require{A}{B}{\cdot}}:\calP(\calP(\calF))\mapsto\calP(\calP(\calF))$
+	as 
+	$$\semden{\require{A}{B}{\cdot}}(P)=\begin{array}[t]{l}
+	\{p\ |\ p\in P, \feature{A}\not\in p\}\cup\\
+	\{p\cup\{\feature{B}\}\ |\ p\in P, \feature{A}\in p\} 
+	\end{array}$$
+	\item  
+	$\semden{\exclude{A}{B}{\cdot}}:\calP(\calP(\calF))\mapsto\calP(\calP(\calF))$
+	as 
+	$$\semden{\exclude{A}{B}{\cdot}}(P)=\begin{array}[t]{l}
+	\{p\ |\ p\in P, \feature{A}\not\in p\}\cup\\
+	\{p\ |\ p\in P, \feature{B}\not\in p\}
+	\end{array}$$
+	\item $\semden{\mandatory{A}{\cdot}}:\calP(\calP(\calF))\mapsto\calP(\calP(\calF))$
+	as 
+	$$\semden{\mandatory{A}{\cdot}}(P) = \{p\cup\{\feature{A}\}\ |\ p\in P\}$$
+	\item   $\semden{\forbid{A}{\cdot}}:\calP(\calP(\calF))\mapsto\calP(\calP(\calF))$
+	as 
+	$$\semden{\forbid{A}{\cdot}}(P) = \{p\ |\ p\in P, \feature{A}\not\in p\}$$
+\end{itemize}
+\edfn
+
+
+\begin{figure}[h] 
+	\linefigure	
+	\vspace{0.5cm}
+	\noindent\begin{minipage}[t]{.52\linewidth}
+		\centering
+		\scalebox{0.7}{
+			$
+			\begin{array}{l@{}l@{}l}
+			\multicolumn{3}{c}{\EX{a}} \\
+			\semden{\checkmark} &=& \{\emptyset\}\\
+			\semden{\ofeature{B};\checkmark}\ &=& 
+			\semden{\ofeature{B};\cdot}(\semden{\checkmark})\ = 
+			\semden{\ofeature{B};\cdot}(\{\emptyset\})\ =  \{\emptyset, \{\feature{B}\}\}\\
+			\semden{\feature{A};\ofeature{B};\checkmark}\ &=&
+			\semden{\feature{A};\cdot}(\semden{\ofeature{B};\checkmark})\ =\semden{\feature{A};\cdot}(\{\emptyset\}\cup \{\feature{B}\})\ =\\
+			&&  \{\{\feature{A}\},\{\feature{A},\feature{B}\}\}\\
+			
+			& & \\
+			\multicolumn{3}{c}{\EX{b}} \\
+			\semden{\feature{B};\checkmark}\ &=&
+			\semden{\feature{B};\cdot}(\semden{\checkmark})\ = \
+			\semden{\feature{B};\cdot}(\{\emptyset\})\ =\
+			\{\{\feature{B}\}\}\\
+			\semden{\feature{A};\feature{B};\checkmark}\ &=&
+			\semden{\feature{A};\cdot}(\semden{\feature{B};\checkmark})\ =\
+			\semden{\feature{A};\cdot}(\{\feature{B}\})\ = \{\{\feature{A},\feature{B}\}\}\\
+			
+			& & \\
+			\multicolumn{3}{c}{\EX{c}} \\
+			\semden{\feature{B};\checkmark}\ &=& \{\{\feature{B}\}\}\\
+			\semden{\feature{C};\checkmark}\ &=& \{\{\feature{C}\}\}\\
+			\semden{\feature{B};\checkmark\choice \feature{C};\checkmark}\ &=&
+			\semden{\cdot\choice\cdot}(\semden{\feature{B};\checkmark},\semden{\feature{C};\checkmark})\ =\\
+			&& \semden{\feature{B};\checkmark}\cup\semden{\feature{C};\checkmark}\ =\
+			\{\{\feature{B}\},\{\feature{C}\}\}\\
+			\semden{\feature{A};(\feature{B};\checkmark\choice \feature{C};\checkmark)}\ &=&
+			\semden{\feature{A};\cdot}(\semden{\feature{B};\checkmark\choice \feature{C};\checkmark})\ =\\
+			&& \semden{\feature{A};\cdot}(\{\{\feature{B}\},\{\feature{C}\}\})\ =\
+			\{\{\feature{A},\feature{B}\},\{\feature{A},\feature{C}\}\}\\
+			
+			
+			& & \\
+			\multicolumn{3}{c}{\EX{d}} \\
+			\semden{\feature{B};\checkmark\paral \feature{C};\checkmark}\ &=&
+			\semden{\cdot\paral\cdot}(\semden{\feature{B};\checkmark},\semden{\feature{C};\checkmark})\ =\\
+			\semden{\cdot\paral\cdot}(\{\{\feature{B}\}\}, \{\{\feature{C}\}\})\ &=&
+			\{\{\feature{B},\feature{C}\}\}\\
+			\semden{\feature{A};(\feature{B};\checkmark\paral \feature{C};\checkmark)}\ &=&
+			\semden{\feature{A};\cdot}(\{\{\feature{B},\feature{C}\}\})\ =\\
+			&&
+			\{\{\feature{A},\feature{B},\feature{C}\}\}\\
+			\end{array}
+			$}
+	\end{minipage}%%
+	\begin{minipage}[t]{.4\linewidth}
+		\centering
+		\scalebox{0.7}{
+			$
+			\begin{array}{l@{}l@{}l}
+			\multicolumn{3}{c}{\EX{e}} \\
+			\semden{\ofeature{B};\checkmark\paral \feature{C};\checkmark)}\ &=&
+			\semden{\cdot\paral\cdot}(\{\emptyset,\{\feature{B}\}\},\{\{\feature{C}\}\})\ =\\
+			&&   \{\{\feature{C}\},\{\feature{B},\feature{C}\}\}\\
+			\semden{\feature{A};(\ofeature{B};\checkmark\paral \feature{C};\checkmark)}\ &=&
+			\semden{\feature{A};\cdot}(\semden{\ofeature{B};\checkmark\paral \feature{C};\checkmark)})\ =\\
+			&&\semden{\feature{A};\cdot}(\{\{\feature{C}\},\{\feature{B},\feature{C}\}\})\ =\\
+			&& \{\{\feature{A},\feature{C}\},\{\feature{A},\feature{B},\feature{C}\}\}\\
+			
+			
+			& & \\
+			\multicolumn{3}{c}{\EX{f}} \\
+			\semden{\ofeature{B};\checkmark\paral \ofeature{C};\checkmark}\ &=&
+			\semden{\cdot\paral\cdot}(\semden{\ofeature{B};\checkmark},\semden{\ofeature{C};\checkmark})\ =\\
+			&&   \semden{\cdot\paral\cdot}(\{\emptyset,\{\feature{B}\}\},\{\emptyset,\{\feature{C}\}\})\ = \\
+			&&   \{\emptyset,\{\feature{B}\},\{\feature{C}\},\{\feature{B},\feature{C}\}\}\\
+			\semden{\feature{A};
+				(\ofeature{B};\checkmark\paral \ofeature{C};\checkmark)}\ &=& 
+			\semden{\feature{A};\cdot}(\semden{\ofeature{B};\checkmark\paral \ofeature{C};\checkmark})\ =\\
+			&& \semden{\feature{A};\cdot}(\{\emptyset,\{\feature{B}\},\{\feature{C}\},\{\feature{B},\feature{C}\}\})\ =\\
+			&& \{\{\feature{A}\},\{\feature{A},\feature{B}\},\{\feature{A},\feature{C}\},\{\feature{A},\feature{B},\feature{C}\}\}\\
+			\Semden{
+				\begin{array}{l}\exclude{B}{C}{\feature{A};}\\
+				(\ofeature{B};\checkmark\paral \ofeature{C};\checkmark)\end{array}}\ &=&
+			\semden{\exclude{B}{C}{\cdot}}\left(\begin{array}{l}\{\{\feature{A}\},\{\feature{A}, \feature{B}\},\\ \{\feature{A},\feature{C}\},\{\feature{A},\feature{B},\feature{C}\}\}\end{array}\right)\ =\\
+			&& \{\{\feature{A}\},\{\feature{A},\feature{C}\},\{\feature{A},\feature{B}\}\}\\ 
+			
+			
+			& & \\
+			\multicolumn{3}{c}{\EX{g}} \\
+			\Semden{
+				\begin{array}{l}\require{B}{C}{\feature{A};}\\
+				(\ofeature{B};\checkmark\paral \ofeature{C};\checkmark)\end{array}}\ &=&
+			\semden{\require{B}{C}{\cdot}}\left(\begin{array}{l}\{\{\feature{A}\},\{\feature{A}, \feature{B}\},\\ \{\feature{A},\feature{C}\},\{\feature{A},\feature{B},\feature{C}\}\}\end{array}\right)\ =\\
+			&& \{\{\feature{A}\},\{\feature{A},\feature{B},\feature{C}\},\{\feature{A},\feature{C}\}\}\\ 
+			\end{array}
+			$}		
+		
+	\end{minipage} 
+	\vspace{0.5cm}
+	\linefigure
+	
+	\caption{Denotational semantics rules application.\label{figure:denotational:optcomp}}
+\end{figure}
+
+To explain the denotational semantics behavior the same examples
+\EX{a}
+\EX{b}
+\EX{c}
+\EX{d}
+\EX{e}
+\EX{f}
+\EX{g}
+from the figures
+\ref{figure:semantics:optcomp},
+\ref{figure:semantics:optcomp2} and
+\ref{figure:semantics:optcomp3}
+respectively
+are processed used the rules presented in the denotational semantics definition
+in the figure~\ref{figure:denotational:optcomp}.
+
+Given the proper introduction to the operational and denotational semantics
+from the previous work, we continue in the next section defining the syntax and semantics
+of the probabilistic extension.
+
+
