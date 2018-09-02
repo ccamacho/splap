@@ -251,77 +251,6 @@ It is worth to mention that the order in which features are processed to create 
 %
 In order to alleviate this issue, in this paper we propose a probabilistic extension of our previous work \fodaPA. We use probabilistic information to identify those features that are more frequently used by computing the probability of having a feature in a specific \SPL. Hence, the computation focuses on those features with a high probability to be present in the final product, reducing the total computation required for generating valid products. The proposed probabilistic extension has been fully implemented in a tool. In order to show its usefulness, we have conducted an experimental study where different models consisting of 1500 features have been analyzed. In this case, 450 features have a probability equal to 0.75 to be included in a final product. This means that, at least, the 75\% of the generated products are tested by only analyzing the 30\% of the features in the \SPL\ (450 features).
 
-The study of probabilistic extensions of formal methods can be dated back to the end of the 1980s. This is already a well established area, with many extensive contributions to include probabilistic information in classical formalisms (I/O Automata, Finite State Machines, (co-)algebraic approaches, among others)~\cite{ls91,rgs95,cdsy99,nun03,lnr06,csv07,dp07,dghm08,hm09,aprs11,sok11,hn12,dghm14,agl16,Chrszon2018}.
-%
-%
-%Figures like the displayed trees describe how probabilities are assigned in the system behavior (see Figure~\ref{fig:displayedTrees}). These models allow to assign a real value between 0 and 1 to each transition in order to execute an event. It is important to notice that the probability of execute a transition \textit{t} is not necessarily equal to the other probabilities from the same level.
-%\begin{figure}[h]
-%	\hspace{50px}
-%	\begin{minipage}{0.4\hsize}       		
-%		
-%		\begin{minipage}{0.2\hsize}
-%			\scalebox{0.6}{
-%				\begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=2cm, semithick]
-%				
-%				\node[circle,draw] (A)   {};
-%				\node[circle,draw] (B) [below left of=A]   {};
-%				\node[regular polygon,regular polygon sides=3,draw,scale=0.8] (F) [below of=B]   {T};
-%				\node[circle,draw] (C) [below right of=A]   {};
-%				\node[circle,draw] (D) [below left of=C]   {};
-%				\node[circle,draw] (E) [below right of=C]   {};
-%				\node[regular polygon,regular polygon sides=3,draw,scale=0.8] (G) [below  of=D]   {T};
-%				\node[regular polygon,regular polygon sides=3,draw,scale=0.8] (H) [below  of=E]   {T};			 
-%				
-%				\path (A) edge [] node [pos=0.5, above left, draw=white, opacity=0, text opacity=1]{1/3} (B);
-%				\path (B) edge [] node [pos=0.5, left, draw=white, opacity=0, text opacity=1]{a} (F);
-%				\path (A) edge [] node [pos=0.5, above right, draw=white, opacity=0, text opacity=1]{1/2} (C);
-%				\path (C) edge [] node [pos=0.5, above left, draw=white, opacity=0, text opacity=1]{1/2} (D);
-%				\path (C) edge [] node [pos=0.5, above right, draw=white, opacity=0, text opacity=1]{1/2} (E);
-%				\path (D) edge [] node [pos=0.5, right, draw=white, opacity=0, text opacity=1]{b} (G);
-%				\path (E) edge [] node [pos=0.5, left, draw=white, opacity=0, text opacity=1]{c} (H);
-%				\end{tikzpicture}
-%			}
-%		\end{minipage}
-%	\end{minipage}
-%	\begin{minipage}{0.4\hsize}
-%		
-%		\begin{minipage}{0.2\hsize}
-%			\scalebox{0.6}{
-%				\begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=4cm, semithick]
-%				\node[circle,draw] (A)   {};
-%				\node[regular polygon,regular polygon sides=3,draw,scale=0.8] (B) [below left of=A]   {T};
-%				\node[regular polygon,regular polygon sides=3,draw,scale=0.8] (C) [below  of=A]   {T};			 
-%				\node[regular polygon,regular polygon sides=3,draw,scale=0.8] (D) [below right of=A]   {T};			 
-%				
-%				\path (A) edge [] node [pos=0.5, above left, draw=white, opacity=0, text opacity=1]{1/3} (B);
-%				\path (A) edge [] node [pos=0.5, left, draw=white, opacity=0, text opacity=1]{1/3} (C);
-%				\path (A) edge [] node [pos=0.5, above right, draw=white, opacity=0, text opacity=1]{1/3} (D);
-%				
-%				\end{tikzpicture}}
-%		\end{minipage}
-%		
-%	\end{minipage}
-%	
-%	\caption{Displayed trees representing probabilities.}
-%	\label{fig:displayedTrees}
-%	
-%\end{figure}
-%
-%\acomen{He puesto título y referencia a esta figura (Fig. 2). Please, check!}
-%
-%\acomen{Carlos, he cambiado el siguiente texto con referencias a papers de probabilidades. Please, check para ver que no digo nada cantoso)}
-%%
-Although the addition of probabilistic information to model \SPLs\ is relatively new, there are already several proposals in the literature~\cite{chssgl13,tllv15,tlll15,dpcslsh17}. In particular, very recent 
-work~\cite{dpcslsh17} shows that statistic analysis allows users to determine relevant characteristics, like the certainty of finding valid products among complex models.
-%
-Another approach~\cite{chssgl13} focuses on testing properties of \SPLs, like reliability, by defining three verification techniques: a probabilistic model checker on each product, on a model range, and testing the behavior relations with other models.
-%
-Some of these approaches describe models to run statistical analysis over \SPLs, where pre-defined syntactic elements are computed by applying a specific set of operational rules~\cite{tllv15,tlll15}. These models demonstrate their ability to be integrated into standard tools like QFLan~\cite{tlll15}, Microsoft's SMT Z3~\cite{ln08} and MultiVeStA~\cite{sa13}.
-%
-%Some of these works describe models to run statistical analysis to represent \SPLs\ by defining an specific set of operational rules to compute their defined syntax elements~\cite{tllv15,tlll15}. These models demonstrate their ability by being integrated to standard tools like QFLan, Microsoft's SMT Z3 and MultiVeStA.
-%
-%Other works focus on describing use cases for analyzing the probability of finding features inside valid products~\cite{dpcslsh17}. %An interesting feature is that any of the referenced research articles describe their approaches using multisets.
-
 The main contributions of this work can be summarized as:
 
 \begin{itemize}
@@ -339,9 +268,11 @@ in comparison with the denotational semantics implementations presented in previ
 
 
 The rest of the paper is structured as follows.
+Section \ref{ref:related-work} introduces the related work on probabilistic analysis
+of feature models.
 Section \ref{sec:foda:sintaxMain} presents an introduction to the
 \fodaPA\ syntax and the main operators usage for both the operational
-and denotational semanctics.
+and denotational semantics.
 Section \ref{sec:stat:sintaxMain} presents our probabilistic language \fodaPAp. Section \ref{sec:equivalenceMain} is used to prove the equivalence between the operational and denotational semantics. In section \ref{sec:stat:hidMain} we extend our language to define how sets of features can be hidden. Section~\ref{sec:stat:impl} presents an empirical study that has been carried out by using our implementation of the denotational semantics for the probabilistic extension. Finally, section~\ref{section:jstat:concs} presents our conclusions and some lnes of future work.
 
 
