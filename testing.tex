@@ -21,15 +21,41 @@ The experiments have been executed in a computer with the following features: In
 Firstly, we have carried out an experiment to show the computing time required to calculate the probability of having
 each feature in a product. In order to run this experiment, a variability model consisting of
 1500 features has been used. This variability model
-was randomly generated using BeTTy~\cite{SeguraHBC11}. The parameters for
+was randomly generated using BeTTy~\cite{SeguraHBC11}.
+
+BeTTy generates feature models based on a set of pre-defined parameters,
+the meaning of these parameters are about how 
+BeTTy will randomly generate the feature models.
+In this case BeTTy
+requires to provide 4 parameters, and the sum of the probabilities for these parameters
+must be 1:
+
+\begin{itemize}
+	\item The probability of having a mandatory feature.
+	\item The probability of having an optional feature.
+	\item The probability of having a feature in a \emph{choose-one} relationship.
+	\item The probability of having a feature in a \emph{conjunction} relationship.
+\end{itemize}
+
+The parameters for
 generating the BeTTy model are the following:
 
 \begin{itemize}
         \item The probability of having a mandatory feature is 0.2.
         \item The probability of having an optional feature is 0.3.
-        \item The probability of having a feature in a \emph{choose-one} relation is 0.25.
-        \item The probability of having a feature in a \emph{conjunction} relation is 0.25.
+        \item The probability of having a feature in a \emph{choose-one} relationship is 0.25.
+        \item The probability of having a feature in a \emph{conjunction} relationship is 0.25.
 \end{itemize}
+
+We wanted to have the same probability of having the same relationships in the model, that is
+the reason of having 0.25 for the  \emph{choose-one} and \emph{conjunction} relationships.
+It is know that the optional features affects induces a  combinatorial explosion when creating
+all the possible valid products from a feature model, in which case we wanted to give more
+probability to having optional features in the model, that is the reason why we choose 0.3 for the
+probability of having optional features in the model and 0.2 for having mandatory features. The
+sum of all probabilities must be 1. If no weight is configured all features and relationships will
+have the same weight, which is 0.25.
+
 
 \begin{figure}[h]
         \centering
