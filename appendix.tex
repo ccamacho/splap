@@ -95,160 +95,345 @@
   \end{proof}
 \elem
 
-
-\bdfn
-  Let $s,s'\in\calF^*$ be traces, we denote with $\inter(s,s')$ the set of traces
-  obtained by alternating $s$ and $s'$.
-\edfn
-
 \blem\label{lem:paral}
-  Let $P,Q\in\fodaPAp$, $p,q\in (0,1)$ and
-  $s,s'\in\calF^*$
-  such $p=\sum\lbag p'\ |\ P\vtranp{s\checkmark}{p'}\nil\rbag$ and
-  $q=\sum\lbag q'\| |\ Q\vtranp{s'}{q'}\nil\rbag$
-  then
-  $$p\cdot q = \sum\lbag r\ |\ P\paral Q\vtranp{s''\checkmark}{r}\nil\y s''\in\inter(s,s)\rbag$$
-  \begin{proof}
-    By induction of $|s|+|s'|$.
-    \begin{description}
-    \item[$|s|+|s'|=0$] Since
-      $P\paral Q\tranp{\checkmark}{r}\nil$
-      if and only if $P\tranp{\checkmark}{r_1}\nil$,
-      $Q\tranp{\checkmark}{r_2}\nil$, and $r=r_1\cdot r_2$,
-      behold the following:
-      \begin{equation}
-        \label{eq:paral1}
-        \begin{split}
-          \sum \lbag r\ |\ P\paral Q\tranp{\checkmark}{r}\nil \rbag =\\
-          \sum \lbag r\ |\ P\tranp{\checkmark}{r_1}\nil\y Q\tranp{\checkmark}{r_2}\nil\y r=r_1\cdot r_2 \rbag=\\
-          \sum \lbag  r_1\cdot r_2 \ |\ P\tranp{\checkmark}{r_1}\nil\y Q\tranp{\checkmark}{r_2}\nil \rbag= \\
-          \sum \scaleleftright{\lbag}{r_1 \cdot \left(\sum \lbag r_2\ |\ Q\tranp{\checkmark}{r_2}\nil \rbag\right)\ \vstretch{2}{|}\  P\tranp{\checkmark}{r_1}\nil}{\rbag} = \\
-          \sum \lbag  r_1 \cdot q |\  P\tranp{\checkmark}{r_1}\nil\rbag = q\cdot \sum \lbag  r_1  |\  P\tranp{\checkmark}{r_1}\nil\rbag = q\cdot p
-        \end{split}
-      \end{equation}
-    \item[$|s|+|s'|>0$] Suppose that $|s|>0$ (the case $|s'|>0$
-      is symmetric). Let's consider that $s=\feature{A}\cdot s_1$.
-      Now consider the multiset
-      $\calP=\lbag P'\ |\ P\tranp{\f{A}}{r'} P'\vtranp{s_1\checkmark}{p'}\nil\rbag$ and given $r_1 = \sum\lbag r\ |\ P\tranp{\f{A}}{r} P'\y P'\in\calP\rbag$ and
-      $p_1=\sum\lbag r\ |\ P'\vtranp{s_1\checkmark}{r}\nil\y P'\in\calP\rbag$. It easy to verify that $p=r_1\cdot p_1$:\\
-      \scalebox{0.9}{\parbox{1.1\hsize}{\begin{equation}
-        \label{eq:paral2}
-        \begin{split}
-          p = \sum\lbag  r\ |\ P\vtranp{s\checkmark}{r}\nil \rbag =  \\
-          \sum\lbag  r'\cdot p'\ |\  P\tranp{\f{A}}{r'} P'\vtranp{s_1\checkmark}{p'}\nil \rbag =\\
-          \sum\scaleleftright{\lbag}{r'\cdot\underbrace{\left(\sum\lbag p'\ |\ P'\vtranp{s_1\checkmark}{p'}\nil\rbag\right)}_{p_1}\ \vstretch{2}{|}\  P\tranp{\f{A}}{r'} P'\y P'\in\calP}{\rbag} =\\
-          p_1\cdot\sum\lbag  r'\ |\  P\tranp{\f{A}}{r'} P'\y P'\in\calP \rbag = r_1\cdot p_1
-        \end{split}
-      \end{equation}}}\\
-      For any $P'\in\calP$, and then for the inductive hypothesis we obtain
-      $$
-      p'\cdot q =\sum\lbag r\ |\ P'\paral Q\vtranp{s''\checkmark}{r}\y s''\in\inter(s_1,s')\rbag
-      $$
-      So forth
-      \begin{equation}
-        \label{eq:paral3}
-        \begin{split}
-          \sum\lbag r\ |\ P'\in\calP \y P'\paral Q\vtranp{s''\checkmark}{r}\y s''\in\inter(s_1,s')\rbag = \\
-          \sum\lbag p'\cdot q\ |\  P'\in\calP\y P'\vtranp{s_1\checkmark}{p'}\nil\y s''\in\inter(s_1,s')\rbag\\
-          q\cdot \sum\lbag r\ |\ P'\vtranp{s_1\checkmark}\nil\y P'\in\calP\rbag=p_1\cdot q
-        \end{split}
-      \end{equation}
-      then for any $P'\in\calP$ we obtain $P\paral Q\vtranp{s''\checkmark}{r}\nil$
-      where $P\tranp{\f{A}}{r'}P'$, $r=\frac{r'}{2}\cdot p'\cdot q$ and $s''$
-      is the alternation of $s$ and $s'$. So forth\\
-      \scalebox{0.8}{\parbox{1.3\hsize}{\begin{equation}
-        \label{eq:paral4}
-        \begin{split}
-          \sum\lbag  r\ |\ P\paral Q\tranp{\f{A}}{\frac{r_1}{2}}P'\paral Q\vtranp{s''\checkmark}{r_2}\nil\y P'\tranp{\f{A}}{r_1}P' \y \\ r=\frac{r_1}{2}\cdot r_1\y s''\in\inter(s_1,s') \rbag = \\
-          \sum\scaleleftright{\lbag}{\frac{r'}{2}\cdot r'' \  \vstretch{2}{|}\ P\tranp{\f{A}}{r'}P'\y P'\paral Q\vtranp{s''\checkmark}{r''}\nil\y s''\in\inter(s_1,s') }{\rbag} = \\
-          \sum\scaleleftright{\lbag}{  \frac{r'}{2}\cdot\left(\underbrace{\sum \scaleleftright{\lbag}{ r''\ \vstretch{4}{|}\
-                  \begin{split}
-                    P'\paral Q\vtranp{s''\checkmark}{r''}\nil\y \\s''\in\inter(s_1,s')
-                  \end{split}}{\rbag}}_{\mathrm{induction\ hypothesis:}\ p_1\cdot q} \right) \ \vstretch{4}{|}\
-            P\tranp{\f{A}}{r'}P'\y P'\in\calP  }{\rbag} = \\
-          \sum\scaleleftright{\lbag}{  \frac{r'}{2}\cdot (p_1\cdot q) \  \vstretch{2}{|}\ P\tranp{\f{A}}{r'}P' \y P'\in\calP   }{\rbag} = \\
-          \frac{(p_1\cdot q)}{2}\cdot  \sum\lbag  r'\ |\ P\tranp{\f{A}}{r'}P' \y P'\in\calP  \rbag = \\
-          \frac{1}{2}(p_1\cdot q\cdot r_1)=\frac{1}{2}(p\cdot q)
-        \end{split}
-      \end{equation}}}
-
-      Equation~\ref{eq:paral4} groups all probabilities
-      of alternating  $s$ and $s'$ where
-      the first action of $s$ happens in the first place.
-      Then we have to group the probabilistic
-      information when the first action of $s'$ happens in the first place.
-
-      There are two possibilities, depending on whether these actions exist or not.
-      Depending on $s'$ we obtain the following options.
-      \begin{description}
-      \item[$|s'|=0$]
-        In this case we have $q=\sum\lbag q'\ |\ Q\tranp{\checkmark}{q'}\nil \rbag$,
-        If $Q\tranp{\checkmark}{q'}\nil$, when applying
-        the rule $\nombreRegla{con4}$ and then obtain
-        $P\paral Q\tranp{\f{A}}{\frac{r'\cdot q'}{2}} P_1$.
-        In this case we obtain\\
-        \scalebox{0.9}{\parbox{1.1\hsize}{\begin{equation}
-          \label{eq:paral5}
-          \begin{split}
-            \sum\lbag  r\ |\  P\paral Q\tranp{\f{A}}{\frac{q'\cdot r'}{2}} P'\vtranp{s_1\checkmark}{p'}\nil\y r=p'\cdot \frac{q'\cdot r'}{2}\rbag=\\
-            \sum\lbag \frac{1}{2}\cdot(p'\cdot r'\cdot q' \ |\  P\paral Q\tranp{\f{A}}{\frac{q'\cdot r'}{2}} P'\vtranp{s_1\checkmark}{p'}\nil \rbag=\\
-            \sum\lbag \frac{1}{2}\cdot(p'\cdot r'\cdot (\underbrace{\sum\lbag q'\ |\ Q\tranp{\checkmark}{q'}\nil \rbag}_{q}) \ |\  P\tranp{\f{A}}{r'}P'\y P'\vtranp{s_1\checkmark}{p'}\nil \rbag=\\
-            \frac{q}{2}\cdot \sum\lbag r'\cdot (\underbrace{\sum\lbag p'\ |\ P'\vtranp{s_1\checkmark}{p'}\nil \rbag}_{p_1}) \ |\  P\tranp{\f{A}}{r'}P'\y P'\in\calP \rbag=\\
-            \frac{1}{2}(q\cdot p_1)\cdot(\underbrace{\sum\lbag r'\ |\ P\tranp{\f{A}}{r'}P'\y P'\in\calP \rbag}_{r_1})=\frac{1}{2}\cdot(q\cdot p_1\cdot r_1)=\frac{1}{2}(q\cdot p)
-          \end{split}
-        \end{equation}}}\\
-        The only transition of $P\paral Q$ that allows
-        to alternate $s$ and $s'$ has the form
-        \begin{enumerate}
-        \item $P\paral Q\tranp{\f{A}}{\frac{r'}{2}} P'\paral Q\vtranp{s''\checkmark}{p'}\nil $ as is indicated above
-        , or
-        \item $P\paral Q\tranp{\f{A}}{\frac{q'\cdot r'}{2}} P'\vtranp{s''\checkmark}{p'}\nil $.
-        \end{enumerate}
-        So forth
-        \begin{equation}
-          \begin{split}
-            \label{eq:paral5}
-            \sum\lbag  r\ |\  P\paral Q\vtran{s\checkmark}\nil\rbag =\\
-            \sum\lbag  r\ |\ P\paral Q\tranp{\f{A}}{\frac{r_1}{2}}P'\paral Q\vtranp{s''\checkmark}{r_2}\nil\y P'\tranp{\f{A}}{r_1}P' \y \\ r=\frac{r_1}{2}\cdot r_1\y s''\in\inter(s_1,s') \rbag +\\
-            \sum\lbag  r\ |\  P\paral Q\tranp{\f{A}}{\frac{q'\cdot r'}{2}} P'\vtranp{s_1\checkmark}{p'}\nil\y r=p'\cdot \frac{q'\cdot r'}{2}\rbag=\\
-            \frac{1}{2}(p\cdot q) + \frac{1}{2}(p\cdot q)= p\cdot q
-          \end{split}
-        \end{equation}
-       \item[$|s'|>0$] Let consider $s'=\f{B}\cdot s_2$.
-        In this case we consider the alternations where
-        $Q$ produces the feature $\f{B}$ in the first place, that is,
-        first we apply the rule~\nombreRegla{con2}. Considering
-        multiset $\calQ=\lbag Q'\ |\ Q\tranp{\f{B}}{r}Q'\vtranp{s_2\checkmark}{q'}\nil\rbag$, and given
-        $r_2=\sum\lbag r\ |\ Q\tranp{\f{B}}{r}Q'\y Q'\in\calQ\rbag$ and $q_1=\sum\lbag r\ |\ Q'\vtranp{s_2\checkmark}{r}\nil\y Q'\in\calQ\rbag$,
-        with a similar reasoning as for the equations~\eqref{eq:paral1} and~\eqref{eq:paral2} we obtain that $q=r_2\cdot q_1$ and
-        \begin{equation}
-          \label{eq:paral6}
-          \begin{split}
-            \sum\lbag  r\ |\ P\paral Q\tranp{\f{B}}{\frac{r_1}{2}}P\paral Q'\vtranp{s''\checkmark}{r_2}\nil\y\\ r=\frac{r_1}{2}\cdot r_1\y s''\in\inter(s,s_2) \rbag = \frac{1}{2}(p\cdot q)
-          \end{split}
-        \end{equation}
-        The only transition of $P\paral Q$ that implies alternating
-        $s$ and $s'$ has the form:
-        \begin{enumerate}
-        \item $P\paral Q\tranp{\f{A}}{p'\cdot\frac{r}{2}} P'\paral Q\vtranp{s''\checkmark}{p'}\nil $ where $s''$ is an alternation of
-        $s_1$ and $s'$, or
-        \item $P\paral Q\tranp{\f{B}}{q'\cdot\frac{r}{2}} P\paral Q'\vtranp{s''\checkmark}{p'}\nil $ where $s''$ is an alternation of
-        $s$ and $s_2$,
-        \end{enumerate}
-        So forth,
-        \begin{equation}
-          \label{eq:paral7}
-          \begin{split}
-            \sum\lbag  r\ |\  P\paral Q\vtran{s\checkmark}\nil\rbag =\\
-            \sum\lbag  r\ |\ P\paral Q\tranp{\f{A}}{\frac{r_1}{2}}P'\paral Q\vtranp{s''\checkmark}{r_2}\nil\y P'\tranp{\f{A}}{r_1}P' \y\\ r=\frac{r_1}{2}\cdot r_1\y s''\in\inter(s_1,s') \rbag + \\
-            \sum\lbag  r\ |\ P\paral Q\tranp{\f{B}}{\frac{r_1}{2}}P\paral Q'\vtranp{s''\checkmark}{r_2}\nil\y Q'\tranp{\f{B}}{r_1}Q' \y\\ r=\frac{r_1}{2}\cdot r_1\y s''\in\inter(s,s_2) \rbag = \\
-            \frac{1}{2}(p\cdot q) + \frac{1}{2}(p\cdot q)= p\cdot q
-          \end{split}
-        \end{equation}
-      \end{description}
-    \end{description}
-\end{proof}
+Let $P,Q\in\fodaPAp$, $pr\subseteq\calF$ be a product, and
+$p\in(0,1$), then $(pr,p)\in\prodp(P\paral Q)$ iff
+\begin{displaymath}
+  p = \sum\lbag r\ |\ \exists (pr_{1},p_{1})\in\prodp(Q),
+  (pr_{2},p_{2})\in\prodp(Q):\ pr=pr_{1}\cup pr_{2}, r=p_{1}\cdot p_{2}\rbag
+\end{displaymath}
+\begin{proof}
+  The proof is made by induction on $|pr|$. The base case
+  ($pr=\emptyset$) is immediate from the definitions.   So let assume
+  the inductive case where $|pr|\geq 1$. In this case we obtain
+  $(pr,p)\in\prodp(P\paral Q)$
+  (by definition) iff
+  \begin{equation}\label{eq:lempar1}
+    p =
+      \sum\lbag r\ |\ P\paral Q\vtran{s\checkmark}_{r}\nil,\ pr=\product{s}\rbag
+    \end{equation}
+    Since \(|pr|\geq 1\), we can split the previous sum according the
+    first transition of \(P\paral Q\) according to rules
+    \nombreRegla{con1},
+    \nombreRegla{con2}, \nombreRegla{con4}, and
+    \nombreRegla{con5}. Since rules \nombreRegla{con1} and
+    \nombreRegla{con2} are symmetric to \nombreRegla(con4) and
+    \nombreRegla(con4), we only show the corresponding to the two
+    first rules.
+    \begin{equation}\label{eq:lempar2}
+      \begin{split}
+        \eqref{eq:lempar1} =
+        \sum\lbag \frac{1}{2}\cdot r_{1}\cdot r_{2}\ |\
+        P\tran{\fA}_{r_{1}}P',\ P'\paral
+        Q\vtran{s'\checkmark}_{r_{2}}\nil,\
+        pr=\{\fA\}\cup\product{s'}\rbag +\\
+        \sum\lbag \frac{1}{2}\cdot r_{1}\cdot r_{2}\cdot r_{3}\ |\
+        P\tran{\fA}_{r_{1}}P',\ Q\tran{\checkmark}_{r_{2}}\nil,\ P',\ P\vtran{s'\checkmark}_{r_{3}}\nil,\
+        pr=\{\fA\}\cup\product{s'}\rbag+\\
+        \mbox{term corresponding rule \nombreRegla{con4}} + \mbox{term corresponding rule \nombreRegla{con5}}
+      \end{split}
+    \end{equation}
+    Applying the definitions and grouping traces giving the same
+    product,
+    the previous term can be transformed as follows
+    \begin{equation}\label{eq:lempar3}
+      \begin{split}
+        \eqref{eq:lempar2} =
+        \sum\lbag \frac{1}{2}\cdot r_{1}\cdot r_{2}\ |\
+        P\tran{\fA}_{r_{1}}P',\
+        (pr', r_{2})\in\prodp(P'\paral Q),\
+        pr=\{\fA\}\cup pr'\rbag +\\
+        \sum\lbag \frac{1}{2}\cdot r_{1}\cdot r_{2}\cdot r_{3}\ |\
+        P\tran{\fA}_{r_{1}}P',\ (\emptyset,r_{2})\in\prodp(Q),
+        (pr', r_{3})\in \prodp(P'),\
+        pr=\{\fA\}\cup pr'\rbag+\\
+        \mbox{term corresponding rule \nombreRegla{con4}} + \mbox{term corresponding rule \nombreRegla{con5}}
+      \end{split}
+    \end{equation}
+    Now we can apply induction hypothesis to the first term of the
+    previous sum (and the
+    third that is symmetric).
+    \begin{equation}\label{eq:lempar4}
+      \begin{split}
+        \eqref{eq:lempar3} =
+        \sum\lbag\frac{1}{2}\cdot r_{1}\cdot r_{2}\cdot r_{3}\ |\
+        P\tran{\fA}_{r_{1}}P',\
+        (pr', r_{2})\in\prodp(P'), \\
+        (pr'',r_{3})\in\prodp(Q),\
+        pr=\{\fA\}\cup pr'\cup pr''\rbag +\\
+        \sum\lbag \frac{1}{2}\cdot r_{1}\cdot r_{2}\cdot r_{3}\ |\
+        P\tran{\fA}_{r_{1}}P',\ (\emptyset,r_{2})\in\prodp(Q),
+        (pr', r_{3})\in \prodp(P'),\
+        pr=\{\fA\}\cup pr'\rbag+\\
+        \mbox{term corresponding rule \nombreRegla{con4}} + \mbox{term corresponding rule \nombreRegla{con5}}
+      \end{split}
+    \end{equation}
+    Now let us consider the following set
+    \begin{displaymath}
+      \begin{split}
+        \calQ = \{ (pr', r)\ |\ (pr', r)\in\prodp(Q),\ \exists \fA\in
+        \calF,pr'\subseteq\calF,r_{1},r_{2}:\\ P\tran{\fA}_{r_{1}} P',
+        (pr'',\ r_{2})\in\prod(P'),\ pr=\{\fA\}\cup pr'\cup pr'' \}
+      \end{split}
+      \end{displaymath}
+    All pairs in $\calQ$ appear in the first term of
+    Equation~\eqref(eq:lempar4). So we can apply the distributive
+    property to reorganize that term obtaining
+    \begin{equation}\label{eq:lempar5}
+      \begin{split}
+        \eqref{eq:lempar4} =
+        \frac{1}{2}\sum_{(pr',r)\in\cal Q} r\cdot
+        \sum\lbag r_{2}\cdot r_{3}\ |\
+        P\tran{\fA}_{r_{1}}P',\
+        (pr', r_{2})\in\prodp(P'),
+        pr=\{\fA\}\cup pr'\cup pr''\rbag +\\
+        \frac{1}{2}\cdot\sum\lbag  r_{1}\cdot r_{2}\cdot r_{3}\ |\
+        P\tran{\fA}_{r_{1}}P',\ (\emptyset,r_{2})\in\prodp(Q),
+        (pr', r_{3})\in \prodp(P'),\
+        pr=\{\fA\}\cup pr'\rbag+\\
+        \mbox{term corresponding rule \nombreRegla{con4}} + \mbox{term corresponding rule \nombreRegla{con5}}
+      \end{split}
+    \end{equation}
+    If the empty product is not a product of $Q$ the second term of
+    the previous sum may disappear. Otherwise there exists $r\in(0,1]$
+    such that $(\emptyset, r)\in \prodp(Q)$. By definition,
+    $(\emptyset, r)\in\calQ$, so we remove the empty set from the
+    first term and we obtain:
+    \begin{equation}\label{eq:lempar5}
+      \begin{split}
+        \eqref{eq:lempar4} =
+        \frac{1}{2}\sum_{(pr',r)\in\calQ, pr'\neq\emptyset} r\cdot
+        \sum\lbag r_{2}\cdot r_{3}\ |\
+        P\tran{\fA}_{r_{1}}P',\
+        (pr'', r_{2})\in\prodp(P'),
+        pr=\{\fA\}\cup pr'\cup pr''\rbag +\\
+        \frac{1}{2}\cdot\sum\lbag  r_{1}\cdot r_{2}\cdot r_{3}\ |\
+        P\tran{\fA}_{r_{1}}P',\ (\emptyset,r_{2})\in\prodp(Q),
+        (pr', r_{3})\in \prodp(P'),\
+        pr=\{\fA\}\cup pr'\rbag+\\
+        \frac{1}{2}\cdot\sum\lbag  r_{1}\cdot r_{2}\cdot r_{3}\ |\
+        P\tran{\fA}_{r_{1}}P',\ (\emptyset,r_{2})\in\prodp(Q),
+        (pr', r_{3})\in \prodp(P'),\
+        pr=\{\fA\}\cup pr'\rbag+\\
+        \mbox{term corresponding rule \nombreRegla{con4}} + \mbox{term corresponding rule \nombreRegla{con5}}
+      \end{split}
+    \end{equation}
+    Since the two last terms are identical can be added. Then,
+    grouping the elements with the same product in the first, we obtain
+    definition we obtain
+    \begin{equation}\label{eq:lempar6}
+      \begin{split}
+        \eqref{eq:lempar5} =
+        \frac{1}{2}\sum_{(pr,r)\in\calQ, pr'\neq\emptyset} r\cdot
+        \sum\lbag r'\ |\
+        (pr', r')\in\prodp(P), pr'\neq\emptyset,\
+        pr=pr\cup pr'\rbag +\\
+        \sum\lbag  r_{1}\cdot r_{2}\ |\
+        (pr,r_{1})\in\prod(P),\ pr\neq\emptyset,\
+        (\emptyset, r_{2})\in \prodp(Q)\rbag+\\
+        \mbox{term corresponding rule \nombreRegla{con4}} + \mbox{term corresponding rule \nombreRegla{con5}}
+      \end{split}
+    \end{equation}
+    Rewriting, taking into account the definition of \(\calQ\) the
+    previous equation we obtain
+    \begin{equation}\label{eq:lempar7}
+      \begin{split}
+        \eqref{eq:lempar6} =
+        \frac{1}{2}\sum\lbag r_{1}\cdot r_{2}\ |\ (pr_{1},r_{1})\in\prodp(Q),
+        pr_{1}\neq\emptyset,\ (pr_{2},p_{2})\in\prodp(P),
+        pr_{2}\neq\emptyset,pr = pr_{1}\cup pr_{2}\rbag +\\
+        \sum\lbag  r_{1}\cdot r_{2}\ |\
+        (pr,r_{1})\in\prodp(P),\ pr\neq\emptyset,\
+        (\emptyset,r_{2})\in\prodp(Q)\rbag+\\
+        \mbox{term corresponding rule \nombreRegla{con4}} + \mbox{term corresponding rule \nombreRegla{con5}}
+      \end{split}
+    \end{equation}
+    Then adding the symmetrical terms, and having into account that
+    $pr\neq\empty$, we obtain
+    \begin{equation}\label{eq:lempar8}
+      \begin{split}
+        \eqref{eq:lempar7} =
+        \sum\lbag r_{1}\cdot r_{2}\ |\ (pr_{1},r_{1})\in\prodp(Q),
+        pr_{1}\neq\emptyset,\ (pr_{2},p_{2})\in\prodp(P),
+        pr_{2}\neq\emptyset,\ pr = pr_{1}\cup pr_{2}\rbag +\\
+        \sum\lbag  r_{1}\cdot r_{2}\ |\
+        (pr,r_{1})\in\prodp(P),\
+        (\emptyset,r_{2})\in\prodp(Q)\rbag+\\
+        \sum\lbag  r_{1}\cdot r_{2}\ |\
+        (pr,r_{1})\in\prodp(Q),\
+        (\emptyset,r_{2})\in\prodp(P)\rbag+\\
+      \end{split}
+    \end{equation}
+    Finally we can include the two last terms into the first one
+    having into account that $pr\neq\empty$.
+    \begin{equation}\label{eq:lempar9}
+      \begin{split}
+        \eqref{eq:lempar8} =
+        \sum\lbag r_{1}\cdot r_{2}\ |\ (pr_{1},r_{1})\in\prodp(Q),\ (pr_{2},p_{2})\in\prodp(P),\
+        pr = pr_{1}\cup pr_{2}\rbag
+      \end{split}
+    \end{equation}
+  \end{proof}
 \elem
+
+
+% \bdfn
+%   Let $s,s'\in\calF^*$ be traces, we denote with $\inter(s,s')$ the set of traces
+%   obtained by alternating $s$ and $s'$.
+% \edfn
+    Since the two last terms are identical can be add    Since the two last terms are identical can be added and by
+    definition we obtain
+ed and by
+    definition we obtain
+
+% \blem\label{lem:paral}
+%   Let $P,Q\in\fodaPAp$, $p,q\in (0,1)$ and
+%   $s,s'\in\calF^*$
+%   such $p=\sum\lbag p'\ |\ P\vtranp{s\checkmark}{p'}\nil\rbag$ and
+%   $q=\sum\lbag q'\| |\ Q\vtranp{s'}{q'}\nil\rbag$
+%   then
+%   $$p\cdot q = \sum\lbag r\ |\ P\paral Q\vtranp{s''\checkmark}{r}\nil\y s''\in\inter(s,s)\rbag$$
+%   \begin{proof}
+%     By induction of $|s|+|s'|$.
+%     \begin{description}
+%     \item[$|s|+|s'|=0$] Since
+%       $P\paral Q\tranp{\checkmark}{r}\nil$
+%       if and only if $P\tranp{\checkmark}{r_1}\nil$,
+%       $Q\tranp{\checkmark}{r_2}\nil$, and $r=r_1\cdot r_2$,
+%       behold the following:
+%       \begin{equation}
+%         \label{eq:paral1}
+%         \begin{split}
+%           \sum \lbag r\ |\ P\paral Q\tranp{\checkmark}{r}\nil \rbag =\\
+%           \sum \lbag r\ |\ P\tranp{\checkmark}{r_1}\nil\y Q\tranp{\checkmark}{r_2}\nil\y r=r_1\cdot r_2 \rbag=\\
+%           \sum \lbag  r_1\cdot r_2 \ |\ P\tranp{\checkmark}{r_1}\nil\y Q\tranp{\checkmark}{r_2}\nil \rbag= \\
+%           \sum \scaleleftright{\lbag}{r_1 \cdot \left(\sum \lbag r_2\ |\ Q\tranp{\checkmark}{r_2}\nil \rbag\right)\ \vstretch{2}{|}\  P\tranp{\checkmark}{r_1}\nil}{\rbag} = \\
+%           \sum \lbag  r_1 \cdot q |\  P\tranp{\checkmark}{r_1}\nil\rbag = q\cdot \sum \lbag  r_1  |\  P\tranp{\checkmark}{r_1}\nil\rbag = q\cdot p
+%         \end{split}
+%       \end{equation}
+%     \item[$|s|+|s'|>0$] Suppose that $|s|>0$ (the case $|s'|>0$
+%       is symmetric). Let's consider that $s=\feature{A}\cdot s_1$.
+%       Now consider the multiset
+%       $\calP=\lbag P'\ |\ P\tranp{\f{A}}{r'} P'\vtranp{s_1\checkmark}{p'}\nil\rbag$ and given $r_1 = \sum\lbag r\ |\ P\tranp{\f{A}}{r} P'\y P'\in\calP\rbag$ and
+%       $p_1=\sum\lbag r\ |\ P'\vtranp{s_1\checkmark}{r}\nil\y P'\in\calP\rbag$. It easy to verify that $p=r_1\cdot p_1$:\\
+%       \scalebox{0.9}{\parbox{1.1\hsize}{\begin{equation}
+%         \label{eq:paral2}
+%         \begin{split}
+%           p = \sum\lbag  r\ |\ P\vtranp{s\checkmark}{r}\nil \rbag =  \\
+%           \sum\lbag  r'\cdot p'\ |\  P\tranp{\f{A}}{r'} P'\vtranp{s_1\checkmark}{p'}\nil \rbag =\\
+%           \sum\scaleleftright{\lbag}{r'\cdot\underbrace{\left(\sum\lbag p'\ |\ P'\vtranp{s_1\checkmark}{p'}\nil\rbag\right)}_{p_1}\ \vstretch{2}{|}\  P\tranp{\f{A}}{r'} P'\y P'\in\calP}{\rbag} =\\
+%           p_1\cdot\sum\lbag  r'\ |\  P\tranp{\f{A}}{r'} P'\y P'\in\calP \rbag = r_1\cdot p_1
+%         \end{split}
+%       \end{equation}}}\\
+%       For any $P'\in\calP$, and then for the inductive hypothesis we obtain
+%       $$
+%       p'\cdot q =\sum\lbag r\ |\ P'\paral Q\vtranp{s''\checkmark}{r}\y s''\in\inter(s_1,s')\rbag
+%       $$
+%       So forth
+%       \begin{equation}
+%         \label{eq:paral3}
+%         \begin{split}
+%           \sum\lbag r\ |\ P'\in\calP \y P'\paral Q\vtranp{s''\checkmark}{r}\y s''\in\inter(s_1,s')\rbag = \\
+%           \sum\lbag p'\cdot q\ |\  P'\in\calP\y P'\vtranp{s_1\checkmark}{p'}\nil\y s''\in\inter(s_1,s')\rbag\\
+%           q\cdot \sum\lbag r\ |\ P'\vtranp{s_1\checkmark}\nil\y P'\in\calP\rbag=p_1\cdot q
+%         \end{split}
+%       \end{equation}
+%       then for any $P'\in\calP$ we obtain $P\paral Q\vtranp{s''\checkmark}{r}\nil$
+%       where $P\tranp{\f{A}}{r'}P'$, $r=\frac{r'}{2}\cdot p'\cdot q$ and $s''$
+%       is the alternation of $s$ and $s'$. So forth\\
+%       \scalebox{0.8}{\parbox{1.3\hsize}{\begin{equation}
+%         \label{eq:paral4}
+%         \begin{split}
+%           \sum\lbag  r\ |\ P\paral Q\tranp{\f{A}}{\frac{r_1}{2}}P'\paral Q\vtranp{s''\checkmark}{r_2}\nil\y P'\tranp{\f{A}}{r_1}P' \y \\ r=\frac{r_1}{2}\cdot r_1\y s''\in\inter(s_1,s') \rbag = \\
+%           \sum\scaleleftright{\lbag}{\frac{r'}{2}\cdot r'' \  \vstretch{2}{|}\ P\tranp{\f{A}}{r'}P'\y P'\paral Q\vtranp{s''\checkmark}{r''}\nil\y s''\in\inter(s_1,s') }{\rbag} = \\
+%           \sum\scaleleftright{\lbag}{  \frac{r'}{2}\cdot\left(\underbrace{\sum \scaleleftright{\lbag}{ r''\ \vstretch{4}{|}\
+%                   \begin{split}
+%                     P'\paral Q\vtranp{s''\checkmark}{r''}\nil\y \\s''\in\inter(s_1,s')
+%                   \end{split}}{\rbag}}_{\mathrm{induction\ hypothesis:}\ p_1\cdot q} \right) \ \vstretch{4}{|}\
+%             P\tranp{\f{A}}{r'}P'\y P'\in\calP  }{\rbag} = \\
+%           \sum\scaleleftright{\lbag}{  \frac{r'}{2}\cdot (p_1\cdot q) \  \vstretch{2}{|}\ P\tranp{\f{A}}{r'}P' \y P'\in\calP   }{\rbag} = \\
+%           \frac{(p_1\cdot q)}{2}\cdot  \sum\lbag  r'\ |\ P\tranp{\f{A}}{r'}P' \y P'\in\calP  \rbag = \\
+%           \frac{1}{2}(p_1\cdot q\cdot r_1)=\frac{1}{2}(p\cdot q)
+%         \end{split}
+%       \end{equation}}}
+
+%       Equation~\ref{eq:paral4} groups all probabilities
+%       of alternating  $s$ and $s'$ where
+%       the first action of $s$ happens in the first place.
+%       Then we have to group the probabilistic
+%       information when the first action of $s'$ happens in the first place.
+
+%       There are two possibilities, depending on whether these actions exist or not.
+%       Depending on $s'$ we obtain the following options.
+%       \begin{description}
+%       \item[$|s'|=0$]
+%         In this case we have $q=\sum\lbag q'\ |\ Q\tranp{\checkmark}{q'}\nil \rbag$,
+%         If $Q\tranp{\checkmark}{q'}\nil$, when applying
+%         the rule $\nombreRegla{con4}$ and then obtain
+%         $P\paral Q\tranp{\f{A}}{\frac{r'\cdot q'}{2}} P_1$.
+%         In this case we obtain\\
+%         \scalebox{0.9}{\parbox{1.1\hsize}{\begin{equation}
+%           \label{eq:paral5}
+%           \begin{split}
+%             \sum\lbag  r\ |\  P\paral Q\tranp{\f{A}}{\frac{q'\cdot r'}{2}} P'\vtranp{s_1\checkmark}{p'}\nil\y r=p'\cdot \frac{q'\cdot r'}{2}\rbag=\\
+%             \sum\lbag \frac{1}{2}\cdot(p'\cdot r'\cdot q' \ |\  P\paral Q\tranp{\f{A}}{\frac{q'\cdot r'}{2}} P'\vtranp{s_1\checkmark}{p'}\nil \rbag=\\
+%             \sum\lbag \frac{1}{2}\cdot(p'\cdot r'\cdot (\underbrace{\sum\lbag q'\ |\ Q\tranp{\checkmark}{q'}\nil \rbag}_{q}) \ |\  P\tranp{\f{A}}{r'}P'\y P'\vtranp{s_1\checkmark}{p'}\nil \rbag=\\
+%             \frac{q}{2}\cdot \sum\lbag r'\cdot (\underbrace{\sum\lbag p'\ |\ P'\vtranp{s_1\checkmark}{p'}\nil \rbag}_{p_1}) \ |\  P\tranp{\f{A}}{r'}P'\y P'\in\calP \rbag=\\
+%             \frac{1}{2}(q\cdot p_1)\cdot(\underbrace{\sum\lbag r'\ |\ P\tranp{\f{A}}{r'}P'\y P'\in\calP \rbag}_{r_1})=\frac{1}{2}\cdot(q\cdot p_1\cdot r_1)=\frac{1}{2}(q\cdot p)
+%           \end{split}
+%         \end{equation}}}\\
+%         The only transition of $P\paral Q$ that allows
+%         to alternate $s$ and $s'$ has the form
+%         \begin{enumerate}
+%         \item $P\paral Q\tranp{\f{A}}{\frac{r'}{2}} P'\paral Q\vtranp{s''\checkmark}{p'}\nil $ as is indicated above
+%         , or
+%         \item $P\paral Q\tranp{\f{A}}{\frac{q'\cdot r'}{2}} P'\vtranp{s''\checkmark}{p'}\nil $.
+%         \end{enumerate}
+%         So forth
+%         \begin{equation}
+%           \begin{split}
+%             \label{eq:paral5}
+%             \sum\lbag  r\ |\  P\paral Q\vtran{s\checkmark}\nil\rbag =\\
+%             \sum\lbag  r\ |\ P\paral Q\tranp{\f{A}}{\frac{r_1}{2}}P'\paral Q\vtranp{s''\checkmark}{r_2}\nil\y P'\tranp{\f{A}}{r_1}P' \y \\ r=\frac{r_1}{2}\cdot r_1\y s''\in\inter(s_1,s') \rbag +\\
+%             \sum\lbag  r\ |\  P\paral Q\tranp{\f{A}}{\frac{q'\cdot r'}{2}} P'\vtranp{s_1\checkmark}{p'}\nil\y r=p'\cdot \frac{q'\cdot r'}{2}\rbag=\\
+%             \frac{1}{2}(p\cdot q) + \frac{1}{2}(p\cdot q)= p\cdot q
+%           \end{split}
+%         \end{equation}
+%        \item[$|s'|>0$] Let consider $s'=\f{B}\cdot s_2$.
+%         In this case we consider the alternations where
+%         $Q$ produces the feature $\f{B}$ in the first place, that is,
+%         first we apply the rule~\nombreRegla{con2}. Considering
+%         multiset $\calQ=\lbag Q'\ |\ Q\tranp{\f{B}}{r}Q'\vtranp{s_2\checkmark}{q'}\nil\rbag$, and given
+%         $r_2=\sum\lbag r\ |\ Q\tranp{\f{B}}{r}Q'\y Q'\in\calQ\rbag$ and $q_1=\sum\lbag r\ |\ Q'\vtranp{s_2\checkmark}{r}\nil\y Q'\in\calQ\rbag$,
+%         with a similar reasoning as for the equations~\eqref{eq:paral1} and~\eqref{eq:paral2} we obtain that $q=r_2\cdot q_1$ and
+%         \begin{equation}
+%           \label{eq:paral6}
+%           \begin{split}
+%             \sum\lbag  r\ |\ P\paral Q\tranp{\f{B}}{\frac{r_1}{2}}P\paral Q'\vtranp{s''\checkmark}{r_2}\nil\y\\ r=\frac{r_1}{2}\cdot r_1\y s''\in\inter(s,s_2) \rbag = \frac{1}{2}(p\cdot q)
+%           \end{split}
+%         \end{equation}
+%         The only transition of $P\paral Q$ that implies alternating
+%         $s$ and $s'$ has the form:
+%         \begin{enumerate}
+%         \item $P\paral Q\tranp{\f{A}}{p'\cdot\frac{r}{2}} P'\paral Q\vtranp{s''\checkmark}{p'}\nil $ where $s''$ is an alternation of
+%         $s_1$ and $s'$, or
+%         \item $P\paral Q\tranp{\f{B}}{q'\cdot\frac{r}{2}} P\paral Q'\vtranp{s''\checkmark}{p'}\nil $ where $s''$ is an alternation of
+%         $s$ and $s_2$,
+%         \end{enumerate}
+%         So forth,
+%         \begin{equation}
+%           \label{eq:paral7}
+%           \begin{split}
+%             \sum\lbag  r\ |\  P\paral Q\vtran{s\checkmark}\nil\rbag =\\
+%             \sum\lbag  r\ |\ P\paral Q\tranp{\f{A}}{\frac{r_1}{2}}P'\paral Q\vtranp{s''\checkmark}{r_2}\nil\y P'\tranp{\f{A}}{r_1}P' \y\\ r=\frac{r_1}{2}\cdot r_1\y s''\in\inter(s_1,s') \rbag + \\
+%             \sum\lbag  r\ |\ P\paral Q\tranp{\f{B}}{\frac{r_1}{2}}P\paral Q'\vtranp{s''\checkmark}{r_2}\nil\y Q'\tranp{\f{B}}{r_1}Q' \y\\ r=\frac{r_1}{2}\cdot r_1\y s''\in\inter(s,s_2) \rbag = \\
+%             \frac{1}{2}(p\cdot q) + \frac{1}{2}(p\cdot q)= p\cdot q
+%           \end{split}
+%         \end{equation}
+%       \end{description}
+%     \end{description}
+% \end{proof}
+% \elem
 
 \blem\label{lem:mand}
   Let $P\in\fodaPAp$, $\feature{A}\in\calF$ and $P\vtranp{s\checkmark}{p}\nil$.
@@ -414,4 +599,3 @@
 %%% mode: latex
 %%% TeX-master: "main"
 %%% End:
-
