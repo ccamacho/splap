@@ -103,8 +103,17 @@ $p\in(0,1$), then $(pr,p)\in\prodp(P\paral Q)$ iff
   (pr_{2},p_{2})\in\prodp(Q):\ pr=pr_{1}\cup pr_{2}, r=p_{1}\cdot p_{2}\rbag
 \end{displaymath}
 \begin{proof}
-  The proof is made by induction on $|pr|$. The base case
-  ($pr=\emptyset$) is immediate from the definitions.   So let assume
+  The proof is made by induction on the sum of the heights of the
+  syntactical
+  tree of $P$ and $Q$. If $P=\nil$ (respectively \(Q=\nil\)) then
+  \(P\paral Q\) has no products. If $P=Q\checkmark$ then
+  \begin{displaymath}
+    \prodp(P)=\prodp(Q)=\prodp(P\paral Q)=\{(0,1)\}
+  \end{displaymath}
+  from with the result
+  are immediate from the definitions.
+
+  So let assume
   the inductive case where $|pr|\geq 1$. In this case we obtain
   $(pr,p)\in\prodp(P\paral Q)$
   (by definition) iff
@@ -112,25 +121,38 @@ $p\in(0,1$), then $(pr,p)\in\prodp(P\paral Q)$ iff
     p =
       \sum\lbag r\ |\ P\paral Q\vtran{s\checkmark}_{r}\nil,\ pr=\product{s}\rbag
     \end{equation}
-    Since \(|pr|\geq 1\), we can split the previous sum according the
+    If $pr=\emptyset$, the only possible transition for $P\paral Q$ is
+    the one derived from \nombreRegla{con3}. Then we obtain easily the result:
+    \begin{displaymath}
+      \begin{split}
+        p = \sum\lbag r\ |\ P\paral Q\vtran{\checkmark}_{r}\nil\rbag =\\
+        \sum\lbag r_{1}\cdot r_{2}\ |\ P\vtran{\checkmark}_{r_{1}}\nil,\
+        Q\vtran{\checkmark}_{r_{2}}\nil\rbag = \\
+        \sum\lbag r_{1}\cdot r_{2}\ |\ (\emptyset, r_{1})\in\prodp(P),
+        \ (\emptyset, r_{2})\in\prodp(Q)\rbag
+      \end{split}
+    \end{displaymath}
+    If \(pr\neq\emptyset\), we can split the previous sum according the
     first transition of \(P\paral Q\) according to rules
-    \nombreRegla{con1},
-    \nombreRegla{con2}, \nombreRegla{con4}, and
-    \nombreRegla{con5}. Since rules \nombreRegla{con1} and
-    \nombreRegla{con2} are symmetric to \nombreRegla(con4) and
-    \nombreRegla(con4), we only show the corresponding to the two
-    first rules.
+    \nombreRegla{con1}, \nombreRegla{con2}, \nombreRegla{con4}, and
+    \nombreRegla{con5}.
+    Since rules \nombreRegla{con1} and
+    \nombreRegla{con4} are symmetric to \nombreRegla{con2} and
+    \nombreRegla{con5}, we only show the corresponding transitions
+    to the first two rules:
     \begin{equation}\label{eq:lempar2}
       \begin{split}
         \eqref{eq:lempar1} =
         \sum\lbag \frac{1}{2}\cdot r_{1}\cdot r_{2}\ |\
-        P\tran{\fA}_{r_{1}}P',\ P'\paral
+        P\tran{\fA}_{r_{1}}P',\\
+        P'\paral
         Q\vtran{s'\checkmark}_{r_{2}}\nil,\
         pr=\{\fA\}\cup\product{s'}\rbag +\\
         \sum\lbag \frac{1}{2}\cdot r_{1}\cdot r_{2}\cdot r_{3}\ |\
-        P\tran{\fA}_{r_{1}}P',\ Q\tran{\checkmark}_{r_{2}}\nil,\ P',\ P\vtran{s'\checkmark}_{r_{3}}\nil,\
+        P\tran{\fA}_{r_{1}}P',\ Q\tran{\checkmark}_{r_{2}}\nil,\\ P'\vtran{s'\checkmark}_{r_{3}}\nil,\
         pr=\{\fA\}\cup\product{s'}\rbag+\\
-        \mbox{term corresponding rule \nombreRegla{con4}} + \mbox{term corresponding rule \nombreRegla{con5}}
+        \mbox{\emph{term corresponding rule} \nombreRegla{con2}} +
+        \mbox{\emph{term corresponding rule} \nombreRegla{con5}}
       \end{split}
     \end{equation}
     Applying the definitions and grouping traces giving the same
@@ -140,14 +162,15 @@ $p\in(0,1$), then $(pr,p)\in\prodp(P\paral Q)$ iff
       \begin{split}
         \eqref{eq:lempar2} =
         \sum\lbag \frac{1}{2}\cdot r_{1}\cdot r_{2}\ |\
-        P\tran{\fA}_{r_{1}}P',\
+        P\tran{\fA}_{r_{1}}P',\\
         (pr', r_{2})\in\prodp(P'\paral Q),\
         pr=\{\fA\}\cup pr'\rbag +\\
         \sum\lbag \frac{1}{2}\cdot r_{1}\cdot r_{2}\cdot r_{3}\ |\
-        P\tran{\fA}_{r_{1}}P',\ (\emptyset,r_{2})\in\prodp(Q),
-        (pr', r_{3})\in \prodp(P'),\
+        P\tran{\fA}_{r_{1}}P',\
+        (pr', r_{3})\in \prodp(P'),\\
+        (\emptyset,r_{2})\in\prodp(Q),\
         pr=\{\fA\}\cup pr'\rbag+\\
-        \mbox{term corresponding rule \nombreRegla{con4}} + \mbox{term corresponding rule \nombreRegla{con5}}
+        \mbox{term corresponding rule \nombreRegla{con2}} + \mbox{term corresponding rule \nombreRegla{con5}}
       \end{split}
     \end{equation}
     Now we can apply induction hypothesis to the first term of the
@@ -162,36 +185,36 @@ $p\in(0,1$), then $(pr,p)\in\prodp(P\paral Q)$ iff
         (pr'',r_{3})\in\prodp(Q),\
         pr=\{\fA\}\cup pr'\cup pr''\rbag +\\
         \sum\lbag \frac{1}{2}\cdot r_{1}\cdot r_{2}\cdot r_{3}\ |\
-        P\tran{\fA}_{r_{1}}P',\ (\emptyset,r_{2})\in\prodp(Q),
+        P\tran{\fA}_{r_{1}}P',\ (\emptyset,r_{2})\in\prodp(Q),\\
         (pr', r_{3})\in \prodp(P'),\
         pr=\{\fA\}\cup pr'\rbag+\\
-        \mbox{term corresponding rule \nombreRegla{con4}} + \mbox{term corresponding rule \nombreRegla{con5}}
+        \mbox{term corresponding rule \nombreRegla{con2}} + \mbox{term corresponding rule \nombreRegla{con5}}
       \end{split}
     \end{equation}
     Now let us consider the following set
     \begin{displaymath}
       \begin{split}
-        \calQ = \{ (pr', r)\ |\ (pr', r)\in\prodp(Q),\ \exists \fA\in
-        \calF,pr'\subseteq\calF,r_{1},r_{2}:\\ P\tran{\fA}_{r_{1}} P',
+        \calQ = \{ (pr', r)\ |\ (pr', r)\in\prodp(Q),\ \exists P'\in\fodaPAp,\fA\in
+        \calF,pr'\subseteq\calF,r_{1},r_{2}\in (0,1]:\\ P\tran{\fA}_{r_{1}} P',
         (pr'',\ r_{2})\in\prod(P'),\ pr=\{\fA\}\cup pr'\cup pr'' \}
       \end{split}
       \end{displaymath}
     All pairs in $\calQ$ appear in the first term of
-    Equation~\eqref(eq:lempar4). So we can apply the distributive
+    Equation~\eqref{eq:lempar4}. So we can apply the distributive
     property to reorganize that term obtaining
     \begin{equation}\label{eq:lempar5}
       \begin{split}
         \eqref{eq:lempar4} =
         \frac{1}{2}\sum_{(pr',r)\in\cal Q} r\cdot
-        \sum\lbag r_{2}\cdot r_{3}\ |\
+        \sum\lbag r_{1}\cdot r_{2}\ |\
         P\tran{\fA}_{r_{1}}P',\
-        (pr', r_{2})\in\prodp(P'),
+        (pr', r_{2})\in\prodp(P'),\\
         pr=\{\fA\}\cup pr'\cup pr''\rbag +\\
         \frac{1}{2}\cdot\sum\lbag  r_{1}\cdot r_{2}\cdot r_{3}\ |\
-        P\tran{\fA}_{r_{1}}P',\ (\emptyset,r_{2})\in\prodp(Q),
+        P\tran{\fA}_{r_{1}}P',\ (\emptyset,r_{2})\in\prodp(Q),\\
         (pr', r_{3})\in \prodp(P'),\
         pr=\{\fA\}\cup pr'\rbag+\\
-        \mbox{term corresponding rule \nombreRegla{con4}} + \mbox{term corresponding rule \nombreRegla{con5}}
+        \mbox{term corresponding rule \nombreRegla{con2}} + \mbox{term corresponding rule \nombreRegla{con5}}
       \end{split}
     \end{equation}
     If the empty product is not a product of $Q$ the second term of
@@ -203,19 +226,19 @@ $p\in(0,1$), then $(pr,p)\in\prodp(P\paral Q)$ iff
       \begin{split}
         \eqref{eq:lempar4} =
         \frac{1}{2}\sum_{(pr',r)\in\calQ, pr'\neq\emptyset} r\cdot
-        \sum\lbag r_{2}\cdot r_{3}\ |\
-        P\tran{\fA}_{r_{1}}P',\
+        \sum\lbag r_{1}\cdot r_{2}\ |\
+        P\tran{\fA}_{r_{1}}P',\\
         (pr'', r_{2})\in\prodp(P'),
         pr=\{\fA\}\cup pr'\cup pr''\rbag +\\
         \frac{1}{2}\cdot\sum\lbag  r_{1}\cdot r_{2}\cdot r_{3}\ |\
-        P\tran{\fA}_{r_{1}}P',\ (\emptyset,r_{2})\in\prodp(Q),
+        P\tran{\fA}_{r_{1}}P',\ (\emptyset,r_{2})\in\prodp(Q),\\
         (pr', r_{3})\in \prodp(P'),\
         pr=\{\fA\}\cup pr'\rbag+\\
         \frac{1}{2}\cdot\sum\lbag  r_{1}\cdot r_{2}\cdot r_{3}\ |\
-        P\tran{\fA}_{r_{1}}P',\ (\emptyset,r_{2})\in\prodp(Q),
+        P\tran{\fA}_{r_{1}}P',\ (\emptyset,r_{2})\in\prodp(Q),\\
         (pr', r_{3})\in \prodp(P'),\
         pr=\{\fA\}\cup pr'\rbag+\\
-        \mbox{term corresponding rule \nombreRegla{con4}} + \mbox{term corresponding rule \nombreRegla{con5}}
+        \mbox{term corresponding rule \nombreRegla{con2}} + \mbox{term corresponding rule \nombreRegla{con5}}
       \end{split}
     \end{equation}
     Since the two last terms are identical can be added. Then,
@@ -226,12 +249,12 @@ $p\in(0,1$), then $(pr,p)\in\prodp(P\paral Q)$ iff
         \eqref{eq:lempar5} =
         \frac{1}{2}\sum_{(pr,r)\in\calQ, pr'\neq\emptyset} r\cdot
         \sum\lbag r'\ |\
-        (pr', r')\in\prodp(P), pr'\neq\emptyset,\
+        (pr', r')\in\prodp(P), pr'\neq\emptyset,\\
         pr=pr\cup pr'\rbag +\\
         \sum\lbag  r_{1}\cdot r_{2}\ |\
         (pr,r_{1})\in\prod(P),\ pr\neq\emptyset,\
         (\emptyset, r_{2})\in \prodp(Q)\rbag+\\
-        \mbox{term corresponding rule \nombreRegla{con4}} + \mbox{term corresponding rule \nombreRegla{con5}}
+        \mbox{term corresponding rule \nombreRegla{con2}} + \mbox{term corresponding rule \nombreRegla{con5}}
       \end{split}
     \end{equation}
     Rewriting, taking into account the definition of \(\calQ\) the
@@ -240,12 +263,12 @@ $p\in(0,1$), then $(pr,p)\in\prodp(P\paral Q)$ iff
       \begin{split}
         \eqref{eq:lempar6} =
         \frac{1}{2}\sum\lbag r_{1}\cdot r_{2}\ |\ (pr_{1},r_{1})\in\prodp(Q),
-        pr_{1}\neq\emptyset,\ (pr_{2},p_{2})\in\prodp(P),
+        pr_{1}\neq\emptyset,\\ (pr_{2},p_{2})\in\prodp(P),\
         pr_{2}\neq\emptyset,pr = pr_{1}\cup pr_{2}\rbag +\\
         \sum\lbag  r_{1}\cdot r_{2}\ |\
         (pr,r_{1})\in\prodp(P),\ pr\neq\emptyset,\
         (\emptyset,r_{2})\in\prodp(Q)\rbag+\\
-        \mbox{term corresponding rule \nombreRegla{con4}} + \mbox{term corresponding rule \nombreRegla{con5}}
+        \mbox{term corresponding rule \nombreRegla{con2}} + \mbox{term corresponding rule \nombreRegla{con5}}
       \end{split}
     \end{equation}
     Then adding the symmetrical terms, and having into account that
@@ -254,8 +277,8 @@ $p\in(0,1$), then $(pr,p)\in\prodp(P\paral Q)$ iff
       \begin{split}
         \eqref{eq:lempar7} =
         \sum\lbag r_{1}\cdot r_{2}\ |\ (pr_{1},r_{1})\in\prodp(Q),
-        pr_{1}\neq\emptyset,\ (pr_{2},p_{2})\in\prodp(P),
-        pr_{2}\neq\emptyset,\ pr = pr_{1}\cup pr_{2}\rbag +\\
+        pr_{1}\neq\emptyset,\\ (pr_{2},p_{2})\in\prodp(P),
+        pr_{2}\neq\emptyset, pr = pr_{1}\cup pr_{2}\rbag +\\
         \sum\lbag  r_{1}\cdot r_{2}\ |\
         (pr,r_{1})\in\prodp(P),\
         (\emptyset,r_{2})\in\prodp(Q)\rbag+\\
@@ -265,7 +288,7 @@ $p\in(0,1$), then $(pr,p)\in\prodp(P\paral Q)$ iff
       \end{split}
     \end{equation}
     Finally we can include the two last terms into the first one
-    having into account that $pr\neq\empty$.
+    having into account that $pr\neq\emptyset$.
     \begin{equation}\label{eq:lempar9}
       \begin{split}
         \eqref{eq:lempar8} =
