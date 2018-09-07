@@ -95,6 +95,20 @@
   \end{proof}
 \elem
 
+
+\bdfn
+Let \(P\in\fodaPAp\). We define the height of the syntactic tree of
+\(P\), written \(\height(P)\) in the usual way.
+\edfn
+
+\blem
+  Let \(P,P'\in\fodaPAp\), \(\fA\in\calF\), and \(p\in(0,1]\). If
+  \(P\tran{\fA}_{p}P'\) then \(\height(P')<\height(P)\).
+  \begin{proof}
+    The proof is done easily by structural induction.
+  \end{proof}
+\elem
+
 \blem\label{lem:paral}
 Let $P,Q\in\fodaPAp$, $pr\subseteq\calF$ be a product, and
 $p\in(0,1$), then $(pr,p)\in\prodp(P\paral Q)$ iff
@@ -103,9 +117,10 @@ $p\in(0,1$), then $(pr,p)\in\prodp(P\paral Q)$ iff
   (pr_{2},p_{2})\in\prodp(Q):\ pr=pr_{1}\cup pr_{2}, r=p_{1}\cdot p_{2}\rbag
 \end{displaymath}
 \begin{proof}
-  The proof is made by induction on the sum of the heights of the
-  syntactical
-  tree of $P$ and $Q$. If $P=\nil$ (respectively \(Q=\nil\)) then
+  The proof is made by induction on \(\height(P)+\height(Q)\).
+  First let us consider the base case \(\height(P)+\height(Q)=0\),
+  that is \(P,Q\in\{\nil,\checkmark\}\).
+  If $P=\nil$ (respectively \(Q=\nil\)) then
   \(P\paral Q\) has no products. If $P=Q\checkmark$ then
   \begin{displaymath}
     \prodp(P)=\prodp(Q)=\prodp(P\paral Q)=\{(0,1)\}
