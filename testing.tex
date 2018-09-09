@@ -17,11 +17,24 @@ The experiments have been executed in a computer with the following features: In
 
 %The simulations were executed based on the implementation of the denotational
 %semantics for the probabilistic extension. 
+\subsection{Model analysis}
+\label{sec:stat:impl:model:analysis}
 
 Firstly, we have carried out an experiment to show the computing time required to calculate the probability of having
 each feature in a product. In order to run this experiment, a variability model consisting of
 1500 features has been used. This variability model
-was randomly generated using BeTTy~\cite{SeguraHBC11}.
+was generated using BeTTy~\cite{SeguraHBC11}.
+In figure~\ref{fig:plot:betty:params} is displayed the parameters used in the feature models
+generator.
+
+\begin{figure}[h]
+	\centering
+	\linefigure
+	\includegraphics[width=0.8\hsize,angle=0]{BeTTy_website.png}
+	\linefigure
+	\caption{BeTTy parameters.}\label{fig:plot:betty:params}
+\end{figure}
+
 
 BeTTy generates feature models based on a set of pre-defined parameters,
 the meaning of these parameters are about how 
@@ -52,9 +65,12 @@ the reason of having 0.25 for the  \emph{choose-one} and \emph{conjunction} rela
 It is know that the optional features affects induces a  combinatorial explosion when creating
 all the possible valid products from a feature model, in which case we wanted to give more
 probability to having optional features in the model, that is the reason why we choose 0.3 for the
-probability of having optional features in the model and 0.2 for having mandatory features. The
+probability of having optional features in the model and 0.2 for having mandatory features.
+Also the percentage of cross-tree constraints is set to 10\%, this percentage is not related to
+the sum of the probabilities of the previous four parameters.
+The
 sum of all probabilities must be 1. If no weight is configured all features and relationships will
-have the same weight, which is 0.25.
+have a random weight, making impossible to correlate the results with our model analysis.
 
 
 \begin{figure}[h]
@@ -106,8 +122,13 @@ this analysis might allow us to establish that by testing only the 30\% of the s
 %included in,
 at least, the 75\% of the generated products, are tested.
 
+\subsection{Performance analysis}
+\label{sec:stat:impl:performance:analysis}
+
 Secondly, an experiment to analyze the scalability of our approach have been carried out. We are interested in investigating both the execution time and the amount of memory required for processing a model, when the number of features increases. Hence, we use different configurations for creating a wide spectrum of variability models, which are randomly generated, using a different number of features that ranges from 1,000 to 10,000. Specifically for each case, that is, given a configuration and a number of features, a model is randomly generated 30 times. Additionally, for each model, 100 features are 
 randomly selected and, for each one, both the processing time and memory required to calculate its probability are analyzed.
+
+
 
 Table~\ref{scalaExperiment} shows the used configurations to generate the variability models for this experiment, 
 where \textit{Conf. ID} represents the configuration ID, 
