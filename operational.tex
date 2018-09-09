@@ -96,7 +96,7 @@ selected with probability~$p$ and the right one with probability~$1-p$.
 It is important to note that the rules for the conjunction operator,
 $\nombreRegla{con1}$,
 $\nombreRegla{con2}$,
-$\nombreRegla{con4}$ and 
+$\nombreRegla{con4}$ and
 $\nombreRegla{con5}$,
 equitably distribute the probability between both
 branches, that is, $\frac{1}{2}$. We have preferred to use a simple definition of this operator, but it is easy to replace it by a more involved version of a probabilistic conjunction operator~\cite{ahk98}.
@@ -136,9 +136,9 @@ Let $s\in\calF^*$ be a trace of $P$. We define the product
 $\product{s}\subseteq\calF$ as the set consisting of all features belonging to
 $s$.
 
-Let $P\in\fodaPAp$. We define the set of probabilistic products of $P$, denoted by $\prodp(P)$, as the set
+Let $P\in\fodaPAp$. We define the set of probabilistic products of $P$, denoted by $\prodp(P)w$, as the set
 \begin{displaymath}
-\{(pr,p)\ |\ p>0 \wedge p=\sum\lbag q\ |\
+ \prodp(P) = \{(pr,p)\ |\ p>0 \wedge p=\sum\lbag q\ |\
   P\vtranp{s\checkmark}{q} Q \y \product{s}=pr \rbag\}
 \end{displaymath}
 \item We define the total probability of $P$, denoted by $\ham(P)$, as the value $\sum\lbag p\ |\ \exists pr: (pr,p)\in\prodp(P)\rbag$. In addition, we define $\waste(P) = 1-\ham(P)$.

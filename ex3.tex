@@ -1,0 +1,109 @@
+                        \begin{tikzpicture}[->,>=stealth',node distance=1.5cm]
+                        \node[syntax] (A)   {$\ofeature{A};_{p}\feature{B};(\ofeature{C};_{q}\checkmark\paral\feature{D};\checkmark)$};
+                        \node[syntax] (B) [below left=1.5cm and 1.5cm of A]   {$\nil$};
+                        \node[syntax] (C) [below=1.5cm of A]   {$\feature{B};(\ofeature{C};_{q}\checkmark\paral\feature{D};\checkmark)$};
+
+                        \node[syntax] (D) [below=1.5cm of C]   {$(\ofeature{C};_{q}\checkmark\paral\feature{D};\checkmark)$};
+
+                        \node[syntax] (F) [below left=1.5cm and 1cm of
+                        D]
+                        {$(\checkmark\paral\feature{D};\checkmark)$};
+                        \node[syntax] (G) [below=1.5cm of D]
+                        {$(\ofeature{C};_{q}\checkmark\paral\checkmark)$};
+                        \node[syntax] (G1) [right=7cm of G]   {$\checkmark$};
+                        \node[syntax] (G2) [below=1.5cm of G1] {$\nil$};
+
+
+                        \node[syntax] (H) [below=1.5cm of F]
+                        {$\checkmark\paral\checkmark$};
+                        \node[syntax] (H1) [below left=0.5cm and 3cm of F] {$\checkmark$};
+                        \node[syntax] (H2) [below=1.5cm of H1] {$\nil$};
+
+
+                        \node[syntax] (I) [below=1.5cm of G]   {$\checkmark\paral\checkmark$};
+
+                        \node[syntax] (J) [below right=1.5cm and 1cm of G]
+                        {$\checkmark$};
+                        \node[syntax] (J1) [below right=0cm and 5cm of G] {$\nil$};
+                        \node[syntax] (J2) [below=1.5cm and 5cm of
+                        J] {$\nil$};
+
+                        \node[syntax] (K) [below=1.5cm of H]   {$\nil$};
+                        \node[syntax] (L) [below=1.5cm of I]   {$\nil$};
+
+
+                        \path (A) edge[->] node[above left, opacity=0, text opacity=1]
+                        {$\checkmark, 1-p$}
+                        (B)
+                        (A) edge[->] node[right, opacity=0, text opacity=1]
+                        {$\feature{A},p$}
+                        (C)
+                        (C) edge[->] node[right, opacity=0, text opacity=1]
+                        {$\feature{B},1$}
+                        (D)
+                        (D) edge[->] node[above left, opacity=0, text opacity=1]
+                        {$\feature{C}, \frac{q}{2}$~$\nombreRegla{con1}$}
+                        (F)
+                        (D) edge[->] node[right, opacity=0, text opacity=1]
+                        {$\feature{D},\frac{1}{2}$~$\nombreRegla{con2}$}
+                        (G)
+                        (D) edge[->] node[right, opacity=0, text opacity=1]
+                        {$\feature{D},\frac{1-q}{2}$~$\nombreRegla{con5}$}
+                        (G1)
+                        (G1) edge[->] node[right, opacity=0, text opacity=1]
+                        {$\checkmark,1$}
+                        (G2)
+                        (H1) edge[->] node[right, opacity=0, text opacity=1]
+                        {$\checkmark,1$}
+                        (H2)
+                        (F) edge[->] node[left, opacity=0, text opacity=1]
+                        {$\feature{D},\frac{1}{2}$~$\nombreRegla{con2}$}
+                        (H)
+                        (G) edge[->] node[left, opacity=0, text opacity=1]
+                        {$\feature{C},\frac{q}{2}$~$\nombreRegla{con1}$}
+                        (I)
+                        (G) edge[->] node[right, opacity=0, text opacity=1]
+                        {$\fC,\frac{q}{2}$~$\nombreRegla{con4}$}
+                        (J)
+                        (H) edge[->] node[right, opacity=0, text opacity=1]
+                        {$\checkmark$~$\nombreRegla{con3}$}
+                        (K)
+                        (I) edge[->] node[right, opacity=0, text opacity=1]
+                        {$\checkmark$~$\nombreRegla{con3}$}
+                        (L)
+                        (G) edge[->] node[above, opacity=0, text opacity=1]
+                        {$\checkmark,1-q$~$\nombreRegla{con3}$}
+                        (J1)
+                        (F) edge[->] node[above, opacity=0, text opacity=1]
+                        {$\fD,\frac{1}{2}$~$\nombreRegla{con5}$}
+                        (H1)
+                        (J) edge[->] node[right, opacity=0, text opacity=1]
+                        {$\checkmark,1$}
+                        (J2)
+                        ;
+                        \end{tikzpicture}
+
+\begin{displaymath}
+  \begin{array}{ll}
+    \epsilon & 1-p\\
+    \fA\fB\fC\fD & p\frac{q}{2}\frac{1}{2}\\
+    \fA\fB\fC\fD & p\frac{q}{2}\frac{1}{2}\\
+    \fA\fB\fD\fC & p\frac{1}{2}\frac{q}{2}\\
+    \fA\fB\fD\fC & p\frac{1}{2}\frac{q}{2}\\
+    \fA\fB\fD & p\frac{1}{2}(1-q)\\
+    \fA\fB\fD & p\frac{1-q}{2}
+  \end{array}
+\end{displaymath}
+
+\begin{displaymath}
+  \begin{array}{ll}
+    \emptyset & 1-p\\
+    \{\fA,\fB,\fC,\fD\} & pq\\
+    \{\fA,\fB,\fD\} & p(1-q)\\
+  \end{array}
+\end{displaymath}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../../main"
+%%% End:
