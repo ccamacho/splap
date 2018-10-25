@@ -98,7 +98,22 @@
 
 \bdfn
 Let \(P\in\fodaPAp\). We define the height of the syntactic tree of
-\(P\), written \(\height(P)\) in the usual way.
+\(P\), written \(\height(P)\) as follows:
+\begin{displaymath}
+  \begin{array}{l@{\hspace{1em} =\hspace{1em} }l}
+    \height(\nil)& 0\\
+    \height(\checkmark)& 1\\
+    \begin{array}[c]{r}
+    \height(\feature{A};P),\  \height(\ofeature{A};_{p} P),\\
+      \height(\exclude{A}{B}{P}),\  \height(\forbid{A}{P}),\  \\
+      \height(\require{A}{B}{P}),\ \height(\mandatory{A}{P})
+    \end{array}
+                 & 1 + \height(P)\\
+    \height(P \choice_{p} Q),\ \height(P \paral Q) &
+                                             1 = \max(\height(P), \height(Q))
+
+  \end{array}
+\end{displaymath}
 \edfn
 
 \blem
