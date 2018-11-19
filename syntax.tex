@@ -9,7 +9,7 @@ Following our previous work~\cite{acl13,clc16}, we will consider a
 set of features. We denote this set by $\calF$ and consider that $\feature{A}, \feature{B},
 \feature{C}$ range over $\calF$. We have a special feature
 $\checkmark\not\in\calF$ to mark the end  of a product. We consider a syntax similar to
-\fodaPA, where probabilities are introduced in the choice operator $P \choice_{p} Q $ and in
+\fodaPA, where probabilities are introduced both in the choice operator $P \choice_{p} Q $ and in
 the optional feature operator $\ofeature{A};_{p} P$. We do not allow
 \emph{degenerated} probabilities, that is, for all probability $p$ we have $0< p<1$.
 
@@ -22,7 +22,7 @@ and  \feature{A}, \feature{B}, \feature{C}\dots\ denote isolated features.
 In the syntax of the language there are two sets of operators. 
 On the one hand there are \emph{main operators}, such as $\cdot\choice\cdot$, $\cdot\paral\cdot$, $\feature{A};\cdot$, $\ofeature{A};\cdot$, 
 $\require{A}{B}{\cdot}$, $\exclude{A}{B}{\cdot}$,
-that directly correspond to relationships in \FODA\ Diagrams.
+that directly correspond to relationships in \FODA\ diagrams.
 On the other hand, we have \emph{auxiliary operators}, such as $\nil$, $\checkmark$, $\forbid{A}{\cdot}$, $\mandatory{A}{\cdot}$,
 which we need to define the semantics of the language.
 
@@ -46,8 +46,8 @@ algebra will be denoted by  $\fodaPAp$.
 
 
 
-In order to avoid writing too many parentheses in the terms, we are
-going to assume left-associativity in binary operators and  the
+In order to avoid writing too many parentheses in the terms, we 
+assume left-associativity in binary operators and  the
 following precedence in the operators (from higher to lower priority):
 $\feature{A};P$, $\ofeature{A};_{p} P$, $ P \choice_{p} Q$, $P\paral Q$,
 $\exclude{A}{B}{P}$, $\require{A}{B}{P}$, 
@@ -82,7 +82,7 @@ This fact is represented by the $\checkmark$ symbol.
 
 The operators $\feature{A};P$ and $\ofeature{A}_{p};P$ add the feature $\feature{A}$ to any product that can be obtained
 from $P$. The operator $\feature{A};P$ indicates that $\feature{A}$ is mandatory while $\ofeature{A}_{p};P$ indicates
-that $\feature{A}$ is optional and computed with probability $_{p}$.
+that $\feature{A}$ is optional and computed with probability $p$.
 There are two binary operators: $P \choice_{p} Q$ and $P\paral Q$. The
 first one represents the \emph{choose-one} operator while the second one represents the  \emph{conjunction} operator.
 
@@ -94,7 +94,7 @@ constraint in \FODA.
 
 The operator $\mandatory{A}{P}$ is necessary to define the behavior
 of the $\require{A}{B}{P}$ operator:
-When we compute the products of the term $\require{A}{B}{P}$, we have 
+when we compute the products of the term $\require{A}{B}{P}$, we have 
 to take into account whether  product  \feature{A} has been produced or not.
 In the case it has been produced, we have to annotate 
 that we need to produce \feature{B} in the future.

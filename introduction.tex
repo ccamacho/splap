@@ -259,9 +259,9 @@ The main contributions of this work can be summarized as:
 	A model that uses probabilistic information to determine the probability of having a feature in a specific \SPL. In contrast with our previous work~\cite{acl13,clc16}, which mainly focuses in defining an algebraic language to describe Software Product Lines and using a cost model for comparing valid products, this approach is targeted to identify those features that are more frequently used to generate a product. Basically, the idea is to focus on those features with a high probability to be present in the final product and, therefore, reducing the required processing to generate valid products. 
 
 	\item
-    The introduction of the notion of hiding sets of features, this analysis allows to optimize the practical
-    application of the probabilistic extension, as it allows to remove or hide a set of features which do not
-    interfere with the calculus of the probability for an specific feature.
+    The introduction of the notion of hiding sets of features. This analysis allows to optimize the practical
+    application of the probabilistic extension, as it allows to remove or hide a set of features which does not
+    interfere with the calculus of the probability for a specific feature.
 		
 	\item
 	A thorough empirical study, using different configurations to generate a wide-spectrum of variability models. The  study has been carried out in order to show the applicability and scalability of our approach. These variability models have been generated using BeTTy~\cite{SeguraHBC11}.
@@ -274,15 +274,15 @@ in comparison with the denotational semantics implementations presented in previ
 
 
 The rest of the paper is structured as follows.
-Section \ref{ref:related-work} introduces the related work on probabilistic analysis
+Section \ref{ref:related_work} introduces the related work on probabilistic analysis
 of feature models.
-Section \ref{sec:foda:sintaxMain} presents an introduction to the
+Section \ref{sec:stat:sintaxMain} presents an introduction to the
 \fodaPA\ syntax and the main operators usage for both the operational and denotational semantics.
 Section \ref{sec:stat:sintaxMain} presents our probabilistic language \fodaPAp.
 Section \ref{sec:equivalenceMain} is used to prove the equivalence between the operational and denotational semantics.
-In section \ref{sec:stat:hidMain} we extend our language to define how sets of features can be hidden, this new
+In section \ref{sec:stat:hidMain} we extend our language to define how sets of features can be hidden. This new
 hidden operator allows to improve the execution of the probabilistic
-extension execution, as allows to remove those features we do not want to calculate the probability.
+extension execution, as it allows to remove those features that are not required to calculate the probability.
 Section~\ref{sec:stat:impl} presents an empirical study that has been carried out by using our implementation of the denotational semantics for the probabilistic extension.
 Finally, section~\ref{section:jstat:concs} presents our conclusions and some lnes of future work.
 

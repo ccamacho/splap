@@ -28,8 +28,8 @@ show the computing time required to calculate the probability of having
 each feature in a product. In order to run this experiment, a variability model consisting of
 1500 features has been used.
 This variability model
-was generated using BeTTy~\cite{SeguraHBC11}.
-In figure~\ref{fig:plot:betty:params} is displayed the parameters used in the feature models
+has been generated using BeTTy~\cite{SeguraHBC11}.
+Figure~\ref{fig:plot:betty:params} depicts the parameters used in the feature models
 generator.
 
 \begin{figure}[h]
@@ -41,12 +41,11 @@ generator.
 \end{figure}
 
 
-BeTTy generates feature models based on a set of pre-defined parameters,
-the meaning of these parameters are about how 
-BeTTy will randomly generate the feature models.
-In this case BeTTy
-requires to provide 4 parameters, and the sum of the probabilities for these parameters
-must be 1:
+BeTTy generates feature models based on a set of pre-defined parameters.
+The meaning of these parameters focuses on how 
+BeTTy randomly generates these models.
+In this case BeTTy requires 4 parameters, where the sum of the probabilities 
+for these parameters must be 1, that is:
 
 \begin{itemize}
 	\item The probability of having a mandatory feature.
@@ -55,8 +54,7 @@ must be 1:
 	\item The probability of having a feature in a \emph{conjunction} relationship.
 \end{itemize}
 
-The parameters for
-generating the BeTTy model are the following:
+The values used for these parameters to generate the feature model are the following:
 
 \begin{itemize}
         \item The probability of having a mandatory feature is 0.2.
@@ -65,18 +63,21 @@ generating the BeTTy model are the following:
         \item The probability of having a feature in a \emph{conjunction} relationship is 0.25.
 \end{itemize}
 
-We wanted to have the same probability of having the same relationships in the model, that is
-the reason of having 0.25 for the  \emph{choose-one} and \emph{conjunction} relationships.
-It is know that the optional features affects induces a  combinatorial explosion when creating
-all the possible valid products from a feature model, in which case we wanted to give more
-probability to having optional features in the model, that is the reason why we choose 0.3 for the
-probability of having optional features in the model and 0.2 for having mandatory features.
-Also the percentage of cross-tree constraints is set to 10\%, this percentage is not related to
-the sum of the probabilities of the previous four parameters.
-The
-sum of all probabilities must be 1. If no weight is configured all features and relationships will
-have a random weight, making impossible to correlate the results with our model analysis.
 
+The idea of using this configuration is to have the same probability for the different 
+relationships in the model, that is, we use a probability of 0.25 for both the
+\emph{choose-one} and \emph{conjunction} relationships.
+%We wanted to have the same probability of having the same relationships in the model, that is
+%the reason of having 0.25 for the  \emph{choose-one} and \emph{conjunction} .
+It is known that the optional features induce a  combinatorial explosion for creating
+all the possible valid products from a feature model. Since we are interested on investigating
+the performance of our approach, we use a probability of 0.3 for having optional features in 
+the model and a probability of 0.2 for having mandatory features.
+The sum of all probabilities must be 1. If no weight is configured, all features and 
+relationships have a random weight, it being not possible to correlate the obtained results with 
+our model analysis.
+Additionally, the percentage of cross-tree constraints is set to 10\%, which is not related to
+the sum of the probabilities of the previous parameters.
 
 \begin{figure}[h]
         \centering
@@ -89,19 +90,19 @@ have a random weight, making impossible to correlate the results with our model 
 Figure~\ref{fig:plot:probs:times} shows the obtained
 results from this experiment, where the x-axis depicts
 the ID of each generated feature and the y-axis represents
-the time required to calculate the probability of having a feature in a product.
+the time required to calculate the probability of having a feature in a final product.
 %In this case, the total time to obtain the probability for all the features is linear with respect to the total length of the analyzed term
 %\mncomment{Que quiere decir esto? Suena raro porque yo esperaria complejidad $O(2^n)$ siendo $n$ el numero de probabilidades que salen en el termino. Pero vamos, que yo no  se mucho de complejidad!}\ccomen{Es cierto, no lo demostramos ni lo analizamos}.
 %\acomen{Yo simplemente quitaría esa frase, lo de que la complejidad es lineal}
 It is important to remark that there is a small variation in the processing time for calculating the probability of each single feature. We think that this variation is mainly caused by the inherent noise of the node where the experiment is launched (e.g. disk latencies, operating
 system overhead, memory paging, etc.) and, therefore, it is not related to the algorithm itself.
 
-Since the processing time for each feature is relatively low, being around milliseconds, a single delay in
+Since the processing time for each feature is relatively low, it being around milliseconds, a single delay in
 the process scheduling may have a direct impact in the overall algorithm performance. Hence, this overhead
 can be considered insignificant since, in general, the time for processing each feature in the model ranges
 from 15 to 28 milliseconds.
 
-The model used in the experiments has been executed several times, providing similar results. That is, the
+The model used in the experiments has been executed 30 times, providing similar results. That is, the
 major part of the features require between 15 and 20 milliseconds to be processed, while there is a small
 portion of them requiring a processing time between 20 and 38 milliseconds.
 
@@ -120,26 +121,34 @@ portion of them requiring a processing time between 20 and 38 milliseconds.
 \end{figure}
 
 
-Figure~\ref{fig:plot:probs:probs} shows the probability of each feature in the analyzed model, where the $x$-axis
+Figure~\ref{fig:plot:probs:probs} shows the probability of each feature - in the analyzed model - to 
+be part of a final product, where the $x$-axis
 represents the feature ID and the $y$-axis represents the probability.
 Figure~\ref{fig:plot:probs:probs:sorted} represents a histogram of the calculated probabilities for a better
 readability of the results. This chart clearly shows that there exist
-different groups of features having a similar probability in this case the most part of the features probabilities are
-between 0.7 and 0.8.
+different groups of features having a similar probability. In this case, the probability of the major part 
+of the features ranges between 0.7 and 0.8.
 %
-In this case, there are 450 features with, at least, a probability equal to 0.75 of being in a final product. As a conclusion,
-this analysis might allow us to establish that by testing only the 30\% of the software product line components, we can ensure that
-at least, the 75\% of the generated products, are tested.
+Moreover, there are 450 features with, at least, a probability equal to 0.75 of being in a final product. As a conclusion, this analysis might allow us to establish that by testing only the 30\% of the software product line components (450 features) we can ensure that, at least, the 75\% of the generated products, are tested.
 
+It is important to differentiate the probabilities defined in BeTTy, which are used to generate a 
+feature model, and the the probability - calculated from the model - to have a feature in a final
+product. 
 
-It is important to remark the relationship between the probabilities defined in BeTTy and the probabilities calculated in the model.
-For instance, if BeTTy is configured to generate mandatory features with a probability of 0.2 in a model, that will mean that
-those features will be presented in the model as mandatory with a probability of 0.2 and nothing else.
+For instance, if we configure BeTTy to generate a feature model using a probability
+of 0.2 for having a mandatory feature, that means that 20\% of the generated features are mandatory.
+However, that does not imply that these features be part of the 20\% of the generated products, because
+the probability of having a feature in a final product depends where this feature is placed in the 
+model. If a given mandatory feature is placed in a choose-one relationship, it is possible that
+the other branch is used to generate the final product, discarding the mandatory feature.
+Hence, we can not assume that these 20\% of the features will have a probability of 1 for being 
+installed in the products.
 
-The probability of those mandatory features in the model is not related directly with the probability of those features being part
-of let's say, the 20\% of the products, mostly, because it depends on the position of the features in the model for the
-products generation. In which case we can not assume that these 20\% of the features will have a probability of 1 for being installed
-in the products.
+%For instance, if BeTTy is configured to generate mandatory features with a probability of 0.2 in a model, that will mean that those features will be presented in the model as mandatory with a probability of 0.2 and nothing else.
+%The probability of those mandatory features in the model is not related directly with the probability of those features being part
+%of let's say, the 20\% of the products, mostly, because it depends on the position of the features in the model for the
+%products generation. In which case we can not assume that these 20\% of the features will have a probability of 1 for being installed
+%in the products.
 
 
 \subsection{Performance analysis}
@@ -147,7 +156,7 @@ in the products.
 
 Secondly, an experiment to analyze the scalability of our approach
 have been carried out. We are interested in investigating both the
-execution time and the amount of memory required for processing a model,
+execution time and the amount of memory required for processing a model
 when the number of features increases.
 Hence, we use different configurations for creating a wide
 spectrum of variability models, which are randomly generated,
@@ -171,7 +180,7 @@ where each configuration represents the set of probabilities chosen for each ope
 
 \begin{table}[h]
 \centering
-\begin{tabular}{|l|c|c|c|c|}
+\begin{tabular}{|c|c|c|c|c|}
 \hline
 \textbf{Configuration} & \textbf{Mandatory} &  \textbf{Optional} &  \textbf{Choose-one} &  \textbf{Conjunction} \\ \hline
 	\textit{1}		& 0.69	& 0.15	& 0.15	& 0.01 	\\ \hline
@@ -182,67 +191,65 @@ where each configuration represents the set of probabilities chosen for each ope
 \label{scalaExperiment}
 \end{table}
 
-The reason of the values for Table~\ref{scalaExperiment} is that we have fixed the values of the \textit{Optional}
-and \textit{Choose-one} features so they will remain the same across all the experiments so they should not interfere.
-Then we started with a
-very low probability of having a \textit{Conjunction} relationship in the model, in this case for the
-first experiment will be 0.01, then we increased the probability of the \textit{Conjunction} relationship to 0.2 to
-end with 0.5. This is mostly to show the impact of the \textit{Conjunction} relationship in the processing of the models.
+In this experiment, we have set the same values for the probabilities of the \textit{Optional} 
+and \textit{Choose-one} features. Hence, these will remain the same 
+across all the experiments and, thus, they should not interfere in the obtained results.
+We start with a low probability of having a \textit{Conjunction} relationship in the model. In this 
+case, for the first experiment, we use a probability of 0.01, which is increased in the next configurations
+to 0.2 and 0.5. This idea is to show the impact of the \textit{Conjunction} relationship in the time 
+and memory required for processing the models.
 
-Figure~\ref{fig:plot:probs:boxplot_0_1} and figure~\ref{fig:plot:probs:boxplot_0_1_mem} show the execution time and the required amount of memory, respectively, for processing the variability models generated using the \textit{configuration 1}. In these models, only 1\% of the features have a conjunction relation. In general, the processing time when the number of features increases is linear. Only in few cases, where the number of features ranges from 5000 to 8000, the results provide anomalous values. This is mainly caused by the random nature of the generated models (30 for each case). On the contrary, the memory usage depicts that there are several groups where the memory usage remains constant, one group of models containing between 3,000 and 5,000 features and other group of models containing between 7,000 and 10,000 features. In summary, our implementation shows good scalability results for processing the models generated using the \textit{configuration 1}: it requires, in the worst case scenario, 215 ms and 0.32 GB of RAM to process the model.
+For each configuration, we have generated 30 models per number of features, that is, we generate 
+30 different models containing 1000 features, 30 different models containing 2000 features,
+and so on until 10.000 features.
+
+Figure~\ref{fig:plot:probs:boxplot_0_1} and figure~\ref{fig:plot:probs:boxplot_0_1_mem} show the execution time and the required amount of memory, respectively, for processing the variability models generated using \textit{Configuration 1}. In these models, only 1\% of the features have a conjunction relation. In general, the processing time when the number of features increases is linear. Only in few cases, where the number of features ranges from 5000 to 8000, the results provide anomalous values. This is mainly caused by the random nature of the generated models (30 for each case). On the contrary, the memory usage depicts that there are several groups where the memory usage remains constant, one group of models containing between 3,000 and 5,000 features and other group of models containing between 7,000 and 10,000 features. In summary, our implementation shows good scalability results for processing the models generated using \textit{Configuration 1}: it requires, in the worst case scenario, 215 ms and 0.32 GB of RAM to process the model.
 
 \begin{figure}[h]
 	\centering
 	\begin{minipage}[b]{0.48\textwidth}
 		\includegraphics[width=\textwidth]{boxplot_0_1.eps}
-		\caption{Execution time for processing models generated with the \textit{configuration 1}.}\label{fig:plot:probs:boxplot_0_1}
+		\caption{Execution time for processing models generated using \textit{Configuration 1}.}\label{fig:plot:probs:boxplot_0_1}
 	\end{minipage}
 	\hfill
 	\begin{minipage}[b]{0.48\textwidth}
 		\includegraphics[width=\textwidth]{boxplot_0_1_mem.eps}
-		\caption{Memory usage for processing models generated with the \textit{configuration 1}.}\label{fig:plot:probs:boxplot_0_1_mem}
+		\caption{Memory usage for processing models generated using \textit{Configuration 1}.}\label{fig:plot:probs:boxplot_0_1_mem}
 	\end{minipage}
 \end{figure}
 
-Figure~\ref{fig:plot:probs:boxplot_0_2} and figure~\ref{fig:plot:probs:boxplot_0_2_mem} show the results for analyzing the models generated using the \textit{configuration 2}. It is important to remark that 20\% of the features in the generated models have a conjunction relation. In this case, both the execution time and memory usage for processing a model when the number of features increases are exponential. These charts clearly show a turning point when the model reaches 6,000 features and, therefore, the required processing time and  memory are significantly lower for those models that do not reach 6,000 features. However, the requirements to process the model in the worst case scenario, that is, using a model containing 10,000 features, are 300 sec. and 3.84 GB of RAM memory, which are acceptable.
+Figure~\ref{fig:plot:probs:boxplot_0_2} and figure~\ref{fig:plot:probs:boxplot_0_2_mem} show the results for analyzing the models generated using \textit{Configuration 2}. It is important to remark that 20\% of the features in the generated models have a conjunction relation. In this case, both the execution time and memory usage for processing a model when the number of features increases are exponential. These charts clearly show a turning point when the model reaches 6,000 features and, therefore, the required processing time and  memory are significantly lower for those models that do not reach 6,000 features. However, the requirements to process the model in the worst case scenario, that is, using a model containing 10,000 features, are 300 sec. and 3.84 GB of RAM memory, which are acceptable.
 
 \begin{figure}[h]
 	\centering
 	\begin{minipage}[b]{0.48\textwidth}
 		\includegraphics[width=\textwidth]{boxplot_0_2.eps}
-		\caption{Execution time for processing models generated with the \textit{configuration 2}.}\label{fig:plot:probs:boxplot_0_2}
+		\caption{Execution time for processing models generated using \textit{Configuration 2}.}\label{fig:plot:probs:boxplot_0_2}
 	\end{minipage}
 	\hfill
 	\begin{minipage}[b]{0.48\textwidth}
 		\includegraphics[width=\textwidth]{boxplot_mem.eps}
-		\caption{Memory usage for processing models generated with the \textit{configuration 2}.}\label{fig:plot:probs:boxplot_0_2_mem}
+		\caption{Memory usage for processing models generated using \textit{Configuration 2}.}\label{fig:plot:probs:boxplot_0_2_mem}
 	\end{minipage}
 \end{figure}
 
-Figure~\ref{fig:plot:probs:boxplot_0_5} and figure~\ref{fig:plot:probs:boxplot_0_5_mem} show the results for processing the models generated using the \textit{configuration 3}. In this case, half of the features in the model have a conjunction relation. Similarly to the previous experiment, these charts show that both the execution time and the memory usage for processing a model when the number of features increases are exponential. In the obtained results we can observe the same turning point detected in the previous models generated using the \textit{configuration 2}, that is, when the model reaches 6,000 features. Model processing requirements, that is, execution time and memory usage, grow much faster for these models than for those based on previous configurations. Also, it is important to notice that the models containing 9,000 and 10,000 features cannot be processed due to memory limitations.
+Figure~\ref{fig:plot:probs:boxplot_0_5} and figure~\ref{fig:plot:probs:boxplot_0_5_mem} show the results for processing the models generated using \textit{Configuration 3}. In this case, half of the features in the model have a conjunction relation. Similarly to the previous experiment, these charts show that both the execution time and the memory usage for processing a model when the number of features increases are exponential. In the obtained results we can observe the same turning point detected in the previous models generated using  \textit{Configuration 2}, that is, when the model reaches 6,000 features. Model processing requirements, that is, execution time and memory usage, grow much faster for these models than for those based on previous configurations. Also, it is important to notice that the models containing 9,000 and 10,000 features cannot be processed due to memory limitations.
 
-Broadly speaking, these results show that increasing the number of features having a conjunction relation has a direct impact on the overall performance. In fact, increasing the number of features having a conjunction relation generates a combinatorial explosion that hampers the processing of models. First, the execution time to completely process a model significantly grows. Second, large amounts of memory are required to store those combinations. In some cases, using large models with a high percentage of features having a conjunction relation may cause a bottleneck in the memory system. In fact, models generated using the \textit{configuration 3} with 9,000 and 10,000 features cannot be processed using 64 GB of RAM.
+Broadly speaking, these results show that increasing the number of features having a conjunction relation has a direct impact on the overall performance. In fact, increasing the number of features having a conjunction relation generates a combinatorial explosion that hampers the processing of models. First, the execution time to completely process a model significantly grows. Second, large amounts of memory are required to store those combinations. In some cases, using large models with a high percentage of features having a conjunction relation may cause a bottleneck in the memory system. In fact, models generated using \textit{Configuration 3} with 9,000 and 10,000 features cannot be processed using 64 GB of RAM.
 
 
 \begin{figure}[h]
 	\centering
 	\begin{minipage}[b]{0.48\textwidth}
 		\includegraphics[width=\textwidth]{boxplot_0_5.eps}
-		\caption{Execution time for processing models generated with the \textit{configuration 3}.}\label{fig:plot:probs:boxplot_0_5}
+		\caption{Execution time for processing models generated using \textit{configuration 3}.}\label{fig:plot:probs:boxplot_0_5}
 	\end{minipage}
 	\hfill
 	\begin{minipage}[b]{0.48\textwidth}
 		\includegraphics[width=\textwidth]{boxplot_0_5_mem.eps}
-		\caption{Memory usage for processing models generated with the \textit{configuration 3}.}\label{fig:plot:probs:boxplot_0_5_mem}
+		\caption{Memory usage for processing models generated using \textit{configuration 3}.}\label{fig:plot:probs:boxplot_0_5_mem}
 	\end{minipage}
 \end{figure}
-
-Also the box plots from figure~\ref{fig:plot:probs:boxplot_0_1},
-figure~\ref{fig:plot:probs:boxplot_0_2} and figure~\ref{fig:plot:probs:boxplot_0_5}
-shows the group of results for the execution times based in quartiles as for each experiment
-we generated 30 models per class of models
-(30 models with 1.000 features, 30 models with 2.000 features until 10.000 features)
-
 
 
 %%%------------------------------------------------------------------------------------------------------------------------------------------------
@@ -253,10 +260,9 @@ we generated 30 models per class of models
 We now compare the latest results with the ones obtained using \fodaPA~\cite{acl13}
 and the cost extension \fodaPAc~\cite{clc16}.
 
-Specifically we want to compare the implementation performance
-between the implementation of the
-probabilistic extension and the implementation of the
-denotational semantic from \fodaPA~\cite{acl13}.
+Specifically, we are interested in comparing the performance between the implementation 
+of the probabilistic extension and the implementation of the denotational semantic from 
+\fodaPA~\cite{acl13}.
 
 \begin{figure}[t]
 	\centering
@@ -306,19 +312,14 @@ denotational semantic from \fodaPA~\cite{acl13}.
 \end{figure}
 
 
+Figure~\ref{figure:tool:den:benchmark} shows the results of an experiment using
+models containing different number of features, which ranges from $50$ to $300$.
+In this case, we use the implementation of the denotational semantic from 
+\fodaPA~\cite{acl13} to process the models. 
 
-
-Figure~\ref{figure:tool:den:benchmark} shows that
-the experiments ran with a number of different
-features ranging from $50$ to $300$.
-
-In this paper we managed to calculate models up to 
-13000 features without timeouts.
-
-Also based on the results published in \fodaPAc~\cite{clc16}
+Also based on the results published in \fodaPAc~\cite{clc16},
 the models used for the simulations were processed in 
-an 8-node cluster but the model had only
-17 features.
+an 8-node cluster but the model had only 17 features.
 
 Figure~\ref{fig:cluster} shows the algorithm behavior 
 which best time its approximately 300 seconds.
@@ -348,7 +349,7 @@ which best time its approximately 300 seconds.
 \end{figure}
 
 For those specific implementations and
-simulations we can highlight
+simulations we can conclude
 that the denotational semantics of the probabilistic
 extension implementation improves dramatically
 the performance

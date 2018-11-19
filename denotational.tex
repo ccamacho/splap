@@ -1,7 +1,7 @@
 \subsection{Denotational Semantics}
 \label{sec:stat:den}
 
-Next we define a denotational semantics for the terms of our language. The main characteristic of the semantic domain is that we consider products (set of features) with probability such that the sum of all the probabilities associated with products belongs to the interval $(0,1]$. First, we
+Next we define a denotational semantics for the terms of our language. The main characteristic of the semantic domain is that we consider products (set of features) with a probability such that the sum of all the probabilities associated with products belongs to the interval $(0,1]$. First, we
 precisely define the members of the semantic domain.
 
 %\todo{Explicar el modelo con más detalle,  y el motivo por el que se necesitan multiconjnutos}
@@ -28,7 +28,7 @@ We define the operator $\accum$ as follows:
   $$\accum(M) = \left\{(P,p)\ \left| \ p=\sum_{(P,q)\in M}q \wedge p>0\right. \right\}$$
 \edfn
 
-Even though the elements of the semantic domain are sets of pairs (product, probability), with at most one occurrence of a given product, we will use multisets as auxiliary elements in our semantic functions. Then, the function $\accum(M)$ will \emph{flatten} them to become sets.
+Even though the elements of the semantic domain are sets of pairs (product, probability), with at most one occurrence of a given product, we use multisets as auxiliary elements in our semantic functions. Then, the function $\accum(M)$ will \emph{flatten} them to become sets.
 The following result is immediate.
 
 \bprop\label{prop:pr:accum}
@@ -49,7 +49,7 @@ $M=\{
 If we add $\fA$ to the products of $M$ then we obtain the product
 $\{\fA,\fB\}$ twice, having probability $\frac{1}{2}$ associated with each occurrence. So we
 need to apply the function $\accum$ to accumulate both probabilities
-and obtain a single product with probability~$1$.
+and to obtain a single product with probability~$1$.
 
 
 \bdfn\label{def:semantic:operators}
@@ -116,7 +116,7 @@ so it will be added, and in the second case the feature $\feature{B}$ is require
 if the feature $\feature{A}$ is already included in the product.
 
 It is easy to check that all the multisets appearing in the previous
-definition meet the conditions of Proposition~\ref{prop:pr:accum}. So,
+definition meet the conditions of Proposition~\ref{prop:pr:accum}. Thus,
 the operators are actually well defined. This is formalized in the
 following result.
 \bprop\label{prp:domain:prob}
