@@ -1,0 +1,300 @@
+\begin{figure}[t]
+  \linefigure
+  \begin{minipage}{.7\hsize}
+    \centering
+    \scalebox{0.65}
+    {
+      \begin{tikzpicture}[->,>=stealth',node distance=1.5cm]
+        \node[syntax] (A) {$\fA;\checkmark\paral(\fB;\checkmark\paral
+          \fC;\checkmark)$};
+        \node[syntax] (B) [below left=2cm of A] {$\checkmark\paral(\fB;\checkmark\paral
+          \fC;\checkmark)$};
+        \node[syntax] (C) [right=1cm of B] {$\fA;\checkmark\paral(\checkmark\paral
+          \fC;\checkmark)$};
+        \node[syntax] (D) [right=1cm of C] {$\fA;\checkmark\paral(\fB;\checkmark\paral
+          \checkmark)$};
+        \node[syntax] (B1) [below=1cm of B] {$\fB\checkmark\paral\checkmark$};
+        \node[syntax] (B2) [left=0.7cm of B1] {$\checkmark\paral\fC;\checkmark$};
+        \node[syntax] (B11) [below=1cm of B1] {$\checkmark$};
+        \node[syntax] (B21) [below=1cm of B2] {$\checkmark$};
+        \node[syntax] (C1) [right=0.5cm of B1] {$\checkmark\paral(\checkmark\paral
+          \fC;\checkmark)$};
+        \node[syntax] (C2) [right=0.5cm of C1] {$\fA;\checkmark\paral\checkmark$};
+        \node[syntax] (C11) [below=1cm of C1] {$\checkmark$};
+        \node[syntax] (C21) [below=1cm of C2] {$\checkmark$};
+        \node[syntax] (D1) [right=0.5cm of C2] {$\checkmark\paral(\fB;\checkmark\paral
+          \checkmark)$};
+        \node[syntax] (D2) [right=0.5cm of D1] {$\fA;\checkmark\paral\checkmark$};
+        \node[syntax] (D11) [below=1cm of D1] {$\checkmark$};
+        \node[syntax] (D21) [below=1cm of D2] {$\checkmark$};
+        \node[syntax] (B111) [below=1cm of B11] {$\nil$};
+        \node[syntax] (B211) [below=1cm of B21] {$\nil$};
+        \node[syntax] (C111) [below=1cm of C11] {$\nil$};
+        \node[syntax] (C211) [below=1cm of C21] {$\nil$};
+        \node[syntax] (D111) [below=1cm of D11] {$\nil$};
+        \node[syntax] (D211) [below=1cm of D21] {$\nil$};
+
+        \path
+        (A) edge[->] node[above, opacity=0, text opacity=1]
+        {$\feature{A},\frac{1}{2}$}
+        (B)
+        (A) edge[->] node[right, opacity=0, text opacity=1]
+        {$\feature{B},\frac{1}{4}$}
+        (C)
+        (A) edge[->] node[right, opacity=0, text opacity=1]
+        {$\feature{C},\frac{1}{4}$}
+        (D)
+        (B) edge[->] node[right, opacity=0, text opacity=1]
+        {$\feature{C},\frac{1}{2}$}
+        (B1)
+        (B) edge[->] node[right, opacity=0, text opacity=1]
+        {$\feature{B},\frac{1}{2}$}
+        (B2)
+        (B2)
+        edge[->] node[right, opacity=0, text opacity=1]
+        {$\feature{C},1$}
+        (B21)
+        (B1)
+        edge[->] node[right, opacity=0, text opacity=1]
+        {$\feature{B},1$}
+        (B11)
+        (C) edge[->] node[right, opacity=0, text opacity=1]
+        {$\feature{A},\frac{1}{2}$}
+        (C1)
+        (C) edge[->] node[right, opacity=0, text opacity=1]
+        {$\feature{C},\frac{1}{2}$}
+        (C2)
+        (C2)
+        edge[->] node[right, opacity=0, text opacity=1]
+        {$\feature{A},1$}
+        (C21)
+        (C1)
+        edge[->] node[right, opacity=0, text opacity=1]
+        {$\feature{C},1$}
+        (C11)
+        (D) edge[->] node[right, opacity=0, text opacity=1]
+        {$\feature{A},\frac{1}{2}$}
+        (D1)
+        (D) edge[->] node[right, opacity=0, text opacity=1]
+        {$\feature{B},\frac{1}{2}$}
+        (D2)
+        (D2)
+        edge[->] node[right, opacity=0, text opacity=1]
+        {$\feature{A},1$}
+        (D21)
+        (D1)
+        edge[->] node[right, opacity=0, text opacity=1]
+        {$\feature{B},1$}
+        (D11)
+        (B11)
+        edge[->] node[right, opacity=0, text opacity=1]
+        {$\checkmark,1$}
+        (B111)
+        (B21)
+        edge[->] node[right, opacity=0, text opacity=1]
+        {$\checkmark,1$}
+        (B211)
+        (C11)
+        edge[->] node[right, opacity=0, text opacity=1]
+        {$\checkmark,1$}
+        (C111)
+        (C21)
+        edge[->] node[right, opacity=0, text opacity=1]
+        {$\checkmark,1$}
+        (C211)
+        (D11)
+        edge[->] node[right, opacity=0, text opacity=1]
+        {$\checkmark,1$}
+        (D111)
+        (D21)
+        edge[->] node[right, opacity=0, text opacity=1]
+        {$\checkmark,1$}
+        (D211)
+        ;
+      \end{tikzpicture}
+    }
+  \end{minipage}
+  \begin{minipage}{0.25\hsize}
+                \centering
+                \bigskip
+                %$\feature{A};\ofeature{B};\checkmark \leadsto$
+                % \begin{minipage}{0.35\hsize}
+                %         \centering
+                \scalebox{0.65}
+                {
+                        \begin{tikzpicture}[->,>=stealth',node distance=1.5cm]
+                        \node[syntax] (A)   {$\feature{A};\ofeature{B};_{p}(\feature{C};\ofeature{D};_{q}\checkmark)$};
+                        \node[syntax] (B) [below=1.5cm of A]   {$\ofeature{B};_{p}(\feature{C};\ofeature{D};_{q}\checkmark)$};
+                        \node[syntax] (C) [below left=1.5cm and 0cm of B]   {$\nil$};
+                        \node[syntax] (D) [below=1.5cm of B]   {$\feature{C};\ofeature{D};_{q}\checkmark$};
+                        \node[syntax] (F) [below=1.5cm of D]   {$\ofeature{D};_{q}\checkmark$};
+                        \node[syntax] (G) [below left=1.5cm and 0cm of F]   {$\nil$};
+                        \node[syntax] (H) [below=1.5cm of F] {$\checkmark$};
+                        \node[syntax] (I) [below=1.5cm of H]   {$\nil$};
+
+                        \path (A) edge[->] node[right, opacity=0, text opacity=1]
+                        {$\feature{A},1$}
+                        (B)
+                        (B) edge[->] node[above left, opacity=0, text opacity=1]
+                        {$\checkmark,1-p$}
+                        (C)
+                        (B) edge[->] node[right, opacity=0, text opacity=1]
+                        {$\feature{B},p$}
+                        (D)
+                        (D) edge[->] node[right, opacity=0, text opacity=1]
+                        {$\feature{C},1$}
+                        (F)
+                        (F) edge[->] node[above left, opacity=0, text opacity=1]
+                        {$\checkmark,1-q$}
+                        (G)
+                        (F) edge[->] node[right, opacity=0, text opacity=1]
+                        {$\feature{D},q$}
+                        (H)
+                        (H) edge[->] node[right, opacity=0, text opacity=1]
+                        {$\checkmark$}
+                        (I);
+                        \end{tikzpicture}
+                }
+        \end{minipage}
+        \vspace{0.5cm}
+        \linefigure
+
+        \caption{Examples of the operational semantics (1/2).\label{example:op1}}
+\end{figure}
+\begin{figure}[t]
+  \linefigure
+  \centering
+  \begin{minipage}[t]{0.35\hsize}
+    \centering
+    % $\feature{A};\ofeature{B};\checkmark \leadsto$
+    % \begin{minipage}{0.35\hsize}
+    %   \centering
+    \scalebox{0.65}{
+      \begin{tikzpicture}[->,>=stealth',node distance=1.5cm]
+        \node[syntax] (A)   {$\feature{A};\ofeature{B};_{p}(\feature{C};(\feature{D};\checkmark\choice_{q}(\ofeature{E};_{r}\checkmark)))$};
+        \node[syntax] (B) [below=1.5cm of A]   {$\ofeature{B};_{p}(\feature{C};(\feature{D};\checkmark\choice_{q}(\ofeature{E};_{r}\checkmark))$};
+        \node[syntax] (C) [below right=1.5cm and 0cm of B]   {$\nil$};
+        \node[syntax] (D) [below=1.5cm of B]   {$\feature{C};(\feature{D};\checkmark\choice_{q}(\ofeature{E};_{r}\checkmark))$};
+        \node[syntax] (F) [below=1.5cm of D]   {$\feature{D};\checkmark\choice_{q}(\ofeature{E};_{r}\checkmark)$};
+        \node[syntax] (G) [below left=1.5cm and 0.5cm of F]   {$\checkmark$};
+        \node[syntax] (H) [right=2.5cm of G] {$\checkmark$};
+        \node[syntax] (I) [below right=1.5cm and 1cm of F]   {$\nil$};
+        \node[syntax] (J) [below=1.5cm of G]   {$\nil$};
+        \node[syntax] (K) [below=1.5cm of H]   {$\nil$};
+
+
+        \path (A) edge[->] node[right, opacity=0, text opacity=1]
+        {$\feature{A}$}
+        (B)
+        (B) edge[->] node[above right, opacity=0, text opacity=1]
+        {$\checkmark$}
+        (C)
+        (B) edge[->] node[left, opacity=0, text opacity=1]
+        {$\feature{B},p$}
+        (D)
+        (D) edge[->] node[right, opacity=0, text opacity=1]
+        {$\feature{C},1$}
+        (F)
+        (F) edge[->] node[above left, opacity=0, text opacity=1]
+        {$\feature{D},q$}
+        (G)
+        (F) edge[->] node[left, near end, opacity=0, text opacity=1]
+        {$\feature{E}, (1-q)r$}
+        (H)
+        (F) edge[->] node[above right, opacity=0, text opacity=1]
+        {$\checkmark, (1-q)(1-r)$}
+        (I)
+        (G) edge[->] node[right, opacity=0, text opacity=1]
+        {$\checkmark,1$}
+        (J)
+        (H) edge[->] node[right, opacity=0, text opacity=1]
+        {$\checkmark,1$}
+        (K)
+
+        ;
+      \end{tikzpicture}
+    }
+  \end{minipage}
+  \begin{minipage}[t]{0.4\hsize}
+    % $\feature{A};\ofeature{B};\checkmark \leadsto$
+                % \begin{minipage}{0.35\hsize}
+                %   \centering
+    \scalebox{0.65}{
+      \begin{tikzpicture}[->,>=stealth',node distance=1.5cm]
+        \node[syntax] (A)   {$\ofeature{A};_{p}\feature{B};(\ofeature{C};_{q}\checkmark\paral\feature{D};\checkmark)$};
+        \node[syntax] (B) [below left=1.5cm and 1.5cm of A]   {$\nil$};
+        \node[syntax] (C) [below=1.5cm of A]   {$\feature{B};(\ofeature{C};_{q}\checkmark\paral\feature{D};\checkmark)$};
+
+        \node[syntax] (D) [below=1.5cm of C]   {$\ofeature{C};_{q}\checkmark\paral\feature{D};\checkmark$};
+
+        \node[syntax] (F) [below left=1.5cm and 1cm of D]   {$\checkmark\paral\feature{D};\checkmark$};
+
+        \node[syntax] (G) [below=1.5cm of D]
+        {$\ofeature{C};_{q}\checkmark\paral\checkmark$};
+
+        \node[syntax] (D3) [below right=1.5cm and 1cm of D]
+        {$\checkmark$};
+        \node[syntax] (D31) [below right=1.5cm and 1cm of D3]
+        {$\checkmark$};
+
+        \node[syntax] (H) [below=1.5cm of F]   {$\checkmark\paral\checkmark$};
+
+        \node[syntax] (I) [below=1.5cm of G]   {$\checkmark\paral\checkmark$};
+
+        \node[syntax] (J) [below right=1.5cm and 1cm of G]
+        {$\nil$};
+
+        \node[syntax] (K) [below=1.5cm of H]   {$\nil$};
+        \node[syntax] (L) [below=1.5cm of I]   {$\nil$};
+
+
+        \path (A) edge[->] node[above left, opacity=0, text opacity=1]
+        {$\checkmark, (1-p)$}
+        (B)
+        (A) edge[->] node[right, opacity=0, text opacity=1]
+        {$\feature{A},p$}
+        (C)
+        (C) edge[->] node[right, opacity=0, text opacity=1]
+        {$\feature{B},1$}
+        (D)
+        (D) edge[->] node[above left, opacity=0, text opacity=1]
+        {$\feature{C}, \frac{q}{2}$}
+        (F)
+        (D) edge[->] node[right, opacity=0, text opacity=1]
+        {$\feature{D},\frac{1}{2}$}
+        (G)
+        (F) edge[->] node[left, opacity=0, text opacity=1]
+        {$\feature{D},1$}
+        (H)
+        (G) edge[->] node[left, opacity=0, text opacity=1]
+        {$\feature{C},q$}
+        (I)
+        (G) edge[->] node[right, opacity=0, text opacity=1]
+        {$\checkmark,1-q$}
+        (J)
+        (H) edge[->] node[right, opacity=0, text opacity=1]
+        {$\checkmark,1$}
+        (K)
+        (I) edge[->] node[right, opacity=0, text opacity=1]
+        {$\checkmark,1$}
+        (L)
+        (D) edge[->] node[right, opacity=0, text opacity=1]
+        {$\fD,\frac{1-q}{2}$}
+        (D3)
+        (D3) edge[->] node[right, opacity=0, text opacity=1]
+        {$\checkmark,1$}
+        (D31)
+        ;
+      \end{tikzpicture}
+    }
+  \end{minipage}
+  \vspace{0.5cm}
+  \linefigure
+
+  \caption{Examples of the operational semantics (2/2).\label{example:op2}}
+\end{figure}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "main"
+%%% End:
