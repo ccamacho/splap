@@ -102,8 +102,11 @@ equitably distribute the probability between both
 branches, that is, $\frac{1}{2}$. We have preferred to use a simple definition of this operator, but it is easy to replace it by a more involved version of a probabilistic conjunction operator~\cite{ahk98}.
 %
 Rule $\nombreRegla{con3}$ requires that both branches agree on the
-termination of a product.
+termination of a product. Figures~\ref{example:op1}
+and~\ref{example:op2} contain some examples of the operational semantics.
 %
+
+\input{ex_operational}
 
 We use \emph{multisets} of transitions to consider different occurrences of the same transition. Thus, if a transition can be derived in several ways, then each derivation generates a different
 instance of this transition~\cite{h96}. For example, let us consider the
@@ -136,7 +139,7 @@ Let $s\in\calF^*$ be a trace of $P$. We define the product
 $\product{s}\subseteq\calF$ as the set consisting of all features belonging to
 $s$.
 
-Let $P\in\fodaPAp$. We define the set of probabilistic products of $P$, denoted by $\prodp(P)w$, as the set
+Let $P\in\fodaPAp$. We define the set of probabilistic products of $P$, denoted by $\prodp(P)$, as the set
 \begin{displaymath}
  \prodp(P) = \{(pr,p)\ |\ p>0 \wedge p=\sum\lbag q\ |\
   P\vtranp{s\checkmark}{q} Q \y \product{s}=pr \rbag\}
