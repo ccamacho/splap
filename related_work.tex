@@ -8,7 +8,7 @@ The study of probabilistic extensions of formal methods can be dated
 back to the end of the 1980s. This is already a well established area,
 with many extensive contributions to include probabilistic information
 in classical formalisms (I/O Automata, Finite State Machines,
-(co-)algebraic approaches, among others)~\cite{ls91,rgs95,cdsy99,nun03,lnr06,csv07,dp07,dghm08,hm09,aprs11,sok11,hn12,dghm14,agl16,Dubslaff2015,Chrszon2018}.
+(co-)algebraic approaches, among others)~\cite{ls91,rgs95,cdsy99,nun03,lnr06,csv07,dp07,dghm08,hm09,aprs11,sok11,hn12,dghm14,agl16,Dubslaff2015}.
 %
 %
 %Figures like the displayed trees describe how probabilities are assigned in the system behavior (see Figure~\ref{fig:displayedTrees}). These models allow to assign a real value between 0 and 1 to each transition in order to execute an event. It is important to notice that the probability of execute a transition \textit{t} is not necessarily equal to the other probabilities from the same level.
@@ -78,6 +78,42 @@ Some of these approaches describe models to run statistical analysis over \SPLs,
 %Some of these works describe models to run statistical analysis to represent \SPLs\ by defining an specific set of operational rules to compute their defined syntax elements~\cite{tllv15,tlll15}. These models demonstrate their ability by being integrated to standard tools like QFLan, Microsoft's SMT Z3 and MultiVeStA.
 %
 %Other works focus on describing use cases for analyzing the probability of finding features inside valid products~\cite{dpcslsh17}. %An interesting feature is that any of the referenced research articles describe their approaches using multisets.
+
+Es cierto que el procfesamiento de los modelos de
+variabilidad puede crear problemas combinatorios~\cite{dpcslsh17}
+y hacer que el analisis de los mismos se combierta en una tarea computacionalmente compleja.
+En particular existen modelos de verificacion matematica~\cite{vk13}
+que permiten representar el comportamiento de los productos en lineas de productos
+haciendo uso de modelos como el Discrete Time Markov Chain Family, que permite
+
+represents the probabilistic behavior of all
+the products in the product line pero cuya implementacion
+no define una traduccion literal entre modelos de variabilidad conocidos
+como FODA y tampoco proveen de implementaciones sobre su
+uso practico, sin embargo, muestran tecnicas de analisis que una vez implementadas
+podrian tener un impacto drastico en el esfuerzo requerido para procesar los modelos de
+variabilidad.
+
+
+Sin embargo se muestra en años anteriores~\cite{jhf11, jhfes12} la relacion
+entre el estudio y analisis de modelos de variabilidad y su realacion
+sobre modelos de variabilidad realisticos y que esta a su vez no es compleja
+ya que se muestra que la relacion combinatoria con modelos reales es
+procesable en la practica. En particular el estudio de maquinas expendedoras 
+de artículos~\cite{jhfes12} es un caso de uso real sobre lineas de productos
+ampliamente descrito en la literatura. Pero su relacion con el estudio de las lineas de productos
+de software no siempre esta relacionada directamente~\cite{cds06, fub06, nnz14}.
+
+Recent implementations like ProFeat~cite{Chrszon2018} allows to 
+help in the verification of requirements on families of probabilistic systems using 
+it own language and based on Markov decision processes together with PRISM~\cite{mgd12}.
+
+
+
+
+
+
+
 
 
 
