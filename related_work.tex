@@ -79,40 +79,51 @@ Some of these approaches describe models to run statistical analysis over \SPLs,
 %
 %Other works focus on describing use cases for analyzing the probability of finding features inside valid products~\cite{dpcslsh17}. %An interesting feature is that any of the referenced research articles describe their approaches using multisets.
 
-Es cierto que el procfesamiento de los modelos de
-variabilidad puede crear problemas combinatorios~\cite{dpcslsh17}
-y hacer que el analisis de los mismos se combierta en una tarea computacionalmente compleja.
-En particular existen modelos de verificacion matematica~\cite{vk13}
-que permiten representar el comportamiento de los productos en lineas de productos
-haciendo uso de modelos como el Discrete Time Markov Chain Family, que permite
+It is true that the variability models computing can create combinatory problems
+depending on how the models are computed and how the models are represented, all this varies
+depending on the information to be generated~\cite{dpcslsh17}.
+This analysis makes the whole process of studding product lines a computational complex task.
 
-represents the probabilistic behavior of all
-the products in the product line pero cuya implementacion
-no define una traduccion literal entre modelos de variabilidad conocidos
-como FODA y tampoco proveen de implementaciones sobre su
-uso practico, sin embargo, muestran tecnicas de analisis que una vez implementadas
-podrian tener un impacto drastico en el esfuerzo requerido para procesar los modelos de
-variabilidad.
+In particular there exist mathematical verification models~\cite{vk13}
+allowing the behavior representation of the products of a product line using models
+like discrete time Markov chain families, allowing
+to represent the probabilistic behavior of all
+the products in the product line but its implementation does not
+provides a literal translation between the already know variability models like FODA
+and they also do not provide implementation over their practical uses, although,
+they show analysis techniques that once implemented might have
+a drastic impact in the effort to compute variability models.
 
+In previous years the studies relating the analysis of variability models and
+their practical applications with realistic use cases ~\cite{jhf11, jhfes12}
+demonstrate that those uses cases do not describe such complex models, thus, they
+can be processed in the practice without much algorithmic sophistication or
+complex analysis.
+In particular the study of expending machines~\cite{jhfes12}
+has been widely used across the whole
+literature to show practical and real usages of products
+line modeling. In the other 
+side its described that those models for defining products
+lines does not always apply to the
+formal definition and description of software
+product lines as they are not directly related~\cite{cds06, fub06, nnz14}.
 
-Sin embargo se muestra en años anteriores~\cite{jhf11, jhfes12} la relacion
-entre el estudio y analisis de modelos de variabilidad y su realacion
-sobre modelos de variabilidad realisticos y que esta a su vez no es compleja
-ya que se muestra que la relacion combinatoria con modelos reales es
-procesable en la practica. En particular el estudio de maquinas expendedoras 
-de artículos~\cite{jhfes12} es un caso de uso real sobre lineas de productos
-ampliamente descrito en la literatura. Pero su relacion con el estudio de las lineas de productos
-de software no siempre esta relacionada directamente~\cite{cds06, fub06, nnz14}.
-
-Recent implementations like ProFeat~cite{Chrszon2018} allows to 
+Recent implementations like ProFeat~\cite{Chrszon2018} allows to 
 help in the verification of requirements on families of probabilistic systems using 
 it own language and based on Markov decision processes together with PRISM~\cite{mgd12}.
 
 
+Based on the previous work in the literature we define the following research questions:
 
-
-
-
+\begin{itemize}
+	\item Is it possible to translate current variability
+	models to support probabilistic information?.
+	\item Is it possible to describe a formal framework
+	that translates the current variability models
+	to probabilistic methods?.
+	\item What is the impact of applying probabilistic analysis
+	methods to current variability models like FODA?.
+\end{itemize}
 
 
 
