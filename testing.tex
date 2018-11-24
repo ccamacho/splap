@@ -94,7 +94,9 @@ the time required to calculate the probability of having a feature in a final pr
 %In this case, the total time to obtain the probability for all the features is linear with respect to the total length of the analyzed term
 %\mncomment{Que quiere decir esto? Suena raro porque yo esperaria complejidad $O(2^n)$ siendo $n$ el numero de probabilidades que salen en el termino. Pero vamos, que yo no  se mucho de complejidad!}\ccomen{Es cierto, no lo demostramos ni lo analizamos}.
 %\acomen{Yo simplemente quitaría esa frase, lo de que la complejidad es lineal}
-It is important to remark that there is a small variation in the processing time for calculating the probability of each single feature. We think that this variation is mainly caused by the inherent noise of the node where the experiment is launched (e.g. disk latencies, operating
+It is important to remark that there is a small variation in the processing time for
+calculating the probability of each single feature. We think that this variation is
+mainly caused by the inherent noise of the node where the experiment is launched (e.g. disk latencies, operating
 system overhead, memory paging, etc.) and, therefore, it is not related to the algorithm itself.
 
 Since the processing time for each feature is relatively low, it being around milliseconds, a single delay in
@@ -104,7 +106,34 @@ from 15 to 28 milliseconds.
 
 The model used in the experiments has been executed 30 times, providing similar results. That is, the
 major part of the features require between 15 and 20 milliseconds to be processed, while there is a small
-portion of them requiring a processing time between 20 and 38 milliseconds.
+portion of them requiring a processing time between 20 and 36 milliseconds.
+The standard deviation of the experiment is 3.0357.
+
+For the sake of the article readability we only display the first 10 executions in
+Table~\ref{execution_times}, it displays partially the results to
+show that on each execution the algorithm behaves similarly.
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|}
+		\hline
+		\textbf{Execution} & \textbf{Maximum} &  \textbf{Minimum} &  \textbf{Average} &  \textbf{Standard deviation} \\ \hline
+		\textit{1}		& 14	& 35	& 17.0247	& 3.0357 	\\ \hline
+		\textit{2}		& 14	& 41 	& 17.2325	& 3.3911	\\ \hline
+		\textit{3}		& 14	& 36 	& 16.3983 	& 3.0823 	\\ \hline
+		\textit{4}		& 14	& 34	& 16.5417	& 3.1394 	\\ \hline
+		\textit{5}		& 14	& 34	& 16.7105	& 3.1343 	\\ \hline
+		\textit{6}		& 14	& 43	& 16.7865	& 3.3871 	\\ \hline
+		\textit{7}		& 14	& 47	& 17.3589	& 3.9768 	\\ \hline
+		\textit{8}		& 14	& 63	& 17.6684	& 4.2557 	\\ \hline
+		\textit{9}		& 15	& 51	& 18.5851	& 4.3072 	\\ \hline				
+		\textit{10}		& 14	& 55	& 18.0947	& 4.4526 	\\ \hline			
+	\end{tabular}
+	\caption{Computing time analysis table.}
+	\label{execution_times}
+\end{table}
+
+
 
 
 \begin{figure}[h]
