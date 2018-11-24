@@ -23,11 +23,12 @@
 \usepackage[colorinlistoftodos, textsize=tiny, shadow]{todonotes} %
 \def\review{\includegraphics[width=4em]{review.jpg}}
 
-%\usepackage[pagewise]{lineno}
 
 
+\usepackage[pagewise]{lineno}
+\linenumbers
+\def\thepage{\arabic{page}--[\timestamp]}
 
-%\def\thepage{\arabic{page}--[\timestamp]}
 \usepackage{tikz}
 \usetikzlibrary{snakes}
 
