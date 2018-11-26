@@ -6,19 +6,33 @@
 In the field of \SPLs\ analysis, the use of probabilistic methods carries two practical applications.
 The first one consists in calculating the probability of having a feature in a specific product.
 This allows us to efficiently assign resources by prioritizing those features with a high probability
-of being included into the \SPL.
-The second application consists in estimating the testing coverage in the product line,
-which allows us to calculate those products that can be generated in the testing process.
+of being included into the \SPL. The second application consists in estimating the testing coverage 
+in the product line, which allows us to calculate those products that can be generated in the testing process.
 
 This section presents the results obtained from an experimental study to show the applicability and scalability of our
-approach.
-In order to carry out this study, we have developed a tool to implement the denotational semantics of the
-probabilistic extension presented in this paper.
+approach. In order to carry out this study, we have developed a tool to implement the denotational semantics of the
+probabilistic extension presented in this paper. The source code of this tool is available at the main project site
+\footnote{\url{http://ccamacho.github.io/phd/resources/03_splap.tar}}. In essence, we perform two experiments. 
+The former focuses on measuring the performance of our proposed implementation for processing a feature model. 
+The second experiment consists on analyzing the scalability of our proposed implementation. 
+The idea is to study if there is a correlation between the number of features of each type and the 
+processing time. 
 
-The source code
-of this tool is available at the main project site
-\footnote{\url{http://ccamacho.github.io/phd/resources/03_splap.tar}}.
-The experiments have been executed in a computer with the following features: Intel(R) Xeon(R) Quad-Core CPU E5-2670 @ 2.60GHz, 64 GB of RAM memory and Centos 7 Operating System.
+The experiments have been executed in a computer with the following features: Intel(R) Xeon(R) Quad-Core 
+CPU E5-2670 @ 2.60GHz, 64 GB of RAM memory and Centos 7 Operating System.
+
+The study described in this section seeks to answer the following questions:
+
+\begin{itemize}
+	\item \textbf{RQ1}: Is it possible to translate current variability models to support probabilistic information?
+	\item \textbf{RQ2}: Is it possible to describe a formal framework that translates the current variability models
+	to probabilistic methods?
+	\item \textbf{RQ3}: What is the impact of applying probabilistic analysis methods to current variability models like FODA?
+\end{itemize}
+
+
+
+%--------------------------------------------------------------------------------------------------------------------
 
 \subsection{Model analysis}
 \label{sec:stat:impl:model:analysis}
@@ -96,7 +110,8 @@ the time required to calculate the probability of having a feature in a final pr
 %\acomen{Yo simplemente quitaría esa frase, lo de que la complejidad es lineal}
 It is important to remark that there is a small variation in the processing time for
 calculating the probability of each single feature. We think that this variation is
-mainly caused by the inherent noise of the node where the experiment is launched (e.g. disk latencies, operating
+mainly caused by both the stochastic nature of the generated model and the 
+inherent noise of the node where the experiment is launched (e.g. disk latencies, operating
 system overhead, memory paging, etc.) and, therefore, it is not related to the algorithm itself.
 
 Since the processing time for each feature is relatively low, it being around milliseconds, a single delay in
@@ -104,20 +119,17 @@ the process scheduling may have a direct impact in the overall algorithm perform
 can be considered insignificant since, in general, the time for processing each feature in the model ranges
 from 15 to 28 milliseconds.
 
-The model used in the experiments has been executed 30 times, providing similar results. That is, the
-major part of the features require between 15 and 20 milliseconds to be processed, while there is a small
-portion of them requiring a processing time between 20 and 36 milliseconds.
-The standard deviation of the experiment is 3.0357.
-
-For the sake of the article readability we only display the first 10 executions in
-Table~\ref{execution_times}, it displays partially the results to
-show that on each execution the algorithm behaves similarly.
+The model used in the experiments has been generated and processed 10 times, providing similar results 
+(see Table~\ref{execution_times}). That is, the
+major part of the features require between 14 and 20 milliseconds to be processed, while there is a small
+portion of them requiring a processing time between 20 and 36 milliseconds. However, there are unusual situations
+where a feature require 60 milliseconds to be processed.
 
 \begin{table}[h]
 	\centering
 	\begin{tabular}{|c|c|c|c|c|}
 		\hline
-		\textbf{Execution} & \textbf{Maximum} &  \textbf{Minimum} &  \textbf{Average} &  \textbf{Standard deviation} \\ \hline
+		\textbf{Execution} & \textbf{Minimum} &  \textbf{Maximum} &  \textbf{Average} &  \textbf{Standard deviation} \\ \hline
 		\textit{1}		& 14	& 35	& 17.0247	& 3.0357 	\\ \hline
 		\textit{2}		& 14	& 41 	& 17.2325	& 3.3911	\\ \hline
 		\textit{3}		& 14	& 36 	& 16.3983 	& 3.0823 	\\ \hline
@@ -132,9 +144,6 @@ show that on each execution the algorithm behaves similarly.
 	\caption{Computing time analysis table.}
 	\label{execution_times}
 \end{table}
-
-
-
 
 \begin{figure}[h]
 	\centering
@@ -183,7 +192,7 @@ installed in the products.
 \subsection{Performance analysis}
 \label{sec:stat:impl:performance:analysis}
 
-Secondly, an experiment to analyze the scalability of our approach
+Secondly, an evaluation to analyze the scalability of our approach
 have been carried out. We are interested in investigating both the
 execution time and the amount of memory required for processing a model
 when the number of features increases.
@@ -283,15 +292,18 @@ Broadly speaking, these results show that increasing the number of features havi
 
 %%%------------------------------------------------------------------------------------------------------------------------------------------------
 
-\subsection{Comparison between current results and previous implementations}
+\subsection{Discussion of the results}
 \label{sec:stat:impl:comp}
 
-We now compare the latest results with the ones obtained using \fodaPA~\cite{acl13}
-and the cost extension \fodaPAc~\cite{clc16}.
+In this section we discuss the obtained results from the empirical study and
+provide a comparison with the ones obtained using \fodaPA~\cite{acl13}
+and the cost extension \fodaPAc~\cite{clc16}. Specifically, we are interested in 
+comparing the performance between the implementation of the probabilistic 
+extension and the implementation of the denotational semantic from 
+\fodaPA~\cite{acl13}. Also, we provide the answers for the research questions.
 
-Specifically, we are interested in comparing the performance between the implementation 
-of the probabilistic extension and the implementation of the denotational semantic from 
-\fodaPA~\cite{acl13}.
+Figure~\ref{figure:tool:den:benchmark} shows the results of an experiment using
+models containing different number of features, which ranges from $50$ to $300$.
 
 \begin{figure}[t]
 	\centering
@@ -340,19 +352,23 @@ of the probabilistic extension and the implementation of the denotational semant
 	\caption{Denotational benchmark from \cite{acl13}.\label{figure:tool:den:benchmark}}
 \end{figure}
 
-
-Figure~\ref{figure:tool:den:benchmark} shows the results of an experiment using
-models containing different number of features, which ranges from $50$ to $300$.
 In this case, we use the implementation of the denotational semantic from 
-\fodaPA~\cite{acl13} to process the models. 
+\fodaPA~\cite{acl13} to process the models, which do not use probabilistic 
+information. If we use only the executions that successfully process the model,
+the worst case scenario requires 786126 ms to process a model containing 150 
+features.
 
-Also based on the results published in \fodaPAc~\cite{clc16},
+The experiments carried out in Section~\ref{sec:stat:impl:performance:analysis}
+uses feature models containing a maximum of 10000 features. In this case, 
+the worst case scenario, which generates a model where the 50\% of the features are
+placed in a conjunction relationship, requires approximately 500000 ms.
+
+Also, based on the results published in \fodaPAc~\cite{clc16},
 the models used for the simulations were processed in 
-an 8-node cluster but the model had only 17 features.
+an 8-node cluster. However, these models only contains 17 features.
 
 Figure~\ref{fig:cluster} shows the algorithm behavior 
 which best time its approximately 300 seconds.
-
 
 \begin{figure}[t]
 	\centering
@@ -386,22 +402,36 @@ in comparison with the denotational semantics implementations
 presented in previous works~\cite{acl13,clc16}.
 
 
+Following, we provide the answers to the research questions.
+
+\textbf{RQ1}: Is it possible to translate current variability models to support 
+probabilistic information?
+
+In order to ask this question we have implemented the denotational semantic
+of the probabilistic extension. Since our framework is based on FODA, we
+can state that the answer is yes, it is possible to translate current
+variability models, like FODA, to models supporting probabilistic
+information.
+
+\textbf{RQ2}: Is it possible to describe a formal framework that translates 
+the current variability models to probabilistic methods?
 
 
+\textbf{RQ3}: What is the impact of applying probabilistic analysis methods 
+to current variability models like FODA?
 
+In order to ask this question we carried out some experiments using
+our implementation of the denotational semantic \fodaPA~\cite{acl13}
+and the cost extension \fodaPAc~\cite{clc16}. The results obtained
+have been compared with the implementation of the probabilistic 
+extension. We observed that the latter is able to process larger 
+models faster, which provides a greater scalability when
+the size of the model to be processed grows.
 
-
-
-
-
-
-
-
-
-
-
-
-
+Since the probabilistic extension focuses on hiding  those features 
+that do not affect the processing of the probability of given feature 
+for being part of a valid product, the required tome for processing the
+model is considerably reduced.
 
 
 %\begin{figure}[t]
