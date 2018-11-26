@@ -80,52 +80,36 @@ Some of these approaches describe models to run statistical analysis over \SPLs,
 %Other works focus on describing use cases for analyzing the probability of finding features inside valid products~\cite{dpcslsh17}. %An interesting feature is that any of the referenced research articles describe their approaches using multisets.
 
 It is true that the variability models computing can create combinatory problems
-depending on how the models are computed and how the models are represented, all this varies
-depending on the information to be generated~\cite{dpcslsh17}.
-This analysis makes the whole process of studding product lines a computational complex task.
+depending on how the models are computed and how the models are represented, which is directly
+correlated to the information to be generated~\cite{dpcslsh17}.
+This analysis makes the whole process of studying product lines a computational complex task.
 
-In particular there exist mathematical verification models~\cite{vk13}
-allowing the behavior representation of the products of a product line using models
-like discrete time Markov chain families, allowing
-to represent the probabilistic behavior of all
-the products in the product line but its implementation does not
-provides a literal translation between the already know variability models like FODA
-and they also do not provide implementation over their practical uses, although,
-they show analysis techniques that once implemented might have
+In particular, there exist mathematical verification models~\cite{vk13} that
+allow the representation of the products - of a product line - using models,
+like discrete time Markov chain families, for representing the probabilistic behavior of all
+the products in the product line. Its implementation does not
+provide a literal translation between the already know variability models, like FODA,
+and they also do not provide implementation over their practical uses.
+However, they present analysis techniques that should have
 a drastic impact in the effort to compute variability models.
 
 In previous years the studies relating the analysis of variability models and
 their practical applications with realistic use cases ~\cite{jhf11, jhfes12}
-demonstrate that those uses cases do not describe such complex models, thus, they
+have demonstrated that those uses cases do not describe such complex models. Thus, these
 can be processed in the practice without much algorithmic sophistication or
 complex analysis.
-In particular the study of expending machines~\cite{jhfes12}
+In particular, the study of expending machines~\cite{jhfes12}
 has been widely used across the whole
 literature to show practical and real usages of products
 line modeling. In the other 
-side its described that those models for defining products
+side, it is described that those models for defining products
 lines does not always apply to the
 formal definition and description of software
-product lines as they are not directly related~\cite{cds06, fub06, nnz14}.
+product lines, as they are not directly related~\cite{cds06, fub06, nnz14}.
 
-Recent implementations like ProFeat~\cite{Chrszon2018} allows to 
-help in the verification of requirements on families of probabilistic systems using 
-it own language and based on Markov decision processes together with PRISM~\cite{mgd12}.
-
-
-Based on the previous work in the literature we define the following research questions:
-
-\begin{itemize}
-	\item Is it possible to translate current variability
-	models to support probabilistic information?.
-	\item Is it possible to describe a formal framework
-	that translates the current variability models
-	to probabilistic methods?.
-	\item What is the impact of applying probabilistic analysis
-	methods to current variability models like FODA?.
-\end{itemize}
-
-
+Recent implementations, like ProFeat~\cite{Chrszon2018}, allow to 
+help in the verification of requirements of families of probabilistic systems using 
+its own language and based on Markov decision processes together with PRISM~\cite{mgd12}.
 
 
 %%% Local Variables:
