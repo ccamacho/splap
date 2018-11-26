@@ -75,11 +75,22 @@
         \linefigure
 
         \caption{\fodaPAp\ operational semantics.  \label{fig:sos-rules}}
-\end{figure*}
+      \end{figure*}
 
-In Figure~\ref{fig:sos-rules} we present the set of rules formally defining  the operational behavior of
-\fodaPAp. These rules essentially coincide with the ones corresponding to
-\fodaPA~\cite{acl13}, but with the addition of probabilities. Next we focus
+The rules in Figure~\ref{fig:sos-rules} define the behavior of
+\fodaPAp\ terms.
+These rules essentially coincide with the ones corresponding to
+\fodaPA~\cite{acl13} (with the modification introduced
+in~\cite{clc16}).
+We have adapted those rules in order to incorporate  probabilities.
+\bdfn\label{dfn:operational}
+  Let \(P,Q\in\fodaPAp\) two terms, \(\fA\in\calF\) and a probability
+  \(p\in(0,1]\) we define the transition $P\tranp{\fA}{p} Q$ iff can
+  be deduced in a finite number of steps from the rules in
+  Figure~\ref{fig:sos-rules}.
+  \edfn
+
+ Next we focus
 on the explanation of the role of probabilities. Rules
 $\nombreRegla{tick}$ and $\nombreRegla{feat}$
 show the corresponding feature with probability 1.
@@ -108,6 +119,8 @@ and~\ref{example:op2} contain some examples of the operational semantics.
 
 \input{ex_operational}
 
+
+
 We use \emph{multisets} of transitions to consider different occurrences of the same transition. Thus, if a transition can be derived in several ways, then each derivation generates a different
 instance of this transition~\cite{h96}. For example, let us consider the
 term
@@ -123,7 +136,7 @@ multisets and $\uplus$ to denote the union of multisets.
 The following result, whose proof is immediate, shows that successful termination leads to $\nil$.
 
 \blem\label{lem:check}
-Let $P,Q\in\fodaPAp$ and $p\in(0,1]$. We have $P\tranp{\checkmark}{p}{Q}$ if and only if $Q=\nil$.
+Let $P,Q\in\fodaPAp$ and $p\in\real$. We have $P\tranp{\checkmark}{p}{Q}$ if and only if $Q=\nil$.
 \elem
 
 Next we present some notions associated with the composition of consecutive transitions.
@@ -147,10 +160,12 @@ Let $P\in\fodaPAp$. We define the set of probabilistic products of $P$, denoted 
 \item We define the total probability of $P$, denoted by $\ham(P)$, as the value $\sum\lbag p\ |\ \exists pr: (pr,p)\in\prodp(P)\rbag$. In addition, we define $\waste(P) = 1-\ham(P)$.
 \edfn
 
-The following result shows some properties, concerning probabilities, of the operational semantics. In particular, we have that the probability of (sequences of) transitions is greater than zero and that the probabilities of products belong to $[0,1]$.
+The following result shows some properties, concerning probabilities,
+of the operational semantics. In particular, we have that the
+probability of (sequences of) transitions is greater than zero.
 
 \blem\label{lem:sum:prob}
-  Let  $P,\ Q\in\fodaPAp$.We have the following results.
+  Let  $P\in\fodaPAp$, we have the following results.
   \begin{enumerate}
   \item If $P\tranp{\feature{A}}{p}Q$ then $p\in(0,1]$.
         If $P\vtranp{s}{p}Q$ then $p\in(0,1]$.
@@ -159,7 +174,7 @@ The following result shows some properties, concerning probabilities, of the ope
     P\tranp{\feature{A}}{p}Q \rbag\in[0,1]$.
   \item
     $\sum \lbag p\, |\ \exists s\in\calF^*,\ Q\in\fodaPAp:\
-    P\tranp{s\checkmark}{p}Q \rbag\in[0,1]$.
+    P\vtranp{s\checkmark}{p}Q \rbag\in[0,1]$.
   \item $\ham(P)\in [0,1]$.
   \end{enumerate}
 \elem

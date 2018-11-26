@@ -8,7 +8,7 @@ the most frequent components to focus our analysis on these components.
 %Let us remark that this probability is affected by the dependencies and restrictions of
 %the feature.
 %
-In order to compute the probability of a set of features, other features from the software product line are 
+In order to compute the probability of a set of features, other features from the software product line are
 \emph{hidden}. We hide features because it is usually not feasible to compute all the
 products of the software product line. However, we expect to achieve our goal if we restrict ourselves to a subset of features. Thus,
 non interesting features are transformed into a new feature,
@@ -75,7 +75,7 @@ of a given product.
 \bdfn
   Let $M\in\calM$ and $\calA\subseteq\calF$. We define:
   \begin{displaymath}
-    \semdenp{\cdot\hide{\calA}} = \accum\Bigl(\lbag(pr\hide{\calA},p)\
+    \semdenp{\cdot\hide{\calA}}(M) = \accum\Bigl(\lbag(pr\hide{\calA},p)\
     |\ (pr,p)\in M\rbag \Bigr)
   \end{displaymath}
 \edfn
@@ -93,30 +93,30 @@ The proof of the following result is an immediate consequence of Proposition~\re
 As usual in process algebras, it would be desirable that the hiding operator is \emph{derived}, that is, given a syntactic term, there exists a semantically equivalent term without occurrences of the hiding operator.
 The idea is to substitute any occurrence of
 the hidden actions by the symbol $\bot$. However, it is necessary to take into account  that we cannot
-hide actions that appear in the restriction operators and, therefore, these cases are not contemplated. The proof of the following result is easy by structural induction and by Proposition~\ref{prop:hid}.
+hide actions that appear in the restriction operators and, therefore, these cases are not contemplated.
 
 \bprop
   Let $P,Q\in\fodaPAp$ be terms, $r\in (0,1]$ be a probability, and
   $\calA\subseteq\calF$ be a set of hidden actions. We have the following results:
   $$\begin{array}{rll}
-  \semdenp{\checkmark\hide\calA}&=&\semdenp{\checkmark}\\[0.5em]
-  \semdenp{\nil\hide\calA}&=&\semdenp{\nil}\\[0.5em]
-  \semdenp{(\fA;P)\hide\calA}&=&
+  \semdenp{\cdot\hide\calA}(\semdenp{\checkmark})&=&\semdenp{\checkmark}\\[0.5em]
+  \semdenp{\cdot\hide\calA}(\semdenp{\nil})&=&\semdenp{\nil}\\[0.5em]
+  \semdenp{\cdot\hide\calA}(\semdenp{\fA;P})&=&
       \begin{cases}
         \semdenp{\bot;(P\hide\calA)} & \mbox{if } A\in\calA\\
         \semdenp{\fA;(P\hide\calA)} & \mbox{if } A\not\in\calA\\
       \end{cases}\\[1em]
-  \semdenp{(\ofA;_rP)\hide\calA}&=&
+  \semdenp{\cdot\hide\calA}(\semdenp{\ofA;_rP})&=&
       \begin{cases}
         \semdenp{\overline{\bot};_r(P\hide\calA)} & \mbox{if } A\in\calA\\
         \semdenp{\ofA;_r(P\hide\calA)} & \mbox{if } A\not\in\calA\\
       \end{cases}\\[1em]
-  \semdenp{(P\choice_P Q)\hide\calA}&=&\semdenp{(P\hide\calA)\choice_P (Q\hide\calA)}\\[0.5em]
-  \semdenp{(P\paral Q)\hide\calA}&=&\semdenp{(P\hide\calA)\paral (Q\hide\calA)}\\[0.5em]
+  \semdenp{\cdot\hide\calA}(\semdenp{P\choice_P Q})&=&\semdenp{(P\hide\calA)\choice_P (Q\hide\calA)}\\[0.5em]
+  \semdenp{\cdot\hide\calA}(\semdenp{P\paral Q})&=&\semdenp{(P\hide\calA)\paral (Q\hide\calA)}\\[0.5em]
   \mathrm{If\ } \fA,\fB\not\in\calA \mathrm{\ then\ }
-    \semdenp{(\require{A}{B}{P})\hide\calA}&=&\semdenp{\require{A}{B}{(P\hide\calA)}}\\[0.5em]
+    \semdenp{\cdot\hide\calA}(\semdenp{\require{A}{B}{P}})&=&\semdenp{\require{A}{B}{(P\hide\calA)}}\\[0.5em]
   \mathrm{If\ } \fA,\fB\not\in\calA \mathrm{\ then\ }
-    \semdenp{(\exclude{B}{P})\hide\calA}&=&\semdenp{\exclude{A}{B}{(P\hide\calA)}}
+    \semdenp{\cdot\hide\calA}(\semdenp{\exclude{B}{P}})&=&\semdenp{\exclude{A}{B}{(P\hide\calA)}}
   \end{array}$$
 %\mncomment{Luis, faltan casos, no? Que ocurre si $A$ y/o $B$
 %  pertenecen al conjunto ocultado en los dos ultimos
@@ -125,10 +125,10 @@ hide actions that appear in the restriction operators and, therefore, these case
 %  la probabilidad de una (o un
 %  conjunto) feature, debemos añadir sus dependencias y
 %  restricciones.}
-%  \begin{proof}
-%    In order to prove this properties it is enough to apply
-%    Proposition~\ref{prop:hid}.
-%  \end{proof}
+  \begin{proof}
+    The proof is immediate applying the definitions and
+   Proposition~\ref{prop:hid}.
+ \end{proof}
 \eprop
 
 
