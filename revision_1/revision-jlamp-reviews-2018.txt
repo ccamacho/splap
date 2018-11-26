@@ -148,7 +148,13 @@ is not clear how a corresponding translation would provide an SPLA^P
 term as the authors do not deal with probabilistic variants of feature
 models at all.
 
-[to be corrected]:
+ANS: The probability attached to a transition is the local probability
+of choosing that transition. It is a local probability in a particular
+state of the term. FODA does not have probabilities so their models
+are translated into SPLA [1]. In order to be translated to SPLA^P, It
+should be necessary to introduce the probabilities in FODA designs: in
+the optional feature (indicating its probability) and in the choice
+operator (indicating the probability of the choices).
 
 3) There has been plenty of work done in the area of probabilistic
 SPLs and I miss a comparison with the existing approaches to estimate
@@ -163,7 +169,7 @@ as the stepwise feature compositions could be encoded into the
 [a]. There is also an implementation of the theoretical framework of
 [a] published as [b] that could be mentioned.
 
-[to be corrected]:
+ANS: We have extended the related work trying to address this issue.
 
 4) The case study is not convincingly showing applicability of the
 approach. First, it is not clear how the randomly generated feature
@@ -177,7 +183,9 @@ argue about runtimes of around 20ms - to make more reliable
 statements, the number of features should be increased to lower
 potential impacts of other processes or side effects.
 
-[to be corrected]:
+ANS:
+
+
 Minor comments
 - Definition 2.1 is missing (cf. Definition 5).
 [to be corrected]:
