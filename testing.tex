@@ -10,11 +10,15 @@ of being included into the \SPL. The second application consists in estimating t
 in the product line, which allows us to calculate those products that can be generated in the testing process.
 
 This section presents the results obtained from an experimental study to show the applicability and scalability of our
-approach. In order to carry out this study, we have developed a tool to implement the denotational semantics of the
-probabilistic extension presented in this paper. The source code of the
+approach. In order to carry out this study, we have implemented a set of scripts to demonstrate
+how the denotational semantics of the
+probabilistic extension presented in this paper behave. The source code of the
 scripts used in this section are available at the main project site
 \footnote{\url{http://ccamacho.github.io/phd/resources/03_splap.tar}}. In essence, we perform two experiments. 
-The former focuses on measuring the performance of our proposed implementation for processing a feature model. 
+The former focuses on measuring the performance of our proposed implementation for processing a feature model.
+This means, given a feature model, calculate the time to
+compute the probability of having each feature in the
+valid products set. 
 The second experiment consists on analyzing the scalability of our proposed implementation. 
 The idea is to study if there is a correlation between the number of features of each type and the 
 processing time. 
@@ -40,7 +44,8 @@ The study described in this section seeks to answer the following questions:
 
 Firstly, we have carried out an experiment to
 show the computing time required to calculate the probability of having
-each feature in a product. In order to run this experiment, a variability model consisting of
+each feature in the set of valid products.
+In order to run this experiment, a variability model consisting of
 1500 features has been used.
 This variability model
 has been generated using BeTTy~\cite{SeguraHBC11}.
