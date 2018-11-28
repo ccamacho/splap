@@ -84,13 +84,56 @@ The operators $\feature{A};P$ and $\ofeature{A}_{p};P$ add the feature $\feature
 from $P$. The operator $\feature{A};P$ indicates that $\feature{A}$ is mandatory while $\ofeature{A}_{p};P$ indicates
 that $\feature{A}$ is optional and computed with probability $p$.
 There are two binary operators: $P \choice_{p} Q$ and $P\paral Q$. The
-first one represents the \emph{choose-one} operator while the second one represents the  \emph{conjunction} operator.
+first one represents a probabilistic choice. It represents a point in
+the product line between two options. In this probabilistic framework,
+the choice is quantified with a probability \(p\): the probability of
+choosing the left hand side is \(p\) and the probability of choosing
+the right hand side is \(1-p\). The operator $P\paral Q$ is the
+conjunction, intuitively it combines the products of both subterms
+\(P\) and \(Q\) by accumulating the features.
+
+\begin{example}
+  Let us consider the term
+  $P=\feature{A};\checkmark\choice_{\frac{1}{3}}\fB;\checkmark$. This
+  term will produce two products: $\{\fA\}$ with probability
+  \(\frac{1}{3}\)
+  and \(\{\fB\}\) with probability \(\frac{2}{3}\).
+  Let us consider $Q=\fC;\ofeature{D}_{\frac{1}{5}};\checkmark$. This term will
+  produce
+  two products: \(\{\fC\}\) with probability \(\frac{4}{5}\) and
+  \(\{\fC,\fD\}\) with probability \(\frac{1}{5}\).
+  Then \(P\paral Q\) will produce the following products:
+  \(\{\fA,\fC\}\) with probability \(\frac{4}{15}\),
+  \(\{\fA,\fC,\fD\}\) with probability \(\frac{1}{15}\),
+  \(\{\fB,\fC\}\) with probability \(\frac{8}{15}\), and
+  \(\{\fA,\fC,\fD\}\) with probability \(\frac{2}{15}\).
+
+\end{example}
 
 The constraints are easily represented in \fodaPAp.
 The operator $\require{A}{B}{P}$ represents the \emph{require}
 constraint in \FODA.
 The operator $\exclude{A}{B}{P}$ represents the \emph{exclusion}
 constraint in \FODA.
+
+    \bex
+      The term $\require{A}{B}{\feature{A};\checkmark}$ has only one valid
+      product $\{\feature{A}, \feature{B}\}$ with  probability 1.
+
+      Let us consider
+      $P=\feature{A};(\feature{B};\checkmark\choice_{\frac{1}{3}}\feature{C};\checkmark)$.
+      This
+      term has two valid products: The first one
+      $\{\feature{A},\feature{B}\}$ with probability $\frac{1}{3}$,
+      and $\{\feature{A}, \feature{C}\}$ with probability $\frac{2}{3}$.
+
+      If we add to the previous term the following constraint
+      $\exclude{A}{B}{P}$, then this new term  has only one
+      $\{\feature{A},\feature{C}\}$ with  with probability
+      $\frac{2}{3}$.
+      This term has probability $\frac{1}{3}$ of producing nothing.
+    \eex
+
 
 The operator $\mandatory{A}{P}$ is necessary to define the behavior
 of the $\require{A}{B}{P}$ operator:
