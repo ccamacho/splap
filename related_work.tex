@@ -2,13 +2,13 @@
 \section{Related work}
 \label{ref:related_work}
 
-
-
 The study of probabilistic extensions of formal methods can be dated
 back to the end of the 1980s. This is already a well established area,
 with many extensive contributions to include probabilistic information
 in classical formalisms (I/O Automata, Finite State Machines,
-(co-)algebraic approaches, among others)~\cite{ls91,rgs95,cdsy99,nun03,lnr06,csv07,dp07,dghm08,hm09,aprs11,sok11,hn12,dghm14,agl16,Dubslaff2015}.
+(co-)algebraic approaches, among 
+others)~\cite{hm09,aprs11,sok11,hn12,dghm14,agl16,Dubslaff2015}.
+%others)~\cite{ls91,rgs95,cdsy99,nun03,lnr06,csv07,dp07,dghm08,hm09,aprs11,sok11,hn12,dghm14,agl16,Dubslaff2015}.
 %
 %
 %Figures like the displayed trees describe how probabilities are assigned in the system behavior (see Figure~\ref{fig:displayedTrees}). These models allow to assign a real value between 0 and 1 to each transition in order to execute an event. It is important to notice that the probability of execute a transition \textit{t} is not necessarily equal to the other probabilities from the same level.
@@ -68,48 +68,46 @@ in classical formalisms (I/O Automata, Finite State Machines,
 %
 %\acomen{Carlos, he cambiado el siguiente texto con referencias a papers de probabilidades. Please, check para ver que no digo nada cantoso)}
 %%
-Although the addition of probabilistic information to model \SPLs\ is relatively new, there are already several proposals in the literature~\cite{chssgl13,tllv15,tlll15,dpcslsh17}. In particular, very recent
-work~\cite{dpcslsh17} shows that statistic analysis allows users to determine relevant characteristics, like the certainty of finding valid products among complex models.
+Although the addition of probabilistic information to model \SPLs\ is relatively new, different proposals can be found in the current literature~\cite{chssgl13,tllv15,tlll15,dpcslsh17}. In particular, a very recent
+work shows that statistic analysis allows users to determine relevant characteristics, like the certainty of finding valid products among complex models~\cite{dpcslsh17}.
 %
-Another approach~\cite{chssgl13} focuses on testing properties of \SPLs, like reliability, by defining three verification techniques: a probabilistic model checker on each product, on a model range, and testing the behavior relations with other models.
+Another approach focuses on testing properties of \SPLs, like reliability, by defining three verification techniques: a probabilistic model checker on each product, on a model range, and testing the behavior relations with other models~\cite{chssgl13}.
 %
-Some of these approaches describe models to run statistical analysis over \SPLs, where pre-defined syntactic elements are computed by applying a specific set of operational rules~\cite{tllv15,tlll15}. These models demonstrate their ability to be integrated into standard tools like QFLan~\cite{tlll15}, Microsoft's SMT Z3~\cite{ln08} and MultiVeStA~\cite{sa13}.
+Some of these approaches describe models to run statistical analysis over \SPLs, where pre-defined syntactic elements are computed by applying a specific set of operational rules~\cite{tllv15,tlll15}. These models demonstrate their ability to be integrated into standard tools, like QFLan~\cite{tlll15}, Microsoft's SMT Z3~\cite{ln08} and MultiVeStA~\cite{sa13}.
 %
 %Some of these works describe models to run statistical analysis to represent \SPLs\ by defining an specific set of operational rules to compute their defined syntax elements~\cite{tllv15,tlll15}. These models demonstrate their ability by being integrated to standard tools like QFLan, Microsoft's SMT Z3 and MultiVeStA.
 %
 %Other works focus on describing use cases for analyzing the probability of finding features inside valid products~\cite{dpcslsh17}. %An interesting feature is that any of the referenced research articles describe their approaches using multisets.
 
-It is true that the variability models computing can create combinatory problems
+It is true that variability models computing can create combinatory problems
 depending on how the models are computed and how the models are represented, which is directly
 correlated to the information to be generated~\cite{dpcslsh17}.
-This analysis makes the whole process of studying product lines a computational complex task.
+This analysis makes the process of studying product lines a complex computational  task.
 
-In particular, there exist mathematical verification models~\cite{vk13} that
+In particular, there exist mathematical verification models that
 allow the representation of the products - of a product line - using models,
 like discrete time Markov chain families, for representing the probabilistic behavior of all
-the products in the product line. Its implementation does not
-provide a literal translation between the already know variability models, like FODA,
-and they also do not provide implementation over their practical uses.
-However, they present analysis techniques that should have
-a drastic impact in the effort to compute variability models.
+the products in the product line~\cite{vk13}. Their implementations do not
+provide a literal translation between the existing variability models, like FODA,
+and, therefore, these do not provide implementations over their practical uses.
+However, these approaches present analysis techniques that should have
+a significant impact on the effort to compute variability models.
 
-In previous years the studies relating the analysis of variability models and
-their practical applications with realistic use cases ~\cite{jhf11, jhfes12}
-have demonstrated that those uses cases do not describe such complex models. Thus, these
+In previous years, the studies focusing the analysis of variability models  - and
+their practical applications - with realistic use cases 
+have demonstrated that those uses cases do not describe such complex models~\cite{jhf11, jhfes12}. Thus, these
 can be processed in the practice without much algorithmic sophistication or
 complex analysis.
-In particular, the study of expending machines~\cite{jhfes12}
+In particular, the study of expending machines
 has been widely used across the whole
 literature to show practical and real usages of products
-line modeling. In the other 
-side, it is described that those models for defining products
+line modeling~\cite{jhfes12}. Moreover, it is described that those models for defining products
 lines does not always apply to the
 formal definition and description of software
 product lines, as they are not directly related~\cite{cds06, fub06, nnz14}.
-
 Recent implementations, like ProFeat~\cite{Chrszon2018}, allow to 
-help in the verification of requirements of families of probabilistic systems using 
-its own language and based on Markov decision processes together with PRISM~\cite{mgd12}.
+help in the verification of requirements for families of probabilistic systems. These implementations,  
+together with PRISM~\cite{mgd12}, use their own language and are based on Markov decision processes.
 
 
 %%% Local Variables:
