@@ -11,20 +11,18 @@ in the product line, which allows us to calculate those products that can be gen
 
 This section presents the results obtained from an experimental study to show the applicability and scalability of our
 approach. In order to carry out this study, we have implemented a set of scripts to demonstrate
-how the denotational semantics of the
-probabilistic extension presented in this paper behave. The source code of the
-scripts used in this section are available at the main project site
+the applicability of the
+probabilistic extension - of the denotational semantics - presented in this paper. The source code of the
+scripts used in this section is available at the main project site
 \footnote{\url{http://ccamacho.github.io/phd/resources/03_splap.tar}}. In essence, we perform two experiments. 
 The former focuses on measuring the performance of our proposed implementation for processing a feature model.
-This means, given a feature model, calculate the time to
+This means, given a feature model, calculating the time to
 compute the probability of having each feature in the
 valid products set. 
 The second experiment consists on analyzing the scalability of our proposed implementation. 
 The idea is to study if there is a correlation between the number of features of each type and the 
-processing time. 
-
-The experiments have been executed in a computer with the following features: Intel(R) Xeon(R) Quad-Core 
-CPU E5-2670 @ 2.60GHz, 64 GB of RAM memory and Centos 7 Operating System.
+processing time. The experiments have been executed in a computer with the following features: Intel(R) 
+Xeon(R) Quad-Core CPU E5-2670 @ 2.60GHz, 64 GB of RAM memory and Centos 7 Operating System.
 
 The study described in this section seeks to answer the following questions:
 
@@ -110,7 +108,7 @@ the sum of the probabilities of the previous parameters.
 Figure~\ref{fig:plot:probs:times} shows the obtained
 results from this experiment, where the x-axis depicts
 the ID of each generated feature and the y-axis represents
-the time required to calculate the probability of having a feature in a final product.
+the time required to calculate the probability of having the feature in a final product.
 %In this case, the total time to obtain the probability for all the features is linear with respect to the total length of the analyzed term
 %\mncomment{Que quiere decir esto? Suena raro porque yo esperaria complejidad $O(2^n)$ siendo $n$ el numero de probabilidades que salen en el termino. Pero vamos, que yo no  se mucho de complejidad!}\ccomen{Es cierto, no lo demostramos ni lo analizamos}.
 %\acomen{Yo simplemente quitaría esa frase, lo de que la complejidad es lineal}
@@ -173,16 +171,16 @@ readability of the results. This chart clearly shows that there exist
 different groups of features having a similar probability. In this case, the probability of the major part 
 of the features ranges between 0.7 and 0.8.
 %
-Moreover, there are 450 features with, at least, a probability equal to 0.75 of being in a final product. As a conclusion, this analysis might allow us to establish that by testing only the 30\% of the software product line components (450 features) we can ensure that, at least, the 75\% of the generated products, are tested.
+Thus, there are 450 features with, at least, a probability equal to 0.75 of being in a final product. As a conclusion, this analysis might allow us to establish that by testing only the 30\% of the software product line components (450 features) we can ensure that, at least, the 75\% of the generated products, are tested.
 
 It is important to differentiate the probabilities defined in BeTTy, which are used to generate a 
-feature model, and the the probability - calculated from the model - to have a feature in a final
+feature model, and the probability - calculated from the model - to have a feature in a final
 product. 
 
 For instance, if we configure BeTTy to generate a feature model using a probability
 of 0.2 for having a mandatory feature, that means that 20\% of the generated features are mandatory.
 However, that does not imply that these features be part of the 20\% of the generated products, because
-the probability of having a feature in a final product depends where this feature is placed in the 
+the probability of having a feature in a final product depends on where this feature is placed in the 
 model. If a given mandatory feature is placed in a choose-one relationship, it is possible that
 the other branch is used to generate the final product, discarding the mandatory feature.
 Hence, we can not assume that these 20\% of the features will have a probability of 1 for being 
@@ -217,7 +215,7 @@ required to calculate its probability are analyzed.
 Table~\ref{scalaExperiment} shows the configurations used to generate the
 variability models for this part of the empirical study, 
 where each configuration represents the set of probabilities chosen for each operator across the three experiments, 
- \textit{Mandatory} represents the probability of having a mandatory feature, 
+that is, \textit{Mandatory} represents the probability of having a mandatory feature, 
  \textit{Optional} represents the probability of having an optional feature,
  \textit{Choose-one} represents the probability of having a feature in a \textit{choose-one} relation and
  \textit{Conjunction} represents the probability of having a feature in a \textit{conjunction} relation.
@@ -240,7 +238,7 @@ and \textit{Choose-one} features. Hence, these will remain the same
 across all the experiments and, thus, they should not interfere in the obtained results.
 We start with a low probability of having a \textit{Conjunction} relationship in the model. In this 
 case, for the first experiment, we use a probability of 0.01, which is increased in the next configurations
-to 0.2 and 0.5. This idea is to show the impact of the \textit{Conjunction} relationship in the time 
+to 0.2 and 0.5, respectively. This idea is to show the impact of the \textit{Conjunction} relationship in the time 
 and memory required for processing the models.
 
 For each configuration, we have generated 30 models per number of features, that is, we generate 
@@ -279,9 +277,6 @@ Figure~\ref{fig:plot:probs:boxplot_0_2} and figure~\ref{fig:plot:probs:boxplot_0
 
 Figure~\ref{fig:plot:probs:boxplot_0_5} and figure~\ref{fig:plot:probs:boxplot_0_5_mem} show the results for processing the models generated using \textit{Configuration 3}. In this case, half of the features in the model have a conjunction relation. Similarly to the previous experiment, these charts show that both the execution time and the memory usage for processing a model when the number of features increases are exponential. In the obtained results we can observe the same turning point detected in the previous models generated using  \textit{Configuration 2}, that is, when the model reaches 6,000 features. Model processing requirements, that is, execution time and memory usage, grow much faster for these models than for those based on previous configurations. Also, it is important to notice that the models containing 9,000 and 10,000 features cannot be processed due to memory limitations.
 
-Broadly speaking, these results show that increasing the number of features having a conjunction relation has a direct impact on the overall performance. In fact, increasing the number of features having a conjunction relation generates a combinatorial explosion that hampers the processing of models. First, the execution time to completely process a model significantly grows. Second, large amounts of memory are required to store those combinations. In some cases, using large models with a high percentage of features having a conjunction relation may cause a bottleneck in the memory system. In fact, models generated using \textit{Configuration 3} with 9,000 and 10,000 features cannot be processed using 64 GB of RAM.
-
-
 \begin{figure}[h]
 	\centering
 	\begin{minipage}[b]{0.48\textwidth}
@@ -308,8 +303,26 @@ comparing the performance between the implementation of the probabilistic
 extension and the implementation of the denotational semantic from 
 \fodaPA~\cite{acl13}. Also, we provide the answers for the research questions.
 
+The experiments carried out in Section~\ref{sec:stat:impl:performance:analysis}
+uses feature models containing a maximum of 10000 features. In general,
+these results show that increasing the number of features having a conjunction relation 
+has a direct impact on the overall performance. In fact, increasing the number of features having 
+a conjunction relation generates a combinatorial explosion that hampers the processing of models. 
+First, the execution time to completely process a model significantly grows. Second, large amounts 
+of memory are required to store those combinations. In some cases, using large models with a high 
+percentage of features having a conjunction relation may cause a bottleneck in the memory system. 
+In fact, models generated using \textit{Configuration 3} with 9,000 and 10,000 features cannot be 
+processed using 64 GB of RAM. In this case, 
+the worst case scenario, which generates a model where the 50\% of the features are
+placed in a conjunction relationship, requires approximately 500000 ms.
+
 Figure~\ref{figure:tool:den:benchmark} shows the results of an experiment using
 models containing different number of features, which ranges from $50$ to $300$.
+In this case, we use the implementation of the denotational semantic from 
+\fodaPA~\cite{acl13} to process the models, which do not use probabilistic 
+information. If we use only the executions that successfully process the model,
+the worst case scenario requires 786126 ms to process a model containing 150 
+features. 
 
 \begin{figure}[t]
 	\centering
@@ -358,21 +371,12 @@ models containing different number of features, which ranges from $50$ to $300$.
 	\caption{Denotational benchmark from \cite{acl13}.\label{figure:tool:den:benchmark}}
 \end{figure}
 
-In this case, we use the implementation of the denotational semantic from 
-\fodaPA~\cite{acl13} to process the models, which do not use probabilistic 
-information. If we use only the executions that successfully process the model,
-the worst case scenario requires 786126 ms to process a model containing 150 
-features.
 
-The experiments carried out in Section~\ref{sec:stat:impl:performance:analysis}
-uses feature models containing a maximum of 10000 features. In this case, 
-the worst case scenario, which generates a model where the 50\% of the features are
-placed in a conjunction relationship, requires approximately 500000 ms.
+
 
 Also, based on the results published in \fodaPAc~\cite{clc16},
 the models used for the simulations were processed in 
 an 8-node cluster. However, these models only contains 17 features.
-
 Figure~\ref{fig:cluster} shows the algorithm behavior 
 which best time its approximately 300 seconds.
 
@@ -423,13 +427,13 @@ information.
 the current feature models to probabilistic methods?
 
 General use models have been proposed to model variability in software
-product lines~\cite{tlll15, tllv15}, and specifically for feature-oriented
+product lines~\cite{tlll15, tllv15} and, specifically, for feature-oriented
 systems~\cite{Dubslaff2015, Chrszon2018}.
-Thus all previous work has centered on
-generic representations, this research article is based on adding probabilistic
-information to a well-known feature model \FODA.
-Based on our previous results~\cite{acl13,clc16} together with the results
-presented in this research article it is possible to 
+Thus, all previous work focuses on
+generic representations. However, this work is based on including probabilistic
+information to the well-known feature model \FODA.
+Based on our previous results~\cite{acl13,clc16}, together with the results
+presented in this work, we can state that state it is possible to 
 describe a formal framework that translates 
 the current feature models to probabilistic methods.
 
@@ -444,12 +448,10 @@ and the cost extension \fodaPAc~\cite{clc16}. The results obtained
 have been compared with the implementation of the probabilistic 
 extension. We observed that the latter is able to process larger 
 models faster, which provides a greater scalability when
-the size of the model to be processed grows.
-
-Since the probabilistic extension focuses on hiding  those features 
-that do not affect the processing of the probability of given feature 
-for being part of a valid product, the required tome for processing the
-model is considerably reduced.
+the size of the model to be processed grows. Since the probabilistic extension 
+focuses on hiding  those features that do not affect the processing of the 
+probability of given feature for being part of a valid product, the required 
+tome for processing the model is considerably reduced.
 
 
 %\begin{figure}[t]
