@@ -3,21 +3,45 @@ We have defined two different semantics for our language:
 the products derived from the operational semantics and the products
 obtained from the denotational semantics. It is important that
 both semantics are consistent, so that we can chose the approach that suits
-better in any moment. The proof of the following result is an immediate consequence of Lemmas~\ref{lem:pref}--\ref{lem:excl} (see Appendix~\ref{app:proofs} of the paper).
+better in any moment.
 
 \bprop\label{prop:DenoOpe}
 %\label{prop:pref}
   Let $P,Q\in\fodaPAp$ be terms, $\feature{A},\feature{B}\in\calF$ be features and $q\in (0,1)$, be a probability. We have the following results:
-  $$\begin{array}{rll}
-  \prodp(\feature{A};P)&=&\semdenp{\feature{A};\cdot}(\prodp(P))\\
-  \prodp(\ofeature{A};_qP)&=&\semdenp{\ofeature{A};_q\cdot}(\prodp(P))\\
-  \prodp(P\choice_q Q)&=&\semdenp{\cdot\choice_q\cdot}\bigl(\prodp(P),\prodp(Q)\bigr)\\
-  \prodp(P\paral Q)&=&\semdenp{\cdot\paral\cdot}\bigl(\prodp(P),\prodp(Q)\bigr)\\
-  \prodp(\mandatory{A}{P})&=&\semdenp{\mandatory{A}{\cdot}}(\prodp(P))\\
-  \prodp(\forbid{A}{P})&=&\semdenp{\forbid{A}{\cdot}}(\prodp(P))\\
-  \prodp(\require{A}{B}{P})&=&\semdenp{\require{A}{B}{\cdot}}(\prodp(P))\\
-  \prodp(\exclude{A}{B}{P})&=&\semdenp{\exclude{A}{B}{\cdot}}(\prodp(P))
-\end{array}$$
+  $$
+  \setcounter{enumi}{0}
+  \begin{array}{rlll<{\stepcounter{enumi}(\arabic{enumi})}}
+  \prodp(\feature{A};P)&=&\semdenp{\feature{A};\cdot}(\prodp(P)) &\\
+  \prodp(\ofeature{A};_qP)&=&\semdenp{\ofeature{A};_q\cdot}(\prodp(P))& \\
+  \prodp(P\choice_q Q)&=&\semdenp{\cdot\choice_q\cdot}\bigl(\prodp(P),\prodp(Q)\bigr)& \\
+  \prodp(P\paral Q)&=&\semdenp{\cdot\paral\cdot}\bigl(\prodp(P),\prodp(Q)\bigr)& \\
+  \prodp(\mandatory{A}{P})&=&\semdenp{\mandatory{A}{\cdot}}(\prodp(P))& \\
+  \prodp(\forbid{A}{P})&=&\semdenp{\forbid{A}{\cdot}}(\prodp(P))& \\
+  \prodp(\require{A}{B}{P})&=&\semdenp{\require{A}{B}{\cdot}}(\prodp(P))& \\
+  \prodp(\exclude{A}{B}{P})&=&\semdenp{\exclude{A}{B}{\cdot}}(\prodp(P)) &
+    \end{array}$$
+    \begin{proof}
+      The full proof of this Proposition is in
+      Appendix~\ref{app:proofs}. Each equality above
+      is proved in a different Lemma:
+      \begin{enumerate*}[label=(\arabic{enumi})]
+      \item is consequence of Lemma~\ref{lem:pref},
+      \item is
+        consequence of Lemma~\ref{lem:prefopt},
+      \item is consequence of
+        Lemma~\ref{lem:choice},
+      \item is consequence of
+        Lemma~\ref{lem:paral},
+      \item  is consequence of
+        Lemma~\ref{lem:mand},
+      \item is consequence of
+        Lemma~\ref{lem:excl},
+      \item is consequence of
+        Lemma~\ref{lem:req}, and
+      \item is consequence of
+        Lemma~\ref{lem:excl}.
+      \end{enumerate*}
+    \end{proof}
 \eprop
 The definition of the operator \(\semdenp{\cdot\paral\cdot}\) is
 clearly associative and commutative. Then, as consequence of the

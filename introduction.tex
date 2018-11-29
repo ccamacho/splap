@@ -255,19 +255,26 @@ The main contributions of this work can be summarized as:
 
 \begin{itemize}
 
-	\item 
-	A model that uses probabilistic information to determine the probability of having a feature in a specific \SPL. In contrast with our previous work~\cite{acl13,clc16}, which mainly focuses in defining an algebraic language to describe Software Product Lines and using a cost model for comparing valid products, this approach is targeted to identify those features that are more frequently used to generate a product. Basically, the idea is to focus on those features with a high probability to be present in the final product and, therefore, reducing the required processing to generate valid products. 
+        \item
+        A model that uses probabilistic information to determine the probability of having a feature in a specific \SPL. In contrast with our previous work~\cite{acl13,clc16}, which mainly focuses in defining an algebraic language to describe Software Product Lines and using a cost model for comparing valid products, this approach is targeted to identify those features that are more frequently used to generate a product. Basically, the idea is to focus on those features with a high probability to be present in the final product and, therefore, reducing the required processing to generate valid products.
 
-	\item
-    The introduction of the notion of hiding sets of features. This analysis allows to optimize the practical
-    application of the probabilistic extension, as it allows to remove or hide a set of features which does not
-    interfere with the calculus of the probability for a specific feature.
-		
-	\item
-	A thorough empirical study, using different configurations to generate a wide-spectrum of variability models. The  study has been carried out in order to show the applicability and scalability of our approach. These variability models have been generated using BeTTy~\cite{SeguraHBC11}.
-	
-	\item
-	A complete comparison between the overall implementation performance of the probabilistic extension and the denotational semantic implementation from \fodaPA~\cite{acl13}. The obtained results show that the denotational semantics of the probabilistic extension implementation dramatically improves the performance
+      \item It may be not feasible to compute all the products in a
+        SPL. But if we are interested in a particular feature, we can
+        compute the probability of that feature.  The introduction of
+        the notion of hiding sets of features helps us to achieve
+        this. If we want to compute the probability of \fA, we hide
+        the features that do not affect the processing of \fA for
+        being part of a valid product.  This analysis allows
+        optimizing the practical application of the probabilistic
+        extension, as it allows us to remove or hide a set of features
+        which does not interfere with the calculus of the probability
+        for a specific feature.
+
+        \item
+        A thorough empirical study, using different configurations to generate a wide-spectrum of variability models. The  study has been carried out in order to show the applicability and scalability of our approach. These variability models have been generated using BeTTy~\cite{SeguraHBC11}.
+
+        \item
+        A complete comparison between the overall implementation performance of the probabilistic extension and the denotational semantic implementation from \fodaPA~\cite{acl13}. The obtained results show that the denotational semantics of the probabilistic extension implementation dramatically improves the performance
 in comparison with the denotational semantics implementations presented in previous work.
 
 \end{itemize}
