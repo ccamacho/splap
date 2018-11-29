@@ -77,12 +77,20 @@ Some of these approaches describe models to run statistical analysis over \SPLs,
 %
 %Some of these works describe models to run statistical analysis to represent \SPLs\ by defining an specific set of operational rules to compute their defined syntax elements~\cite{tllv15,tlll15}. These models demonstrate their ability by being integrated to standard tools like QFLan, Microsoft's SMT Z3 and MultiVeStA.
 %
-%Other works focus on describing use cases for analyzing the probability of finding features inside valid products~\cite{dpcslsh17}. %An interesting feature is that any of the referenced research articles describe their approaches using multisets.
 
+Other works focus on describing use cases for analyzing the probability of finding features inside valid products~\cite{dpcslsh17}.
 It is true that variability models computing can create combinatory problems
 depending on how the models are computed and how the models are represented, which is directly
 correlated to the information to be generated~\cite{dpcslsh17}.
 This analysis makes the process of studying product lines a complex computational  task.
+
+An interesting aspect of \fodaPAp is that
+any of the research articles studied manage
+to describe in their work the use of multisets.
+Also, they do not explicitly work on
+the translation of \FODA\ to represent probabilities and they do
+not introduce the notion of hiding those features not needed to
+calculate the probability of a specific feature.
 
 In particular, there exist mathematical verification models that
 allow the representation of the products - of a product line - using models,
