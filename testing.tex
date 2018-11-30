@@ -15,7 +15,7 @@ other features and then compute the resulting \SPL. This approach is
 based on Proposition~\ref{prop:hid}. The problem with that Proposition
 is that we cannot remove the features involved in restrictions
 (requirement or exclusion) associated with the feature in which we are
-interested. So, we need to add to the non-hidden features those that
+interested. Hence, we need to add, to the non-hidden features, those that
 appear in a restriction associated with the original one.
 \begin{example}
   Let us assume that we want to compute the probability of $\fA$ in
@@ -23,7 +23,7 @@ appear in a restriction associated with the original one.
   \begin{displaymath}
     \exclude{B}{C}{\require{C}{A}{P}}
     \end{displaymath}
-    Where \(P\) is a term without restrictions. Then we compute the
+    where \(P\) is a term without restrictions. Then we compute the
     probability of $\fA$ in the term
   \begin{displaymath}
     \exclude{B}{C}{\require{C}{A}{(Q\hide{\{\fA, \fB, \fC\}})}}
