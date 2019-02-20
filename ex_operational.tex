@@ -333,25 +333,7 @@
 \begin{figure}[t]
   \linefigure
   \centering
-  \begin{minipage}{0.3\hsize}
-    \centering
-    \scalebox{0.6}{%
-      \begin{tikzpicture}[->,>=stealth',node distance=1.5cm]
-        \node[syntax] (A)
-        {$\checkmark\paral(\fB;\checkmark\paral\fC;\checkmark)$};
-        \node[syntax] (B) [below left=1cm and 0cm of A]{$\checkmark\paral(\checkmark\paral\fC;\checkmark)$};
-        \node[syntax] (C) [below right=1cm and 0cm of A]{$\checkmark\paral\fC;\checkmark$};
-        \node[syntax] (D) [below left=7cm and 0cm of A]{$\checkmark\paral(\fB\checkmark\paral\checkmark)$};
-        \node[syntax] (E) [below right=7cm and 0cm of A]{$\fB;\checkmark\paral\checkmark$};
-
-        \node[syntax] (B1) [below left=1cm and 1cm of B]{$\checkmark\paral(\checkmark\paral\checkmark)$};
-        \node[syntax] (B2) [below left=1cm and -0.7cm of B]{$\checkmark\paral(\checkmark)$};
-        \node[syntax] (B3) [below right=1cm and -0.7cm of B]{$(\checkmark\paral\checkmark)$};
-        \node[syntax] (B4) [below right=1cm and 1cm of B]{$\checkmark$};
-
-      \end{tikzpicture}}
-    \end{minipage}
-  \begin{minipage}{0.3\hsize}
+  \begin{minipage}{0.4\hsize}
     \centering
     % $\feature{A};\ofeature{B};\checkmark \leadsto$
     % \begin{minipage}{0.35\hsize}
@@ -402,7 +384,7 @@
       \end{tikzpicture}
     }
   \end{minipage}
-  \begin{minipage}{0.3\hsize}
+  \begin{minipage}{0.4\hsize}
     % $\feature{A};\ofeature{B};\checkmark \leadsto$
                 % \begin{minipage}{0.35\hsize}
                 %   \centering

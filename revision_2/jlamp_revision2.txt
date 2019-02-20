@@ -29,15 +29,37 @@ First, I would like to thank the authors for their effort in improving the paper
 For me it is still not clear what kind of "associativity" is considered. In the standard setting, associativity would state that t1 and t2 have the same operational semantics or at least a bisimilar one (which is not the case as choosing A in t1 has probability 1/2, while in t2 it has probability 1/4). From the first statement in the answer of the authors I probably could deduce that associativity might only be considered with respect to probabilities of sets of features. But in this case I miss a justification why the proposed semantics is chosen to be operational as the operational behaviors are not used at all and no aspect of time plays a role in the considerations.
 In this spirit, I also miss an explanation why the authors are departing from standard definitions in the field of probabilistic process algebras. Please indicate which SOS rules correspond to existing definitions and when/for which reason one introduces non-standard rules (such as the conjunctive rules).
 
-ANS: First of all we have fix a mistake in Figure 3. We have also
-included the example given by the reviewer.
-To obtain these traces we have to take into account the transitions
-tick /\ ( C;tick /\ D;tick ) -- C,1/4 -- > tick /\ D;tick  [CON5] + [CON1]
-tick /\ ( C;tick /\ D;tick ) -- C,1/4 -- > tick; (tick /\ D;tick)  [CON2] + [CON1]
-(symmetric for ---- B,1/4 --> )
+ANS: First of all we have fix a mistake in Figure 3 (current Figure
+4). We have also
+included the example given by the reviewer. The associativity and
+commutativity refer to equivalence given from the set of products.
+So, to check the commutativity and associativity we have to consider all
+traces leading to the same product. We have included the example
+suggested by the reviewer in the paper. Here there is a more detailed
+explanation of how the traces are computed.
+First, we have to take into account the initial transitions:
+tick /\ ( B;tick /\ C;tick ) -- B,1/4 -- > tick /\ C;tick  [CON5] + [CON1]
+tick /\ ( B;tick /\ C;tick ) -- B,1/4 -- > tick/\ (tick /\ C;tick)  [CON2] + [CON1]
+(symmetrically for ---- C,1/4 --> )
 
+Then
+tick /\ C;tick -- C,1/2 -> tick  [con5]
+tick /\ C;tick -- C,1/2 -> tick/\tick [con2]
 
-In that example we have
+tick and tick/\tick has only one transition leading to nil
+
+tick/\ (tick /\ C;tick) -- C, 1/4 --> tick [con5] + [con5]
+tick/\ (tick /\ C;tick) -- C, 1/4 --> (tick/\tick) [con5] + [con2] (*)
+tick/\ (tick /\ C;tick) -- C, 1/4 --> tick/\(tick) [con2] + [con5] (*)
+tick/\ (tick /\ C;tick) -- C, 1/4 --> tick/\(tick/\tick) [con2] + [con2]
+
+(*) we have kept the parenthesis trying to indicate better the subterm
+that has changed.
+
+Finally the terms tick, tick/\tick and tick/\(tick/\tick) have only
+one transition leading to nil with probability 1.
+
+Summarizing all possible transitions we have
 - 4 traces BC, each of them with probability 1/16
 - 2 traces BC, each of them with probability 1/8
 - 4 traces CB, each of them with probability 1/16
