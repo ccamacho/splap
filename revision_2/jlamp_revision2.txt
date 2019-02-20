@@ -1,0 +1,76 @@
+﻿Ref: JLAMP_2018_23_R1
+Title: Probabilistic Software product lines
+Journal: Journal of Logical and Algebraic Methods in Programming
+Dear Dr. Camacho Gonzalez,
+We have received all review reports of your submission
+Based on them we are inviting you to submit a revised version of your paper.
+Please, do take into account all the comment you received by the reviewers. In particular the ones related to operational semantics of your language. 
+If you decide to revise the paper, please enclose the revised manuscript with a companion letter where you describe the list of changes and/or a rebuttal against each point raised by the reviewers.
+Please let us know in any case if you plan to revise the paper.
+We would like to take the opportunity to thank you again for having considered our journal for the publication of your research and for the great work done so far.
+
+Comments from the editors and reviewers:
+-Reviewer 1
+
+  -
+The authors addressed the concerns raised in my review for the previous version of this draft (Reviewer 1).
+
+The only remark is that I don't agree with the view the authors have of 'mandatory features': in other approaches to modeling SPL, mandatory features have to be always present in any generated product, no matter what dynamics are executed. Instead, the answer given by the authors in the response letter implies that mandatory features are not necessarily present in a product. This is not clear in the text. Given that this approach is not standard, it should be highlighted and discussed in the text.
+
+ For this reason, I suggest accepting this version  paper.
+
+
+-Reviewer 2
+
+  -
+First, I would like to thank the authors for their effort in improving the paper. However, I am still concerned about the key issues I mentioned in my former review (reviewer number 2).
+
+1) Thanks for including the semantics of t1 into your set of examples (Figure 3). I wonder why the "probabilities" for B and C in the second step are not 1/4: for instance take a look at [tick /\ (B;tick /\ C;tick)], then (B;tick /\ C;tick) -B->1/2 (tick /\ C;tick) by rule [con1]. Furthermore, [tick] yields (tick -tick->1 nil) and combined with the above transition in [con5] we obtain [tick /\ (B;tick /\ C;tick)] -B->1/4 (tick /\ C;tick) as (1*1/2)/2=1/4. This issue I have already indicated in the last review and the authors did not provide any satisfactory answer (why the probabilities would not sum up to 1?). 
+For me it is still not clear what kind of "associativity" is considered. In the standard setting, associativity would state that t1 and t2 have the same operational semantics or at least a bisimilar one (which is not the case as choosing A in t1 has probability 1/2, while in t2 it has probability 1/4). From the first statement in the answer of the authors I probably could deduce that associativity might only be considered with respect to probabilities of sets of features. But in this case I miss a justification why the proposed semantics is chosen to be operational as the operational behaviors are not used at all and no aspect of time plays a role in the considerations.
+In this spirit, I also miss an explanation why the authors are departing from standard definitions in the field of probabilistic process algebras. Please indicate which SOS rules correspond to existing definitions and when/for which reason one introduces non-standard rules (such as the conjunctive rules).
+
+ANS: First of all we have fix a mistake in Figure 3. We have also
+included the example given by the reviewer.
+To obtain these traces we have to take into account the transitions
+tick /\ ( C;tick /\ D;tick ) -- C,1/4 -- > tick /\ D;tick  [CON5] + [CON1]
+tick /\ ( C;tick /\ D;tick ) -- C,1/4 -- > tick; (tick /\ D;tick)  [CON2] + [CON1]
+(symmetric for ---- B,1/4 --> )
+
+
+In that example we have
+- 4 traces BC, each of them with probability 1/16
+- 2 traces BC, each of them with probability 1/8
+- 4 traces CB, each of them with probability 1/16
+- 2 traces CB, each of them with probability 1/8
+Since all traces give the same product [C,B], the probability of this
+product is the sum of all the probabilities above:
+4*1/16 + 2*1/8 + 2*1/8 + 4*1/16 = 1/4 + 1/4 + 1/4 + 1/4 = 1
+
+
+
+
+
+
+2) The statement in the answer of 1) that probabilities at the operators are not "critical" and "we could have chosen any other distribution factor" made me even more wonder about the meaning of the probabilities. I would like to strengthen the need of an explanation for 2), as I do not see where probabilities come from and what is their meaning. As indicated, the natural way would be to present a probabilistic feature model (e.g., via FODA/feature diagrams) that then is translated to SPLA^P terms. Note that this approach would not cover the still missing explanation of the meaning of probabilities in the operational semantics.
+
+3) Thank you for explicitly devoting a section to related work. For estimating the contribution of this paper, I still miss a comparison to the approaches mentioned, especially to the ones that use operational semantics. What is the difference of your operational semantics to the ones in [25] (considering the Markov chain fragment) and [32]? The authors might furthermore explain the new sentence "state that state it is possible to describe a formal framework that translates the current feature models to probabilistic methods." as I could not grasp its meaning. Which "probabilistic methods" are meant and how in principle models can be translated to methods?
+
+4) Still Figure 7 makes me wonder whether the analysis of the results were faithfully evaluated. As I already indicated in the last review, timings around 20ms are not realistic to analyse. The authors could scale their experiments, e.g., by considering feature numbers greater than, e.g., 10k as they did, e.g., in Figure 11 and 12? This could eventually mitigate the side effects of other processes etc. and could enable a trustworthy statement about the results.
+
+Small issues:
+- The authors say that they do not consider the operators to be n-ary anymore, but they are still highlighted to be n-ary directly after Definition 1.
+- The citation of PRISM is not appropriate, as it refers to its benchmark suite and not its implementation. Please use the reference indicated on the homepage http://www.prismmodelchecker.org
+
+
+-Reviewer 3
+
+  -
+I want to thank the authors for addressing my comments. 
+The evaluation section has been rewritten and now presents the empirical evidence of the applicability of the approach on synthetic feature models in a more explicit way. 
+However, the comparisons with previous work in Section 6.3 is not sound. As far as I can tell (since the feature models are not provided in the replication package), the set of feature models used in [8] is different from the set of feature models used in the current evaluation. The number of products for the different feature models presented in Figure 16 varies a lot, and the number of features is different between the two evaluations. 
+I suggest toning down a bit the claims about these comparisons. In particular, the claims made in the following paragraph: "For those specific implementations and simulations we can conclude that the denotational semantics of the probabilistic extension implementation improves dramatically the performance in comparison with the denotational semantics implementations presented in previous works [8, 17]." Based on the current data from the evaluations, the paper cannot conclude anything. The paper can only claim that empirical evidence suggests that the performances of the denotational semantics of the probabilistic extension implementation are better than the denotational semantics implementations presented in previous works [8, 17].
+The paper has still no threats to validity section. Since the empirical evaluation has been done using a limited number of synthetic feature models, I believe that this section should be there and discuss the limitations of the approach and its empirical evaluation. 
+Specific comments:
+    • p.18, l.17,  of Afor b -> of A for b
+    • p.37, l.16, l.21, l.26, I suggest giving the 3 times values in seconds to ease the comparison
+    • p.38, l.3, l.18, to ask -> to answer
