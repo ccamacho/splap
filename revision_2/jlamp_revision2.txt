@@ -87,6 +87,7 @@ equivalent to P=A;tick.
 Small issues:
 - The authors say that they do not consider the operators to be n-ary anymore, but they are still highlighted to be n-ary directly after Definition 1.
 - The citation of PRISM is not appropriate, as it refers to its benchmark suite and not its implementation. Please use the reference indicated on the homepage http://www.prismmodelchecker.org
+CITATION FIXED
 
 
 -Reviewer 3
