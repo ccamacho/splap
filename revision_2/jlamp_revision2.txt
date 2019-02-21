@@ -70,6 +70,11 @@ product is the sum of all the probabilities above:
 
 
 
+There are cases where the probabilities does not sum 1. For instance,
+let us consider the term P=nil \/_{1/2} A;tick. This term has
+probability 1/2 of producing nothing and 1/2 of producing the product
+[A]. We cannot normalize the probability because P should be
+equivalent to P=A;tick.
 
 
 
