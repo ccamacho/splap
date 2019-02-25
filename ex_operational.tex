@@ -6,11 +6,14 @@
         \node[syntax] (A)
         {$\checkmark\paral(\fB;\checkmark\paral\fC;\checkmark)$};
         \node[syntax] (B) [below left=1cm and 4cm of A]{$\checkmark\paral(\checkmark\paral\fC;\checkmark)$};
+        \node [above left=-.2cm of B, draw=none] {\footnotesize(1)};
         \node[syntax] (C) [below left=1cm and -.5cm of A]{$\checkmark\paral\fC;\checkmark$};
+        \node [above left=-.2cm of C, draw=none] {\footnotesize(2)};
         \node[syntax] (D) [below right=1cm and 5cm of A]{$\checkmark\paral(\fB\checkmark\paral\checkmark)$};
         \node[syntax] (E) [below right=1cm and -.5cm of A]{$\fB;\checkmark\paral\checkmark$};
 
-        \node[syntax] (B1) [below left=1cm and 1cm of B]{$\checkmark\paral(\checkmark\paral\checkmark)$};
+        \node[syntax] (B1) [below left=1cm and 1cm of
+        B]{$\checkmark\paral(\checkmark\paral\checkmark)$};
         \node[syntax] (B2) [below left=1cm and -0.7cm of B]{$\checkmark\paral(\checkmark)$};
         \node[syntax] (B3) [below right=1cm and -0.7cm of B]{$(\checkmark\paral\checkmark)$};
         \node[syntax] (B4) [below right=1cm and 1cm of B]{$\checkmark$};
@@ -127,14 +130,26 @@
         \node[] (D1)
         [below=0.1cm of D] {\parbox{3cm}{\centering Similar to\\ $\fA;\checkmark\paral(\checkmark\paral
             \fC;\checkmark)$}};
-        \node[]
-        [below=2cm of C] {\parbox{5cm}{\centering Similar to the ones in Figure~\ref{example:op1}}};
 
-        \node[syntax] (C1) [below left=1cm and 1.5cm of C]{$\checkmark\paral(\checkmark\paral\fC;\checkmark)$};
+        \node[syntax] (C1) [below left=1cm and 1.5cm of
+        C]{$\checkmark\paral(\checkmark\paral\fC;\checkmark)$};
+        \node[isosceles triangle, shape border rotate=90] (C11) [below=0cm of C1] {
+          \begin{minipage}{1cm}
+            {\footnotesize (1)} in\\Figure~\ref{example:op1}
+          \end{minipage}
+};
         \node[syntax] (C2) [below left=1cm and -0.5cm of C]{$\checkmark\paral(\fC\checkmark)$};
-        \node[syntax] (C3) [below right=1cm and -1.5cm of C]{$\fA;\checkmark\paral(\checkmark\paral\checkmark)$};
+        \node[isosceles triangle, shape border rotate=90] (C21) [below=0cm of C2] {
+          \begin{minipage}{1cm}
+            {\footnotesize (2)} in\\Figure~\ref{example:op1}
+          \end{minipage}
+};
+        \node[syntax] (C3) [below right=4cm and -1.5cm of C]{$\fA;\checkmark\paral(\checkmark\paral\checkmark)$};
         \node[syntax] (C4) [below right=1cm and 1.5cm of
         C]{$\fA;\checkmark\paral(\checkmark)$};
+        \node[] (D1)
+        [below=0.1cm of D] {\parbox{3cm}{\centering Similar to\\ $\fA;\checkmark\paral(\checkmark\paral
+            \fC;\checkmark)$}};
 
         % \node[syntax] (B11) [below left=1cm and 0cm of B1] {$\checkmark$};
         % \node[syntax] (B12) [below right=1cm and -0.5cm of B1] {$\checkmark\paral\checkmark$};
