@@ -117,169 +117,231 @@
       \begin{tikzpicture}[->,>=stealth',node distance=1.5cm]
         \node[syntax] (A) {$\fA;\checkmark\paral(\fB;\checkmark\paral
           \fC;\checkmark)$};
-        \node[syntax] (B) [below left=1cm of A] {$\checkmark\paral(\fB;\checkmark\paral
+        \node[syntax] (B) [below left=2cm of A] {$\checkmark\paral(\fB;\checkmark\paral
           \fC;\checkmark)$};
-        \node[syntax] (C) [below left=7cm and -1cm of A] {$\fA;\checkmark\paral(\checkmark\paral
+        \node[syntax] (C) [below right=3.5cm and -1cm of A] {$\fA;\checkmark\paral(\checkmark\paral
           \fC;\checkmark)$};
-        \node[syntax] (D) [below right=1cm of A] {$\fA;\checkmark\paral(\fB;\checkmark\paral
+        \node[syntax] (D) [below right=2cm of A] {$\fA;\checkmark\paral(\fB;\checkmark\paral
           \checkmark)$};
-        \node[syntax] (B1) [below=1cm of B] {$\fB\checkmark\paral\checkmark$};
-        \node[syntax] (B2) [left=1.5cm of B1] {$\checkmark\paral\fC;\checkmark$};
-        \node[syntax] (B11) [below left=1cm and 0cm of B1] {$\checkmark$};
-        \node[syntax] (B12) [below right=1cm and -0.5cm of B1] {$\checkmark\paral\checkmark$};
-        \node[syntax] (B21) [below left=1cm and 0cm of B2] {$\checkmark$};
-        \node[syntax] (B22) [below right=1cm and -0.5cm of B2] {$\checkmark\paral\checkmark$};
-        \node[syntax] (C1) [below left=1cm and -0.5cm of C] {$\checkmark\paral(\checkmark\paral
-          \fC;\checkmark)$};
-        \node[syntax] (C2) [below right=1cm and -0.5cm of C] {$\fA;\checkmark\paral\checkmark$};
-        \node[syntax] (C11) [below left=1cm and 0cm of C1]
-        {$\checkmark$};
-        \node[syntax] (C12) [below right=1cm and -0.5cm of C1] {$\checkmark\paral\checkmark$};
-        \node[syntax] (C21) [below left=1cm and 0cm of C2] {$\checkmark$};
-        \node[syntax] (C22) [below right=1cm and -0.5cm of C2] {$\checkmark\paral\checkmark$};
-        \node[syntax] (D1) [below left=1cm and -0.5cm of D] {$\checkmark\paral(\fB;\checkmark\paral
-          \checkmark)$};
-        \node[syntax] (D2) [below right=1cm and -0.5cm of D] {$\fA;\checkmark\paral\checkmark$};
-        \node[syntax] (D11) [below left=1cm and 0cm of D1] {$\checkmark$};
-        \node[syntax] (D12) [below right=1cm and -0.5cm of D1] {$\checkmark\paral\checkmark$};
-        \node[syntax] (D21) [below left=1cm and 0cm of D2] {$\checkmark$};
-        \node[syntax] (D22) [below right=1cm and -0.5cm of D2] {$\checkmark\paral\checkmark$};
-        \node[syntax] (B111) [below=1cm of B11] {$\nil$};
-        \node[syntax] (B121) [below=1cm of B12] {$\nil$};
-        \node[syntax] (B211) [below=1cm of B21] {$\nil$};
-        \node[syntax] (B221) [below=1cm of B22] {$\nil$};
-        \node[syntax] (C111) [below=1cm of C11] {$\nil$};
-        \node[syntax] (C121) [below=1cm of C12] {$\nil$};
-        \node[syntax] (C211) [below=1cm of C21] {$\nil$};
-        \node[syntax] (C221) [below=1cm of C22] {$\nil$};
-        \node[syntax] (D111) [below=1cm of D11] {$\nil$};
-        \node[syntax] (D121) [below=1cm of D12] {$\nil$};
-        \node[syntax] (D211) [below=1cm of D21] {$\nil$};
-        \node[syntax] (D221) [below=1cm of D22] {$\nil$};
+        \node[isosceles triangle, shape border rotate=90] (B1) [below=0cm of B] {Figure~\ref{example:op1}};
+        \node[] (D1)
+        [below=0.1cm of D] {\parbox{3cm}{\centering Similar to\\ $\fA;\checkmark\paral(\checkmark\paral
+            \fC;\checkmark)$}};
+        \node[]
+        [below=2cm of C] {\parbox{5cm}{\centering Similar to the ones in Figure~\ref{example:op1}}};
+
+        \node[syntax] (C1) [below left=1cm and 1.5cm of C]{$\checkmark\paral(\checkmark\paral\fC;\checkmark)$};
+        \node[syntax] (C2) [below left=1cm and -0.5cm of C]{$\checkmark\paral(\fC\checkmark)$};
+        \node[syntax] (C3) [below right=1cm and -1.5cm of C]{$\fA;\checkmark\paral(\checkmark\paral\checkmark)$};
+        \node[syntax] (C4) [below right=1cm and 1.5cm of
+        C]{$\fA;\checkmark\paral(\checkmark)$};
+
+        % \node[syntax] (B11) [below left=1cm and 0cm of B1] {$\checkmark$};
+        % \node[syntax] (B12) [below right=1cm and -0.5cm of B1] {$\checkmark\paral\checkmark$};
+        % \node[syntax] (B21) [below left=1cm and 0cm of B2] {$\checkmark$};
+        % \node[syntax] (B22) [below right=1cm and -0.5cm of B2] {$\checkmark\paral\checkmark$};
+        % \node[syntax] (C1) [below left=1cm and -0.5cm of C] {$\checkmark\paral(\checkmark\paral
+        %   \fC;\checkmark)$};
+        % \node[syntax] (C2) [below right=1cm and -0.5cm of C] {$\fA;\checkmark\paral\checkmark$};
+        % \node[syntax] (C11) [below left=1cm and 0cm of C1]
+        % {$\checkmark$};
+        % \node[syntax] (C12) [below right=1cm and -0.5cm of C1] {$\checkmark\paral\checkmark$};
+        % \node[syntax] (C21) [below left=1cm and 0cm of C2] {$\checkmark$};
+        % \node[syntax] (C22) [below right=1cm and -0.5cm of C2] {$\checkmark\paral\checkmark$};
+        % \node[syntax] (D1) [below left=1cm and -0.5cm of D] {$\checkmark\paral(\fB;\checkmark\paral
+        %   \checkmark)$};
+        % \node[syntax] (D2) [below right=1cm and -0.5cm of D] {$\fA;\checkmark\paral\checkmark$};
+        % \node[syntax] (D11) [below left=1cm and 0cm of D1] {$\checkmark$};
+        % \node[syntax] (D12) [below right=1cm and -0.5cm of D1] {$\checkmark\paral\checkmark$};
+        % \node[syntax] (D21) [below left=1cm and 0cm of D2] {$\checkmark$};
+        % \node[syntax] (D22) [below right=1cm and -0.5cm of D2] {$\checkmark\paral\checkmark$};
+        % \node[syntax] (B111) [below=1cm of B11] {$\nil$};
+        % \node[syntax] (B121) [below=1cm of B12] {$\nil$};
+        % \node[syntax] (B211) [below=1cm of B21] {$\nil$};
+        % \node[syntax] (B221) [below=1cm of B22] {$\nil$};
+        % \node[syntax] (C111) [below=1cm of C11] {$\nil$};
+        % \node[syntax] (C121) [below=1cm of C12] {$\nil$};
+        % \node[syntax] (C211) [below=1cm of C21] {$\nil$};
+        % \node[syntax] (C221) [below=1cm of C22] {$\nil$};
+        % \node[syntax] (D111) [below=1cm of D11] {$\nil$};
+        % \node[syntax] (D121) [below=1cm of D12] {$\nil$};
+        % \node[syntax] (D211) [below=1cm of D21] {$\nil$};
+        % \node[syntax] (D221) [below=1cm of D22] {$\nil$};
 
         \path
         (A) edge[->] node[above, opacity=0, text opacity=1]
         {$\feature{A},\frac{1}{2}$}
-        (B)
+        (B);
+
+        \path
         (A) edge[->] node[right, opacity=0, text opacity=1]
         {$\feature{B},\frac{1}{4}$}
-        (C)
+        (C);
+        \path
         (A) edge[->] node[right, opacity=0, text opacity=1]
         {$\feature{C},\frac{1}{4}$}
-        (D)
-        (B) edge[->] node[right, opacity=0, text opacity=1]
-        {$\feature{C},\frac{1}{2}$}
-        (B1)
-        (B) edge[->] node[right, opacity=0, text opacity=1]
-        {$\feature{B},\frac{1}{2}$}
-        (B2)
-        (B2)
-        edge[->] node[left, opacity=0, text opacity=1]
-        {$\feature{C},\frac{1}{2}$}
-        (B21)
-        (B2)
-        edge[->] node[right, opacity=0, text opacity=1]
-        {$\feature{C},\frac{1}{2}$}
-        (B22)
-        (B1)
-        edge[->] node[left, opacity=0, text opacity=1]
-        {$\feature{B},\frac{1}{2}$}
-        (B11)
-        edge[->] node[right, opacity=0, text opacity=1]
-        {$\feature{B},\frac{1}{2}$}
-        (B12)
+        (D);
+        \path
         (C) edge[->] node[right, opacity=0, text opacity=1]
-        {$\feature{A},\frac{1}{2}$}
-        (C1)
+        {$\feature{A},\frac{1}{4}$}
+        (C1);
+        \path
         (C) edge[->] node[right, opacity=0, text opacity=1]
-        {$\feature{C},\frac{1}{2}$}
-        (C2)
-        (C2)
-        edge[->] node[left, opacity=0, text opacity=1]
-        {$\feature{A},\frac{1}{2}$}
-        (C21)
-        edge[->] node[right, opacity=0, text opacity=1]
-        {$\feature{A},\frac{1}{2}$}
-        (C22)
-        (C1)
-        edge[->] node[left, opacity=0, text opacity=1]
-        {$\feature{C},\frac{1}{2}$}
-        (C11)
-        (C1)
-        edge[->] node[right, opacity=0, text opacity=1]
-        {$\feature{C},\frac{1}{2}$}
-        (C12)
-        (D) edge[->] node[right, opacity=0, text opacity=1]
-        {$\feature{A},\frac{1}{2}$}
-        (D1)
-        (D) edge[->] node[right, opacity=0, text opacity=1]
-        {$\feature{B},\frac{1}{2}$}
-        (D2)
-        (D2)
-        edge[->] node[left, opacity=0, text opacity=1]
-        {$\feature{A},\frac{1}{2}$}
-        (D21)
-        (D2)
-        edge[->] node[right, opacity=0, text opacity=1]
-        {$\feature{A},\frac{1}{2}$}
-        (D22)
-        (D1)
-        edge[->] node[left, opacity=0, text opacity=1]
-        {$\feature{B},\frac{1}{2}$}
-        (D11)
-        (D1)
-        edge[->] node[right, opacity=0, text opacity=1]
-        {$\feature{B},\frac{1}{2}$}
-        (D12)
-        (B11)
-        edge[->] node[right, opacity=0, text opacity=1]
-        {$\checkmark,1$}
-        (B111)
-        (B12)
-        edge[->] node[right, opacity=0, text opacity=1]
-        {$\checkmark,1$}
-        (B121)
-        (B21)
-        edge[->] node[right, opacity=0, text opacity=1]
-        {$\checkmark,1$}
-        (B211)
-        (B22)
-        edge[->] node[right, opacity=0, text opacity=1]
-        {$\checkmark,1$}
-        (B221)
-        (C11)
-        edge[->] node[right, opacity=0, text opacity=1]
-        {$\checkmark,1$}
-        (C111)
-        (C12)
-        edge[->] node[right, opacity=0, text opacity=1]
-        {$\checkmark,1$}
-        (C121)
-        (C21)
-        edge[->] node[right, opacity=0, text opacity=1]
-        {$\checkmark,1$}
-        (C211)
-        (C22)
-        edge[->] node[right, opacity=0, text opacity=1]
-        {$\checkmark,1$}
-        (C221)
-        (D11)
-        edge[->] node[right, opacity=0, text opacity=1]
-        {$\checkmark,1$}
-        (D111)
-        (D12)
-        edge[->] node[right, opacity=0, text opacity=1]
-        {$\checkmark,1$}
-        (D121)
-        (D21)
-        edge[->] node[right, opacity=0, text opacity=1]
-        {$\checkmark,1$}
-        (D211)
-        (D22)
-        edge[->] node[right, opacity=0, text opacity=1]
-        {$\checkmark,1$}
-        (D221)
-        ;
+        {$\feature{A},\frac{1}{4}$}
+        (C2);
+        \path
+        (C) edge[->] node[right, opacity=0, text opacity=1]
+        {$\feature{C},\frac{1}{4}$}
+        (C3);
+        \path
+        (C) edge[->] node[right, opacity=0, text opacity=1]
+        {$\feature{C},\frac{1}{4}$}
+        (C4);
+        % \path
+        % (B) edge[->] node[right, opacity=0, text opacity=1]
+        % {$\feature{C},\frac{1}{2}$}
+        % (B1);
+        % \path
+        % (B) edge[->] node[right, opacity=0, text opacity=1]
+        % {$\feature{B},\frac{1}{2}$}
+        % (B2);
+        % \path
+        % (B2)
+        % edge[->] node[left, opacity=0, text opacity=1]
+        % {$\feature{C},\frac{1}{2}$}
+        % (B21);
+        % \path
+        % (B2)
+        % edge[->] node[right, opacity=0, text opacity=1]
+        % {$\feature{C},\frac{1}{2}$}
+        % (B22);
+        % \path
+        % (B1)
+        % edge[->] node[left, opacity=0, text opacity=1]
+        % {$\feature{B},\frac{1}{2}$}
+        % (B11);
+        % \path
+        % (B1)
+        % edge[->] node[right, opacity=0, text opacity=1]
+        % {$\feature{B},\frac{1}{2}$}
+        % (B12);
+        % \path
+        % (C) edge[->] node[right, opacity=0, text opacity=1]
+        % {$\feature{A},\frac{1}{2}$}
+        % (C1);
+        % \path
+        % (C) edge[->] node[right, opacity=0, text opacity=1]
+        % {$\feature{C},\frac{1}{2}$}
+        % (C2);
+        % \path
+        % (C2)
+        % edge[->] node[left, opacity=0, text opacity=1]
+        % {$\feature{A},\frac{1}{2}$}
+        % (C21);
+        % \path
+        % (C2)
+        % edge[->] node[right, opacity=0, text opacity=1]
+        % {$\feature{A},\frac{1}{2}$}
+        % (C22);
+        % \path
+        % (C1)
+        % edge[->] node[left, opacity=0, text opacity=1]
+        % {$\feature{C},\frac{1}{2}$}
+        % (C11);
+        % \path
+        % (C1)
+        % edge[->] node[right, opacity=0, text opacity=1]
+        % {$\feature{C},\frac{1}{2}$}
+        % (C12);
+        % \path
+        % (D) edge[->] node[right, opacity=0, text opacity=1]
+        % {$\feature{A},\frac{1}{2}$}
+        % (D1);
+        % \path
+        % (D) edge[->] node[right, opacity=0, text opacity=1]
+        % {$\feature{B},\frac{1}{2}$}
+        % (D2);
+        % \path
+        % (D2)
+        % edge[->] node[left, opacity=0, text opacity=1]
+        % {$\feature{A},\frac{1}{2}$}
+        % (D21);
+        % \path
+        % (D2)
+        % edge[->] node[right, opacity=0, text opacity=1]
+        % {$\feature{A},\frac{1}{2}$}
+        % (D22);
+        % \path
+        % (D1)
+        % edge[->] node[left, opacity=0, text opacity=1]
+        % {$\feature{B},\frac{1}{2}$}
+        % (D11);
+        % \path
+        % (D1)
+        % edge[->] node[right, opacity=0, text opacity=1]
+        % {$\feature{B},\frac{1}{2}$}
+        % (D12);
+        % \path
+        % (B11)
+        % edge[->] node[right, opacity=0, text opacity=1]
+        % {$\checkmark,1$}
+        % (B111);
+        % \path
+        % (B12)
+        % edge[->] node[right, opacity=0, text opacity=1]
+        % {$\checkmark,1$}
+        % (B121);
+        % \path
+        % (B21)
+        % edge[->] node[right, opacity=0, text opacity=1]
+        % {$\checkmark,1$}
+        % (B211);
+        % \path
+        % (B22)
+        % edge[->] node[right, opacity=0, text opacity=1]
+        % {$\checkmark,1$}
+        % (B221);
+        % \path
+        % (C11)
+        % edge[->] node[right, opacity=0, text opacity=1]
+        % {$\checkmark,1$}
+        % (C111);
+        % \path
+        % (C12)
+        % edge[->] node[right, opacity=0, text opacity=1]
+        % {$\checkmark,1$}
+        % (C121);
+        % \path
+        % (C21)
+        % edge[->] node[right, opacity=0, text opacity=1]
+        % {$\checkmark,1$}
+        % (C211);
+        % \path
+        % (C22)
+        % edge[->] node[right, opacity=0, text opacity=1]
+        % {$\checkmark,1$}
+        % (C221);
+        % \path
+        % (D11)
+        % edge[->] node[right, opacity=0, text opacity=1]
+        % {$\checkmark,1$}
+        % (D111);
+        % \path
+        % (D12)
+        % edge[->] node[right, opacity=0, text opacity=1]
+        % {$\checkmark,1$}
+        % (D121);
+        % \path
+        % (D21)
+        % edge[->] node[right, opacity=0, text opacity=1]
+        % {$\checkmark,1$}
+        % (D211);
+        % \path
+        % (D22)
+        % edge[->] node[right, opacity=0, text opacity=1]
+        % {$\checkmark,1$}
+        % (D221)
+        % ;
       \end{tikzpicture}
     }
   \end{minipage}
