@@ -25,14 +25,50 @@ The only remark is that I don't agree with the view the authors have of 'mandat
   -
 First, I would like to thank the authors for their effort in improving the paper. However, I am still concerned about the key issues I mentioned in my former review (reviewer number 2).
 
-1) Thanks for including the semantics of t1 into your set of examples (Figure 3). I wonder why the "probabilities" for B and C in the second step are not 1/4: for instance take a look at [tick /\ (B;tick /\ C;tick)], then (B;tick /\ C;tick) -B->1/2 (tick /\ C;tick) by rule [con1]. Furthermore, [tick] yields (tick -tick->1 nil) and combined with the above transition in [con5] we obtain [tick /\ (B;tick /\ C;tick)] -B->1/4 (tick /\ C;tick) as (1*1/2)/2=1/4. This issue I have already indicated in the last review and the authors did not provide any satisfactory answer (why the probabilities would not sum up to 1?). 
-For me it is still not clear what kind of "associativity" is considered. In the standard setting, associativity would state that t1 and t2 have the same operational semantics or at least a bisimilar one (which is not the case as choosing A in t1 has probability 1/2, while in t2 it has probability 1/4). From the first statement in the answer of the authors I probably could deduce that associativity might only be considered with respect to probabilities of sets of features. But in this case I miss a justification why the proposed semantics is chosen to be operational as the operational behaviors are not used at all and no aspect of time plays a role in the considerations.
-In this spirit, I also miss an explanation why the authors are departing from standard definitions in the field of probabilistic process algebras. Please indicate which SOS rules correspond to existing definitions and when/for which reason one introduces non-standard rules (such as the conjunctive rules).
+1) Thanks for including the semantics of t1 into your set of examples
+(Figure 3). I wonder why the "probabilities" for B and C in the second
+step are not 1/4: for instance take a look at [tick /\ (B;tick /\
+C;tick)], then (B;tick /\ C;tick) -B->1/2 (tick /\ C;tick) by rule
+[con1]. Furthermore, [tick] yields (tick -tick->1 nil) and combined
+with the above transition in [con5] we obtain [tick /\ (B;tick /\
+C;tick)] -B->1/4 (tick /\ C;tick) as (1*1/2)/2=1/4. This issue I have
+already indicated in the last review and the authors did not provide
+any satisfactory answer (why the probabilities would not sum up to
+1?). 
+
+
+For me it is still not clear what kind of "associativity" is
+considered. In the standard setting, associativity would state that t1
+and t2 have the same operational semantics or at least a bisimilar one
+(which is not the case as choosing A in t1 has probability 1/2, while
+in t2 it has probability 1/4). From the first statement in the answer
+of the authors I probably could deduce that associativity might only
+be considered with respect to probabilities of sets of features. But
+in this case I miss a justification why the proposed semantics is
+chosen to be operational as the operational behaviors are not used at
+all and no aspect of time plays a role in the considerations.  In this
+spirit, I also miss an explanation why the authors are departing from
+standard definitions in the field of probabilistic process
+algebras. Please indicate which SOS rules correspond to existing
+definitions and when/for which reason one introduces non-standard
+rules (such as the conjunctive rules).
 
 ANS: First of all we have fix a mistake in Figure 3 (current Figure
 4). We have also
-included the example given by the reviewer. The associativity and
-commutativity refer to equivalence given from the set of products.
+included the example given by the reviewer.  It is true that under
+any notion of bisimulation the /\ is not associative. For instance
+a;tick /\ (b;tick /\ c;tick) would not be bisimilar to
+(a;tick /\ b;tick /\) c;tick). The former produce a with probability
+1/2 while the later produce it with probability 1/4. However,
+we have not defined a notion of bisimulation. Associativity and
+commutativity refer to the denotational semantics, thus, indirectly
+refer to the equivalence given from the set of products. Although it is
+immediate from the denotational semantics, we did not define this
+equivalence in the previous version of the paper. We have include in
+Definition 3. Because the denotational definition of the /\ operator
+ and Theorem 2, we obtain that /\ is associative and commutative with
+ respect to equivalence.
+
 So, to check the commutativity and associativity we have to consider all
 traces leading to the same product. We have included the example
 suggested by the reviewer in the paper. Here there is a more detailed

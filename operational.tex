@@ -157,7 +157,14 @@ Let $P\in\fodaPAp$. We define the set of probabilistic products of $P$, denoted 
   P\vtranp{s\checkmark}{q} Q \y \product{s}=pr \rbag\}
 \end{displaymath}
 \item We define the total probability of $P$, denoted by $\ham(P)$, as the value $\sum\lbag p\ |\ \exists pr: (pr,p)\in\prodp(P)\rbag$. In addition, we define $\waste(P) = 1-\ham(P)$.
+\item We say that $P$ is equivalent to $Q$, written $P\equivprob Q$ iff
+$\prodp(P)=\prodp(Q)$
 \edfn
+
+From its definition, we obtain directly that $\equivprob$ is a
+equivalence relation. But it is difficult to prove other properties
+like congruence. These properties can be obtained easily when the
+denotational semantics is studied in Section~\ref{sec:stat:den}.
 
 The following result shows some properties, concerning probabilities,
 of the operational semantics. In particular, we have that the
