@@ -10,6 +10,7 @@
         \node[syntax] (C) [below left=1cm and -.5cm of A]{$\checkmark\paral\fC;\checkmark$};
         % \node [above left=-.2cm of C, draw=none] {\footnotesize(2)};
         \node[syntax] (D) [below right=1cm and 5cm of A]{$\checkmark\paral(\fB\checkmark\paral\checkmark)$};
+        \node [above right=-.2cm of D, draw=none] {\footnotesize(**)};
         \node[syntax] (E) [below right=1cm and -.5cm of A]{$\fB;\checkmark\paral\checkmark$};
 
         \node[syntax] (B1) [below left=1cm and 1cm of
@@ -127,10 +128,6 @@
         \node[syntax] (D) [below right=1cm of A] {$\fA;\checkmark\paral(\fB;\checkmark\paral
           \checkmark)$};
         \node[isosceles triangle, shape border rotate=90] (B1) [below=0cm of B] {Figure~\ref{example:op1}};
-        \node[] (D1)
-        [below=0.1cm of D] {\parbox{3cm}{\centering Similar to\\ $\fA;\checkmark\paral(\checkmark\paral
-            \fC;\checkmark)$}};
-
         \node[syntax] (C1) [below left=1cm and 1.5cm of
         C]{$\checkmark\paral(\checkmark\paral\fC;\checkmark)$};
         \node[isosceles triangle, shape border rotate=90] (C11) [below=0cm of C1] {
@@ -138,34 +135,26 @@
             {\footnotesize (*)} in\\Figure~\ref{example:op1}
           \end{minipage}
 };
-        \node[syntax] (C2) [below left=1cm and -0.5cm of C]{$\checkmark\paral(\fC\checkmark)$};
-%         \node[isosceles triangle, shape border rotate=90] (C21) [below=0cm of C2] {
-%           \begin{minipage}{1cm}
-%             {\footnotesize (2)} in\\Figure~\ref{example:op1}
-%           \end{minipage}
-% };
-        \node[syntax] (C3) [below right=1cm and -1.5cm of C]{$\fA;\checkmark\paral(\checkmark\paral\checkmark)$};
-        \node[syntax] (C4) [below right=1cm and 1.5cm of
+        \node[syntax] (C2) [below=1cm of C]{$\fA;\checkmark\paral(\checkmark\paral\checkmark)$};
+        \node[syntax] (C3) [below right=1cm and 0.5cm of
         C]{$\fA;\checkmark\paral(\checkmark)$};
-        \node[] (D1)
-        [below=0.1cm of D] {\parbox{3cm}{\centering Similar to\\ $\fA;\checkmark\paral(\checkmark\paral
-            \fC;\checkmark)$}};
-        \node[syntax] (C41) [below left=1cm and -1cm of C4]{$\checkmark\paral\checkmark$};
-        \node[syntax] (C42) [below right=1cm and 0cm of C4]{$\checkmark$};
-        \node[syntax] (C411) [below=1cm of C41] {$\nil$};
-        \node[syntax] (C421) [below=1cm of C42] {$\nil$};
-
-        \node[syntax] (C31) [below left=1cm and -1cm of C3]{$\checkmark\paral\checkmark$};
-        \node[syntax] (C32) [below right=1cm and -0.5cm of C3]{$\checkmark$};
-        \node[syntax] (C311) [below=1cm of C31] {$\nil$};
-        \node[syntax] (C321) [below=1cm of C32] {$\nil$};
-
         \node[syntax] (C21) [below left=1cm and -0.5cm of C2]{$\checkmark\paral\checkmark$};
         \node[syntax] (C22) [below right=1cm and -0.5cm of C2]{$\checkmark$};
         \node[syntax] (C211) [below=1cm of C21] {$\nil$};
         \node[syntax] (C221) [below=1cm of C22] {$\nil$};
+        \node[syntax] (D1) [right=0.5cm of C3]{$\checkmark\paral(\fB;\checkmark\paral\checkmark)$};
+        \node[isosceles triangle, shape border rotate=90] (D11) [below=0cm of D1] {
+          \begin{minipage}{1cm}
+            {\footnotesize (**)} in\\Figure~\ref{example:op1}
+          \end{minipage}
+};
 
 
+        \draw[->] (D.south) +(-0.2cm,0cm) .. controls +(-0.5cm, -1.5cm) .. node[left,draw=none,pos=0.3] {$\fB,\frac{1}{4}$} (C2.north);
+        \draw[->] (D.south) .. controls +(0cm, -1cm) .. node[right,draw=none,pos=0.7] {$\fB,\frac{1}{4}$} (C3.north);
+
+
+        \draw (D) -- node[draw=none] {$\fA,\frac{1}{2}$} (D1);
         \path
         (C21)
         edge[->] node[right, opacity=0, text opacity=1]
@@ -176,53 +165,31 @@
         edge[->] node[right, opacity=0, text opacity=1]
         {$\checkmark,1$}
         (C221);
+
         \path
         (C2) edge[->] node[left, opacity=0, text opacity=1]
-        {$\feature{C},\frac{1}{2}$}
+        {$\feature{A},\frac{1}{2}$}
         (C21);
         \path
         (C2) edge[->] node[right, opacity=0, text opacity=1]
-        {$\feature{C},\frac{1}{2}$}
+        {$\feature{A},\frac{1}{2}$}
         (C22);
 
-        \path
-        (C41)
-        edge[->] node[right, opacity=0, text opacity=1]
-        {$\checkmark,1$}
-        (C411);
-        \path
-        (C42)
-        edge[->] node[right, opacity=0, text opacity=1]
-        {$\checkmark,1$}
-        (C421);
-        \path
-        (C4) edge[->] node[left, opacity=0, text opacity=1]
-        {$\feature{A},\frac{1}{2}$}
-        (C41);
-        \path
-        (C4) edge[->] node[right, opacity=0, text opacity=1]
-        {$\feature{A},\frac{1}{2}$}
-        (C42);
 
-        \path
-        (C31)
-        edge[->] node[right, opacity=0, text opacity=1]
-        {$\checkmark,1$}
-        (C311);
-        \path
-        (C32)
-        edge[->] node[right, opacity=0, text opacity=1]
-        {$\checkmark,1$}
-        (C321);
-
-        \path
-        (C3) edge[->] node[left, opacity=0, text opacity=1]
-        {$\feature{A},\frac{1}{2}$}
-        (C31);
+        \draw[->, start angle=180]
+        (C3)
+        .. controls ++(-.5cm,-8cm) and ++(left:0cm) ..
+        node[right, opacity=0, text opacity=1, near start]
+          {$\feature{A},\frac{1}{2}$}
+        (C21.south east);
+        % \path
+        % (C3) edge[->] node[left, opacity=0, text opacity=1]
+        % {$\feature{A},\frac{1}{2}$}
+        % (C21);
         \path
         (C3) edge[->] node[right, opacity=0, text opacity=1]
         {$\feature{A},\frac{1}{2}$}
-        (C32);
+        (C22);
 
 
         \path
@@ -240,20 +207,16 @@
         (D);
         \path
         (C) edge[->] node[right, opacity=0, text opacity=1]
-        {$\feature{A},\frac{1}{4}$}
+        {$\feature{A},\frac{1}{2}$}
         (C1);
         \path
         (C) edge[->] node[right, opacity=0, text opacity=1]
-        {$\feature{A},\frac{1}{4}$}
+        {$\feature{C},\frac{1}{4}$}
         (C2);
         \path
         (C) edge[->] node[right, opacity=0, text opacity=1]
         {$\feature{C},\frac{1}{4}$}
         (C3);
-        \path
-        (C) edge[->] node[right, opacity=0, text opacity=1]
-        {$\feature{C},\frac{1}{4}$}
-        (C4);
       \end{tikzpicture}
     }
   \end{minipage}
