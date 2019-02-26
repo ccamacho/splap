@@ -15,9 +15,27 @@ Comments from the editors and reviewers:
   -
 The authors addressed the concerns raised in my review for the previous version of this draft (Reviewer 1).
 
-The only remark is that I don't agree with the view the authors have of 'mandatory features': in other approaches to modeling SPL, mandatory features have to be always present in any generated product, no matter what dynamics are executed. Instead, the answer given by the authors in the response letter implies that mandatory features are not necessarily present in a product. This is not clear in the text. Given that this approach is not standard, it should be highlighted and discussed in the text.
+The only remark is that I don't agree with the view the authors have of 'mandatory features':
+in other approaches to modeling SPL, mandatory features have to be always present in any generated
+product, no matter what dynamics are executed. Instead, the answer given by the authors in the response
+letter implies that mandatory features are not necessarily present in a product. This is not clear in the text.
+Given that this approach is not standard, it should be highlighted and discussed in the text.
 
- For this reason, I suggest accepting this version  paper.
+For this reason, I suggest accepting this version  paper.
+
+We added this paragrahp in the section 3.
+
+
+ANS: In this research article, like in the previous definition of SPLA~\cite{acl13,clc16},
+we define and express formally that even if a feature is
+represented with a mandatory relationship in the feature model,
+it might not be computed in the final set or trace of valid products.
+This is because of the cross tree constraints presented in the formal
+representation of \fodaPA, more in specific, the \nombreRegla{excl2} and \nombreRegla{excl3} rules.
+These rules, in the case of computing them, those features will be marked for hiding,
+this is thanks rules \nombreRegla{hid1} and \nombreRegla{hid2} from
+Figure~\ref{fig:oper-hid}, making the features
+disappear in the valid products set after computing the feature model.
 
 
 -Reviewer 2

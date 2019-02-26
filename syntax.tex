@@ -19,6 +19,20 @@ we need to fix the set of \emph{features}.
 From now on $\calF$ denotes a finite set  of features
 and  \feature{A}, \feature{B}, \feature{C}\dots\ denote isolated features.
 
+
+In this research article, like in the previous definition of SPLA~\cite{acl13,clc16},
+we define and express formally that even if a feature is
+represented with a mandatory relationship in the feature model,
+it might not be computed in the final set or trace of valid products.
+This is because of the cross tree constraints presented in the formal
+representation of \fodaPA, more in specific, the \nombreRegla{excl2} and \nombreRegla{excl3} rules.
+These rules, in the case of computing them, those features will be marked for hiding,
+this is thanks rules \nombreRegla{hid1} and \nombreRegla{hid2} from
+Figure~\ref{fig:oper-hid}, making the features
+disappear in the valid products set after computing the feature model.
+
+
+
 In the syntax of the language there are two sets of operators.
 On the one hand there are \emph{main operators}, such as $\cdot\choice\cdot$, $\cdot\paral\cdot$, $\feature{A};\cdot$, $\ofeature{A};\cdot$,
 $\require{A}{B}{\cdot}$, $\exclude{A}{B}{\cdot}$,
