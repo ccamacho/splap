@@ -136,15 +136,39 @@ equivalent to P=A;tick.
 
 
 
-2) The statement in the answer of 1) that probabilities at the operators are not "critical" and "we could have chosen any other distribution factor" made me even more wonder about the meaning of the probabilities. I would like to strengthen the need of an explanation for 2), as I do not see where probabilities come from and what is their meaning. As indicated, the natural way would be to present a probabilistic feature model (e.g., via FODA/feature diagrams) that then is translated to SPLA^P terms. Note that this approach would not cover the still missing explanation of the meaning of probabilities in the operational semantics.
+2) The statement in the answer of 1) that probabilities at the operators are not
+"critical" and "we could have chosen any other distribution factor" made me even
+more wonder about the meaning of the probabilities. I would like to strengthen the
+need of an explanation for 2), as I do not see where probabilities come from and what
+is their meaning. As indicated, the natural way would be to present a probabilistic
+feature model (e.g., via FODA/feature diagrams) that then is translated to SPLA^P terms.
+Note that this approach would not cover the still missing explanation of the meaning of
+probabilities in the operational semantics.
 
-3) Thank you for explicitly devoting a section to related work. For estimating the contribution of this paper, I still miss a comparison to the approaches mentioned, especially to the ones that use operational semantics. What is the difference of your operational semantics to the ones in [25] (considering the Markov chain fragment) and [32]? The authors might furthermore explain the new sentence "state that state it is possible to describe a formal framework that translates the current feature models to probabilistic methods." as I could not grasp its meaning. Which "probabilistic methods" are meant and how in principle models can be translated to methods?
+3) Thank you for explicitly devoting a section to related work.
+For estimating the contribution of this paper, I still miss a comparison
+to the approaches mentioned, especially to the ones that use operational
+semantics. What is the difference of your operational semantics to the ones
+in [25] (considering the Markov chain fragment) and [32]? The authors might
+furthermore explain the new sentence "state that state it is possible to
+describe a formal framework that translates the current feature models to
+probabilistic methods." as I could not grasp its meaning. Which
+"probabilistic methods" are meant and how in principle models can
+be translated to methods?
 
-4) Still Figure 7 makes me wonder whether the analysis of the results were faithfully evaluated. As I already indicated in the last review, timings around 20ms are not realistic to analyse. The authors could scale their experiments, e.g., by considering feature numbers greater than, e.g., 10k as they did, e.g., in Figure 11 and 12? This could eventually mitigate the side effects of other processes etc. and could enable a trustworthy statement about the results.
+4) Still Figure 7 makes me wonder whether the analysis of the results
+were faithfully evaluated. As I already indicated in the last review,
+timings around 20ms are not realistic to analyse. The authors could
+scale their experiments, e.g., by considering feature numbers greater than,
+e.g., 10k as they did, e.g., in Figure 11 and 12? This could eventuall
+ mitigate the side effects of other processes etc. and could enable
+a trustworthy statement about the results.
 
 Small issues:
-- The authors say that they do not consider the operators to be n-ary anymore, but they are still highlighted to be n-ary directly after Definition 1.
-- The citation of PRISM is not appropriate, as it refers to its benchmark suite and not its implementation. Please use the reference indicated on the homepage http://www.prismmodelchecker.org
+- The authors say that they do not consider the operators to be n-ary anymore, but
+they are still highlighted to be n-ary directly after Definition 1.
+- The citation of PRISM is not appropriate, as it refers to its benchmark suite and
+not its implementation. Please use the reference indicated on the homepage http://www.prismmodelchecker.org
 CITATION FIXED
 
 
@@ -156,7 +180,8 @@ The evaluation section has been rewritten and now presents the empirical
 evidence of the applicability of the approach on synthetic feature
 models in a more explicit way. 
 
-However, the comparisons with previous work in Section 6.3 is not sound.
+
+Q- However, the comparisons with previous work in Section 6.3 is not sound.
 As far as I can tell (since the feature models are not provided in the replication package),
 the set of feature models used in [8] is different from the set of feature models used in
 the current evaluation. The number of products for the different feature models presented
@@ -166,10 +191,11 @@ in the following paragraph: "For those specific implementations and simulations 
 that the denotational semantics of the probabilistic extension implementation improves dramatically
 the performance in comparison with the denotational semantics implementations presented in previous
  works [8, 17]." Based on the current data from the evaluations, the paper cannot conclude anything. 
-
 The paper can only claim that empirical evidence suggests that the performances of the denotational semantics of the
 probabilistic extension implementation are better than the denotational semantics implementations presented
 in previous works [8, 17].
+ANS - fixed and updated according the reviewer comment.
+
 
 The paper has still no threats to validity section. Since the empirical evaluation has been done
 using a limited number of synthetic feature models, I believe that this section should
