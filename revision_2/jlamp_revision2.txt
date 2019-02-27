@@ -152,11 +152,29 @@ CITATION FIXED
 
   -
 I want to thank the authors for addressing my comments. 
-The evaluation section has been rewritten and now presents the empirical evidence of the applicability of the approach on synthetic feature models in a more explicit way. 
-However, the comparisons with previous work in Section 6.3 is not sound. As far as I can tell (since the feature models are not provided in the replication package), the set of feature models used in [8] is different from the set of feature models used in the current evaluation. The number of products for the different feature models presented in Figure 16 varies a lot, and the number of features is different between the two evaluations. 
-I suggest toning down a bit the claims about these comparisons. In particular, the claims made in the following paragraph: "For those specific implementations and simulations we can conclude that the denotational semantics of the probabilistic extension implementation improves dramatically the performance in comparison with the denotational semantics implementations presented in previous works [8, 17]." Based on the current data from the evaluations, the paper cannot conclude anything. The paper can only claim that empirical evidence suggests that the performances of the denotational semantics of the probabilistic extension implementation are better than the denotational semantics implementations presented in previous works [8, 17].
-The paper has still no threats to validity section. Since the empirical evaluation has been done using a limited number of synthetic feature models, I believe that this section should be there and discuss the limitations of the approach and its empirical evaluation. 
+The evaluation section has been rewritten and now presents the empirical
+evidence of the applicability of the approach on synthetic feature
+models in a more explicit way. 
+
+However, the comparisons with previous work in Section 6.3 is not sound.
+As far as I can tell (since the feature models are not provided in the replication package),
+the set of feature models used in [8] is different from the set of feature models used in
+the current evaluation. The number of products for the different feature models presented
+in Figure 16 varies a lot, and the number of features is different between the two evaluations. 
+I suggest toning down a bit the claims about these comparisons. In particular, the claims made
+in the following paragraph: "For those specific implementations and simulations we can conclude
+that the denotational semantics of the probabilistic extension implementation improves dramatically
+the performance in comparison with the denotational semantics implementations presented in previous
+ works [8, 17]." Based on the current data from the evaluations, the paper cannot conclude anything. 
+
+The paper can only claim that empirical evidence suggests that the performances of the denotational semantics of the
+probabilistic extension implementation are better than the denotational semantics implementations presented
+in previous works [8, 17].
+
+The paper has still no threats to validity section. Since the empirical evaluation has been done
+using a limited number of synthetic feature models, I believe that this section should
+be there and discuss the limitations of the approach and its empirical evaluation. 
 Specific comments:
-    • p.18, l.17,  of Afor b -> of A for b
-    • p.37, l.16, l.21, l.26, I suggest giving the 3 times values in seconds to ease the comparison
-    • p.38, l.3, l.18, to ask -> to answer
+    • p.18, l.17,  of Afor b -> of A for b --fixed
+    • p.37, l.16, l.21, l.26, I suggest giving the 3 times values in seconds to ease the comparison --fixed
+    • p.38, l.3, l.18, to ask -> to answer --fixed
