@@ -30,12 +30,16 @@ ANS: In this research article, like in the previous definition of SPLA~\cite{acl
 we define and express formally that even if a feature is
 represented with a mandatory relationship in the feature model,
 it might not be computed in the final set or trace of valid products.
+%
 This is because of the cross tree constraints presented in the formal
-representation of \fodaPA, more in specific, the \nombreRegla{excl2} and \nombreRegla{excl3} rules.
-These rules, in the case of computing them, those features will be marked for hiding,
+definition of \fodaPA, more in specific, the \nombreRegla{excl2} and \nombreRegla{excl3} rules.
+%
+These rules, in the case of computing them, the features affected will be marked for hiding,
 this is thanks rules \nombreRegla{hid1} and \nombreRegla{hid2} from
-Figure~\ref{fig:oper-hid}, making the features
-disappear in the valid products set after computing the feature model.
+Figure~\ref{fig:oper-hid}.
+%
+So forth, the features
+disappear in the valid products traces after computing the feature model.
 
 
 -Reviewer 2
