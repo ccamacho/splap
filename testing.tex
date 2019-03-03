@@ -49,9 +49,10 @@ Xeon(R) Quad-Core CPU E5-2670 @ 2.60GHz, 64 GB of RAM memory and Centos 7 Operat
 The study described in this section seeks to answer the following questions:
 
 \begin{itemize}
-        \item \textbf{RQ1}: Is it possible to translate current feature models to support probabilistic information?
-        \item \textbf{RQ2}: Is it possible to describe a formal framework that translates the current feature models
-        to probabilistic methods?
+        \item \textbf{RQ1}: Is it possible to translate current graphical representations of feature models to
+        support probabilistic information?
+        \item \textbf{RQ2}: Is it possible to extend \fodaPA in such a way that
+        translates the probabilistic information from the graphical representation to a formal representation?
         \item \textbf{RQ3}: What is the impact of applying probabilistic analysis methods to current feature models like \FODA?
 \end{itemize}
 
@@ -436,17 +437,18 @@ presented in previous works~\cite{acl13,clc16}.
 
 Following, we provide the answers to the research questions.
 
-\textbf{RQ1}: Is it possible to translate current feature models to support
-probabilistic information?
+\textbf{RQ1}: Is it possible to translate current graphical representations of feature models to
+support probabilistic information?
+
 
 In order to answer this question we have implemented the denotational semantic
 of the probabilistic extension. Since our framework is based on \FODA, we
-can state that the answer is yes, it is possible to translate current
-feature models, like \FODA, to represent and support probabilistic
+can state that the answer is yes, it is possible to translate current graphical
+representations of feature models, like \FODA, to represent and support probabilistic
 information.
 
-\textbf{RQ2}: Is it possible to describe a formal framework that translates
-the current feature models to probabilistic methods?
+\textbf{RQ2}: Is it possible to extend \fodaPA in such a way that
+translates the probabilistic information from the graphical representation to a formal representation?
 
 General use models have been proposed to model variability in software
 product lines~\cite{tlll15, tllv15} and, specifically, for feature-oriented
@@ -456,10 +458,8 @@ generic representations. However, this work is based on including probabilistic
 information to the well-known feature model \FODA.
 Based on our previous results~\cite{acl13,clc16}, together with the results
 presented in this work, we can state that state it is possible to
-describe a formal framework that translates
-the current feature models to probabilistic methods.
-
-
+describe a formal framework that translates the current graphical
+definitions of feature models into to a probabilistic formal representation.
 
 \textbf{RQ3}: What is the impact of applying probabilistic analysis methods
 to current feature models like \FODA?

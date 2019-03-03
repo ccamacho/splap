@@ -149,12 +149,28 @@ probabilities in the operational semantics.
 For estimating the contribution of this paper, I still miss a comparison
 to the approaches mentioned, especially to the ones that use operational
 semantics. What is the difference of your operational semantics to the ones
-in [25] (considering the Markov chain fragment) and [32]? The authors might
+in [25] (considering the Markov chain fragment) and [32]?
+
+The authors might
 furthermore explain the new sentence "state that state it is possible to
 describe a formal framework that translates the current feature models to
 probabilistic methods." as I could not grasp its meaning. Which
 "probabilistic methods" are meant and how in principle models can
 be translated to methods?
+
+ANS - We rephrased the two research questions as:
+
+\item \textbf{RQ1}: Is it possible to translate current graphical representations of feature models to
+support probabilistic information?
+\item \textbf{RQ2}: Is it possible to extend \fodaPA in such a way that
+translates the probabilistic information from the graphical representation to a formal representation?
+
+
+
+
+
+
+
 
 4) Still Figure 7 makes me wonder whether the analysis of the results
 were faithfully evaluated. As I already indicated in the last review,
