@@ -210,9 +210,13 @@ e.g., 10k as they did, e.g., in Figure 11 and 12? This could eventuall
  mitigate the side effects of other processes etc. and could enable
 a trustworthy statement about the results.
 
+ANS - We have duplicated the number of features in the empirical study, from 1500 to 3000
+now, we have a clearer view of the model behavior. 
+
 Small issues:
 1- The authors say that they do not consider the operators to be n-ary anymore, but
 they are still highlighted to be n-ary directly after Definition 1.
+
 2- The citation of PRISM is not appropriate, as it refers to its benchmark suite and
 not its implementation. Please use the reference indicated on the homepage http://www.prismmodelchecker.org
 CITATION FIXED
@@ -245,7 +249,9 @@ ANS - fixed and updated according the reviewer comment.
 
 The paper has still no threats to validity section. Since the empirical evaluation has been done
 using a limited number of synthetic feature models, I believe that this section should
-be there and discuss the limitations of the approach and its empirical evaluation. 
+be there and discuss the limitations of the approach and its empirical evaluation.
+ANS - Section added accorrding the reviewer
+
 Specific comments:
     • p.18, l.17,  of Afor b -> of A for b --fixed
     • p.37, l.16, l.21, l.26, I suggest giving the 3 times values in seconds to ease the comparison --fixed
