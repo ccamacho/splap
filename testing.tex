@@ -136,38 +136,46 @@ the time required to calculate the probability of having the feature in a final 
 %In this case, the total time to obtain the probability for all the features is linear with respect to the total length of the analyzed term
 %\mncomment{Que quiere decir esto? Suena raro porque yo esperaria complejidad $O(2^n)$ siendo $n$ el numero de probabilidades que salen en el termino. Pero vamos, que yo no  se mucho de complejidad!}\ccomen{Es cierto, no lo demostramos ni lo analizamos}.
 %\acomen{Yo simplemente quitaría esa frase, lo de que la complejidad es lineal}
-It is important to remark that there is a small variation in the processing time for
-calculating the probability of each single feature. We think that this variation is
-mainly caused by both the stochastic nature of the generated model and the
-inherent noise of the node where the experiment is launched (e.g. disk latencies, operating
-system overhead, memory paging, etc.) and, therefore, it is not related to the algorithm itself.
 
-Since the processing time for each feature is relatively low, it being around milliseconds, a single delay in
-the process scheduling may have a direct impact in the overall algorithm performance. Hence, this overhead
-can be considered insignificant since, in general, the time for processing each feature in the model ranges
-from 15 to 28 milliseconds.
+% It is important to remark that there is a small variation in the processing time for
+% calculating the probability of each single feature. We think that this variation is
+% mainly caused by both the stochastic nature of the generated model and the
+% inherent noise of the node where the experiment is launched (e.g. disk latencies, operating
+% system overhead, memory paging, etc.) and, therefore, it is not related to the algorithm itself.
 
-The model used in the experiments has been generated and processed 10 times, providing similar results
+% Since the processing time for each feature is relatively low, it being around milliseconds, a single delay in
+% the process scheduling may have a direct impact in the overall algorithm performance. Hence, this overhead
+% can be considered insignificant since, in general, the time for processing each feature in the model ranges
+% from 15 to 28 milliseconds.
+
+From the graphic presented in Figure~\ref{fig:plot:probs:times} we can see that giving the fact that each feature is computed independently, the
+computing time to calculate its probability depends on the feature position in the model.
+Those features being lower in the model tree, will take more
+time in being computed.
+
+The model used in the experiments has been generated and processed 11 times, providing similar results
 (see Table~\ref{execution_times}). That is, the
-major part of the features require between 14 and 20 milliseconds to be processed, while there is a small
-portion of them requiring a processing time between 20 and 36 milliseconds. However, there are unusual situations
-where a feature require 60 milliseconds to be processed.
+major part of the features require between 80 and 4599 milliseconds to be processed.
+% , while there is a small
+% portion of them requiring a processing time between 20 and 36 milliseconds. However, there are unusual situations
+% where a feature require 60 milliseconds to be processed.
 
 \begin{table}[h]
         \centering
         \begin{tabular}{|c|c|c|c|c|}
                 \hline
                 \textbf{Execution} & \textbf{Minimum} &  \textbf{Maximum} &  \textbf{Average} &  \textbf{Standard deviation} \\ \hline
-                \textit{1}              & 14    & 35    & 17.0247       & 3.0357        \\ \hline
-                \textit{2}              & 14    & 41    & 17.2325       & 3.3911        \\ \hline
-                \textit{3}              & 14    & 36    & 16.3983       & 3.0823        \\ \hline
-                \textit{4}              & 14    & 34    & 16.5417       & 3.1394        \\ \hline
-                \textit{5}              & 14    & 34    & 16.7105       & 3.1343        \\ \hline
-                \textit{6}              & 14    & 43    & 16.7865       & 3.3871        \\ \hline
-                \textit{7}              & 14    & 47    & 17.3589       & 3.9768        \\ \hline
-                \textit{8}              & 14    & 63    & 17.6684       & 4.2557        \\ \hline
-                \textit{9}              & 15    & 51    & 18.5851       & 4.3072        \\ \hline
-                \textit{10}             & 14    & 55    & 18.0947       & 4.4526        \\ \hline
+                \textit{1}              & 97   & 2475  & 758.8766  & 634.082        \\ \hline
+                \textit{2}              & 200  & 1950  & 612.8149  & 458.745        \\ \hline
+                \textit{3}              & 80   & 3201  & 895.4566  & 701.569        \\ \hline
+                \textit{4}              & 350  & 4054  & 975.4781  & 700.456        \\ \hline
+                \textit{5}              & 89   & 2115  & 1002.5135 & 596.598        \\ \hline
+                \textit{6}              & 236  & 1800  & 490.7506  & 399.927        \\ \hline
+                \textit{7}              & 409  & 2900  & 684.1667  & 650.287        \\ \hline
+                \textit{8}              & 360  & 3698  & 498.3847  & 710.136        \\ \hline
+                \textit{9}              & 90   & 4599  & 642.8489  & 684.993        \\ \hline
+                \textit{10}             & 150  & 2700  & 870.8184  & 688.013        \\ \hline
+                \textit{11}             & 84   & 2379  & 769.187   & 623.544        \\ \hline
         \end{tabular}
         \caption{Computing time analysis table.}
         \label{execution_times}
@@ -192,10 +200,14 @@ be part of a final product, where the $x$-axis
 represents the feature ID and the $y$-axis represents the probability.
 Figure~\ref{fig:plot:probs:probs:sorted} represents a histogram of the calculated probabilities for a better
 readability of the results. This chart clearly shows that there exist
-different groups of features having a similar probability. In this case, the probability of the major part
-of the features ranges between 0.7 and 0.8.
+different groups of features having a similar probability.
+In this case, the probability of the major part
+of the features ranges between 0.5 and 1.
 %
-Thus, there are 450 features with, at least, a probability equal to 0.75 of being in a final product. As a conclusion, this analysis might allow us to establish that by testing only the 30\% of the software product line components (450 features) we can ensure that, at least, the 75\% of the generated products, are tested.
+Thus, there are 235 features with, at least, a probability equal to 0.90 of being in a final product.
+As a conclusion, this analysis might allow us to establish that by testing only
+the 7.83\% of the software product line components (235 features) we can ensure that,
+will be tested components commonly distributed in the 90\% of the products generated using the referenced model.
 
 It is important to differentiate the probabilities defined in BeTTy, which are used to generate a
 feature model, and the probability - calculated from the model - to have a feature in a final
