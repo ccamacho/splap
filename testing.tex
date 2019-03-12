@@ -330,18 +330,9 @@ Figure~\ref{fig:plot:probs:boxplot_0_5} and figure~\ref{fig:plot:probs:boxplot_0
 \subsection{Discussion of the results}
 \label{sec:stat:impl:comp}
 
-In this section we discuss the obtained results from the empirical study and
-provide a comparison with the ones obtained using \fodaPA~\cite{acl13}
-and the cost extension \fodaPAc~\cite{clc16}. Specifically, we are interested in
-comparing the performance between the implementation of the probabilistic
-extension and the implementation of the denotational semantic from
-\fodaPA~\cite{acl13}.
-\lcomen{Como dice el revisor, los resultados no son comparables. El
-  modelo no probabilístico calcula todos los productos, el
-  probabilístico no. Se podría poner los resultados de
-  satisfactibilidad.
-¿Se generaron los modelos con los mismo parámetros?}
-Also, we provide the answers for the research questions.
+In this section we discuss the results obtained from the empirical study. Specifically, 
+we are interested in analyzing the performance of the implementation of the probabilistic
+extension. Also, we provide the answers for the research questions.
 
 The experiments carried out in Section~\ref{sec:stat:impl:performance:analysis}
 uses feature models containing a maximum of 10000 features. In general,
@@ -356,96 +347,96 @@ processed using 64 GB of RAM. In this case,
 the worst case scenario, which generates a model where the 50\% of the features are
 placed in a conjunction relationship, requires approximately 500 seconds.
 
-Figure~\ref{figure:tool:den:benchmark} shows the results of an experiment using
-models containing different number of features, which ranges from $50$ to $300$.
-In this case, we use the implementation of the denotational semantic from
-\fodaPA~\cite{acl13} to process the models, which do not use probabilistic
-information. If we use only the executions that successfully process the model,
-the worst case scenario requires 786.126 seconds to process a model containing 150
-features. Additionally, Figure~\ref{fig:cluster} shows the results published in
-\fodaPAc~\cite{clc16}, where the models used for the simulations were processed in
-an 8-node cluster. In this case, the generated models only contain 17 features and
-the best time for processing the model is approximately 300 seconds.
-
-\begin{figure}[t]
-        \centering
-        \begin{minipage}{0.4\hsize}
-        \begin{tabular}{|rrr|}
-                        \hline
-                Features&       Time (ms.)&    Products\\
-                        \hline
-                50 & 6 & 48 \\
-                60 & 25 & 108 \\
-                70 & 15 & 104 \\
-                80 & 8 & 31 \\
-                90 & 38 & 0 \\
-                100 & 55 & 1404 \\
-                110 & 13 & 12 \\
-                120 & 2139 & 1 \\
-                130 & 511 & 24802 \\
-                140 & 7 & 6 \\
-                150 & 786126 & 1312848 \\
-                160 & 136 & 5670 \\
-                170 & 42 & 398 \\
-                \hline
-        \end{tabular}
-        \end{minipage}
-        \begin{minipage}{0.4\hsize}
-        \begin{tabular}{|rrr|}
-                \hline
-                Features&       Time (ms.)&    Products\\
-                        \hline
-180 & 744 & 6384 \\
-190 & 1390 & 7232 \\
-200 & 960000 & - \\
-210 & 97770 & 800544 \\
-220 & 263 & 51 \\
-230 & 47 & 8 \\
-240 & 65 & 29 \\
-250 & 191 & 5920 \\
-260 & 205 & 7296 \\
-270 & 250 & 4301 \\
-280 & 960000 & - \\
-290 & 65 & 3 \\
-300 & 960000 & - \\
-                \hline
-        \end{tabular}
-        \end{minipage}
-        \caption{Denotational benchmark from \cite{acl13}.\label{figure:tool:den:benchmark}}
-\end{figure}
-
-
-\begin{figure}[t]
-        \centering
-        \linefigure
-        \resizebox{\columnwidth}{!}{%
-                \begin{tabular}{|c|c|c|c|c|c|c|}
-                        \cline{2-7}
-                        \multicolumn{1}{c|}{} & 1 Worker & 2 Workers & 4 Workers & 8 Workers & 16 Workers & 32 Workers  \\
-                        \hline
-                        1 Node & 2010.44763303 & 1060.80047798 & 586.014445066 & 543.712262154 & 521.616870165 & 521.292215109 \\
-                        \hline
-                        2 Nodes & 2059.06947899 & 1046.87119007 & 575.115453959 & 296.285589933 & 366.384442091 & 341.007520199 \\
-                        \hline
-                        4 Nodes & 2031.25184584 & 1093.52087283 & 586.344302893 & 320.010899067 & 300.745616913 & 382.748430014 \\
-                        \hline
-                        8 Nodes & 2207.35427213 & 1143.951792 & 576.370896101 & 495.507214785 & 308.374300957 & 287.340030909 \\
-                        \hline
-                \end{tabular}
-        }\\
-        \includegraphics[width=0.7\hsize, height=5cm,angle=0]{plot_cluster.eps}
-        \linefigure
-        \caption{Cluster execution times for 1, 2, 4 and 8 nodes; and 1, 2, 4, 8, 16 and 32 workers  from~\cite{clc16}.}\label{fig:cluster}
-\end{figure}
-
-It is important to remark that the number of features of the models generated in
-these previous works is considerably lower than the number of features of the models
-used in this empirical study. Since algorithms developed in~\cite{acl13,clc16} require a
-high computational power to process the models,
-it was unfeasible to use models containing thousands of features. Consequently, in this case,
-the obtained results show that the performance of the denotational semantics of the
-probabilistic extension implementation allows to process larger models more efficiently than
-the denotational semantics implementations presented in previous works~\cite{acl13,clc16}.
+%Figure~\ref{figure:tool:den:benchmark} shows the results of an experiment using
+%models containing different number of features, which ranges from $50$ to $300$.
+%In this case, we use the implementation of the denotational semantic from
+%\fodaPA~\cite{acl13} to process the models, which do not use probabilistic
+%information. If we use only the executions that successfully process the model,
+%the worst case scenario requires 786.126 seconds to process a model containing 150
+%features. Additionally, Figure~\ref{fig:cluster} shows the results published in
+%\fodaPAc~\cite{clc16}, where the models used for the simulations were processed in
+%an 8-node cluster. In this case, the generated models only contain 17 features and
+%the best time for processing the model is approximately 300 seconds.
+%
+%\begin{figure}[t]
+%        \centering
+%        \begin{minipage}{0.4\hsize}
+%        \begin{tabular}{|rrr|}
+%                        \hline
+%                Features&       Time (ms.)&    Products\\
+%                        \hline
+%                50 & 6 & 48 \\
+%                60 & 25 & 108 \\
+%                70 & 15 & 104 \\
+%                80 & 8 & 31 \\
+%                90 & 38 & 0 \\
+%                100 & 55 & 1404 \\
+%                110 & 13 & 12 \\
+%                120 & 2139 & 1 \\
+%                130 & 511 & 24802 \\
+%                140 & 7 & 6 \\
+%                150 & 786126 & 1312848 \\
+%                160 & 136 & 5670 \\
+%                170 & 42 & 398 \\
+%                \hline
+%        \end{tabular}
+%        \end{minipage}
+%        \begin{minipage}{0.4\hsize}
+%        \begin{tabular}{|rrr|}
+%                \hline
+%                Features&       Time (ms.)&    Products\\
+%                        \hline
+%180 & 744 & 6384 \\
+%190 & 1390 & 7232 \\
+%200 & 960000 & - \\
+%210 & 97770 & 800544 \\
+%220 & 263 & 51 \\
+%230 & 47 & 8 \\
+%240 & 65 & 29 \\
+%250 & 191 & 5920 \\
+%260 & 205 & 7296 \\
+%270 & 250 & 4301 \\
+%280 & 960000 & - \\
+%290 & 65 & 3 \\
+%300 & 960000 & - \\
+%                \hline
+%        \end{tabular}
+%        \end{minipage}
+%        \caption{Denotational benchmark from \cite{acl13}.\label{figure:tool:den:benchmark}}
+%\end{figure}
+%
+%
+%\begin{figure}[t]
+%        \centering
+%        \linefigure
+%        \resizebox{\columnwidth}{!}{%
+%                \begin{tabular}{|c|c|c|c|c|c|c|}
+%                        \cline{2-7}
+%                        \multicolumn{1}{c|}{} & 1 Worker & 2 Workers & 4 Workers & 8 Workers & 16 Workers & 32 Workers  \\
+%                        \hline
+%                        1 Node & 2010.44763303 & 1060.80047798 & 586.014445066 & 543.712262154 & 521.616870165 & 521.292215109 \\
+%                        \hline
+%                        2 Nodes & 2059.06947899 & 1046.87119007 & 575.115453959 & 296.285589933 & 366.384442091 & 341.007520199 \\
+%                        \hline
+%                        4 Nodes & 2031.25184584 & 1093.52087283 & 586.344302893 & 320.010899067 & 300.745616913 & 382.748430014 \\
+%                        \hline
+%                        8 Nodes & 2207.35427213 & 1143.951792 & 576.370896101 & 495.507214785 & 308.374300957 & 287.340030909 \\
+%                        \hline
+%                \end{tabular}
+%        }\\
+%        \includegraphics[width=0.7\hsize, height=5cm,angle=0]{plot_cluster.eps}
+%        \linefigure
+%        \caption{Cluster execution times for 1, 2, 4 and 8 nodes; and 1, 2, 4, 8, 16 and 32 workers  from~\cite{clc16}.}\label{fig:cluster}
+%\end{figure}
+%
+%It is important to remark that the number of features of the models generated in
+%these previous works is considerably lower than the number of features of the models
+%used in this empirical study. Since algorithms developed in~\cite{acl13,clc16} require a
+%high computational power to process the models,
+%it was unfeasible to use models containing thousands of features. Consequently, in this case,
+%the obtained results show that the performance of the denotational semantics of the
+%probabilistic extension implementation allows to process larger models more efficiently than
+%the denotational semantics implementations presented in previous works~\cite{acl13,clc16}.
 
 Following, we provide the answers to the research questions.
 
@@ -477,15 +468,30 @@ definitions of feature models into to a probabilistic formal representation.
 to current feature models like \FODA?
 
 In order to answer this question we carried out some experiments using
-our implementation of the denotational semantic \fodaPA~\cite{acl13}
-and the cost extension \fodaPAc~\cite{clc16}. The results obtained
-have been compared with the implementation of the probabilistic
-extension. We observed that the latter is able to process larger
-models faster, which provides a greater scalability when
-the size of the model to be processed grows. Since the probabilistic extension
+our implementation of the probabilistic extension. Since the probabilistic extension
 focuses on hiding  those features that do not affect the processing of the
 probability of given feature for being part of a valid product, the required
-tome for processing the model is considerably reduced.
+time for processing the model is considerably reduced. Hence, the
+implementation of the probabilistic extension provides a greater scalability
+than our previous implementations of the denotational semantic \fodaPA~\cite{acl13} 
+and the cost extension \fodaPAc~\cite{clc16} and, therefore, large models containing
+an elevated number of features are processed more efficiently. Although these
+previous implementations also allow to calculate all the valid products of a model, the 
+required processing time to accomplish this task is elevated, making the 
+processing of large models unfeasible. Alternatively, the implementation of the denotational 
+semantic \fodaPA~\cite{acl13} also calculates the satisfactibility of a
+model, that is, checks if the model contains, at least, a valid product. In this case,
+this implementation requires less computing time at the cost of providing a simpler
+simpler result, which contains less information than the one generated
+by the probabilistic extension. 
+
+%In order to answer this question we carried out some experiments using
+%our implementation of the denotational semantic \fodaPA~\cite{acl13}
+%and the cost extension \fodaPAc~\cite{clc16}. The results obtained
+%have been compared with the implementation of the probabilistic
+%extension. We observed that the latter is able to process larger
+%models faster, which provides a greater scalability when
+%the size of the model to be processed grows. 
 
 
 %\begin{figure}[t]
