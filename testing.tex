@@ -3,6 +3,7 @@
 \section{Empirical study}
 \label{sec:stat:impl}
 
+
 In the field of \SPLs\ analysis, the use of probabilistic methods carries two practical applications.
 The first one consists in calculating the probability of having a
 feature in a specific product.
@@ -111,17 +112,15 @@ relationships in the model, that is, we use a probability of 0.25 for both the
 \emph{choose-one} and \emph{conjunction} relationships.
 %We wanted to have the same probability of having the same relationships in the model, that is
 %the reason of having 0.25 for the  \emph{choose-one} and \emph{conjunction} .
-It is known that the optional features induce a  combinatorial explosion for creating
-all the possible valid products from a feature model. Since we are interested on investigating
-the performance of our approach, we use a probability of 0.3 for having optional features in
-the model and a probability of 0.2 for having mandatory features.
-\lcomen{No entiendo esto. ¿Por qué los features opcionales hacen eso?
-  la explosión combinatoria la provoca la conjunción, ¿no es así?}
-The sum of all probabilities must be 1. If no weight is configured, all features and
-relationships have a random weight, it being not possible to correlate the obtained results with
-our model analysis.
-Additionally, the percentage of cross-tree constraints is set to 10\%, which is not related to
-the sum of the probabilities of the previous parameters.
+Since optional features are more relevant from a probabilistic point
+of view, we use a probability of 0.3 for having optional features in
+the model and a probability of 0.2 for having mandatory features.  The
+sum of all probabilities must be 1. If no weight is configured, all
+features and relationships have a random weight, it being not possible
+to correlate the obtained results with our model analysis.
+Additionally, the percentage of cross-tree constraints is set to 10\%,
+which is not related to the sum of the probabilities of the previous
+parameters.
 
 \begin{figure}[h]
         \centering
@@ -135,9 +134,7 @@ Figure~\ref{fig:plot:probs:times} shows the obtained
 results from this experiment, where the x-axis depicts
 the ID of each generated feature and the y-axis represents
 the time required to calculate the probability of having the feature in a final product.
-%In this case, the total time to obtain the probability for all the features is linear with respect to the total length of the analyzed term
-%\mncomment{Que quiere decir esto? Suena raro porque yo esperaria complejidad $O(2^n)$ siendo $n$ el numero de probabilidades que salen en el termino. Pero vamos, que yo no  se mucho de complejidad!}\ccomen{Es cierto, no lo demostramos ni lo analizamos}.
-%\acomen{Yo simplemente quitaría esa frase, lo de que la complejidad es lineal}
+
 
 % It is important to remark that there is a small variation in the processing time for
 % calculating the probability of each single feature. We think that this variation is
@@ -155,10 +152,9 @@ computing time to calculate its probability depends on the feature position in t
 Those features being lower in the model tree, will take more
 time in being computed.
 
-The model\lcomen{Creo que hay que explicar mejor que se generan 11
-  feature models con los mismos parámetros ¿es eso?} used in the experiments has been generated and processed 11 times, providing similar results
-(see Table~\ref{execution_times}). That is, the
-major part of the features require between 80 and 4599 milliseconds to be processed.
+We have generated 11 feature models. We can observe in
+Table~\ref{execution_times} that the results are similar in each
+model. That is, mos of  the features require between 80 and 4599 milliseconds to be processed.
 % , while there is a small
 % portion of them requiring a processing time between 20 and 36 milliseconds. However, there are unusual situations
 % where a feature require 60 milliseconds to be processed.
