@@ -115,6 +115,8 @@ It is known that the optional features induce a  combinatorial explosion for cre
 all the possible valid products from a feature model. Since we are interested on investigating
 the performance of our approach, we use a probability of 0.3 for having optional features in
 the model and a probability of 0.2 for having mandatory features.
+\lcomen{No entiendo esto. ¿Por qué los features opcionales hacen eso?
+  la explosión combinatoria la provoca la conjunción, ¿no es así?}
 The sum of all probabilities must be 1. If no weight is configured, all features and
 relationships have a random weight, it being not possible to correlate the obtained results with
 our model analysis.
@@ -153,7 +155,8 @@ computing time to calculate its probability depends on the feature position in t
 Those features being lower in the model tree, will take more
 time in being computed.
 
-The model used in the experiments has been generated and processed 11 times, providing similar results
+The model\lcomen{Creo que hay que explicar mejor que se generan 11
+  feature models con los mismos parámetros ¿es eso?} used in the experiments has been generated and processed 11 times, providing similar results
 (see Table~\ref{execution_times}). That is, the
 major part of the features require between 80 and 4599 milliseconds to be processed.
 % , while there is a small
@@ -336,7 +339,13 @@ provide a comparison with the ones obtained using \fodaPA~\cite{acl13}
 and the cost extension \fodaPAc~\cite{clc16}. Specifically, we are interested in
 comparing the performance between the implementation of the probabilistic
 extension and the implementation of the denotational semantic from
-\fodaPA~\cite{acl13}. Also, we provide the answers for the research questions.
+\fodaPA~\cite{acl13}.
+\lcomen{Como dice el revisor, los resultados no son comparables. El
+  modelo no probabilístico calcula todos los productos, el
+  probabilístico no. Se podría poner los resultados de
+  satisfactibilidad.
+¿Se generaron los modelos con los mismo parámetros?}
+Also, we provide the answers for the research questions.
 
 The experiments carried out in Section~\ref{sec:stat:impl:performance:analysis}
 uses feature models containing a maximum of 10000 features. In general,
@@ -357,7 +366,7 @@ In this case, we use the implementation of the denotational semantic from
 \fodaPA~\cite{acl13} to process the models, which do not use probabilistic
 information. If we use only the executions that successfully process the model,
 the worst case scenario requires 786.126 seconds to process a model containing 150
-features. Additionally, Figure~\ref{fig:cluster} shows the results published in 
+features. Additionally, Figure~\ref{fig:cluster} shows the results published in
 \fodaPAc~\cite{clc16}, where the models used for the simulations were processed in
 an 8-node cluster. In this case, the generated models only contain 17 features and
 the best time for processing the model is approximately 300 seconds.
@@ -433,13 +442,13 @@ the best time for processing the model is approximately 300 seconds.
         \caption{Cluster execution times for 1, 2, 4 and 8 nodes; and 1, 2, 4, 8, 16 and 32 workers  from~\cite{clc16}.}\label{fig:cluster}
 \end{figure}
 
-It is important to remark that the number of features of the models generated in 
-these previous works is considerably lower than the number of features of the models 
-used in this empirical study. Since algorithms developed in~\cite{acl13,clc16} require a 
+It is important to remark that the number of features of the models generated in
+these previous works is considerably lower than the number of features of the models
+used in this empirical study. Since algorithms developed in~\cite{acl13,clc16} require a
 high computational power to process the models,
 it was unfeasible to use models containing thousands of features. Consequently, in this case,
-the obtained results show that the performance of the denotational semantics of the 
-probabilistic extension implementation allows to process larger models more efficiently than 
+the obtained results show that the performance of the denotational semantics of the
+probabilistic extension implementation allows to process larger models more efficiently than
 the denotational semantics implementations presented in previous works~\cite{acl13,clc16}.
 
 Following, we provide the answers to the research questions.
