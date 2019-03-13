@@ -185,7 +185,7 @@ whose operational semantics is given by the rule
 This operator can be expressed in terms of out language, as the
 follwing
 proposition shows.
-\begin{proposition}
+\begin{proposition}\label{prop:nary}
   Let $n\geq 0$
   be a natural number,  $P_{i}\in\fodaPA$ for $1\leq i\leq n$,
   $p_{i}\in (0,1)$  for $1\leq i\leq n$ such that
@@ -200,49 +200,7 @@ $P'\in\fodaPA$
 such that
 $P_{i}\tranp{\fA}{q}P'$, iff $P\tranp{\fA}{p_{i}\cdot q}P'$.
 \begin{proof}
-  First of all, let us observe that $k_{n}$ is not defined above.
-  In the rest of the prove let us define $k_{n}=1$.
-  From the definition of $P$ we obtain that $P\tranp{\fA}{p} P'$ iff
-  there is $1 \leq i\leq n$ and $q\in (0,1]$ such that
-  $P_{i}\tranp{\fA}{q}P'$ and $p=q\cdot
-  k_{i}\cdot\oriprod_{j=1}^{i-1}(1-k_{j})$.
-  Then, it is enough to prove that $p_{i} =
-  k_{i}\cdot\oriprod_{j=1}^{i-1}(1-k_{j})$. Or equivalently
-  \begin{displaymath}
-    k_{i} =
-    \frac{p_{i}}{\oriprod_{j=1}^{i-1}(1-k_{j})}
-  \end{displaymath}
-  Then we need to prove
-  \(\oriprod_{j=1}^{i-1}(1-k_{j})=1-\sum_{j=1}^{i-1}p_{j}\). Let us
-  proceed by induction on $i$.
-  \begin{description}
-  \item[Base case.] If $i=1$ we obtain
-    \(\oriprod_{j=1}^{0}(1-k_{j})=1\) and \(\sum_{j=1}^{0}p_{j}=0\).
-  \item[Inductive case.] Let us assume $i>1$. Then
-    \begin{displaymath}
-      \oriprod_{j=1}^{i-1}(1-k_{j}) = (1-k_{i-1})\cdot \oriprod_{j=1}^{i-2}(1-k_{j})
-    \end{displaymath}
-    By induction hypothesis we obtain
-    \(
-      \oriprod_{j=1}^{i-2}(1-k_{j}) = 1-\sum_{j=1}^{i-2}p_{j}
-    \).
-    And by definition we obtain
-    \(
-      k_{i-1}=\frac{p_{i-1}}{1-\sum_{j=1}^{i-2}p_{j}}
-    \).
-    Therefore
-    \begin{displaymath}
-      \begin{split}
-        (1-k_{i-1})\cdot \oriprod_{j=1}^{i-2}(1-k_{j}) =
-        \bigl(1-\frac{p_{i-1}}{1-\sum_{j=1}^{i-2}p_{j}}\bigr)\cdot
-        \bigl(1-\sum_{j=1}^{i-2}p_{j}\bigr) = \\
-        \bigl(\frac{1-\sum_{j=1}^{i-1}p_{j}}{1-\sum_{j=1}^{i-2}p_{j}}\bigr)\cdot
-        \bigl(1-\sum_{j=1}^{i-2}p_{j}\bigr)=1-\sum_{j=1}^{i-1}p_{j}
-      \end{split}
-    \end{displaymath}
-  \end{description}
-
-
+  The proof is in the Appendix.
 \end{proof}
 \end{proposition}
 
