@@ -52,7 +52,7 @@ The study described in this section seeks to answer the following questions:
 \begin{itemize}
         \item \textbf{RQ1}: Is it possible to translate current graphical representations of feature models to
         support probabilistic information?
-        \item \textbf{RQ2}: Is it possible to extend \fodaPA in such a way that
+        \item \textbf{RQ2}: Is it possible to extend \fodaPA\ in such a way that
         translates the probabilistic information from the graphical representation to a formal representation?
         \item \textbf{RQ3}: What is the impact of applying probabilistic analysis methods to current feature models like \FODA?
 \end{itemize}
@@ -330,7 +330,7 @@ Figure~\ref{fig:plot:probs:boxplot_0_5} and figure~\ref{fig:plot:probs:boxplot_0
 \subsection{Discussion of the results}
 \label{sec:stat:impl:comp}
 
-In this section we discuss the results obtained from the empirical study. Specifically, 
+In this section we discuss the results obtained from the empirical study. Specifically,
 we are interested in analyzing the performance of the implementation of the probabilistic
 extension. Also, we provide the answers for the research questions.
 
@@ -473,17 +473,17 @@ focuses on hiding  those features that do not affect the processing of the
 probability of given feature for being part of a valid product, the required
 time for processing the model is considerably reduced. Hence, the
 implementation of the probabilistic extension provides a greater scalability
-than our previous implementations of the denotational semantic \fodaPA~\cite{acl13} 
+than our previous implementations of the denotational semantic \fodaPA~\cite{acl13}
 and the cost extension \fodaPAc~\cite{clc16} and, therefore, large models containing
 an elevated number of features are processed more efficiently. Although these
-previous implementations also allow to calculate all the valid products of a model, the 
-required processing time to accomplish this task is elevated, making the 
-processing of large models unfeasible. Alternatively, the implementation of the denotational 
+previous implementations also allow to calculate all the valid products of a model, the
+required processing time to accomplish this task is elevated, making the
+processing of large models unfeasible. Alternatively, the implementation of the denotational
 semantic \fodaPA~\cite{acl13} also calculates the satisfactibility of a
 model, that is, checks if the model contains, at least, a valid product. In this case,
 this implementation requires less computing time at the cost of providing a simpler
 simpler result, which contains less information than the one generated
-by the probabilistic extension. 
+by the probabilistic extension.
 
 %In order to answer this question we carried out some experiments using
 %our implementation of the denotational semantic \fodaPA~\cite{acl13}
@@ -491,7 +491,7 @@ by the probabilistic extension.
 %have been compared with the implementation of the probabilistic
 %extension. We observed that the latter is able to process larger
 %models faster, which provides a greater scalability when
-%the size of the model to be processed grows. 
+%the size of the model to be processed grows.
 
 
 %\begin{figure}[t]

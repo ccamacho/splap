@@ -57,7 +57,7 @@
         {$\fC,\frac{1}{4}$}
         (E);
 
-        \path (B) edge[->] node[left, opacity=0, text opacity=1]
+        \path (B) edge[->] node[above, opacity=0, text opacity=1]
         {$\fC,\frac{1}{4}$} (B1);
         \path (B) edge[->] node[left, opacity=0, text opacity=1]
         {$\fC,\frac{1}{4}$} (B2);
@@ -65,7 +65,7 @@
         {$\fC,\frac{1}{4}$} (B3);
         \path (B) edge[->] node[right, opacity=0, text opacity=1]
         {$\fC,\frac{1}{4}$} (B4);
-        \path (D) edge[->] node[left, opacity=0, text opacity=1]
+        \path (D) edge[->] node[above, opacity=0, text opacity=1]
         {$\fB,\frac{1}{4}$} (D1);
         \path (D) edge[->] node[left, opacity=0, text opacity=1]
         {$\fB,\frac{1}{4}$} (D2);
@@ -343,14 +343,15 @@
         \node[syntax] (D31) [below right=1.5cm and 1cm of D3]
         {$\checkmark$};
 
-        \node[syntax] (H) [below=1.5cm of F]   {$\checkmark\paral\checkmark$};
+        \node[syntax] (F1) [below=1.5cm of F]   {$\checkmark$};
 
-        \node[syntax] (I) [below=1.5cm of G]   {$\checkmark\paral\checkmark$};
-
+        \node[syntax] (I) [below left=1.5cm and 0cm of G]   {$\checkmark\paral\checkmark$};
+        \node[syntax] (I1) [below right=1.5cm and -0.5cm of G]   {$\checkmark$};
+        \node[syntax] (I11) [below=1.5cm of I1]   {$\nil$};
         \node[syntax] (J) [below right=1.5cm and 1cm of G]
         {$\nil$};
 
-        \node[syntax] (K) [below=1.5cm of H]   {$\nil$};
+        \node[syntax] (K) [below=1.5cm of F1]   {$\nil$};
         \node[syntax] (L) [below=1.5cm of I]   {$\nil$};
 
 
@@ -370,15 +371,24 @@
         {$\feature{D},\frac{1}{2}$}
         (G)
         (F) edge[->] node[left, opacity=0, text opacity=1]
-        {$\feature{D},1$}
-        (H)
-        (G) edge[->] node[left, opacity=0, text opacity=1]
-        {$\feature{C},q$}
+        {$\feature{D},\frac{1}{2}$}
+        (F1)
+        (F) edge[->] node[right, opacity=0, text opacity=1]
+        {$\feature{D},\frac{1}{2}$}
         (I)
+        (G) edge[->] node[pos=0.5, right, opacity=0, text opacity=1]
+        {$\feature{C},\frac{q}{2}$}
+        (I)
+        (G) edge[->] node[right, pos=0.8, opacity=0, text opacity=1]
+        {$\feature{C},\frac{q}{2}$}
+        (I1)
+        (I1) edge[->] node[right, opacity=0, text opacity=1]
+        {$\checkmark,1$}
+        (I11)
         (G) edge[->] node[right, opacity=0, text opacity=1]
         {$\checkmark,1-q$}
         (J)
-        (H) edge[->] node[right, opacity=0, text opacity=1]
+        (F1) edge[->] node[right, opacity=0, text opacity=1]
         {$\checkmark,1$}
         (K)
         (I) edge[->] node[right, opacity=0, text opacity=1]
