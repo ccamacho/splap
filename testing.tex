@@ -39,7 +39,7 @@ probabilistic extension - of the denotational semantics - presented in this pape
 scripts used in this section is available at the main project site
 \footnote{\url{http://ccamacho.github.io/phd/resources/03_splap.tar}}. In essence, we perform two experiments.
 The former focuses on measuring the performance of our proposed implementation for processing a feature model.
-This means, given a feature model, calculating the time to
+This means, given a feature model (a \fodaPAp\ term), calculating the time to
 compute the probability of having each feature in the
 valid products set.
 The second experiment consists on analyzing the scalability of our proposed implementation.
@@ -67,9 +67,9 @@ The study described in this section seeks to answer the following questions:
 Firstly, we have carried out an experiment to
 show the computing time required to calculate the probability of having
 each feature in the set of valid products.
-In order to run this experiment, a variability model consisting of
+In order to run this experiment, a variability model (a \fodaPAp\ term) consisting of
 3000 features has been used.
-This variability model
+This \fodaPAp\ term
 has been generated using BeTTy~\cite{sg12}, in specific
 its web version\footnote{\url{https://betty.services.governify.io/}}.
 Figure~\ref{fig:plot:betty:params} depicts the parameters used in the feature models
@@ -108,13 +108,13 @@ The values used for these parameters to generate the feature model are the follo
 
 
 The idea of using this configuration is to have the same probability for the different
-relationships in the model, that is, we use a probability of 0.25 for both the
+relationships in the \fodaPAp\ term, that is, we use a probability of 0.25 for both the
 \emph{choose-one} and \emph{conjunction} relationships.
 %We wanted to have the same probability of having the same relationships in the model, that is
 %the reason of having 0.25 for the  \emph{choose-one} and \emph{conjunction} .
 Since optional features are more relevant from a probabilistic point
 of view, we use a probability of 0.3 for having optional features in
-the model and a probability of 0.2 for having mandatory features.  The
+the \fodaPAp\ term and a probability of 0.2 for having mandatory features.  The
 sum of all probabilities must be 1. If no weight is configured, all
 features and relationships have a random weight, it being not possible
 to correlate the obtained results with our model analysis.
@@ -127,7 +127,7 @@ parameters.
         \linefigure
         \includegraphics[width=0.8\hsize,angle=0]{plot_probs_times_FeatureModel3000.eps}
         \linefigure
-        \caption{Computing time analysis for a model consisting of 3000 features.}\label{fig:plot:probs:times}
+        \caption{Computing time analysis for a \fodaPAp\ term consisting of 3000 features.}\label{fig:plot:probs:times}
 \end{figure}
 
 Figure~\ref{fig:plot:probs:times} shows the obtained
@@ -148,13 +148,13 @@ the time required to calculate the probability of having the feature in a final 
 % from 15 to 28 milliseconds.
 
 From the graphic presented in Figure~\ref{fig:plot:probs:times} we can see that giving the fact that each feature is computed independently, the
-computing time to calculate its probability depends on the feature position in the model.
+computing time to calculate its probability depends on the feature position in the \fodaPAp\ term.
 Those features being lower in the model tree, will take more
 time in being computed.
 
-We have generated 11 feature models. We can observe in
+We have generated 11 \fodaPAp\ terms. We can observe in
 Table~\ref{execution_times} that the results are similar in each
-model. That is, most of  the features require between 80 and 4599 milliseconds to be processed.
+term. That is, most of  the features require between 80 and 4599 milliseconds to be processed.
 % , while there is a small
 % portion of them requiring a processing time between 20 and 36 milliseconds. However, there are unusual situations
 % where a feature require 60 milliseconds to be processed.
@@ -184,17 +184,17 @@ model. That is, most of  the features require between 80 and 4599 milliseconds t
         \centering
         \begin{minipage}[b]{0.48\textwidth}
                 \includegraphics[width=\textwidth]{plot_probs_FeatureModel3000.eps}
-\caption{Probabilistic analysis for a 3000 features model.}\label{fig:plot:probs:probs}
+\caption{Probabilistic analysis for a 3000 \fodaPAp\ term.}\label{fig:plot:probs:probs}
         \end{minipage}
         \hfill
         \begin{minipage}[b]{0.48\textwidth}
                 \includegraphics[width=\textwidth]{plot_probs_histogram_FeatureModel3000.eps}
-        \caption{Probabilistic histogram for processing a 3000 features model.}\label{fig:plot:probs:probs:sorted}
+        \caption{Probabilistic histogram for processing a 3000 \fodaPAp\ term.}\label{fig:plot:probs:probs:sorted}
         \end{minipage}
 \end{figure}
 
 
-Figure~\ref{fig:plot:probs:probs} shows the probability of each feature - in the analyzed model - to
+Figure~\ref{fig:plot:probs:probs} shows the probability of each feature - in the analyzed \fodaPAp\ term - to
 be part of a final product, where the $x$-axis
 represents the feature ID and the $y$-axis represents the probability.
 Figure~\ref{fig:plot:probs:probs:sorted} represents a histogram of the calculated probabilities for a better
@@ -203,19 +203,20 @@ different groups of features having a similar probability.
 In this case, the probability of the major part
 of the features ranges between 0.5 and 1.
 %
-Thus, there are 235 features with, at least, a probability equal to 0.90 of being in a final product.
+Thus, there are 235 features with a probability equal to 0.90 of being in a final product.
 As a conclusion, this analysis might allow us to establish that by testing only
-the 7.83\% of the software product line components (235 features), we can ensure that those components commonly distributed in the 90\% of the products, generated using the referenced model, will be tested.
+the 7.83\% of the software product line components (235 features), we can ensure that those components will be
+commonly distributed in the 90\% of the products from the referenced \fodaPAp\ term.
 
 It is important to differentiate the probabilities defined in BeTTy, which are used to generate a
-feature model, and the probability - calculated from the model - to have a feature in a final
+\fodaPAp\ term, and the probability - calculated from the term - to have a feature in a final
 product.
 
-For instance, if we configure BeTTy to generate a feature model using a probability
+For instance, if we configure BeTTy to generate a \fodaPAp\ term using a probability
 of 0.2 for having a mandatory feature, that means that 20\% of the generated features are mandatory.
 However, that does not imply that these features be part of the 20\% of the generated products, because
 the probability of having a feature in a final product depends on where this feature is placed in the
-model. If a given mandatory feature is placed in a choose-one relationship, it is possible that
+term. If a given mandatory feature is placed in a choose-one relationship, it is possible that
 the other branch is used to generate the final product, discarding the mandatory feature.
 Hence, we can not assume that these 20\% of the features will have a probability of 1 for being
 installed in the products.
@@ -232,22 +233,22 @@ installed in the products.
 
 Secondly, an evaluation to analyze the scalability of our approach
 have been carried out. We are interested in investigating both the
-execution time and the amount of memory required for processing a model
+execution time and the amount of memory required for processing a \fodaPAp\ term
 when the number of features increases.
 Hence, we use different configurations for creating a wide
-spectrum of variability models, which are randomly generated,
+spectrum of \fodaPAp\ terms, which are randomly generated,
 using a different number of features that ranges from 1.000 to 10.000 (in increments of one thousand per experiment).
 
 Specifically for each case, that is, given a configuration and a number of features,
-a model is randomly generated 30 times.
-Additionally, for each model, 100 features are
+a \fodaPAp\ term is randomly generated 30 times.
+Additionally, for each term, 100 features are
 randomly selected and, for each one, both the processing time and memory
 required to calculate its probability are analyzed.
 
 
 
 Table~\ref{scalaExperiment} shows the configurations used to generate the
-variability models for this part of the empirical study,
+\fodaPAp\ terms for this part of the empirical study,
 where each configuration represents the set of probabilities chosen for each operator across the three experiments,
 that is, \textit{Mandatory} represents the probability of having a mandatory feature,
  \textit{Optional} represents the probability of having an optional feature,
@@ -270,57 +271,85 @@ that is, \textit{Mandatory} represents the probability of having a mandatory fea
 In this experiment, we have set the same values for the probabilities of the \textit{Optional}
 and \textit{Choose-one} features. Hence, these will remain the same
 across all the experiments and, thus, they should not interfere in the obtained results.
-We start with a low probability of having a \textit{Conjunction} relationship in the model. In this
+We start with a low probability of having a \textit{Conjunction} relationship in the \fodaPAp\ term. In this
 case, for the first experiment, we use a probability of 0.01, which is increased in the next configurations
 to 0.2 and 0.5, respectively. This idea is to show the impact of the \textit{Conjunction} relationship in the time
-and memory required for processing the models.
+and memory required for processing the \fodaPAp\ terms.
 
-For each configuration, we have generated 30 models per number of features, that is, we generate
-30 different models containing 1000 features, 30 different models containing 2000 features,
+For each configuration, we have generated 30 \fodaPAp\ terms per number of features, that is, we generate
+30 different \fodaPAp\ terms containing 1000 features, 30 different \fodaPAp\ terms containing 2000 features,
 and so on until 10.000 features.
 
-Figure~\ref{fig:plot:probs:boxplot_0_1} and figure~\ref{fig:plot:probs:boxplot_0_1_mem} show the execution time and the required amount of memory, respectively, for processing the variability models generated using \textit{Configuration 1}. In these models, only 1\% of the features have a conjunction relation. In general, the processing time when the number of features increases is linear. Only in few cases, where the number of features ranges from 5000 to 8000, the results provide anomalous values. This is mainly caused by the random nature of the generated models (30 for each case). On the contrary, the memory usage depicts that there are several groups where the memory usage remains constant, one group of models containing between 3,000 and 5,000 features and other group of models containing between 7,000 and 10,000 features. In summary, our implementation shows good scalability results for processing the models generated using \textit{Configuration 1}: it requires, in the worst case scenario, 215 ms and 0.32 GB of RAM to process the model.
+Figure~\ref{fig:plot:probs:boxplot_0_1} and figure~\ref{fig:plot:probs:boxplot_0_1_mem}
+show the execution time and the required amount of memory, respectively, for processing
+the \fodaPAp\ terms generated using \textit{Configuration 1}. In these terms, only 1\% of
+the features have a conjunction relation. In general, the processing time when the number
+of features increases is linear. Only in few cases, where the number of features ranges
+from 5000 to 8000, the results provide anomalous values. This is mainly caused by the
+random nature of the generated terms (30 for each case). On the contrary, the memory
+usage depicts that there are several groups where the memory usage remains constant,
+one group of terms containing between 3,000 and 5,000 features and other group of terms
+containing between 7,000 and 10,000 features. In summary, our implementation shows good
+scalability results for processing the terms generated using \textit{Configuration 1}:
+it requires, in the worst case scenario, 215 ms and 0.32 GB of RAM to process the terms.
 
 \begin{figure}[h]
         \centering
         \begin{minipage}[b]{0.48\textwidth}
                 \includegraphics[width=\textwidth]{boxplot_0_1.eps}
-                \caption{Execution time for processing models generated using \textit{Configuration 1}.}\label{fig:plot:probs:boxplot_0_1}
+                \caption{Execution time for processing the \fodaPAp\ terms generated using \textit{Configuration 1}.}\label{fig:plot:probs:boxplot_0_1}
         \end{minipage}
         \hfill
         \begin{minipage}[b]{0.48\textwidth}
                 \includegraphics[width=\textwidth]{boxplot_0_1_mem.eps}
-                \caption{Memory usage for processing models generated using \textit{Configuration 1}.}\label{fig:plot:probs:boxplot_0_1_mem}
+                \caption{Memory usage for processing the \fodaPAp\ terms generated using \textit{Configuration 1}.}\label{fig:plot:probs:boxplot_0_1_mem}
         \end{minipage}
 \end{figure}
 
-Figure~\ref{fig:plot:probs:boxplot_0_2} and figure~\ref{fig:plot:probs:boxplot_0_2_mem} show the results for analyzing the models generated using \textit{Configuration 2}. It is important to remark that 20\% of the features in the generated models have a conjunction relation. In this case, both the execution time and memory usage for processing a model when the number of features increases are exponential. These charts clearly show a turning point when the model reaches 6,000 features and, therefore, the required processing time and  memory are significantly lower for those models that do not reach 6,000 features. However, the requirements to process the model in the worst case scenario, that is, using a model containing 10,000 features, are 300 sec. and 3.84 GB of RAM memory, which are acceptable.
+Figure~\ref{fig:plot:probs:boxplot_0_2} and figure~\ref{fig:plot:probs:boxplot_0_2_mem} show
+the results for analyzing the generated terms using \textit{Configuration 2}. It is important
+to remark that 20\% of the features in the generated terms have a conjunction relation. In this
+case, both the execution time and memory usage for processing a term when the number of features
+increases are exponential. These charts clearly show a turning point when the term reaches 6,000
+features and, therefore, the required processing time and  memory are significantly lower for those
+terms that do not reach 6,000 features. However, the requirements to process the term in the worst
+case scenario, that is, using a term containing 10,000 features, are 300 sec. and 3.84 GB of RAM memory,
+which are acceptable.
 
 \begin{figure}[h]
         \centering
         \begin{minipage}[b]{0.48\textwidth}
                 \includegraphics[width=\textwidth]{boxplot_0_2.eps}
-                \caption{Execution time for processing models generated using \textit{Configuration 2}.}\label{fig:plot:probs:boxplot_0_2}
+                \caption{Execution time for processing \fodaPAp\ terms generated using \textit{Configuration 2}.}\label{fig:plot:probs:boxplot_0_2}
         \end{minipage}
         \hfill
         \begin{minipage}[b]{0.48\textwidth}
                 \includegraphics[width=\textwidth]{boxplot_mem.eps}
-                \caption{Memory usage for processing models generated using \textit{Configuration 2}.}\label{fig:plot:probs:boxplot_0_2_mem}
+                \caption{Memory usage for processing \fodaPAp\ terms generated using \textit{Configuration 2}.}\label{fig:plot:probs:boxplot_0_2_mem}
         \end{minipage}
 \end{figure}
 
-Figure~\ref{fig:plot:probs:boxplot_0_5} and figure~\ref{fig:plot:probs:boxplot_0_5_mem} show the results for processing the models generated using \textit{Configuration 3}. In this case, half of the features in the model have a conjunction relation. Similarly to the previous experiment, these charts show that both the execution time and the memory usage for processing a model when the number of features increases are exponential. In the obtained results we can observe the same turning point detected in the previous models generated using  \textit{Configuration 2}, that is, when the model reaches 6,000 features. Model processing requirements, that is, execution time and memory usage, grow much faster for these models than for those based on previous configurations. Also, it is important to notice that the models containing 9,000 and 10,000 features cannot be processed due to memory limitations.
+Figure~\ref{fig:plot:probs:boxplot_0_5} and figure~\ref{fig:plot:probs:boxplot_0_5_mem} show
+the results for processing the terms generated using \textit{Configuration 3}. In this case,
+half of the features in the term have a conjunction relation. Similarly to the previous experiment,
+these charts show that both the execution time and the memory usage for processing a term when the
+number of features increases are exponential. In the obtained results we can observe the same
+turning point detected in the previous terms generated using  \textit{Configuration 2}, that is,
+when the term reaches 6,000 features. Terms processing requirements, that is, execution time and
+memory usage, grow much faster for these terms than for those based on previous configurations.
+Also, it is important to notice that the terms containing 9,000 and 10,000 features cannot be
+processed due to memory limitations.
 
 \begin{figure}[h]
         \centering
         \begin{minipage}[b]{0.48\textwidth}
                 \includegraphics[width=\textwidth]{boxplot_0_5.eps}
-                \caption{Execution time for processing models generated using \textit{configuration 3}.}\label{fig:plot:probs:boxplot_0_5}
+                \caption{Execution time for processing \fodaPAp\ terms generated using \textit{configuration 3}.}\label{fig:plot:probs:boxplot_0_5}
         \end{minipage}
         \hfill
         \begin{minipage}[b]{0.48\textwidth}
                 \includegraphics[width=\textwidth]{boxplot_0_5_mem.eps}
-                \caption{Memory usage for processing models generated using \textit{configuration 3}.}\label{fig:plot:probs:boxplot_0_5_mem}
+                \caption{Memory usage for processing \fodaPAp\ terms generated using \textit{configuration 3}.}\label{fig:plot:probs:boxplot_0_5_mem}
         \end{minipage}
 \end{figure}
 
@@ -335,16 +364,16 @@ we are interested in analyzing the performance of the implementation of the prob
 extension. Also, we provide the answers for the research questions.
 
 The experiments carried out in Section~\ref{sec:stat:impl:performance:analysis}
-uses feature models containing a maximum of 10000 features. In general,
+uses \fodaPAp\ terms containing a maximum of 10000 features. In general,
 these results show that increasing the number of features having a conjunction relation
 has a direct impact on the overall performance. In fact, increasing the number of features having
-a conjunction relation generates a combinatorial explosion that hampers the processing of models.
-First, the execution time to completely process a model significantly grows. Second, large amounts
-of memory are required to store those combinations. In some cases, using large models with a high
+a conjunction relation generates a combinatorial explosion that hampers the processing of the \fodaPAp\ terms.
+First, the execution time to completely process a term significantly grows. Second, large amounts
+of memory are required to store those combinations. In some cases, using large terms with a high
 percentage of features having a conjunction relation may cause a bottleneck in the memory system.
-In fact, models generated using \textit{Configuration 3} with 9,000 and 10,000 features cannot be
+In fact, terms generated using \textit{Configuration 3} with 9,000 and 10,000 features cannot be
 processed using 64 GB of RAM. In this case,
-the worst case scenario, which generates a model where the 50\% of the features are
+the worst case scenario, which generates a \fodaPAp\ term where the 50\% of the features are
 placed in a conjunction relationship, requires approximately 500 seconds.
 
 %Figure~\ref{figure:tool:den:benchmark} shows the results of an experiment using
@@ -471,16 +500,16 @@ In order to answer this question we carried out some experiments using
 our implementation of the probabilistic extension. Since the probabilistic extension
 focuses on hiding  those features that do not affect the processing of the
 probability of given feature for being part of a valid product, the required
-time for processing the model is considerably reduced. Hence, the
+time for processing the \fodaPAp\ term is considerably reduced. Hence, the
 implementation of the probabilistic extension provides a greater scalability
 than our previous implementations of the denotational semantic \fodaPA~\cite{acl13}
-and the cost extension \fodaPAc~\cite{clc16} and, therefore, large models containing
+and the cost extension \fodaPAc~\cite{clc16} and, therefore, large terms containing
 an elevated number of features are processed more efficiently. Although these
-previous implementations also allow to calculate all the valid products of a model, the
+previous implementations also allow to calculate all the valid products of a term, the
 required processing time to accomplish this task is elevated, making the
-processing of large models unfeasible. Alternatively, the implementation of the denotational
+processing of large terms unfeasible. Alternatively, the implementation of the denotational
 semantic \fodaPA~\cite{acl13} also calculates the satisfactibility of a
-model, that is, checks if the model contains, at least, a valid product. In this case,
+term, that is, checks if the term contains, at least, a valid product. In this case,
 this implementation requires less computing time at the cost of providing a simpler
 simpler result, which contains less information than the one generated
 by the probabilistic extension.
