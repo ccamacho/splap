@@ -83,11 +83,15 @@ of a given product.
 Finally, we have to prove that the
 operational semantics and the denotational semantics are consistent.
 %
-The proof of the following result is an immediate consequence of Proposition~\ref{prop:appendixB} (see Appendix~\ref{appendixB}).
+The proof of the following result is an immediate consequence of Proposition~\ref{prop:hid1} (see Appendix~\ref{proof:prop:hid}).
 %This is proven by the next result.
 
 \bprop\label{prop:hid}Let $\calA\subseteq \calF$ be a subset of features and
-  $P\in\fodaPAp$ be a term. We have $ \prodp(P\hideA)  = \semdenp{\prodp(P)\hideA}$.
+  $P\in\fodaPAp$ be a term. We have $ \prodp(P\hideA)  =
+  \semdenp{\prodp(P)\hideA}$.
+  \begin{proof}
+    The proof of this proposition is in Appendix~\ref{proof:prop:hid}.
+  \end{proof}
 \eprop
 
 As usual in process algebras, it would be desirable that the hiding operator is \emph{derived}, that is, given a syntactic term, there exists a semantically equivalent term without occurrences of the hiding operator.

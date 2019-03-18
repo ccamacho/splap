@@ -1,7 +1,6 @@
 \appendix
-\section{Results for the proof of Proposition~\ref{prop:DenoOpe}}\label{app:proofs}
-
-\begin{proofappendix}{Proposition~\ref{prop:nary}}.
+\section{Proof of Proposition~\ref{prop:nary}}\label{proof:nary}
+\begin{proofappendix}{Proposition~\ref{prop:nary}}
   First of all, let us observe that $k_{n}$ is not defined above.
   In the rest of the prove let us define $k_{n}=1$.
   From the definition of $P$ we obtain that $P\tranp{\fA}{p} P'$ iff
@@ -20,10 +19,10 @@
   \begin{description}
   \item[Base case.] If $i=1$ we obtain
     \(\oriprod_{j=1}^{0}(1-k_{j})=1\) and \(\sum_{j=1}^{0}p_{j}=0\).
-  \item[Inductive case.] Let us assume $i>1$. Then
-    \begin{displaymath}
-      \oriprod_{j=1}^{i-1}(1-k_{j}) = (1-k_{i-1})\cdot \oriprod_{j=1}^{i-2}(1-k_{j})
-    \end{displaymath}
+  \item[Inductive case.] Let us assume $i>1$. % Then
+    % \begin{displaymath}
+    %   \oriprod_{j=1}^{i-1}(1-k_{j}) = (1-k_{i-1})\cdot \oriprod_{j=1}^{i-2}(1-k_{j})
+    % \end{displaymath}
     By induction hypothesis we obtain
     \(
       \oriprod_{j=1}^{i-2}(1-k_{j}) = 1-\sum_{j=1}^{i-2}p_{j}
@@ -34,16 +33,22 @@
     \).
     Therefore
     \begin{displaymath}
-      \begin{split}
+      \begin{array}{>{\displaystyle}l}
+        \oriprod_{j=1}^{i-1}(1-k_{j}) =\\
         (1-k_{i-1})\cdot \oriprod_{j=1}^{i-2}(1-k_{j}) =
-        \bigl(1-\frac{p_{i-1}}{1-\sum_{j=1}^{i-2}p_{j}}\bigr)\cdot
-        \bigl(1-\sum_{j=1}^{i-2}p_{j}\bigr) = \\
-        \bigl(\frac{1-\sum_{j=1}^{i-1}p_{j}}{1-\sum_{j=1}^{i-2}p_{j}}\bigr)\cdot
-        \bigl(1-\sum_{j=1}^{i-2}p_{j}\bigr)=1-\sum_{j=1}^{i-1}p_{j}
-      \end{split}
+        \left(1-\frac{p_{i-1}}{1-\sum_{j=1}^{i-2}p_{j}}\right)\cdot
+        \left(1-\sum_{j=1}^{i-2}p_{j}\right) = \\
+        \left(\frac{1-\sum_{j=1}^{i-2}p_{j}-p_{i-1}}{1-\sum_{j=1}^{i-2}p_{j}}\right)\cdot
+        \left(1-\sum_{j=1}^{i-2}p_{j}\right)=
+        \left(\frac{1-\sum_{j=1}^{i-1}p_{j}}{1-\sum_{j=1}^{i-2}p_{j}}\right)\cdot
+        \left(1-\sum_{j=1}^{i-2}p_{j}\right)=\\
+        1-\sum_{j=1}^{i-1}p_{j}
+      \end{array}
     \end{displaymath}
   \end{description}
 \end{proofappendix}
+
+\section{Results for the proof of Proposition~\ref{prop:DenoOpe}}\label{proof:DenoOpe}
 \blem\label{lem:pref}
   Let $P\in\fodaPAp$ and $\feature{A}\in\calF$,
   then $(pr,p)\in\prodp(\feature{A};P)$ if and only if
@@ -85,7 +90,7 @@
      $pr\neq\emptyset$, then $(pr,p)\in\prodp(\ofeature{A};_qP)$ if and only if
      \begin{equation*}
        \begin{split}
-         d = \sum\lbag r\ |\ \ofeature{A};_qP\vtran{s\checkmark}\nil\y \product{s}=pr\rbag=\\
+         p = \sum\lbag r\ |\ \ofeature{A};_qP\vtran{s\checkmark}\nil\y \product{s}=pr\rbag=\\
          \sum\lbag r\ |\ \ofeature{A};_qP\tranp{\feature{A}}{q}P\vtranp{s'\checkmark}{r'}\nil\y \product{\feature{A}\cdot s'}=pr\y r=q\cdot r'\rbag=\\
          \sum\lbag r\ |\ P\vtranp{s'\checkmark}{r'}\nil\y \{\feature{A}\}\cup\product{s'}=pr\y r=q\cdot r'\rbag=\\
          \sum\lbag r\ |\ (pr',r')\in\prodp(P)\y \{\feature{A}\}\cup pr'=pr\y r=q\cdot r'\rbag=\\
@@ -143,7 +148,7 @@
 Let \(P\in\fodaPAp\). We define the height of the syntactic tree of
 \(P\), written \(\height(P)\) as follows:
 \begin{displaymath}
-  \begin{array}{l@{\hspace{1em} =\hspace{1em} }l}
+  \begin{array}{r@{\hspace{1em} =\hspace{1em} }l}
     \height(\nil)& 0\\
     \height(\checkmark)& 1\\
     \begin{array}[c]{r}
@@ -626,9 +631,9 @@ ed and by
       \end{proof}
 \elem
 
-\section{Proof of Proposition~\ref{prop:hid}}\label{appendixB}
+\section{Proof of Proposition~\ref{prop:hid}}\label{proof:prop:hid}
 
-\bprop\label{prop:appendixB}
+\bprop\label{prop:hid1}
   $P\hide\calA\vtran{s}_rQ\hide\calA$ if and only if $r=\sum\lbag p \ |\ P\vtran{s'}_p Q,\
   s=s'\hide\calA\rbag$
   \begin{proof}
@@ -673,22 +678,23 @@ ed and by
 \eprop
 
 
-\paragraph{Proof of Proposition~\ref{prop:hid}}\label{prof:prop:hid}
-     $(pr,p)\in \prodp(P\hideA)$ if and only if
-    \begin{displaymath}
-      \begin{split}
-        p = \sum\lbag r\ |\
-        P\hideA\vtran{s\checkmark}_rP'\hideA.\ pr=\product{s}\rbag =\\
-        \sum\lbag r\ |\ P\vtran{s'\checkmark}_rP',\ s=s'\hideA,\
-        pr=\product{s}\rbag=\\
-        \sum\lbag r\ |\ P\vtran{s'\checkmark}_rP',\ s=pr\hideA\rbag =
-        \\
-        \sum\lbag r\ |\ (pr',r)\in\prodp(P),\ pr'=pr\hideA\rbag =
-      \end{split}
-    \end{displaymath}
-    So, $(pr,p)\in\prodp(P\hideA)$ if and only if
-    $(pr,p)\in\semdenp{(\prodp(P))\hideA}$
 
+\begin{proofappendix}{Proposition~\ref{prop:hid}}
+  $(pr,p)\in \prodp(P\hideA)$ if and only if
+  \begin{displaymath}
+    \begin{split}
+      p = \sum\lbag r\ |\
+      P\hideA\vtran{s\checkmark}_rP'\hideA.\ pr=\product{s}\rbag =\\
+      \sum\lbag r\ |\ P\vtran{s'\checkmark}_rP',\ s=s'\hideA,\
+      pr=\product{s}\rbag=\\
+      \sum\lbag r\ |\ P\vtran{s'\checkmark}_rP',\ s=pr\hideA\rbag =
+      \\
+      \sum\lbag r\ |\ (pr',r)\in\prodp(P),\ pr'=pr\hideA\rbag =
+    \end{split}
+  \end{displaymath}
+  So, $(pr,p)\in\prodp(P\hideA)$ if and only if
+  $(pr,p)\in\semdenp{(\prodp(P))\hideA}$
+\end{proofappendix}
 
 
 %%% Local Variables:

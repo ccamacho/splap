@@ -12,8 +12,8 @@
         \nombreRegla{feat} & \feature{A};P\tranp{\feature{A}}{1}P \\
         \nombreRegla{ofeat1} & \ofeature{A};_{p}P\tranp{\feature{A}}{p}P &
         \nombreRegla{ofeat2} & \ofeature{A};_{p}P\tranp{\checkmark}{(1-p)}\nil\\
-        \nombreRegla{cho1} & \displaystyle \frac{P\tranp{\feature{A}}{p} P_1}{P\choice_{q} Q\tranp{\feature{A}}{p\cdot q} P_1}&
-        \nombreRegla{cho2} & \displaystyle\frac{Q\tranp{\feature{A}}{q} Q_1}{P\choice_{p} Q\tranp{\feature{A}}{(1-p)\cdot q}Q_1}\\
+        \nombreRegla{cho1} & \displaystyle \frac{P\tranp{a}{p} P_1}{P\choice_{q} Q\tranp{a}{p\cdot q} P_1}&
+        \nombreRegla{cho2} & \displaystyle\frac{Q\tranp{a}{q} Q_1}{P\choice_{p} Q\tranp{a}{(1-p)\cdot q}Q_1}\\
         \nombreRegla{con1} & \displaystyle\frac{P\tranp{\feature{A}}{p} P_1}{P\paral Q\tranp{\feature{A}}{\frac{p}{2}}P_1\paral Q} &
         \nombreRegla{con2} & \displaystyle\frac{Q\tranp{\feature{A}}{q} Q_1}{P\paral Q\tranp{\feature{A}}{\frac{q}{2}}P\paral Q_1}\\
         \nombreRegla{con3} & \displaystyle\frac{P\tranp{\checkmark}{q}\nil, Q\tranp{\checkmark}{p}\nil}{P\paral Q\tranp{\checkmark}{p\cdot q}\nil} &\\
@@ -45,12 +45,12 @@
         \frac{P \tranp{\checkmark}{p} \nil}{\exclude{A}{B}{P}\tranp{\checkmark}{p}\nil}\\
 
         \nombreRegla{forb1} & \displaystyle
-        \frac{P \tranp{\feature{B}}{p} P_1,\ \feature{B}\neq\feature{A}}{\forbid{A}{P}
-                \tranp{\feature{B}}{p} \forbid{A}{P_1}} &
-        \nombreRegla{forb2} & \displaystyle
-        \frac{P \tranp{\checkmark}{p} \nil}{\forbid{A}{P}
-                \tranp{\checkmark}{p} \nil}  \\
-        %      \nombreRegla{forb3} & \displaystyle
+        \frac{P \tranp{a}{p} P_1,\ a\neq\feature{A}}{\forbid{A}{P}
+                \tranp{a}{p} \forbid{A}{P_1}} \\
+        % \nombreRegla{forb2} & \displaystyle
+        % \frac{P \tranp{\checkmark}{p} \nil}{\forbid{A}{P}
+        %         \tranp{\checkmark}{p} \nil}  \\
+        %      \Nombreregla{forb3} & \displaystyle
         %     \frac{P\tran{\feature{A}}P_2 \tran{\feature{F}} P_1}{\forbid{A}{P}
         %       \tran{\feature{B}} \forbid{A}{P_1}},\ \feature{B}\neq\feature{A} &
         %      \nombreRegla{forb4} & \displaystyle
@@ -112,7 +112,8 @@ $\nombreRegla{con5}$,
 equitably distribute the probability between both
 branches, that is, $\frac{1}{2}$. We have preferred to use a simple definition of this operator, but it is easy to replace it by a more involved version of a probabilistic conjunction operator~\cite{ahk98}.
 %
-Rule $\nombreRegla{con3}$ requires that both branches agree on the
+It is important to note that Rule $\nombreRegla{con3}$ requires that
+the two branches of a conjunction to agree on the
 termination of a product. Figures~\ref{example:op1} to~\ref{example:op3} contain some examples of the operational semantics.
 %
 
@@ -153,8 +154,8 @@ $s$.
 
 Let $P\in\fodaPAp$. We define the set of probabilistic products of $P$, denoted by $\prodp(P)$, as the set
 \begin{displaymath}
- \prodp(P) = \{(pr,p)\ |\ p>0 \wedge p=\sum\lbag q\ |\
-  P\vtranp{s\checkmark}{q} Q \y \product{s}=pr \rbag\}
+ \prodp(P) = \bigl\{(pr,p)\ |\ p>0 \wedge p=\sum\lbag q\ |\
+  P\vtranp{s\checkmark}{q} Q \y \product{s}=pr \rbag\bigr\}
 \end{displaymath}
 \item We define the total probability of $P$, denoted by $\ham(P)$, as the value $\sum\lbag p\ |\ \exists pr: (pr,p)\in\prodp(P)\rbag$. In addition, we define $\waste(P) = 1-\ham(P)$.
 \item We say that $P$ is equivalent to $Q$, written $P\equivprob Q$ iff
@@ -170,17 +171,17 @@ denotational semantics is studied in Section~\ref{sec:stat:den}.
 
 Instead, the $\choice_{p}$ is not symmetric, which makes impossible for
 it to be commutative and associative. Nevertheless we can
-define a commutative n-ary operator. Let $n\geq 0$
+define a commutative n-ary operator: Let $n\geq 0$
 be a natural number,  $P_{i}\in\fodaPA$ for $1\leq i\leq n$, and
 $p_{i}\in (0,1)$  for $1\leq i\leq n$ such that
 \(1=\sum_{i=1}^{n}p_{i}\). Then we can define the operator
 \(
-  \bigvee (p_{i}, P_{i})
+  \bigvee_{i=1}^{n} (p_{i}, P_{i})
   \)
 whose operational semantics is given by the rule
 \begin{displaymath}
-  \frac{P_{i}\tranp{\fA}{q} P_{i}}{\bigvee (p_{i},
-    P_{i})\tranp{\fA}{p_{i}\cdot q} P_{i}'}
+  \frac{P_{j}\tranp{\fA}{q} P_{j}'}{\bigvee_{i=1}^{n} (p_{i},
+    P_{i})\tranp{\fA}{p_{j}\cdot q} P_{j}'},\ 1\leq j\leq n
 \end{displaymath}
 This operator can be expressed in terms of out language, as the
 follwing
@@ -199,7 +200,7 @@ For all $1\leq i\leq n$, $\fA\in\calF$, $q\in (0,1]$, and
 $P'\in\fodaPA$,
 $P_{i}\tranp{\fA}{q}P'$ iff $P\tranp{\fA}{p_{i}\cdot q}P'$.
 \begin{proof}
-  The proof is in the Appendix~\ref{app:proofs}.
+  The proof is in the Appendix~\ref{proof:nary}.
 \end{proof}
 \end{proposition}
 

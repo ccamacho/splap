@@ -66,7 +66,8 @@
 \newcommand{\eex}{\end{rm}$ $\qed  \end{example}}
 
 \newenvironment{defn}{\bdfn}{\edfn}
-\newenvironment{proofappendix}[1]{\textbf{\emph{Proof of #1}}}{}
+\newenvironment{proofappendix}[1]{\noindent\textbf{\emph{Proof of
+      #1}.}\newline}{\ \qed}
 \newcommand{\barra}{\:| \:}
 \def\y{\;\wedge\;}
 \def\o{\;\vee\;}
