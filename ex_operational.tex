@@ -140,7 +140,9 @@
         C]{$\fA;\checkmark\paral(\checkmark)$};
         \node[syntax] (C21) [below left=1cm and -0.5cm of C2]{$\checkmark\paral\checkmark$};
         \node[syntax] (C22) [below right=1cm and -0.5cm of C2]{$\checkmark$};
+        \node[syntax] (C31) [below=1cm of C3]{$\checkmark\paral\checkmark$};
         \node[syntax] (C211) [below=1cm of C21] {$\nil$};
+        \node[syntax] (C311) [below=1cm of C31] {$\nil$};
         \node[syntax] (C221) [below=1cm of C22] {$\nil$};
         \node[syntax] (D1) [right=0.5cm of C3]{$\checkmark\paral(\fB;\checkmark\paral\checkmark)$};
         \node[isosceles triangle, shape border rotate=90] (D11) [below=0cm of D1] {
@@ -176,12 +178,22 @@
         (C22);
 
 
-        \draw[->, start angle=180]
-        (C3)
-        .. controls ++(-.5cm,-8cm) and ++(left:0cm) ..
-        node[right, opacity=0, text opacity=1, near start]
-          {$\feature{A},\frac{1}{2}$}
-        (C21.south east);
+        % \draw[->, start angle=180]
+        % (C3)
+        % .. controls ++(-.5cm,-8cm) and ++(left:0cm) ..
+        % node[right, opacity=0, text opacity=1, near start]
+        %   {$\feature{A},\frac{1}{2}$}
+        %   (C21.south east);
+        \path (C3) edge[->]
+        node[right, opacity=0, text opacity=1]
+        {$\feature{A},\frac{1}{2}$}
+        (C31);
+        \path (C31) edge[->]
+        node[right, opacity=0, text opacity=1]
+          {$\checkmark,1$}
+          (C311)
+          ;
+
         % \path
         % (C3) edge[->] node[left, opacity=0, text opacity=1]
         % {$\feature{A},\frac{1}{2}$}
